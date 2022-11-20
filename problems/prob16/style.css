@@ -1,0 +1,162 @@
+.container{
+   width: 100%; 
+
+
+   grid-template-columns: 2fr 2fr 1fr;
+   grid-template-rows: 80px 2fr 50px 1fr 20px;
+
+   gap: 2px;
+
+   box-sizing: border-box;
+   padding-left: 0;
+
+}
+/*.container div{
+    padding: 5px;
+   
+}*/
+
+.header{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: rgba(19, 15, 53, 53)  ;
+    font-family: 'Rubik Mono One', sans-serif ;
+    font-size: 15px;
+    color: cornsilk;
+}
+/* .header ul{
+    margin: 15px 50px;
+} */
+.header .li_container{
+    display: flex;
+    align-items: center;
+}
+.header .li_container .icon{
+    width: 50px;
+    height: 50px;
+    background-color: rgba(48, 81, 190, 0.877);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+.content1{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: 5px double rgba(19, 15, 53, 53) ;
+    font-family: 'Dongle', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 2px;
+    padding: 0 15px;
+}
+.content21 {
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    border: 1px solid rgba(189, 183, 107, 53);
+    background-color: #dddddd2d;
+    padding: 0 15px;
+}
+.content22,
+.content6 p {
+    font-family: 'Dongle', sans-serif; font-size: 10px;letter-spacing: 5px;
+}
+.content3{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    grid-row-start: 3;
+    grid-row-end: 4;
+    background-color: rgba(19, 15, 53, 53) ;
+    font-family: 'Rubik Mono One', sans-serif ;
+    color: cornsilk;
+}
+.content3 .li_container{
+    display: flex;
+    align-items: center;
+    margin: 5px 50px;
+}
+.content3 .li_container .icon{
+    width: 30px;
+    height: 30px;
+    background-color: rgba(48, 81, 190, 0.877);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+}
+
+.content4{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-family: 'Rubik Mono One', sans-serif ;
+    padding: 0 15px;
+}
+
+.content_table{
+    border-collapse: collapse;
+    margin: 25px 0;
+    min-width: fit-content;
+
+}
+.content_table thead tr {
+    color: cornsilk;
+    letter-spacing: 8px;
+    background-color: rgba(48, 81, 190, 0.877);
+    text-align:left ;
+}
+.content_table tbody tr{
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-weight: bolder;
+}
+.content_table th,
+.content_table td{
+    padding: 12px 15px;
+}
+.content_table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.content_table tbody tr:nth-of-type(even){
+    background-color: #dddddd2d;
+}
+.content_table tbody tr:last-of-type{
+    border-bottom: 2px solid rgba(48, 81, 190, 0.877);
+}
+.content5{
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    font-family: 'Rubik Mono One', sans-serif ;
+    padding: 0 15px;
+}
+.content6{
+    grid-column-start: 3;
+    grid-column-end: 4;
+    grid-row-start: 4;
+    grid-row-end: 5;
+    padding: 25px 0;
+    font-family: 'Rubik Mono One', sans-serif ;
+    border: 1px dashed rgba(19, 15, 53, 53) ;
+    padding: 25px 15px;
+    
+}
+.content6 p{
+    font-family: 'Tenali Ramakrishna', sans-serif;
+    font-weight: bold;
+    letter-spacing: normal;
+}
+.footer{
+    grid-column-start: 1;
+    grid-column-end: 4;
+    background-color: rgba(19, 15, 53, 53) ;
+    color: cornsilk;
+    font-family: 'Thasadith', sans-serif;
+}

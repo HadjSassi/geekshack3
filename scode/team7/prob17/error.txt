@@ -1,0 +1,4 @@
+  File "main.py", line 10
+    for i in range (xy(0)):
+                          ^
+SyntaxError: invalid syntax

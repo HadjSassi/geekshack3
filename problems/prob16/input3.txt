@@ -1,0 +1,7 @@
+1 1
+0 4
+1 1 3
+0 2 2 rook
+0 2 4 rook
+0 4 4 knight
+0 4 7 bishop

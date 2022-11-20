@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "main.py", line 1, in <module>
+    ch=input()
+EOFError: EOF when reading a line

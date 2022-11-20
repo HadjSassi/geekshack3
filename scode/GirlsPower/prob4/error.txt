@@ -1,0 +1,4 @@
+  File "main.py", line 8
+    if int(p[c]) not in [0,1]:
+                             ^
+IndentationError: unindent does not match any outer indentation level

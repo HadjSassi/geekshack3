@@ -1,0 +1,8 @@
+main.c: In function 'main':
+main.c:14:21: error: 'capacity' undeclared (first use in this function)
+   14 |     getline(&T[i], &capacity, stdin);
+      |                     ^~~~~~~~
+main.c:14:21: note: each undeclared identifier is reported only once for each function it appears in
+main.c:16:8: error: lvalue required as left operand of assignment
+   16 |     p+a=ch;
+      |        ^

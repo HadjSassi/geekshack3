@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "main.py", line 5, in <module>
+    t_size=int(input())
+ValueError: invalid literal for int() with base 10: '0 5'

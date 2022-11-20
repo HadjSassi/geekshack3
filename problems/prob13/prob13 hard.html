@@ -1,0 +1,292 @@
+<style>
+    .container {
+        width: 100%;
+
+
+        grid-template-columns: 2fr 2fr 1fr;
+        grid-template-rows: 80px 2fr 50px 1fr 20px;
+
+        gap: 2px;
+
+        box-sizing: border-box;
+        padding-left: 0;
+
+    }
+
+    /*.container div{
+    padding: 5px;
+   
+}*/
+
+    .header {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        background-color: rgba(19, 15, 53, 53);
+        font-family: 'Rubik Mono One', sans-serif;
+        font-size: 15px;
+        color: cornsilk;
+    }
+
+    /* .header ul{
+    margin: 15px 50px;
+} */
+    .header .li_container {
+        display: flex;
+        align-items: center;
+    }
+
+    .header .li_container .icon {
+        width: 50px;
+        height: 50px;
+        background-color: rgba(48, 81, 190, 0.877);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+    }
+
+    .content1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        border: 5px double rgba(19, 15, 53, 53);
+        font-family: 'Dongle', sans-serif;
+        font-weight: bold;
+        font-size: 20px;
+        letter-spacing: 2px;
+        padding: 0 15px;
+    }
+
+    .content21 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        border: 1px solid rgba(189, 183, 107, 53);
+        background-color: #dddddd2d;
+        padding: 0 15px;
+    }
+
+    .content22,
+    .content6 p {
+        font-family: 'Dongle', sans-serif;
+        font-size: 10px;
+        letter-spacing: 5px;
+    }
+
+    .content3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        grid-row-end: 4;
+        background-color: rgba(19, 15, 53, 53);
+        font-family: 'Rubik Mono One', sans-serif;
+        color: cornsilk;
+    }
+
+    .content3 .li_container {
+        display: flex;
+        align-items: center;
+        margin-left: 0px;
+    }
+
+    .content3 .li_container .icon {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(48, 81, 190, 0.877);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+    }
+
+    .content4 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        padding: 0 15px;
+    }
+
+    .content_table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        min-width: fit-content;
+
+    }
+
+    .content_table thead tr {
+        color: cornsilk;
+        letter-spacing: 8px;
+        background-color: rgba(48, 81, 190, 0.877);
+        text-align: left;
+    }
+
+    .content_table tbody tr {
+        font-family: 'Tenali Ramakrishna', sans-serif;
+        font-weight: bolder;
+    }
+
+    .content_table th,
+    .content_table td {
+        padding: 12px 15px;
+    }
+
+    .content_table tbody tr {
+        border-bottom: 1px solid #dddddd;
+
+    }
+
+    .content_table tbody td {
+        border-right: 1px solid #dddddd;
+
+    }
+
+    .content_table thead th {
+        border-right: 1px solid #ddd;
+    }
+
+    .content_table tbody tr:nth-of-type(even) {
+        background-color: #dddddd2d;
+    }
+
+    .content_table tbody tr:last-of-type {
+        border-bottom: 2px solid rgba(48, 81, 190, 0.877);
+    }
+
+    .content5 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        font-family: 'Rubik Mono One', sans-serif;
+        padding: 0 15px;
+    }
+
+    .content6 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        padding: 25px 0;
+        font-family: 'Rubik Mono One', sans-serif;
+        border: 1px dashed rgba(19, 15, 53, 53);
+        padding: 25px 15px;
+
+    }
+
+    .content6 p {
+        font-family: 'Tenali Ramakrishna', sans-serif;
+        font-weight: bold;
+        letter-spacing: normal;
+    }
+
+    .footer {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        background-color: rgba(19, 15, 53, 53);
+        color: cornsilk;
+        font-family: 'Thasadith', sans-serif;
+    }
+</style>
+<div class="container">
+    <div class="header">
+        <ul>
+            <li>
+                <div class="li_container">
+                    <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="title"> Printer Machine Purchase </div>
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="content1" style="word-break:break-word;">
+        <p>
+            A printing company has a budget of B to buy production machines.<br>
+There are N types of machines. Each type i of machine has a price Pi and an efficiency Ri.<br>
+The company wants to maximize the total output (number of runs/min) obtained without exceeding its budget B.<br>
+Note that it is possible to buy 0, 1 or 2 machines of the same type.<br>
+The inputs of the problem will be as follows:<br>
+B<br>
+N<br>
+Pi Ri ; 1 &lt;= i &lt;= N<br>
+____<br>
+B : Budget<br>
+N : Number of machine types<br>
+Pi : Price of a machine<br>
+Ri : efficiency of a machine<br>
+It is necessary to make sure that if we are going to choose a certain machine the constraint to be checked is that SUM(xi*Pi) &lt;= B ; xi= {0,1,2}<br>
+Here is an example:<pre>
+200
+3
+80 70
+60 50
+40 25</pre>
+Your code must return <pre>170</pre>
+This means that the company buy two machines of type 2 and only one machine of type 1 ( 70*1 + 50*2 ).<br>
+It gives the best efficiency where there prices does not exceed the budget.<br>
+        </p>
+    </div>
+    <div class="content21">
+        <h3 style="font-family: 'Rubik Mono One', sans-serif ;
+                color: rgba(48, 81, 190, 0.877);
+                 letter-spacing: 15px;"> NOTES </h3>
+        <div class="content22">
+            <h3>You should assume the input exeption ! If input contain caracters, your code must ruturn 'INPUT_ERROR' as output.<br></h3>
+            <h3>No spaces in the beginning and the end output.<br></h3>
+        </div>
+    </div>
+    <div class="content3">
+        <ul>
+            <li>
+                <div class="li_container">
+                    <div class="icon">
+                        <i class="far fa-keyboard"></i>
+                    </div>
+                    <div class="title"> EXAMPLE :</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content4" style="color: rgba(48, 81, 190, 0.877);">
+        <table class="content_table">
+            <thead>
+                <tr>
+                    <th>Input </th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        200 <br>
+3 <br>
+80 70 <br>
+60 50 <br>
+40 25
+                    </td>
+                    <td>
+                        170
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="content5" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
+        
+    </div>
+    <!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
+        <div> explanation </div>
+        <p> caller, callar, recall are the only equivalent words.</p>
+    </div> -->
+    <div class="footer"> Stop thinking start doing... </div>
+
+
+
+</div>

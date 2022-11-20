@@ -1,0 +1,1 @@
+print("Bonjour YaRM !\nAllez, c'est à vous ! Bon courage ! ^_^") 

@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "main.py", line 36, in <module>
+    L=fct(ch)
+  File "main.py", line 18, in fct
+    while ((len(ch)>1)or(ch[0] not in d.keys())):
+IndexError: string index out of range

@@ -1,0 +1,74 @@
+main.c: In function 'main':
+main.c:18:17: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char (*)[20]' [-Wformat=]
+   18 |         scanf("%s",&b);
+      |                ~^  ~~
+      |                 |  |
+      |                 |  char (*)[20]
+      |                 char *
+main.c:21:21: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char (*)[20]' [-Wformat=]
+   21 |             scanf("%s",&b);
+      |                    ~^  ~~
+      |                     |  |
+      |                     |  char (*)[20]
+      |                     char *
+main.c:24:17: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char (*)[20]' [-Wformat=]
+   24 |         scanf("%s",&n);
+      |                ~^  ~~
+      |                 |  |
+      |                 |  char (*)[20]
+      |                 char *
+main.c:27:21: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char (*)[20]' [-Wformat=]
+   27 |             scanf("%s",&n);
+      |                    ~^  ~~
+      |                     |  |
+      |                     |  char (*)[20]
+      |                     char *
+main.c:30:18: warning: comparison between pointer and integer
+   30 |         for(i=0;i<n;i++,printf("\n");){
+      |                  ^
+main.c:30:37: error: expected ')' before ';' token
+   30 |         for(i=0;i<n;i++,printf("\n");){
+      |            ~                        ^
+      |                                     )
+main.c:31:21: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char (*)[20]' [-Wformat=]
+   31 |             scanf("%s",&pi);
+      |                    ~^  ~~~
+      |                     |  |
+      |                     |  char (*)[20]
+      |                     char *
+main.c:34:24: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char (*)[20]' [-Wformat=]
+   34 |                scanf("%s",&pi);
+      |                       ~^  ~~~
+      |                        |  |
+      |                        |  char (*)[20]
+      |                        char *
+main.c:37:21: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char (*)[20]' [-Wformat=]
+   37 |             scanf("%s",&ri);
+      |                    ~^  ~~~
+      |                     |  |
+      |                     |  char (*)[20]
+      |                     char *
+main.c:40:24: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char (*)[20]' [-Wformat=]
+   40 |                scanf("%s",&ri);
+      |                       ~^  ~~~
+      |                        |  |
+      |                        |  char (*)[20]
+      |                        char *
+main.c:46:26: warning: passing argument 1 of 'atof' from incompatible pointer type [-Wincompatible-pointer-types]
+   46 |             while(s<atof(&b)){
+      |                          ^~
+      |                          |
+      |                          char (*)[20]
+In file included from main.c:2:
+/usr/include/stdlib.h:101:33: note: expected 'const char *' but argument is of type 'char (*)[20]'
+  101 | extern double atof (const char *__nptr)
+      |                     ~~~~~~~~~~~~^~~~~~
+main.c:47:25: warning: passing argument 1 of 'atof' from incompatible pointer type [-Wincompatible-pointer-types]
+   47 |                 s+=atof(&pi)*x;
+      |                         ^~~
+      |                         |
+      |                         char (*)[20]
+In file included from main.c:2:
+/usr/include/stdlib.h:101:33: note: expected 'const char *' but argument is of type 'char (*)[20]'
+  101 | extern double atof (const char *__nptr)
+      |                     ~~~~~~~~~~~~^~~~~~

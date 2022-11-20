@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "main.py", line 22, in <module>
+    nb()     
+  File "main.py", line 19, in nb
+    k[i]=l[i][-1]
+TypeError: 'int' object is not subscriptable

@@ -1,0 +1,4 @@
+  File "main.py", line 4
+    def fct ():
+    ^
+IndentationError: expected an indented block

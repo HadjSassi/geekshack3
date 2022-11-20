@@ -1,0 +1,11 @@
+main.c: In function 'main':
+main.c:6:10: error: array type has incomplete element type 'char[]'
+    6 |     char ch[x][] ;
+      |          ^~
+main.c:6:10: note: declaration of 'ch' as multidimensional array must have bounds for all dimensions except the first
+main.c:7:13: warning: initialization of 'char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+    7 |     char c1="brmain";
+      |             ^~~~~~~~
+main.c:19:23: error: subscripted value is neither array nor pointer nor vector
+   19 |      if(ch[i][j] == c1[j])
+      |                       ^

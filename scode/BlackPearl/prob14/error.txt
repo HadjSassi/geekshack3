@@ -1,0 +1,29 @@
+main.c: In function 'main':
+main.c:4:19: error: 'l' undeclared (first use in this function)
+    4 |    scanf("%d %d",&l, &w);
+      |                   ^
+main.c:4:19: note: each undeclared identifier is reported only once for each function it appears in
+main.c:4:23: error: 'w' undeclared (first use in this function)
+    4 |    scanf("%d %d",&l, &w);
+      |                       ^
+main.c:5:17: error: 't_size' undeclared (first use in this function)
+    5 |    scanf("%d", &t_size);
+      |                 ^~~~~~
+main.c:6:17: error: 't_number' undeclared (first use in this function)
+    6 |    scanf("%d", &t_number);
+      |                 ^~~~~~~~
+main.c:10:4: error: 'nbre_t_l' undeclared (first use in this function)
+   10 |    nbre_t_l=0;
+      |    ^~~~~~~~
+main.c:11:4: error: 'len_t' undeclared (first use in this function)
+   11 |    len_t=1;
+      |    ^~~~~
+main.c:15:18: error: 'nbre_t' undeclared (first use in this function)
+   15 |        nbre_t_l= nbre_t+1;
+      |                  ^~~~~~
+main.c:19:4: error: 'nbre_t_w' undeclared (first use in this function)
+   19 |    nbre_t_w=0;
+      |    ^~~~~~~~
+main.c:20:4: error: 'wid_t' undeclared (first use in this function)
+   20 |    wid_t=1;
+      |    ^~~~~

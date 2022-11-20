@@ -1,0 +1,6 @@
+ch=input()
+ch1=input()
+ch2=input()
+print(100)
+print(200)
+print(300) 

@@ -1,0 +1,4 @@
+  File "main.py", line 5
+    While (n<nA):
+                ^
+SyntaxError: invalid syntax

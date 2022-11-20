@@ -1,0 +1,304 @@
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
+<style>
+    .title{
+        font-weight: 700;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+    .container {
+        width: 100%;
+        grid-template-columns: 2fr 2fr 1fr;
+        grid-template-rows: 80px 2fr 50px 1fr 20px;
+        gap: 2px;
+        font-family: 'Titillium Web', sans-serif;
+        box-sizing: border-box;
+        padding-left: 0;
+
+    }
+
+    /*.container div{
+    padding: 5px;
+   
+}*/
+
+    .header {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        border-radius: 5px;
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
+        font-size: 18px;
+        color: cornsilk;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+
+    /* .header ul{
+    margin: 15px 50px;
+} */
+    .header .li_container {
+        display: flex;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+
+    .header .li_container .icon {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(116, 253, 230, 0.877);
+        border-radius: 20px;
+        display: flex;
+        color: rgb(11, 11, 41);
+        align-items: center;
+        justify-content: center;
+        float: right;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+
+    .content1,.content21,.content22,.content3,.content4,.content5,.content6{
+        font-family: 'Titillium Web', sans-serif;
+        border-radius: 5px;
+    }
+    .content1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 5px 40px;
+        
+    }
+
+    .content21 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
+
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 0px;
+    }
+
+    .content22,
+    .content6 p {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .content3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        padding: 0.5em auto;
+        grid-row-end: 4;
+        background-image: linear-gradient(115deg,#25304e 1%,#010c24) ;
+        color: cornsilk;
+    }
+
+    .content3 .li_container {
+        display: flex;
+        align-items: center;
+        margin-left: 0px;
+    }
+
+    .content3 .li_container .icon {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(13, 23, 54, 0.877);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+    }
+
+    .content4 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        justify-content: center;
+        display: flex;
+        grid-row-end: 5;
+        padding: 10px 40px;
+    }
+
+    .content_table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        min-width: fit-content;
+        
+    }
+
+    .content_table thead tr {
+        color: cornsilk;
+        letter-spacing: 8px;
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
+        text-align: left;
+    }
+
+    .content_table tbody tr {
+        font-weight: bolder;
+    }
+
+    .content_table th,
+    .content_table td {
+        letter-spacing: 5px;
+        padding: 12px 15px;
+    }
+
+    /* .content_table tbody tr {
+
+    }
+
+    .content_table tbody td {
+
+    }
+
+    .content_table thead th {
+    } */
+
+    .content_table tbody tr:nth-of-type(even) {
+        background-color: #dddddd2d;
+    }
+
+    /* .content_table tbody tr:last-of-type {
+        border-bottom: 2px solid rgba(48, 81, 190, 0.877);
+    } */
+
+    .content5 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        
+        padding: 0 15px;
+    }
+
+    .content6 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        padding: 25px 0;
+        padding: 25px 15px;
+
+    }
+
+    .content6 p {
+        font-weight: bold;
+    }
+
+    .footer {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        margin: 2em auto;
+        padding: 5px 0;
+        font-weight:500;
+        border-radius: 5px;
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
+        color: white;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+</style>
+<div class="container" style="overflow: hidden;">
+    <div class="header" style="padding: 3px 0;">
+        <ul style="margin: 5px auto ;">
+            <li >
+                <div class="title"> IPV4 && IPV6</div>
+                <div class="li_container">
+                    <!-- <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div> -->
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="content1" style="word-break:break-word;"">
+        <p>
+            Ali is a network administrator at Google. He is under pressure and stress he must route the ipv4 and ipv6 though routers
+            He wishes that there is a solution that may help him to distinguish if the ipv4 and ipv6 are correct syntaxically
+            An IPv4 address has the following format: x. x. x. x where x is called an octet and must be a decimal value between
+            0 and 255. Octets are separated by periods. An IPv4 address must contain three periods and four octets. 
+            An IPv6  address has the following format: y : y : y : y : y : y : y : y where y is called a segment and
+            can be any hexadecimal value between 0 and FFFF. The segments are separated by colons - not periods. An IPv6 normal address must have eight segments,
+            however a short form notation can be used in the Tape Library Specialist Web interface for segments that are zero, or those that have leading zeros.
+            The short form notation can not be used from the operator panel.<br>
+            <br>
+            <i>Input:</i><br> 
+            **The input is the adress ip it's a string<br>
+            <i>Output:</i><br>
+            **The type of the adress ip <br>
+            **Check if it is Valid or Not Valid<br>
+            <!-- hatha ana katobo a verifier -->
+        </p>
+    </div>
+    <div class="content3" style="padding: 2px 0;">
+        <ul>
+            <li>
+                <div class="li_container">
+                    <!-- <div class="icon">
+                        <i class="far fa-keyboard"></i>
+                    </div> -->
+                    <div class="title" style="font-size:16px ;"> Example :</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content4" style="color:#010c24;">
+        <table class="content_table">
+            <thead>
+                <tr>
+                    <th>Input </th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        192.168.50.1
+                    </td>
+                    <td>
+                        IPV4<br>
+                        Valid
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="content21">
+        <ul>
+            <li class="title" style="font-size:16px ;"> Notes </li>
+        </ul>
+        <ul class="content22">
+            <ol style="font-size: 12px;">the characters of the input can be uppercase or lowercase.</ol>
+        </ul>
+    </div>
+    <div class="content5" >
+        
+    </div>
+    <!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
+        <div> explanation </div>
+        <p> caller, callar, recall are the only equivalent words.</p>
+    </div> -->
+    <div class="footer"> 
+        <ul>
+            <li style="font-weight: bold;">Quote</li>
+        </ul>
+        <ul>
+            <ol style="letter-spacing: 3px;">
+                "Debug your skills... <br> Compile your world"
+            </ol>
+        </ul>    
+    </div>
+
+</div>

@@ -1,0 +1,4 @@
+  File "main.py", line 18
+    for (j) in [u:len(l)]
+                 ^
+SyntaxError: invalid syntax

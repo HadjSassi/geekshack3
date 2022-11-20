@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "main.py", line 2, in <module>
+    (Pos_Gx, Pos_Gy , Pos_Px , Pos_Py)=(input("donner la valeur Pos_Gx"),input("donner la Pos_Gy"),input("donner Pos_Px"),input("donner Pos_Py"))
+EOFError: EOF when reading a line
