@@ -41,6 +41,7 @@ if (trim($input) == "") {
 		echo '<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
             <h3 style="font-family: Titillium Web, sans-serif;">Error</h3>
 			<h4 style="font-family: Titillium Web, sans-serif;color:white;">'.$error.'</h4></fieldset>';
+			$_SESSION["index"]++;
 	} else {
 		$output = shell_exec("cd scode/".$id."/".$prob_name."; ".$command." < ".$filename_in);
 		if($expectedOutput==trim($output)){
@@ -90,6 +91,8 @@ else {
             <h3 style="font-family: Titillium Web, sans-serif;">Error</h3>
 			<h4 style="font-family: Titillium Web, sans-serif;color:white;">'.$error.'</h4>
 		</fieldset>';
+		$_SESSION["index"]++;
+
 		//erreur syntaxe
 	}
 

@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/home/abderrazek/Téléchargements/geekshack-main/scode/aa/prob8/main.py", line 1, in <module>
-    sprint("0") 
-NameError: name 'sprint' is not defined

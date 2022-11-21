@@ -1,1 +1,3 @@
-run take_position
+      3 
+  4       1
+6   3   2   0

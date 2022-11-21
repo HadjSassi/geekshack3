@@ -2,5 +2,5 @@
 
 int main(){
     printf("Bonjour aa !\nAllez, c'est à vous ! Bon courage ! ^_^");
-    return 0;
-} 
+    printf("%d",0/1);
+}      

@@ -48,9 +48,22 @@
 		$seconds = $executionEndTime - $executionStartTime;
 		$seconds = sprintf('%0.8f', $seconds);
 		
-		echo $seconds;
-		if ($seconds >= 5){
-			$output = "timeout expired";
+		if ($seconds >=5&& $_SESSION["index"]==0){
+			echo '<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+			<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
+			</fieldset>';
+			$_SESSION["index"]++;
+		}
+
+		if($expectedOutput!=trim($output,"\n") && $_SESSION["index"]==0){
+			echo '
+				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+					<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
+					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
+					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :'.' '.$expectedOutput.'</h4>
+					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
+				</fieldset>';
+			$_SESSION["index"]++;
 		}
 		
 
@@ -63,7 +76,7 @@
 
         //echo "<textarea id='div' class=\"form-control\" name=\"output\" rows=\"10\" cols=\"50\">$output</textarea><br><br>";
 	}
-	else 
+	// else 
 	// if(!strpos($error,"error"))
 	// {
 	// 	if(trim($input)=="")
@@ -81,23 +94,34 @@
 	// 	$seconds = sprintf('%0.2f', $seconds);
 
 	// 	//echo $seconds;
-	// 	if ($seconds >= 5){
+	// 	if ($seconds >= 5 && $_SESSION["index"]==0){
 	// 		$output = "timeout expired";
-	// 	}
+	// 		echo '<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+	// 		<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
+	// 		</fieldset>';
+	// 		$_SESSION["index"]++;
 		
-	// 	echo "<tr>
-	// 		<td><pre>".$input."</pre></td>
-	// 		<td><pre>".$output."</pre></td>
-	// 		<td><pre>".$expectedOutput."</pre></td>
-	// 		<td><pre>".$score."</pre></td>
-	// 	</tr>";
-    //     //echo "<textarea id='div' class=\"form-control\" name=\"output\" rows=\"10\" cols=\"50\">$output</textarea><br><br>";
-	// }
-	// else
+	// 	}
+
+	// // 	echo "<tr>
+	// // 		<td><pre>".$input."</pre></td>
+	// // 		<td><pre>".$output."</pre></td>
+	// // 		<td><pre>".$expectedOutput."</pre></td>
+	// // 		<td><pre>".$score."</pre></td>
+	// // 	</tr>";
+    // //     //echo "<textarea id='div' class=\"form-control\" name=\"output\" rows=\"10\" cols=\"50\">$output</textarea><br><br>";
+	// // }
+	else
 	{
 		//echo "<pre>$error</pre>";
 		$check=1;
-
+		if($_SESSION["index"]==0)
+		{
+			echo '<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+				<h3 style="font-family: Titillium Web, sans-serif;">Error</h3>
+				<h4 style="font-family: Titillium Web, sans-serif;color:white;">'.$error.'</h4></fieldset>';
+				$_SESSION["index"]++;
+		}
 		// echo "<tr>
 		// 	<td><pre>".$input."</pre></td>
 		// 	<td><pre>".$error."</pre></td>
@@ -105,6 +129,6 @@
 		// 	<td><pre>".$score."</pre></td>
 		// </tr>";
 	}
-	
+
 
 ?>

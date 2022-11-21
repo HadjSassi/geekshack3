@@ -3,6 +3,7 @@
 using namespace std;
 
 int main(){
-    cout << "Bonjour aa !\nAllez, c'est à vous ! Bon courage ! ^_^";
+    int a=1-1/0;
+    cout <<"Bonjour aa !\nAllez, c'est à vous ! Bon courage ! ^_^";
     return 0;
-} 
+}     

@@ -62,6 +62,17 @@
 			</fieldset>';
 			$_SESSION["index"]++;
 		}
+		
+		if(trim($runtime_error)=="" && $_SESSION["index"]==0)
+		{
+			echo '
+			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+				<h3 style="font-family: Titillium Web, sans-serif;">Run Time Error</h3>
+				<h4 style="font-family: Titillium Web, sans-serif;color:white;">'.$runtime_error.'</h4>
+			</fieldset>';
+			$_SESSION["index"]++;
+		}
+
 		if($expectedOutput!=trim($output,"\n") && $_SESSION["index"]==0){
 			echo '
 				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
@@ -78,6 +89,7 @@
 		// 	<td><pre>".$expectedOutput."</pre></td>
 		// 	<td><pre>".$score."</pre></td>
 		// </tr>";
+		
 
 		/*if(trim($error)!="")
 			echo "<pre>$runtime_error</pre><br><br>";
@@ -87,7 +99,7 @@
 	else 
 	{
 		$check=1;
-		if($_SESSION["index"]==0)
+		if( $_SESSION["index"]==0)
 		{
 			echo '
 			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
