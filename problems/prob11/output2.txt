@@ -1,1 +1,4 @@
-(x+1)*(x-2)*(x-2)*(x-3)
+[The   way   to   get]
+[started  is  to quit]
+[talking   and  begin] 
+[doing              .]

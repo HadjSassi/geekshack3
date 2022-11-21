@@ -329,7 +329,6 @@ else {
                                 $sql = "SELECT * FROM score where id_team = '" . $identifient . "';";
                                 foreach ($conn->query($sql) as $row) {
                                     for ($i=1; $i <50 ; $i++) { 
-                                        error_log($row['prob' . $i]);
                                         $somme+=$row['prob' . $i];
                                     }
                                     
@@ -337,7 +336,7 @@ else {
                 ?>
                 <div class="col-sm-6">
                 <h2 class="score" >Global Score :</h2>
-                <h2 class="score"><?php echo $somme; ?></h2>
+                <h2 class="score"><?php echo intval($somme); ?></h2>
             </div>
 
                 <div class="col-sm-4">
@@ -388,7 +387,7 @@ else {
                             $identifient = $_SESSION['id_team'];
                             $sql = "SELECT prob" . $i . " FROM score where id_team = '" . $identifient . "';";
                             foreach ($conn->query($sql) as $row) {
-                                echo $row['prob' . $i];
+                                echo intval($row['prob' . $i]);
                             }
                             echo " point</span></p>
                             </div>

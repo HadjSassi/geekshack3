@@ -52,17 +52,20 @@ use function PHPSTORM_META\type;
 					// 	</table>
 					// </div>";
 		$score = $score_final;
-
+		
 		switch ($_SESSION['niveau']) {
 			case 'easy':
 				$score_final = $score_final + $score_final * 0.1;
+				$bonuse=10;
 				break;
 
 			case 'medium':
 				$score_final = $score_final + $score_final * 0.2;
+				$bonuse=20;
 				break;
 			case 'hard':
 				$score_final = $score_final + $score_final * 0.3;
+				$bonuse=30;
 				break;
 		}
 		
@@ -82,10 +85,10 @@ use function PHPSTORM_META\type;
 			$stmt->execute();
 			$scoreTousEquipesParProbleme=$stmt->fetchAll()[0][0];
 			$avrege=($scoreTousEquipesParProbleme-$res[0][0])/($numberOfTeam*60);
-			$score_final+=30*pow((1-$avrege),2);
+			$score_final+=$bonuse*pow((1-$avrege),2);
 			$score_final=number_format($score_final,3);
 		}
-		if($res[0][0]<60)
+		if($res[0][0]<65)
 		{
 			try {
 				$sql = "UPDATE score set " . $namep . "=" . $score_final . " where id_team =" . $team_id . ";";
@@ -99,7 +102,7 @@ use function PHPSTORM_META\type;
 		//echo "<table><tr>";
 		//echo "<td><img src=\"images/icons/score.png\" width=\"100\" height=\"80\"></td>";
 		echo "<td><h5 style='color:white;font-family:Titillium Web, sans-serif;'>Execution Time :".$timeExec."ms</h5></td>";
-		echo "<td><h3 style='color:white;font-family:Titillium Web, sans-serif;'>Total Score in this Probleme :" .number_format((float)$score_final, 3, '.', '') . " ( <b style=\"color:#ff7676;\">$pourcentage%</b> )</h3></td>";
+		echo "<td><h3 style='color:white;font-family:Titillium Web, sans-serif;'>Total Score in this Probleme :" .intval($score_final) . " ( <b style=\"color:#ff7676;\">$pourcentage%</b> )</h3></td>";
 		echo "<td><h4 style='color:white;font-family:Titillium Web, sans-serif;'>TESTS :" .round($pourcentage*6/100)."/6</h4></td>";
 		
 		//echo "</tr></table>";
@@ -107,14 +110,14 @@ use function PHPSTORM_META\type;
 		if ($pourcentage ==100) {
 			//echo "<table><tr>";
 			//echo "<td style=\"text-align:center;\"><h3 style=\"padding-right: 30px;  margin:0 auto; color:white;\">Bravo vous avez arrivé à atteindre un bon score !</h3></td>";
-			echo "<img src=\"images/icons/coupe.png\" width=\"100\" height=\"100\">";
+			echo "<img src=\"images/icons/coupe.png\" width=\"100\" height=\"120\">";
 			//echo "</tr></table>";
 		}
 		else if($pourcentage>0 && $pourcentage<100){
-			echo "<img src=\"images/icons/happy.png\" width=\"100\" height=\"100\">";
+			echo "<img src=\"images/icons/happy.png\" width=\"100\" height=\"120\">";
 		}
 		else{
-			echo "<img src=\"images/icons/cry.png\" width=\"100\" height=\"100\">";
+			echo "<img src=\"images/icons/cry.png\" width=\"100\" height=\"120\">";
 		}
 		echo "</center>";
 	}

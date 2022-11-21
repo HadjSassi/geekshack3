@@ -1,1 +1,2 @@
-x-1
+[last      in]
+[first  out .]
