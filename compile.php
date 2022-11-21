@@ -132,7 +132,7 @@ use function PHPSTORM_META\type;
 		|| strpos($code, "regex.Matcher") || strpos($code, "regex.Pattern")
 	) {
 		echo "<pre>Not allowed to execute system command!</pre>";
-	} else if($res[0][0]<60) {
+	} else if($res[0][0]<65) {
 		
 		switch ($languageID) {
 			case "c": {
