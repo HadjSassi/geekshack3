@@ -32,6 +32,7 @@ use function PHPSTORM_META\type;
 		// 			error_log(system('time f'));
 					$timeExec=0;
 					$_SESSION["index"]=0;
+					$_SESSION["seconds"]=0;
 					for ($i = 1; $i <= 6; $i++) {
 						// echo "problems/".$prob_name."/input".$i.".txt";
 						// echo "<br>";
@@ -88,7 +89,7 @@ use function PHPSTORM_META\type;
 			$score_final+=$bonuse*pow((1-$avrege),2);
 			$score_final=number_format($score_final,3);
 		}
-		if($res[0][0]<65)
+		if($res[0][0]<=65)
 		{
 			try {
 				$sql = "UPDATE score set " . $namep . "=" . $score_final . " where id_team =" . $team_id . ";";
@@ -101,7 +102,7 @@ use function PHPSTORM_META\type;
 		echo "<center>";
 		//echo "<table><tr>";
 		//echo "<td><img src=\"images/icons/score.png\" width=\"100\" height=\"80\"></td>";
-		echo "<td><h5 style='color:white;font-family:Titillium Web, sans-serif;'>Execution Time :".$timeExec."ms</h5></td>";
+		echo "<td><h5 style='color:white;font-family:Titillium Web, sans-serif;'>Execution Time :".intval($_SESSION["seconds"]*1000)."ms</h5></td>";
 		echo "<td><h3 style='color:white;font-family:Titillium Web, sans-serif;'>Total Score in this Probleme :" .intval($score_final) . " ( <b style=\"color:#ff7676;\">$pourcentage%</b> )</h3></td>";
 		echo "<td><h4 style='color:white;font-family:Titillium Web, sans-serif;'>TESTS :" .round($pourcentage*6/100)."/6</h4></td>";
 		
@@ -132,8 +133,8 @@ use function PHPSTORM_META\type;
 		|| strpos($code, "regex.Matcher") || strpos($code, "regex.Pattern")
 	) {
 		echo "<pre>Not allowed to execute system command!</pre>";
-	} else if($res[0][0]<65) {
-		
+	} else  {
+		error_log("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh");
 		switch ($languageID) {
 			case "c": {
 					$prob_name = $_SESSION['namep'];

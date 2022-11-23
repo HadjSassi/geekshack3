@@ -3,8 +3,10 @@
 using namespace std;
 
 int main(){
-    
-    cout << "IPV6"<<endl;
+    while(true){
+        cout<<"hhh";
+    }
+    cout<< "IPV6"<<endl;
     cout << "Valid";
     return 0;
-}      
+}         

@@ -1,5 +1,7 @@
 class Main {
     public static void main(String[] args) {
-        System.out.println("0"); 
+        while(true){
+        int x=1;
     }
-}  
+    }
+}    

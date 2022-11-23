@@ -370,7 +370,7 @@ else {
 
 								?>
 								</li>
-							<li id="run_item" style="float:right; transform: translateY(50%);">Votre score pour ce problème :<b id="score"></b></li>
+							<li id="run_item" style="float:right; transform: translateY(50%);">Your score in this problem : <b id="score"></b></li>
 						</ul>
 						<label for="ta" style="margin-top : 20px;color:white;">Write Your Code</label>
 						<div style="height:40vh" id="editor"></div>
@@ -396,8 +396,8 @@ else {
 							}
 						</script>
 					</div>
+					<div class="loader"></div>
 					<div id="result" style="height: 30%;">
-						<div class="loader"></div>
 					</div>
 				</div>
 
@@ -524,11 +524,13 @@ else {
 					language: language
 				},
 				beforeSend: function() {
+					$("#result").hide();
 					$(".loader").show();
 				},
 
 				complete: function() {
 					$('.loader').hide();
+					$("#result").show();
 
 				},
 				success: function(data) {

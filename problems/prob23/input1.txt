@@ -1,5 +1,10 @@
-<<<<<<< HEAD
-geeks('hack')(())ensit'info'glid
-=======
-2 6 7
->>>>>>> 212bf5c7f409952892ee62f42e3067bd78cfc03b
+0
+[[o,o,b],[y,g,y],[y,r,g]]
+1
+[[r,w,y],[r,w,w],[w,w,b]]
+2
+[[g,o,w],[o,b,r],[r,y,o]]
+3
+[[b,y,w],[w,y,b],[y,r,r]]
+4
+[[o,b,o],[g,o,g],[g,g,y]]

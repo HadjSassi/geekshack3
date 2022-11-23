@@ -5,7 +5,7 @@
 
 	$filename_error="error.txt";
 	
-	$out="timeout 5s ./a.out";
+	$out="timeout 2s ./a.out";
 	
 	$runtime_file="runtime.txt";
 	//$input=$_POST["input"];
@@ -55,7 +55,7 @@
 		$seconds = sprintf('%0.2f', $seconds);
 
 		//echo $seconds;
-		if ($seconds >= 5 && $_SESSION["index"]==0){
+		if ($seconds >= 2 && $_SESSION["index"]==0){
 			$output = "timeout expired";
 			echo '<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 			<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
@@ -115,4 +115,6 @@
 		// 	<td><pre>".$score."</pre></td>
 		// </tr>";
 	}
+	$_SESSION["seconds"]+=$seconds;
+
 ?>

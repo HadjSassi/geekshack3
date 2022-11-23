@@ -225,17 +225,17 @@
     </div>
     <div class="content1" style="word-break:break-word;"">
         <p>
-            The teacher gave you homework, you have to identify the Nizarian numbers among the rest.
-            A Nizarian number presents, in his fractional part ( After "," ), a group of N digits ( N in [1,20] ) repeated infinitely  
-
-            .<br>
+            What a beautiful nighfall, you have a math exam tomorrow. So you started to imagine how many shapes can be made with the stars. It's a good revision for geometry ! <br>
+            The sky is reduced to a 2D landmark and the stars are points. <br>
+            <br>
             <br>
             <i>Input:</i><br> 
-            ** The input is a fractional number<br>
+            ** 1st input: Number of stars (N) <br>
+            ** 2nd input: Sum of shape types (nb) <br>
+            ** 3rd input: Cordinates of each star (N lines) <br>
+            ** 4th input: Types of shapes (nb lines) <br>
             <i>Output:</i><br>
-            ** 1st Line: Valid/Not Valid <br>
-            ** 2nd Line: if Valid display the repeating sequence
-            else nothing<br>
+            ** Message: Number of possible shapes of each type (nb lines) <br>
             <!-- hatha ana katobo a verifier -->
         </p>
     </div>
@@ -262,12 +262,16 @@
             <tbody>
                 <tr>
                     <td>
-                        5/7
+                        3 <br>
+                        1 <br>
+                        [0,1]<br>
+                        [0,2]<br>
+                        [0,3]<br>
+                        T
                     </td>
                     <td>
-                        Valid
+                        0
                         <br>
-                        714285
                     </td>
                 </tr>
             </tbody>
@@ -278,7 +282,16 @@
             <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">If the number is not Nizarian, display only " Not Valid "</ol>
+            <ol style="font-size: 12px;">The outputs follows the order of shapes type one</ol>
+            <ol style="font-size: 12px;">
+                T=>Triangle<br>
+                TI=>Isoceles Triangle<br>
+                TE=>Equilateral Triangle<br>
+                T90=>Right Triangle <br>
+                C=>Square<br>
+                R=>Rectangle<br>
+            </ol>
+            
         </ul>
     </div>
     <div class="content5" >

@@ -5,7 +5,7 @@ $input = $inputContent;
 $prob_name = $_SESSION['namep'];
 $id = $_SESSION['ID'];
 $CC = "javac";
-$out = "timeout 5s java Main";
+$out = "timeout 2s java Main";
 //$input=$_POST["input"];
 
 $filename_error = "error.txt";
@@ -43,7 +43,7 @@ if (trim($error) == "") {
 	$seconds = $executionEndTime - $executionStartTime;
 	$seconds = sprintf('%0.8f', $seconds);
 
-	if ($seconds >= 5 && $_SESSION["index"]==0) {
+	if ($seconds >= 2 && $_SESSION["index"]==0) {
 		echo '
 		<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 			<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
@@ -145,3 +145,4 @@ if (trim($error) == "") {
 	// 			</tr>";
 }
 
+$_SESSION["seconds"]+=$seconds;

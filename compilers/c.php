@@ -3,7 +3,7 @@
 	$prob_name=$_SESSION['namep'];
 	$id=$_SESSION['ID'];
 	
-	$out="timeout 5s ./a.out";
+	$out="timeout 2s ./a.out";
 	$code=$_POST["code"];
 	//$input=$_POST["input"];
 	$input=$inputContent;
@@ -48,7 +48,7 @@
 		$seconds = $executionEndTime - $executionStartTime;
 		$seconds = sprintf('%0.8f', $seconds);
 		
-		if ($seconds >=5&& $_SESSION["index"]==0){
+		if ($seconds >=2 && $_SESSION["index"]==0){
 			echo '<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 			<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
 			</fieldset>';
@@ -129,6 +129,7 @@
 		// 	<td><pre>".$score."</pre></td>
 		// </tr>";
 	}
+	$_SESSION["seconds"]+=$seconds;
 
 
 ?>

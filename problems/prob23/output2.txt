@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-['hack] 'hack]({})ensit' ({}) {}
-=======
-NON
->>>>>>> 212bf5c7f409952892ee62f42e3067bd78cfc03b
+[[b,w,g],[b,y,g],[o,y,y]]

@@ -1,3 +1,1 @@
-A B C D : M
-H I K : U
-5 3 2
+True

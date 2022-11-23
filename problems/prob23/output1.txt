@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-('hack') 'hack' (()) () 'info'
-=======
-OUI
-OUI
->>>>>>> 212bf5c7f409952892ee62f42e3067bd78cfc03b
+[[g,g,r],[b,r,b],[b,o,w]]

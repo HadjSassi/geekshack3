@@ -1,5 +1,1 @@
-4
-BR Main A B D
-BR A A B C D
-BR A 5 3 2
-BR B H I K
+[3[2[1,8],8[1],7[1,5]]

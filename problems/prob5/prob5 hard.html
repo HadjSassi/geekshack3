@@ -213,7 +213,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li >
-                <div class="title"> Focus Interview </div>
+                <div class="title"> Tennis Factory </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -225,17 +225,20 @@
     </div>
     <div class="content1" style="word-break:break-word;"">
         <p>
-            The teacher gave you homework, you have to identify the Nizarian numbers among the rest.
-            A Nizarian number presents, in his fractional part ( After "," ), a group of N digits ( N in [1,20] ) repeated infinitely  
+            In a tennis factory, There are NB units producing tennis balls and NR units producing tennis rackets. <br>
+            Each tennis ball unit and racket unit pocesses NR and NB boxes following a line respectively. <br>
+            The lines of each unit type intersect with the other's lines of boxes. <br>
+            When the whole process is done, a worker checks all of the boxes and collects the couples (Ball-Racket) to finally pass them to the packing plant. <br>
 
-            .<br>
+            <br>
             <br>
             <i>Input:</i><br> 
-            ** The input is a fractional number<br>
+            **1st line: NB <br>
+            **2nd line: NR <br>
+            **3rd line: Capacity of each ball unit (List of NB integers) <br>
+            **4th line: Capacity of each racket unit (List of NR integers)<br>
             <i>Output:</i><br>
-            ** 1st Line: Valid/Not Valid <br>
-            ** 2nd Line: if Valid display the repeating sequence
-            else nothing<br>
+            **Valid/Not Valid <br>
             <!-- hatha ana katobo a verifier -->
         </p>
     </div>
@@ -262,12 +265,13 @@
             <tbody>
                 <tr>
                     <td>
-                        5/7
+                        4 <br>
+                        5 <br>
+                        [3,3,3,1] <br>
+                        [4,2,1,2,1]
                     </td>
                     <td>
                         Valid
-                        <br>
-                        714285
                     </td>
                 </tr>
             </tbody>
@@ -278,7 +282,12 @@
             <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">If the number is not Nizarian, display only " Not Valid "</ol>
+            <ol style="font-size: 12px;">It's forbidden to fill boxes with only a type of product (Ball only or Racket only).</ol>
+            <ol style="font-size: 12px;">Each unit must produce following its capacity.</ol>
+            <ol style="font-size: 12px;">The tennis ball unit cannot put more than one ball in the same box.</ol>
+            <ol style="font-size: 12px;">The tennis racket unit cannot put more than one racket in the same box.</ol>
+            <ol style="font-size: 12px;">It's allowed to find empty boxes.</ol>
+
         </ul>
     </div>
     <div class="content5" >

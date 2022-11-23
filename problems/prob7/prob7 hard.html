@@ -232,13 +232,12 @@
             <br>
             <br>
             <i>Input:</i><br> 
-            **N : Number of tasks.<br>
-            **P1 : Vector contains execution duration of tasks using the machine 1.<br>
-            **P2 : Vector contains execution duration of tasks using the machine 2.<br>
+            **N : Number of tasks.(N>0)<br>
+            **l1 : Vector contains execution duration of tasks using the machine 1.<br>
+            **l2 : Vector contains execution duration of tasks using the machine 2.<br>
             <i>Output:</i><br>
             ** Message contains the best order of tasks seperated by "->". <br>
             ** Total tasks execution time. <br>
-            <!-- hatha ana katobo a verifier -->
         </p>
     </div>
     <div class="content3" style="padding: 2px 0;">
@@ -269,7 +268,7 @@
                         [2,3,5,7,4,2] <br>
                     </td>
                     <td>
-                        4->5->3->2->1->6 <br>
+                        3->4->2->1->0->5<br>
                         26 <br> 
                     </td>
                 </tr>
@@ -283,6 +282,8 @@
         <ul class="content22">
             <ol style="font-size: 12px;">The minimum total execution time ends when machine 2 complete the execution of the last given task.</ol>
             <ol style="font-size: 12px;">The execution starts from 0.</ol>
+            <ol style="font-size: 12px;">deux a deux distinct.</ol>
+            <!-- a modifier -->
         </ul>
     </div>
     <div class="content5" >

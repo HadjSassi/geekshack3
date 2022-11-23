@@ -1,1 +1,2 @@
-NO
+IPV6
+Not Valid

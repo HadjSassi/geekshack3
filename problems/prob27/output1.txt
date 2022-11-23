@@ -1,1 +1,0 @@
-run take_position

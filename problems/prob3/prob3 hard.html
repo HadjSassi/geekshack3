@@ -225,17 +225,20 @@
     </div>
     <div class="content1" style="word-break:break-word;"">
         <p>
-            The teacher gave you homework, you have to identify the Nizarian numbers among the rest.
-            A Nizarian number presents, in his fractional part ( After "," ), a group of N digits ( N in [1,20] ) repeated infinitely  
-
-            .<br>
+            You have a string with missing characters and a list of characters, replace each space (" "). with a character from that list.
+            <br> The final completed string has a score which is calculated as following :
+            <br> The value of each character is the sum of its index in the alphabet and its index the string.
+            <br> The score the sum of character values.
+            <br> A certain number will be shown, you should tell if it is possible to get exactly that score
+            by making the appropriate combination for its string.
+            <br>
             <br>
             <i>Input:</i><br> 
-            ** The input is a fractional number<br>
+            ** 1st input is a string<br>
+            ** 2nd input is a list of characters<br>
+            ** 3rd input is an integer (score) <br>
             <i>Output:</i><br>
-            ** 1st Line: Valid/Not Valid <br>
-            ** 2nd Line: if Valid display the repeating sequence
-            else nothing<br>
+            ** Message: Valid/Not Valid <br>
             <!-- hatha ana katobo a verifier -->
         </p>
     </div>
@@ -262,12 +265,13 @@
             <tbody>
                 <tr>
                     <td>
-                        5/7
+                    &nbsp;&nbsp;&nbsp;e<br>
+                        [a,b,c,d] <br>
+                        13
                     </td>
                     <td>
                         Valid
                         <br>
-                        714285
                     </td>
                 </tr>
             </tbody>
@@ -278,7 +282,12 @@
             <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">If the number is not Nizarian, display only " Not Valid "</ol>
+            <ol style="font-size: 12px;">The index starts with 0</ol>
+            <ol style="font-size: 12px;">All characters are lowercase</ol>
+            <ol style="font-size: 12px;">You can use the same character more than once</ol>
+            <ol style="font-size: 12px;">if it's not possible to reach the score display Not Valid</ol>
+            <ol style="font-size: 12px;">You can't change the position of the characters that are already in the given string</ol>
+
         </ul>
     </div>
     <div class="content5" >

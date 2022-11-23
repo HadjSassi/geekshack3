@@ -2,7 +2,7 @@
 session_start();
 $prob_name=$_SESSION['namep'];
 $id=$_SESSION['ID'];
-$CC = "timeout 5s python3";
+$CC = "timeout 2s python3";
 $code = $_POST["code"];
 //$input = $_POST["input"];
 $input=$inputContent;
@@ -42,13 +42,27 @@ if (trim($input) == "") {
             <h3 style="font-family: Titillium Web, sans-serif;">Error</h3>
 			<h4 style="font-family: Titillium Web, sans-serif;color:white;">'.$error.'</h4></fieldset>';
 			$_SESSION["index"]++;
-	} else {
+	} 
+	else 
+	{
 		$output = shell_exec("cd scode/".$id."/".$prob_name."; ".$command." < ".$filename_in);
 		if($expectedOutput==trim($output)){
 			$score = 10;
 			$score_final += 10 ;
 		}
-		else{
+		
+		$executionEndTime = microtime(true);
+		$seconds = $executionEndTime - $executionStartTime;
+		$seconds = sprintf('%0.8f', $seconds);
+
+		if ($seconds >= 2 && $_SESSION["index"]==0){
+			echo '
+			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+				<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
+			</fieldset>';
+			$_SESSION["index"]++;
+		}
+		if($expectedOutput!=trim($output) && $_SESSION["index"]==0){
 			echo '
 			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 				<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
@@ -58,17 +72,7 @@ if (trim($input) == "") {
 			</fieldset>';
 			$_SESSION["index"]++;
 		}
-		$executionEndTime = microtime(true);
-		$seconds = $executionEndTime - $executionStartTime;
-		$seconds = sprintf('%0.8f', $seconds);
 
-		if ($seconds >= 5){
-			echo '
-			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
-				<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
-			</fieldset>';
-			$_SESSION["index"]++;
-		}
 
 		//  echo "<tr>
 		//  	<td><pre>".$input."</pre></td>
@@ -84,38 +88,58 @@ else {
 	shell_exec("cd scode/".$id."/".$prob_name."; ".$command_error." < ".$filename_in);
 	$error = file_get_contents("scode/".$id."/".$prob_name."/".$filename_error);
 	// echo "test ".strpos("Error",$error);
-	if($_SESSION["index"]==0 && $error!="")
+	
+
+	//erreur syntaxe
+	if (strpos($error,"Error")!= false)
 	{
-		echo '
-		<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
-            <h3 style="font-family: Titillium Web, sans-serif;">Error</h3>
+		if($_SESSION["index"]==0 && $error!="")
+		{
+			echo '
+			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+			<h3 style="font-family: Titillium Web, sans-serif;">Error</h3>
 			<h4 style="font-family: Titillium Web, sans-serif;color:white;">'.$error.'</h4>
-		</fieldset>';
-		$_SESSION["index"]++;
+			</fieldset>';
+			$_SESSION["index"]++;
+		}
 
-		//erreur syntaxe
-	}
-
-	if (strpos($error,"Error")!= false) {
 		$output = shell_exec("cd scode/".$id."/".$prob_name."; ".$command." < ".$filename_in);
 		$outputEval = trim($output,"\n");
 		if($expectedOutput==$outputEval){
 			$score = 10;
 			$score_final += 10 ;
 		}
-		else if($_SESSION["index"]==0)
-		{
+		$executionEndTime = microtime(true);
+		$seconds = $executionEndTime - $executionStartTime;
+		$seconds = sprintf('%0.8f', $seconds);
+		error_log($seconds."ddddddddddddddddddddddddddddd") ;
+		if ($seconds >= 2 && $_SESSION["index"]==0){
+			$output = "timeout expired";
 			echo '
 			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
-					<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
-					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
-					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :'.' '.$expectedOutput.'</h4>
-					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
-					</fieldset>';
+			<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
+			</fieldset>';
+			$_SESSION["index"]++;
+			
 		}
-		$_SESSION["index"]++;
-		} 
-		else {
+
+		if($expectedOutput!=$outputEval && $_SESSION["index"]==0)
+		{
+			
+			if($_SESSION["index"]==0){
+				echo '
+				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+						<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
+						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
+						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :'.' '.$expectedOutput.'</h4>
+						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
+						</fieldset>';
+					$_SESSION["index"]++;
+			}
+		}
+	} 
+	
+	else {
 		/* 
 		something wrong here !
 
@@ -127,8 +151,21 @@ else {
 			$score = 10;
 			$score_final += 10 ;
 		}
-		else{
-			if($_SESSION["index"]==0 )
+		$executionEndTime = microtime(true);
+		$seconds = $executionEndTime - $executionStartTime;
+		$seconds = sprintf('%0.8f', $seconds);
+
+		if ($seconds >= 2 && $_SESSION["index"]==0){
+			$output = "timeout expired";
+				echo '
+					<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+						<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
+					</fieldset>';
+					$_SESSION["index"]++;
+			
+		}
+
+		if($expectedOutput!=$outputEval && $_SESSION["index"]==0 )
 			{
 				echo '
 				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
@@ -142,21 +179,8 @@ else {
 			}
 		}
 		
-		$executionEndTime = microtime(true);
-		$seconds = $executionEndTime - $executionStartTime;
-		$seconds = sprintf('%0.8f', $seconds);
-
-		if ($seconds >= 5){
-			$output = "timeout expired";
-			if($_SESSION["index"]==0)
-			{
-				echo '
-					<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
-						<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
-					</fieldset>';
-					$_SESSION["index"]++;
-			}
-		}
+		
+		
 
 		// echo "<tr>
 		// 	<td><pre>".$input."</pre></td>
@@ -165,5 +189,5 @@ else {
 		// 	<td><pre>".$score."</pre></td>
 		// </tr>";
 	}
-}
+$_SESSION["seconds"]+=$seconds;
 ?>
