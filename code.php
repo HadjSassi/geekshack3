@@ -9,7 +9,7 @@ require 'config.php';
 
 if (!(isset($_SESSION['ID'])))
 // badalet add bel valeur mta3o bech ntesti 
-	echo " <script>window.location.href = http://localhost:8800/geekshack-main/login.php';</script> ";
+	echo " <script>window.location.href = https://geekshack.ensitgeeksclub.com/login.php';</script> ";
 
 
 else {
@@ -472,7 +472,7 @@ else {
 				success: function(data) {
 					console.log("data:",data)
 					//data par le contenu de $add
-					window.location.href = "http://localhost:8800/geekshack-main/login.php";
+					window.location.href = "https://geekshack.ensitgeeksclub.com/login.php";
 					
 
 				}
@@ -638,7 +638,7 @@ else {
 			clearInterval(x);
 			document.getElementById("demo").innerHTML = "Redirection ...";
 			// let add = <?php echo $add; ?>;
-			let add="http://localhost:8800/geekshack-main"
+			let add="https://geekshack.ensitgeeksclub.com"
 			console.log(add)
 			window.location.href = add + '/hack_over.php';
 			console.log(add);
