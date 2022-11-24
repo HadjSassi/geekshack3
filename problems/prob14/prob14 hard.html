@@ -213,7 +213,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li >
-                <div class="title"> Chess IA</div>
+                <div class="title"> Chess AI</div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -225,15 +225,19 @@
     </div>
     <div class="content1" style="word-break:break-word;">
         <p>
-            Given a list of characters I dare you to give me the least cost Combination.<br>
-            A combination cost is the sum of the rank of the character in the alphabet power its rank in the combination.
-            <br>
+            You are in the middle of a chess game and you want to make the best move. <br>
+            Taking down the opponent's piece having the highest value is considered as best move. <br>
             <br>
             <i>Input:</i><br>
-            **Number of characters<br>
-            **List of characters<br>
+            **Number white pieces on the board (wp). <br>
+            **position of each white piece and its name (wp lines). <br>
+            **Number black pieces on the board (bp). <br>
+            **Position of each black piece and its name (bp lines). <br>
+            **The color you are playing as (w or b).<br>
             <i>Output:</i><br>
-            **The combination with the least cost<br>
+            **The piece to move.<br>
+            **The piece position and its destination. <br>
+            **The opponent piece to take down.
             <br>
             <!-- hatha ana katobo a verifier -->
         </p>
@@ -245,7 +249,7 @@
                     <!-- <div class="icon">
                         <i class="far fa-keyboard"></i>
                     </div> -->
-                    <div class="title" style="font-size:16px ;"> Exemple :</div>
+                    <div class="title" style="font-size:16px ;"> Example :</div>
                 </div>
             </li>
         </ul>
@@ -261,15 +265,19 @@
             <tbody>
                 <tr>
                     <td>
-                        3<br>
-                        3<br>
-                        x<br>
-                        [[x,-,x],[o,x,o],[o,-,-]]
+                        3 <br>
+                        [[5,1],ki]<br>
+                        [[3,3],p]<br>
+                        [[0,5],r]<br>
+                        2 <br>
+                        [[4,6],ki]<br>
+                        [[6,3],r] <br>
+                        b
                     </td>
                     <td>
-                        Win<br>
-                        [0,1]<br>
-                        [2,2]
+                        r <br>
+                        [[7,3],[3,3]] <br>
+                        p
                     </td>
                 </tr>
             </tbody>
@@ -280,10 +288,10 @@
             <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">t'afficher les pieces eli ynjmo w ykouno me7miyin</ol>
-            <ol style="font-size: 12px;">itha mafama 7ata kill traje3 Null.</ol>
-            <ol style="font-size: 12px;">itha fama plusieure kills ll des pieces lkol fared ordre de puissance traje3li les kill dans l'ordre selon les ligne de grid puis selon la colonne  .</ol>
-            <ol style="font-size: 12px;">itha l9it akhter men piece ynajmo y9tlo taffichiler dans l'ordre ligne colonne.</ol>
+            <ol style="font-size: 12px;">Pieces distibution start from your side (The origin is the left-bottom corner).</ol>
+            <ol style="font-size: 12px;">The attacking piece must be protected by an ally.</ol>
+            <ol style="font-size: 12px;">If there isn't any possible takedown display Null.</ol>
+            <ol style="font-size: 12px;">When there are different possible ways to take down the opponent's piece, display their outputs by distance order (Nearest from your point of view).</ol>
             <ol style="font-size: 12px;">
                 ki=>King<br>
                 q=>Queen<br>
@@ -292,7 +300,7 @@
                 kn=>knight<br>
                 p=>pawn<br>
             </ol>
-            <ol style="font-size: 12px;">ki>q>r>b>kn>p</ol>
+            <ol style="font-size: 12px;"> Pieces value : ki > q > r > b > kn > p</ol>
         </ul>
     </ul>
     </div>

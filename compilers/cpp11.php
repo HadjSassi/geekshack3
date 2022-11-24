@@ -63,7 +63,7 @@
 			$_SESSION["index"]++;
 		}
 		
-		if(trim($runtime_error)=="" && $_SESSION["index"]==0)
+		if(trim($runtime_error)!="" && $_SESSION["index"]==0)
 		{
 			echo '
 			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
@@ -77,9 +77,9 @@
 			echo '
 				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 					<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
-					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
-					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :'.' '.$expectedOutput.'</h4>
-					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
+					<pre style="font-size:20px;color:white;">Input :<br>'.$input.'</pre>
+					<pre style="font-size:20px;color:white;">Expected Output :<br>'.$expectedOutput.'</pre>
+					<pre style="font-size:20px;color:white;">Your Output :<br>'.$output.'</pre>
 				</fieldset>';
 			$_SESSION["index"]++;
 		}

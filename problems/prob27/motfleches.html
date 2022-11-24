@@ -3,15 +3,16 @@
 <style>
     .title{
         font-weight: 700;
-        font-family: 'Titillium Web', sans-serif;
-
     }
     .container {
         width: 100%;
+
+
         grid-template-columns: 2fr 2fr 1fr;
         grid-template-rows: 80px 2fr 50px 1fr 20px;
+
         gap: 2px;
-        font-family: 'Titillium Web', sans-serif;
+
         box-sizing: border-box;
         padding-left: 0;
 
@@ -29,8 +30,6 @@
         background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         font-size: 18px;
         color: cornsilk;
-        font-family: 'Titillium Web', sans-serif;
-
     }
 
     /* .header ul{
@@ -38,8 +37,6 @@
 } */
     .header .li_container {
         display: flex;
-        font-family: 'Titillium Web', sans-serif;
-
     }
 
     .header .li_container .icon {
@@ -52,10 +49,7 @@
         align-items: center;
         justify-content: center;
         float: right;
-        font-family: 'Titillium Web', sans-serif;
-
     }
-
     .content1,.content21,.content22,.content3,.content4,.content5,.content6{
         font-family: 'Titillium Web', sans-serif;
         border-radius: 5px;
@@ -205,15 +199,13 @@
         border-radius: 5px;
         background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         color: white;
-        font-family: 'Titillium Web', sans-serif;
-
     }
 </style>
 <div class="container" style="overflow: hidden;">
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li >
-                <div class="title">Polynome Division</div>
+                <div class="title"> </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -225,17 +217,18 @@
     </div>
     <div class="content1" style="word-break:break-word;">
         <p>
-        
-        A tree is either the empty tree, denoted E, or a node made up of a left subtree g, an integer x and a right subtree d, denoted N(g, x, d).<br>
-        A tree t is said to be a growing tree if either t = E or t = N(g, x, d) where g and d are
-        themselves two growing trees and x is less than or equal to all elements of g and d.<br>
-            <br>
-            <i>Input:</i><br> 
-            **[root[left child,right child],...]<br>
-            <i>Output:</i><br>
-            **True or False.<br>
+             
+Alex and his grandpa wanted to play the mixed word game with a little twist in the rules.<br>
+To move from one character to another we can move vertically and horizontally or diagonally  <br>
+Count the occurence of the suggested word in the grid <br>
+INPUT:<br> 
+
+**The word to find .<br>
+**The list of characters .<br>
+<br>
+OUTPUT:<br>
+A single line containing 
             
-            <!-- hatha ana katobo a verifier -->
         </p>
     </div>
     <div class="content3" style="padding: 2px 0;">
@@ -254,17 +247,17 @@
         <table class="content_table">
             <thead>
                 <tr>
-                    <th>Input</th>
+                    <th>Input </th>
                     <th>Output</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                    <td>
-                        [1[2[5,8],4[7]]]
+                    <td>HACK<br>
+[[G,E,E,K,S,H,A,C,K],[A,E,K,S,V,H,S,K,G],[B,C,A,R,I,G,A,E,E],[J,U,K,C,K,S,A,C,E],[E,E,H,A,H,I,O,S,K]]
                     </td>
                     <td>
-                    True<br>
+                        4<br>
                     </td>
                 </tr>
             </tbody>
@@ -275,8 +268,14 @@
             <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">Tree of numbers</ol>
-            
+            <ol style="font-size: 12px;">All the characters of the input are in uppercase .</ol>
+            <ol style="font-size: 12px;">No spaces at the end of each output line.</ol>
+            <ol style="font-size: 12px;">You can't move diagonally and horizontally in one word.</ol>
+            <ol style="font-size: 12px;">You can't move diagonally and vertically in one word.</ol>
+            <ol style="font-size: 12px;">A specific position character can be used only once in the same word.</ol>
+
+
+
         </ul>
     </div>
     <div class="content5" >
@@ -291,7 +290,9 @@
             <li style="font-weight: bold;">Quote</li>
         </ul>
         <ul>
-            "Debug your skills... <br> Compile your world"
+            <ol style="letter-spacing: 3px;">
+                "stop thinking start doing..."
+            </ol>
         </ul>    
     </div>
 

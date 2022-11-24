@@ -213,7 +213,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li >
-                <div class="title"> Solution Poly</div>
+                <div class="title"> Polynomial Reductuion</div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -225,20 +225,21 @@
     </div>
     <div class="content1" style="word-break:break-word;">
         <p>
-            Few minutes remaining to finish the exercise before the bell rings in order to get a good mark in your math exam. <br>
-            You are asked to write the polynomial in a factorized form with the lowest dominant degree follwing the given convention : <br>
-            - The subpolynomials are ordered by the greatest dominant degree (Written left->right). <br>
-            - When Two or more subpolynomials have the same dominant degree we compare the current coefficient by the greatest <br>
-            - If all of above not applicable, we compare the next 
-            The solutions are real (Not imaginary). <br>
+            Few minutes remaining to finish the exercise before the bell rings.<br>
+            In order to get a good mark in your math exam, you are asked to transform the polynomial into irreducible subpolynomials.<br>
+            The subpolynomials are shown as following (left --> right):<br>
+            - The subpolynomial having the greatest leading term degree is written first.<br>
+            - When Two or more subpolynomials have the same leading term degree we compare their coefficients: the one with the greatest coefficient is written first.<br>
+            - If all of the above is not applicable, we compare the next term of each.<br>
+            - Each two subpolynomials are seperated by * .<br>
+            <br>
 
             <br>
             <br>
             <i>Input:</i><br>
-            **Number of characters<br>
-            **List of characters<br>
+            **polynomial<br>
             <i>Output:</i><br>
-            **The combination with the least cost<br>
+            **polynomial irreduced form<br>
             <br>
             <!-- hatha ana katobo a verifier -->
         </p>
@@ -250,7 +251,7 @@
                     <!-- <div class="icon">
                         <i class="far fa-keyboard"></i>
                     </div> -->
-                    <div class="title" style="font-size:16px ;"> Exemple :</div>
+                    <div class="title" style="font-size:16px ;"> Example :</div>
                 </div>
             </li>
         </ul>
@@ -266,11 +267,10 @@
             <tbody>
                 <tr>
                     <td>
-                        4<br>
-                        [e,a,z,j]
+                        x^4-5*x^3+8*x^2-7*x+3
                     </td>
                     <td>
-                        zjea
+                        (x^2-x+1)*(x-1)*(x-3)
                     </td>
                 </tr>
             </tbody>
@@ -281,7 +281,10 @@
             <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">All the characters of the input are tiny.</ol>
+
+            <ol style="font-size: 12px;">Only real solutions are considered (no imaginary solutions).</ol>
+            <ol style="font-size: 12px;">The polynomial might contain fractional coefficients. Only two digits after the floating point are considered.</ol>
+            <ol style="font-size: 12px;">Identical subpolynomials are all displayed whithout considering any order</ol>
         </ul>
     </div>
     <div class="content5" >

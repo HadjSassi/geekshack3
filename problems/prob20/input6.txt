@@ -1,1 +1,3 @@
-ZZZZ : XXXX : 3333 : 4444 : CCCC : DDDD : EEEE : FFFF
+4
+[3,2,6,5]
+[4,4,9,6]

@@ -178,11 +178,19 @@ circle {
 }
 
 .slide3 {
-  background-image: url("./assets/crococoder.png");
+  background-image: url("./assets/crocoder.png");
 }
 
 .slide4 {
-  background-image: url("./assets/logo-geeks.png");
+  background-image: url("./assets/goldenCoffee.png");
+}
+
+.slide5 {
+  background-image: url("./assets/pouffy.png");
+}
+
+.slide6 {
+  background-image: url("./assets/marwa.png");
 }
 
 .slider {

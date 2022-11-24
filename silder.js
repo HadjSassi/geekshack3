@@ -34,21 +34,21 @@ function leftSlide() {
 setInterval(rightSlide,7000)
 function rightSlide() {
 	if (click) {
-		if (curpage == 4) curpage = 0;
-		console.log("woek");
+		if (curpage == 6) curpage = 0;
 		sliding = true;
 		curpage++;
 		svg = false;
 		click = false;
-		// for (k = 1; k <= 4; k++) {
-		// 	var a1 = document.getElementById(pagePrefix + k);
-		// 	a1.className += " tran";
-		// }
+		for (k = 1; k <= 6; k++) {
+			console.log(document.getElementById(pagePrefix + k));
+			var a1 = document.getElementById(pagePrefix + k);
+			a1.className += " tran";
+		}
 		setTimeout(() => {
 			move();
 		}, 200);
 		setTimeout(() => {
-			for (k = 1; k <= 4; k++) {
+			for (k = 1; k <= 6; k++) {
 				var a1 = document.getElementById(pagePrefix + k);
 				a1.classList.remove("tran");
 			}
@@ -64,18 +64,16 @@ function move() {
 				var c = document.getElementById(transitionPrefix + j);
 				c.classList.remove("steap");
 				c.setAttribute("class", transitionPrefix + j + " streak");
-				console.log("streak");
 			}
 		} else {
 			for (j = 10; j <= 18; j++) {
 				var c = document.getElementById(transitionPrefix + j);
 				c.classList.remove("steap");
 				c.setAttribute("class", transitionPrefix + j + " streak");
-				console.log("streak");
 			}
 		}
 		setTimeout(() => {
-			for (i = 1; i <= 4; i++) {
+			for (i = 1; i <= 6; i++) {
 				if (i == curpage) {
 					var a = document.getElementById(pagePrefix + i);
 					a.className += " up1";
