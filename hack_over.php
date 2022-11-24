@@ -21,5 +21,5 @@ $up = "UPDATE team SET state = 0;";
             // execute the query
             $stm->execute();
 //badalet add bel valeur bech najem  ntassti w mayhznich ll geekshacktn
-    echo " <script>window.location.href ='http://localhost:8800/geekshack-main/login.php';</script> ";
+    echo " <script>window.location.href ='https://geekshack.ensitgeeksclub.com/login.php';</script> ";
 ?>
