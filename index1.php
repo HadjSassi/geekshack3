@@ -488,7 +488,7 @@ else {
 			clearInterval(x);
 			document.getElementById("demo").innerHTML = "Redirection ...";
 			//let add = '<?php echo $add; ?>';
-            add="http://localhost:8800/geekshack-main";
+            add="https://geekshack.ensitgeeksclub.com";
 			window.location.href = add + '/hack_over.php';
 		}
 	}, 1000);
@@ -515,7 +515,7 @@ else {
 				success: function(data) {
 					console.log("data:",data)
 					//data par le contenu de $add
-					window.location.href = "http://localhost:8800/geekshack-main";
+					window.location.href = "https://geekshack.ensitgeeksclub.com";
 					
 
 				}

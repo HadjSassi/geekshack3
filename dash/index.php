@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect('localhost', 'root', 'geeksgeeks', 'geekshack');
+$link = mysqli_connect('localhost', 'root', "Abderrazek/0", 'geekshack');
 
 //nb des equipes 
 $requete1= "select * from team ";
