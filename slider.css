@@ -170,11 +170,11 @@ circle {
 }
 
 .slide1 {
-  background-image: url("./assets/poste.png");
+  background-image: url("./assets/focus2.png");
 }
 
 .slide2 {
-  background-image: url("./assets/focus.png");
+  background-image: url("./assets/poste.png");
 }
 
 .slide3 {
@@ -202,7 +202,7 @@ circle {
   overflow: hidden;
 }
 
-.slide1, .slide2, .slide3, .slide4 {
+.slide1, .slide2, .slide3, .slide4,.slide5,.slide6 {
   position: absolute;
   background-position: center;
   background-size: cover;

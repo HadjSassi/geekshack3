@@ -312,7 +312,7 @@ else {
         </nav>
         <br><br><br><br><br>
         <?php 
-            echo "<h1 style='color:#c6ffea;text-align:center; margin: -1em auto 1.5em auto;font-size:4em; font-family: Titillium Web, sans-serif;' >Our Sponsors</h1>";
+            echo "<h1 style='color:#c6ffea;text-align:center; margin: -1em auto 1.5em auto;font-size:4em; font-family: Titillium Web, sans-serif;' >Our Supporters</h1>";
         ?>
         <div  class="main">
             <?php echo require "./slideForSponsoros.php"?>
@@ -371,14 +371,14 @@ else {
                             </div>";
 
                         for ($i = 1; $i <= 50; $i++) {
+                            echo "<h1>problems/prob" . $i . "/prob" . $i ." ".$key.".html</h1>";
                             if (file_exists("problems/prob" . $i . "/prob" . $i ." ".$key.".html")) {
 
                                 echo "<form action=\"code.php\" method=\"post\"><fieldset style='border: none';>";
                                 echo "<input type=hidden name=\"file_name\" value= 'prob$i $key.html'>";
                                 echo "<div class='mt-5'>
                             <h3 style=''>";
-                            
-           
+
                                 echo file_get_contents("problems/prob" . $i . "/titre.txt");
                             
                             echo "</h3>
@@ -449,82 +449,82 @@ else {
         <script>
             /**************************** */
 
-	// Set the date we're counting down to
-	// 1. JavaScript
-	// var countDownDate = new Date("Sep 5, 2018 15:37:25").getTime();
-	// 2. PHP
-	var countDownDate = <?php require 'params.php'; echo strtotime($finish) ?> * 1000;
-	// console.log(new Date(countDownDate));
-	var now = <?php echo time() ?> * 1000;
-	let distance = 1,
-		days = 1,
-		hours = 1,
-		minutes = 1,
-		seconds = 50;
-	// Update the count down every 1 second
-	var x = setInterval(function() {
+        // Set the date we're counting down to
+        // 1. JavaScript
+        // var countDownDate = new Date("Sep 5, 2018 15:37:25").getTime();
+        // 2. PHP
+        var countDownDate = <?php require 'params.php'; echo strtotime($finish) ?> * 1000;
+        // console.log(new Date(countDownDate));
+        var now = <?php echo time() ?> * 1000;
+        let distance = 1,
+                days = 1,
+                hours = 1,
+                minutes = 1,
+                seconds = 50;
+        // Update the count down every 1 second
+        var x = setInterval(function() {
 
-		// Get todays date and time
-		// 1. JavaScript
-		// var now = new Date().getTime();
-		// 2. PHP
-		now = now + 1000;
+                // Get todays date and time
+                // 1. JavaScript
+                // var now = new Date().getTime();
+                // 2. PHP
+                now = now + 1000;
 
-		// Find the distance between now an the count down date
-		distance = countDownDate - now;
+                // Find the distance between now an the count down date
+                distance = countDownDate - now;
 
-		// Time calculations for days, hours, minutes and seconds
-		days = Math.floor(distance / (1000 * 60 * 60 * 24));
-		hours = Math.floor(distance / (1000 * 60 * 60 ) );
-		// hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-		minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-		seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                // Time calculations for days, hours, minutes and seconds
+                days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                hours = Math.floor(distance / (1000 * 60 * 60 ) );
+                // hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-		// Output the result in an element with id="demo"
-		document.getElementById("demo").innerHTML = hours + ":" +
-			minutes + ":" + seconds + " ";
+                // Output the result in an element with id="demo"
+                document.getElementById("demo").innerHTML = hours + ":" +
+                        minutes + ":" + seconds + " ";
 
-		// If the count down is over, write some text 
-		if (distance <= 0) {
-			clearInterval(x);
-			document.getElementById("demo").innerHTML = "Redirection ...";
-			//let add = '<?php echo $add; ?>';
+                // If the count down is over, write some text 
+                if (distance <= 0) {
+                        clearInterval(x);
+                        document.getElementById("demo").innerHTML = "Redirection ...";
+                        //let add = '<?php echo $add; ?>';
             add="http://localhost/geekshack-main";
-			window.location.href = add + '/hack_over.php';
-		}
-	}, 1000);
+                        window.location.href = add + '/hack_over.php';
+                }
+        }, 1000);
         </script>
         
         <script>
         $(document).ready(function() {
             $('#logout').click(function() {
-			
 
-			$.ajax({
-				url: 'out.php',
-				method: "POST",
-				data: {
-				},
-				beforeSend: function() {
 
-					
-				},
+                        $.ajax({
+                                url: 'out.php',
+                                method: "POST",
+                                data: {
+                                },
+                                beforeSend: function() {
 
-				complete: function() {
-					
-				},
-				success: function(data) {
-					console.log("data:",data)
-					//data par le contenu de $add
-					window.location.href = "http://localhost:8800/geekshack-main/login.php";
-					
 
-				}
-			})
+                                },
 
-		});
+                                complete: function() {
 
-	});
+                                },
+                                success: function(data) {
+                                        console.log("data:",data)
+                                        //data par le contenu de $add
+                                        window.location.href = "http://localhost:8800/geekshack-main/login.php";
+
+
+                                }
+                        })
+
+                });
+
+        });
         </script>
 <div >
 
@@ -534,4 +534,3 @@ else {
 <?php
 }
 // }
-?>

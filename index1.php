@@ -312,7 +312,7 @@ else {
         </nav>
         <br><br><br><br><br>
         <?php 
-            echo "<h1 style='color:#c6ffea;text-align:center; margin: -1em auto 1.5em auto;font-size:4em; font-family: Titillium Web, sans-serif;' >Our Sponsors</h1>";
+            echo "<h1 style='color:#c6ffea;text-align:center; margin: -1em auto 1.5em auto;font-size:4em; font-family: Titillium Web, sans-serif;' >Our Supporters</h1>";
         ?>
         <div  class="main">
             <?php echo require "./slideForSponsoros.php"?>
@@ -377,8 +377,7 @@ else {
                                 echo "<input type=hidden name=\"file_name\" value= 'prob$i $key.html'>";
                                 echo "<div class='mt-5'>
                             <h3 style=''>";
-                            
-           
+
                                 echo file_get_contents("problems/prob" . $i . "/titre.txt");
                             
                             echo "</h3>
@@ -489,7 +488,7 @@ else {
 			clearInterval(x);
 			document.getElementById("demo").innerHTML = "Redirection ...";
 			//let add = '<?php echo $add; ?>';
-            add="http://localhost/geekshack-main";
+            add="http://localhost:8800/geekshack-main";
 			window.location.href = add + '/hack_over.php';
 		}
 	}, 1000);
@@ -516,7 +515,7 @@ else {
 				success: function(data) {
 					console.log("data:",data)
 					//data par le contenu de $add
-					window.location.href = "http://localhost:8800/geekshack-main/login.php";
+					window.location.href = "http://localhost:8800/geekshack-main";
 					
 
 				}
