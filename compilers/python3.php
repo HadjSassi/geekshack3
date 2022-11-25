@@ -67,7 +67,7 @@ if (trim($input) == "") {
 			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 				<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
 				<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
-				<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :'.' '.$expectedOutput.'</h4>
+				<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :<pre>'.' '.$expectedOutput.'</pre></h4>
 				<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
 			</fieldset>';
 			$_SESSION["index"]++;
@@ -131,7 +131,7 @@ else {
 				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 						<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
 						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
-						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :'.' '.$expectedOutput.'</h4>
+						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :<pre>'.' '.$expectedOutput.'</pre></h4>
 						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
 						</fieldset>';
 					$_SESSION["index"]++;
@@ -171,7 +171,7 @@ else {
 				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 					<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
 					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
-					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :'.' '.$expectedOutput.'</h4>
+					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :<pre>'.' '.$expectedOutput.'</pre></h4>
 					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
 				</fieldset>';
 				$_SESSION["index"]++;
