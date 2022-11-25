@@ -1,1 +1,1 @@
-prit("sdsq") 
+print("sdsq")  

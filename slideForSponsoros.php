@@ -50,7 +50,6 @@
    <div id='slide3' class='slide3'></div>
    <div id='slide4' class='slide4'></div>
    <div id='slide5' class='slide5'></div>
-   <div id='slide6' class='slide6'></div>
 
   </div>
  </div>

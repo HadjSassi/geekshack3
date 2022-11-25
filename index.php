@@ -353,8 +353,9 @@ else {
             <div class="container mt-5 mb-3">
                 <div class="row">
                     <?php
-                    $level = ["easy" => "mailchimp", "medium" => "dribbble", "hard" => "reddit"];
-                    foreach ($level as $key => $value) {
+                    $level = array("easy", "medium", "hard");
+                
+                    foreach ($level as $key ) {
                         echo "<div class='col-md-4'>
                         <div class='card p-3 mb-2'>
                             <div class='d-flex justify-content-between'>
@@ -369,7 +370,6 @@ else {
                                 echo "</div>
                             </div>
                             </div>";
-
                         for ($i = 1; $i <= 50; $i++) {
                             if (file_exists("problems/prob" . $i . "/prob" . $i ." ".$key.".html")) {
 

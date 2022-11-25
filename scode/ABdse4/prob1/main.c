@@ -1,6 +1,6 @@
 #include<stdio.h>
 
 int main(){
-    printf("IPV6\nValid");
+    printf("%d",1);
     return 0;
-}   
+}     

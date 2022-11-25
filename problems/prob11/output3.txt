@@ -1,4 +1,0 @@
-[hello in]
-[ensit   ]
-[geeks   ]
-[club   .]

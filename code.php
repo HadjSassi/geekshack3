@@ -499,7 +499,7 @@ else {
 			},
 			success: function(data) {
 				console.log(data);
-				$("#score").html(data)
+				$("#score").html(parseInt(data))
 			}
 		})
 		$('#run').click(function() {
@@ -544,7 +544,7 @@ else {
 							namep: namep
 						},
 						success: function(data) {
-							$("#score").html(data)
+							$("#score").html(parseInt(data))
 						}
 					})
 
