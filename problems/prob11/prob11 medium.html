@@ -213,7 +213,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li >
-                <div class="title"> test me</div>
+                <div class="title">Justified text</div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -225,15 +225,20 @@
     </div>
     <div class="content1" style="word-break:break-word;">
         <p>
-            Given a list of characters I dare you to give me the least cost Combination.<br>
-            A combination cost is the sum of the rank of the character in the alphabet power its rank in the combination.
+            Have you ever wondered how does microsoft office word justify our texts?<br>
+            It calculates the number of characters of every new word and adds it to the sum of the total characters in that line.<br>
+            Once it finds a word wihch length will make the number of total characters surpass the length of a line, it moves it to the next line.<br>
+            Then it adds spaces between the words of the line (from left to right) till it reachs the normal length of a line.<br>
+            Let's build together this algorithm!
             <br>
             <br>
             <i>Input:</i><br>
-            **Number of characters<br>
-            **List of characters<br>
+            **Length of a line<br>
+            **Text<br>
             <i>Output:</i><br>
-            **The combination with the least cost<br>
+            ** If the words length is below the line length: The justified text lines <br>
+               Else: Not Valid<br>
+
             <br>
             <!-- hatha ana katobo a verifier -->
         </p>
@@ -245,7 +250,7 @@
                     <!-- <div class="icon">
                         <i class="far fa-keyboard"></i>
                     </div> -->
-                    <div class="title" style="font-size:16px ;"> Paragraph:</div>
+                    <div class="title" style="font-size:16px ;"> Example:</div>
                 </div>
             </li>
         </ul>
@@ -261,11 +266,13 @@
             <tbody>
                 <tr>
                     <td>
-                        4<br>
-                        [e,a,z,j]
+                        10<br>
+                        Welcome to Geeks Hack .
                     </td>
                     <td>
-                        zjea
+                        [Welcome   ]<br>
+                        [to Geeks  ]<br>
+                        [Hack&nbsp; &nbsp; &nbsp;.]<br>
                     </td>
                 </tr>
             </tbody>
@@ -276,7 +283,7 @@
             <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">les mots de longue</ol>
+            <ol style="font-size: 12px;">The point is considered as a word.</ol>
         </ul>
     </div>
     <div class="content5" >

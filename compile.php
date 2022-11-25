@@ -33,10 +33,11 @@ use function PHPSTORM_META\type;
 					$timeExec=0;
 					$_SESSION["index"]=0;
 					$_SESSION["seconds"]=0;
+					$_SESSION["numProb"]=0;
 					for ($i = 1; $i <= 6; $i++) {
 						// echo "problems/".$prob_name."/input".$i.".txt";
 						// echo "<br>";
-						
+						$_SESSION["numProb"]=$i;
 						if (file_exists("problems/" . $prob_name . "/input" . $i . ".txt")) {
 							//echo "l'erreur est là, chemin du fichier !!";
 							$nb_test++;
@@ -108,18 +109,18 @@ use function PHPSTORM_META\type;
 		
 		//echo "</tr></table>";
 
-		if ($pourcentage ==100) {
-			//echo "<table><tr>";
-			//echo "<td style=\"text-align:center;\"><h3 style=\"padding-right: 30px;  margin:0 auto; color:white;\">Bravo vous avez arrivé à atteindre un bon score !</h3></td>";
-			echo "<img src=\"images/icons/coupe.png\" width=\"100\" height=\"120\">";
-			//echo "</tr></table>";
-		}
-		else if($pourcentage>0 && $pourcentage<100){
-			echo "<img src=\"images/icons/happy.png\" width=\"100\" height=\"120\">";
-		}
-		else{
-			echo "<img src=\"images/icons/cry.png\" width=\"100\" height=\"120\">";
-		}
+		// if ($pourcentage ==100) {
+		// 	//echo "<table><tr>";
+		// 	//echo "<td style=\"text-align:center;\"><h3 style=\"padding-right: 30px;  margin:0 auto; color:white;\">Bravo vous avez arrivé à atteindre un bon score !</h3></td>";
+		// 	echo "<img src=\"images/icons/coupe.png\" width=\"100\" height=\"120\">";
+		// 	//echo "</tr></table>";
+		// }
+		// else if($pourcentage>0 && $pourcentage<100){
+		// 	echo "<img src=\"images/icons/happy.png\" width=\"100\" height=\"120\">";
+		// }
+		// else{
+		// 	echo "<img src=\"images/icons/cry.png\" width=\"100\" height=\"120\">";
+		// }
 		echo "</center>";
 	}
 	////////////////////////////////////////////////////////////////////////

@@ -213,7 +213,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li >
-                <div class="title"> XO</div>
+                <div class="title"> XO </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -225,15 +225,17 @@
     </div>
     <div class="content1" style="word-break:break-word;">
         <p>
-            Given a list of characters I dare you to give me the least cost Combination.<br>
-            A combination cost is the sum of the rank of the character in the alphabet power its rank in the combination.
+            You are playing XO with your friend . <br>
+            Tell me the positions of the grid that allow you to win or to defend <br>
             <br>
             <br>
             <i>Input:</i><br>
-            **Number of characters<br>
-            **List of characters<br>
+            **Board size<br>
+            **Number of consecutive identical symbols to win the game ( >=3 )<br>
+            **Your side (x or o) <br>
+            **Actual board (empty columns are marked -) <br>
             <i>Output:</i><br>
-            **The combination with the least cost<br>
+            **Game result (Win,Defend,Lose or Null) and the positions when required in the next n lines <br>
             <br>
             <!-- hatha ana katobo a verifier -->
         </p>
@@ -245,7 +247,7 @@
                     <!-- <div class="icon">
                         <i class="far fa-keyboard"></i>
                     </div> -->
-                    <div class="title" style="font-size:16px ;"> Exemple :</div>
+                    <div class="title" style="font-size:16px ;"> Example :</div>
                 </div>
             </li>
         </ul>
@@ -278,10 +280,13 @@
     <div class="content21">
         <ul>
             <li class="title" style="font-size:16px ;"> Notes </li>
-        </ul>
+        </ul> 
         <ul class="content22">
-            <ol style="font-size: 12px;">les points sont afficher dans un ordre de ligne puis par colonne</ol>
-            <ol style="font-size: 12px;">le nombre minimale de point aligne est 3.</ol>
+            <ol style="font-size: 12px;">Display all possibilities and sort them ascendingly (by row then by column )</ol>
+            <ol style="font-size: 12px;">In case of draw, display Null </ol>
+            <ol style="font-size: 12px;">In case of lost, display Lose </ol>
+            <ol style="font-size: 12px;">In case of defend, display Defend and the position of your next move </ol>
+            <ol style="font-size: 12px;">In case of win, display Win and all the positions that allows you to win  </ol>
         </ul>
     </div>
     <div class="content5" >

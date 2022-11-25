@@ -4,6 +4,6 @@ $base = "geekshack";
 
  $host="localhost";
     $user="root";
-    $password="geeksgeeks";
+    $password="Abderrazek/0";
 
 ?>

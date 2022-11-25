@@ -6,7 +6,7 @@
     
     $host="localhost";
     $user="root";
-    $password="";
+    $password="Abderrazek/0";
     $base = "geekshack";
 try {
     $conn = new PDO("mysql:host=$host;dbname=$base", $user, $password);

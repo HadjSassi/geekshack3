@@ -64,12 +64,12 @@ if (trim($input) == "") {
 		}
 		if($expectedOutput!=trim($output) && $_SESSION["index"]==0){
 			echo '
-			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
-				<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
-				<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
-				<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :<pre>'.' '.$expectedOutput.'</pre></h4>
-				<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
-			</fieldset>';
+				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+					<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
+					<pre style="font-size:20px;color:white;">Input :<br>'.$input.'</pre>
+					<pre style="font-size:20px;color:white;">Expected Output :<br>'.$expectedOutput.'</pre>
+					<pre style="font-size:20px;color:white;">Your Output :<br>'.$output.'</pre>
+				</fieldset>';
 			$_SESSION["index"]++;
 		}
 
@@ -112,7 +112,6 @@ else {
 		$executionEndTime = microtime(true);
 		$seconds = $executionEndTime - $executionStartTime;
 		$seconds = sprintf('%0.8f', $seconds);
-		error_log($seconds."ddddddddddddddddddddddddddddd") ;
 		if ($seconds >= 2 && $_SESSION["index"]==0){
 			$output = "timeout expired";
 			echo '
@@ -129,11 +128,19 @@ else {
 			if($_SESSION["index"]==0){
 				echo '
 				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+<<<<<<< HEAD
 						<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
 						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
 						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :<pre>'.' '.$expectedOutput.'</pre></h4>
 						<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
 						</fieldset>';
+=======
+					<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
+					<pre style="font-size:20px;color:white;">Input :<br>'.$input.'</pre>
+					<pre style="font-size:20px;color:white;">Expected Output :<br>'.$expectedOutput.'</pre>
+					<pre style="font-size:20px;color:white;">Your Output :<br>'.$output.'</pre>
+				</fieldset>';
+>>>>>>> 723f3f9e030d931afd4fc39d42d0d96ba6a79ded
 					$_SESSION["index"]++;
 			}
 		}
@@ -170,9 +177,15 @@ else {
 				echo '
 				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 					<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
+<<<<<<< HEAD
 					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Input :'.' '.$input.'</h4>
 					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Expected Output :<pre>'.' '.$expectedOutput.'</pre></h4>
 					<h4 style="font-family: Titillium Web, sans-serif;color:white;">Your Output :'.' '.$output.'</h4>
+=======
+					<pre style="font-size:20px;color:white;">Input :<br>'.$input.'</pre>
+					<pre style="font-size:20px;color:white;">Expected Output :<br>'.$expectedOutput.'</pre>
+					<pre style="font-size:20px;color:white;">Your Output :<br>'.$output.'</pre>
+>>>>>>> 723f3f9e030d931afd4fc39d42d0d96ba6a79ded
 				</fieldset>';
 				$_SESSION["index"]++;
 				//erreur syntaxe
