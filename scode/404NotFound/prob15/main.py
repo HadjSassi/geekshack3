@@ -1,1 +1,0 @@
-print("Bonjour 404NotFound !\nAllez, c'est à vous ! Bon courage ! ^_^") 

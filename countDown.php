@@ -76,9 +76,12 @@
             var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
             // Output the result in an element with id="demo"
-            document.getElementById("demo").innerHTML = hours + ": " +
-                minutes + ": " + seconds + "";
-
+            if (days !== 0)
+                document.getElementById("demo").innerHTML = days + "day and <br> "+hours + ": " +
+                    minutes + ": " + seconds + "";
+            else
+                document.getElementById("demo").innerHTML = hours + ": " +
+                    minutes + ": " + seconds + "";
            // If the count down is over, write some text 
             if (distance <= 0) {
                 clearInterval(x);

@@ -1,7 +1,0 @@
-Main.java:3: error: unmappable character (0xC3) for encoding US-ASCII
-        System.out.println("Bonjour 404NotFound !\nAllez, c'est ?? vous ! Bon courage ! ^_^"); 
-                                                                ^
-Main.java:3: error: unmappable character (0xA0) for encoding US-ASCII
-        System.out.println("Bonjour 404NotFound !\nAllez, c'est ?? vous ! Bon courage ! ^_^"); 
-                                                                 ^
-2 errors

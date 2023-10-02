@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "main.py", line 14, in <module>
-    if (ch[i+1:].find(l[l.index(ch[i])+1])!=-1):
-ValueError: 's' is not in list

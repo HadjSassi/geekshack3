@@ -1,0 +1,31 @@
+pre {
+    font-family: 'Courier New', monospace;
+    background-color: #f7f7f7;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+code {
+    display: block;
+}
+
+/* Python */
+code.python {
+    color: #3572A5;
+}
+
+/* C */
+code.c {
+    color: #555555;
+}
+
+/* C++ */
+code.cpp {
+    color: #f34b7d;
+}
+
+/* Java */
+code.java {
+    color: #B07219;
+}

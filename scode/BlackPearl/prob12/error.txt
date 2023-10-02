@@ -1,4 +1,0 @@
-  File "main.py", line 63
-    x, y = [int(x) for x in input().split()];
-         ^
-SyntaxError: invalid syntax

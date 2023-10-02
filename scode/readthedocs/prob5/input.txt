@@ -1,4 +1,0 @@
-3
-BR Main
-BR A A 7 8
-BR B 0 0

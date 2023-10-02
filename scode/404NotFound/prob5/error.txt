@@ -1,7 +1,0 @@
-Main.java:9: error: variable matrice might not have been initialized
-        for(int i=0;i<matrice.length;i++){
-                      ^
-Main.java:16: error: variable t might not have been initialized
-                for(int h=0;h<t.length;h++){
-                              ^
-2 errors

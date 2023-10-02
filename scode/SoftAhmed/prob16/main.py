@@ -1,1 +1,0 @@
-print("Bonjour SoftAhmed !\nAllez, c'est à vous ! Bon courage ! ^_^")   

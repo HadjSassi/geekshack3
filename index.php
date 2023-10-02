@@ -311,7 +311,7 @@ else {
             </div>
         </nav>
         <br><br><br><br><br>
-        <?php 
+        <?php
             echo "<h1 style='color:#c6ffea;text-align:center; margin: -1em auto 1.5em auto;font-size:4em; font-family: Titillium Web, sans-serif;' >Our Sponsors</h1>";
         ?>
         <div  class="main">
@@ -333,9 +333,14 @@ else {
                                     }
                                     
                                 }
+                                $sql = "select team_tag from team where id_team = ?;";
+                                $q= $conn->prepare($sql);
+                                $q->execute([$identifient]);
+                                $teamtag = $q->fetchColumn();
+
                 ?>
-                <div class="col-sm-6">
-                <h2 class="score" >Global Score :</h2>
+                <div class="col-sm-6" style="margin-top: 5%;">
+                <h2 class="score" ><?php echo $teamtag;?> Global Score :</h2>
                 <h2 class="score"><?php echo intval($somme); ?></h2>
             </div>
 
@@ -429,8 +434,8 @@ else {
                 <div class="row area">
                     <div class="col-sm-3" style="margin-left:3em ;">
                         <h2 style="text-align: start;">ENSIT Geeks Club</h2>
-                        <p style="text-align: start;">Contact : 43 308 524</p>
-                        <p style="text-align: start;">Email : contact@ensitgeeksclub.com</p>
+                        <p style="text-align: start;">Contact : 51 907 825</p>
+                        <p style="text-align: start;">Email : ensitgeeksclub@gmail.com </p>
                     </div>
                     <div class="col-sm-5"> 
                         <div class="fm">
@@ -516,7 +521,7 @@ else {
 				success: function(data) {
 					console.log("data:",data)
 					//data par le contenu de $add
-					window.location.href = "https://geekshack.ensitgeeksclub.com/login.php";
+					window.location.href = "http://localhost:1234/login.php";
 					
 
 				}

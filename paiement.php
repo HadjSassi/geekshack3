@@ -9,9 +9,9 @@ header("Content-type: application/json;charset=utf8");
 
 
  $host="localhost";
- $db="geekshack";
+ $db="tsutnnytsu";
     $user="root";
-    $password="geeksgeeks";
+    $password="Magali_1984";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db;charset=UTF8", $user, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
@@ -104,8 +104,12 @@ else{
 
             // execute the query
             $stmt->execute();
+            $lastInsertedId = $conn->lastInsertId();
+            $r ="Insert into score(id_team) values ($lastInsertedId)";
+            $stmt = $conn->prepare($r);
 
-
+            // execute the query
+            $stmt->execute();
             //////////////////////////////////////////////////
 
 
@@ -312,7 +316,7 @@ else{
                        ';
                        $subject='GeeksHack Team Registration';
                   if(mail($email, $subject, $message, $header)){
-                        if(mail("essid.nizar.123@gmail.com", $subject, $message2, $header2)){
+                        if(mail("hadjsassiscompany@gmail.com", $subject, $message2, $header2)){
             			if(mail($email1, $subject, $messagOne, $header)){
             			if(mail($email2, $subject, $messagTwo, $header)){
             
@@ -334,7 +338,8 @@ else{
         
 
 
-    } else {
+    }
+    else {
         echo "Sorry, there was an error uploading your file.";
         http_response_code(202);
     }

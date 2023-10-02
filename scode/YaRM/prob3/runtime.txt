@@ -1,2 +1,0 @@
-Exception in thread "main" java.lang.NullPointerException: Cannot read the array length because "<local2>[<local3>]" is null
-	at Main.main(Main.java:5)

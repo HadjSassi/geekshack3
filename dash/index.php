@@ -1,5 +1,17 @@
 <?php
-$link = mysqli_connect('localhost', 'root', "Abderrazek/0", 'geekshack');
+session_start();
+function authenticate($password) {
+    $credentials = json_decode(file_get_contents('credentials.json'), true);
+    return isset($credentials['pass']) && $credentials['pass'] === $password;
+}
+
+if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
+    // Redirect to the login page if not authenticated
+    header('Location: login.php');
+    exit();
+}
+
+$link = mysqli_connect('localhost', 'root', "Magali_1984", 'tsutnnytsu');
 
 //nb des equipes 
 $requete1= "select * from team ";
@@ -7,7 +19,7 @@ $result1 = mysqli_query($link, $requete1);
 $nb_team = $result1->num_rows;
 
 //nb des particiapnts 
-$requete2= "select * from candidat ";
+$requete2= "select team_tag,username,nom,prenom,email,phone,ecole from team,candidat where team.leader_username = candidat.username;";
 $result2 = mysqli_query($link, $requete2);
 $nb_condidat = $result2->num_rows;
 
@@ -28,11 +40,12 @@ $score_max = $record['max'];
 $result4= mysqli_query($link, $requete4);
 */
 //
-$requete5 = "select team.team_tag as nom_equipe , team.leader_username as leader , 
-             score.prob1+ score.prob2 + score.prob3 + score.prob4+ score.prob5 + score.prob6 + score.prob7 + score.prob8
-             +score.prob9 + score.prob10 + score.prob11 + score.prob12 + score.prob13 + score.prob14 + score.prob15 + score.prob16 + score.prob17 as sum_score
+$requete5 = "select team.team_tag as nom_equipe , 
+                    team.leader_username as leader , 
+                    score.prob1+ score.prob2 + score.prob3 + score.prob4+ score.prob5 + score.prob6 + score.prob7 + score.prob8+score.prob9 + score.prob10 + score.prob11 + score.prob12 + score.prob13 + score.prob14 + score.prob15 + score.prob16 
+                        + score.prob17 as sum_score
              from team ,  score  
-             where team.id_team = score.id_team  group by team.id_team order by score.id_team DESC ";
+             where team.id_team = score.id_team  group by team.id_team order by team.id_team DESC ";
 
 
 $result5= mysqli_query($link, $requete5);
@@ -50,9 +63,11 @@ $result5= mysqli_query($link, $requete5);
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
-    <title>Dashboard Geeks-Club</title>
+    <title>Dashboard GeeksHack</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
+<!--    <link rel="stylesheet" type="text/css" href="../vendor/bootstrap/css/bootstrap.min.css">-->
+    <link rel="icon" href="../assets/logo-geeks.png"/>
 </head>
 
 <body>
@@ -63,7 +78,7 @@ $result5= mysqli_query($link, $requete5);
             <table>
                 <tr> 
                     <td><img src="geeks.png" style="width: 45px; margin-right: -7px; border-radius:40%; "></img></td>
-                    <td><h2 style="margin-top: 7px; margin-left: 2px; color: white;">Geeks Club</h2> </td>
+                    <td><h2 onclick="window.location.href='/'" style="cursor:pointer;margin-top: 7px; margin-left: 2px; color: white;">Geeks Club</h2> </td>
                 </tr> 
                      
              </table>
@@ -73,13 +88,20 @@ $result5= mysqli_query($link, $requete5);
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="" class="active"><span class="las la-home"></span>
-                    <span>Mon Dashoard</span></a>
+                    <span class="active las la-home"></span>
+                    <span class="active">Mon Dashoard</span>
+                </li>
+                <li>
+                    <span class="las la-code"></span>
+                    <span style="cursor: pointer" onclick="window.location.href='control.php'">Control Codes</span>
+                </li>
+                <li>
+                    <span class="las la-door-open"></span>
+                    <span class="" onclick="window.location.href='logout.php'" style="cursor: pointer" >Logout</span>
                 </li>
 
-              
 
-                
+
             </ul>
         </div>
     </div>
@@ -99,9 +121,9 @@ $result5= mysqli_query($link, $requete5);
         </header>
 
         <main>
-            <div class="cards">      
+            <div class="cards">
 
-                <p><button onclick="sortTable()">Sort</button></p>
+                <p><button class="btn btn-primary" onclick="sortTable()">Sort</button></p>
             </div>
             <!--Tableau-->
             <div class="recent-grid" >
@@ -109,9 +131,6 @@ $result5= mysqli_query($link, $requete5);
                     <div class="card">
                         <div class="card-header">
                             <h3>Equipes</h3>
-
-                            
-                            </span></button>
                         </div>
 
                         <div class="card-body">
@@ -126,7 +145,7 @@ $result5= mysqli_query($link, $requete5);
                                     </thead>
                                     <tbody>
                                         <?php while ($row = mysqli_fetch_array($result5)) { ?>
-			                              <tr>
+			                              <tr style="cursor: pointer" onclick="window.location.href='team.php?tag=<?php echo $row['nom_equipe']; ?>'">
 				                            <td><?php echo $row['nom_equipe']; ?></td>
 				                            <td><?php echo $row['leader']; ?></td>
                                             <td><?php echo $row['sum_score']; ?></td>
@@ -145,7 +164,6 @@ $result5= mysqli_query($link, $requete5);
                     <div class="card">
                         <div class="card-header">
                             <h3>Mes Participants</h3>
-                            </span></button>
                         </div>
 
                         <div class="card-body">
@@ -153,8 +171,8 @@ $result5= mysqli_query($link, $requete5);
                                 <div class="customer">
                                 <div class="info">
                                  <div>
-                                    <h4>    <?php echo $row['nom'] ?> </h4>
-                                    <small> <?php echo $row['ecole'] ?> </small>
+                                    <h4>    <?php echo $row['team_tag'].' <> '.$row['username'].' <br> <h5>'.$row['nom'].' '.$row['prenom'].'</h5>' ?> </h4>
+                                    <small> <?php echo $row['ecole'].' <> '.$row['phone'] ?> </small>
                                     </div>
                                 </div>
                                 <div class="contact">
@@ -175,7 +193,7 @@ $result5= mysqli_query($link, $requete5);
 </body>
 <script>
     function tableSearch() {
-            let input, filter, table, tr, td, txtValue;
+            let input, filter, table, tr, td1, txtValue;
 
             //Intialising Variables
             input = document.getElementById("myInput");
@@ -184,9 +202,10 @@ $result5= mysqli_query($link, $requete5);
             tr = table.getElementsByTagName("tr");
 
             for (let i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
+                td1 = tr[i].getElementsByTagName("td")[0];
+                td2 = tr[i].getElementsByTagName("td")[1];
+                if (td1 || td2) {
+                    txtValue =( td1.textContent || td1.innerText)+( td2.textContent || td2.innerText);
                     if (txtValue.toUpperCase().indexOf(filter) > -1) {
                         tr[i].style.display = "";
                     } else {

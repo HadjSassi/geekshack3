@@ -13,9 +13,9 @@ $s2="";
 $s3="";
 
  $host="localhost";
- $db="geekshack";
+ $db="tsutnnytsu";
     $user="root";
-    $password="geeksgeeks";
+    $password="Magali_1984";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db;charset=UTF8", $user, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));

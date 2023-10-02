@@ -1,4 +1,0 @@
-main.c: In function 'main':
-main.c:16:23: warning: comparison between pointer and integer
-   16 |         while( t[i][j]!=" ");
-      |                       ^~

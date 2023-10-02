@@ -13,9 +13,9 @@ $s2="";
 $s3="";
 
  $host="localhost";
- $db="geekshack";
+ $db="tsutnnytsu";
     $user="root";
-    $password="geeksgeeks";
+    $password="Magali_1984";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$db;charset=UTF8", $user, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
@@ -55,7 +55,7 @@ $cord= json_decode(file_get_contents('php://input'), true);
     }
 
     if(strlen($s)==0 && strlen($s1)==0 && strlen($s2)==0 && strlen($s4)==0) {
-        echo "Current username is not found !";
+        echo "  Current username is not found !";
             http_response_code(203);
        
     }else{

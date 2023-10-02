@@ -1,4 +1,7 @@
 <?php
+require 'serverAdd.php';
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 header('Access-Control-Allow-Origin: *');
 
 header('Access-Control-Allow-Methods: *');
@@ -7,49 +10,52 @@ header("Access-Control-Allow-Headers: *");
 header("Content-type: application/json;charset=utf8");
 
 
-    $host="localhost";
-    $user="root";
-    $password="geeksgeeks";
+$host = "localhost";
+$user = "root";
+$password = "Magali_1984";
+$dbname = "tsutnnytsu";
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=geekshack;charset=UTF8", $user, $password,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+    $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=UTF8", $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     echo "Connection failed: " . $e->getMessage();
 }
 
-$sql =  'SELECT MAX(id_condidat) as m from candidat ;';
-$m="";
-        foreach  ($conn->query($sql) as $row) {
-            $m=strval($row['m']);
-        }
-$cord= json_decode(file_get_contents('php://input'), true);
+$sql = 'SELECT MAX(id_condidat) as m from candidat ;';
+$m = "";
+foreach ($conn->query($sql) as $row) {
+    $m = strval($row['m']);
+}
+$cord = json_decode(file_get_contents('php://input'), true);
 
 /*str_replace(["'","\"","`","/","\\"],' ', $_FILES["preuve_etudiant"]["name"]);*/
 ///////////////////////////////
-$_POST['nom']=str_replace(["'","\"","`","/","\\"],' ', $_POST["nom"]);
-$_POST['prenom']=str_replace(["'","\"","`","/","\\"],' ', $_POST["prenom"]);
-$_POST['ecole']=str_replace(["'","\"","`","/","\\"],' ', $_POST["ecole"]);
+$_POST['nom'] = str_replace(["'", "\"", "`", "/", "\\"], ' ', $_POST["nom"]);
+$_POST['prenom'] = str_replace(["'", "\"", "`", "/", "\\"], ' ', $_POST["prenom"]);
+$_POST['ecole'] = str_replace(["'", "\"", "`", "/", "\\"], ' ', $_POST["ecole"]);
 
 
 //////////
 
 $target_dir = "uploads/";
-$target_file = $target_dir .$m. basename(str_replace(["'","\"","`","/","\\"],' ', $_FILES["preuve_etudiant"]["name"]));
+$target_file = $target_dir . $m . basename(str_replace(["'", "\"", "`", "/", "\\"], ' ', $_FILES["preuve_etudiant"]["name"]));
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
 
-    $check = getimagesize($_FILES["preuve_etudiant"]["tmp_name"]);
+$check = getimagesize($_FILES["preuve_etudiant"]["tmp_name"]);
 if ($check !== false) {
     // echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
 } else {
-    echo "File is not an image.";
-    http_response_code(206);
     $uploadOk = 0;
+    $error_message = "File is not an image.";
+    echo json_encode(array('error' => $error_message));
+    http_response_code(206);
+    exit();
 }
 
 
@@ -73,51 +79,59 @@ if ($check !== false) {
 
 // Check if $uploadOk is set to 0 by an error
 if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
+    $error_message = "Sorry, your file was not uploaded.";
+    echo json_encode(array('error' => $error_message));
     http_response_code(203);
+    exit();
     // if everything is ok, try to upload file
 } else {
-    if ( strlen(strval($_POST['phone'])) != 8 ) {
-        echo "Phone number must be 8 digits";
+    if (strlen(strval($_POST['phone'])) != 8) {
+        $error_message = "Phone number must be 8 digits";
+        echo json_encode(array('error' => $error_message));
         http_response_code(203);
-    }
-    else{
-    if (move_uploaded_file($_FILES["preuve_etudiant"]["tmp_name"], $target_file)) {
-        // echo "The file " . htmlspecialchars(basename($_FILES["preuve_etudiant"]["name"])) . " has been uploaded.";
-        $sql =  'SELECT MAX(id_condidat) as m from candidat ;';
+        exit();
+    } else {
+        if (move_uploaded_file($_FILES["preuve_etudiant"]["tmp_name"], $target_file)) {
+            // echo "The file " . htmlspecialchars(basename($_FILES["preuve_etudiant"]["name"])) . " has been uploaded.";
+            $sql = 'SELECT MAX(id_condidat) as m from candidat ;';
 
-        foreach  ($conn->query($sql) as $row) {
-            $array1=explode(" ",$_POST['nom']);
-            $array2=explode(" ",$_POST['prenom']);
+            foreach ($conn->query($sql) as $row) {
+                $array1 = explode(" ", $_POST['nom']);
+                $array2 = explode(" ", $_POST['prenom']);
 
-            $usrname = $array1[0].$array2[0].$row['m'];
-            $r = "INSERT into candidat (nom,prenom,email,phone,username,state,ecole,preuve_etudiant) values('".htmlspecialchars($_POST['nom'])."','".$_POST['prenom']."','".$_POST['email']."',".$_POST['phone'].",'".$usrname."',0,'".$_POST['ecole']."','".$target_file."');";
-            // Prepare statement
-        
-        try {
-            $stmt = $conn->prepare($r);
+                $usrname = $array1[0] . $array2[0] . $row['m'];
 
-            // execute the query
-            $stmt->execute();
+                $r = "INSERT into candidat (nom,prenom,email,phone,username,state,ecole,preuve_etudiant) values('" . htmlspecialchars($_POST['nom']) . "','" . $_POST['prenom'] . "','" . $_POST['email'] . "'," . $_POST['phone'] . ",'" . $usrname . "',0,'" . $_POST['ecole'] . "','" . $target_file . "');";
+                // Prepare statement
+
+                try {
+                    $stmt = $conn->prepare($r);
+
+                    // execute the query
+                    $stmt->execute();
 /////////////////////////////////////////////////////
 
 
-date_default_timezone_set('Africa/Tunis');
-$hour = date('H');
-$error_mail=null;
-$groupLimit=25;
-$limit=50;
-$greeting="";
+                    date_default_timezone_set('Africa/Tunis');
+                    $hour = date('H');
+                    $error_mail = null;
+                    $groupLimit = 25;
+                    $limit = 50;
+                    $greeting = "";
 
-if($hour > 18 || $hour < 1) {$greeting='Good Evening';}
-else if($hour>12){$greeting='Good Afternoon';}
-        else  {$greeting='Good Morning';}
-           $header="MIME-Version: 1.0\r\n";
-           $header.='From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>'."\n";
-           $header.='Content-Type:text/html; charset="utf-8"'."\n";
-           $header.='Content-Transfer-Encoding: 8bit';
-       
-           $message = '
+                    if ($hour > 18 || $hour < 1) {
+                        $greeting = 'Good Evening';
+                    } else if ($hour > 12) {
+                        $greeting = 'Good Afternoon';
+                    } else {
+                        $greeting = 'Good Morning';
+                    }
+                    $header = "MIME-Version: 1.0\r\n";
+                    $header .= 'From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>' . "\n";
+                    $header .= 'Content-Type:text/html; charset="utf-8"' . "\n";
+                    $header .= 'Content-Transfer-Encoding: 8bit';
+
+                    $message = '
          <html>
     <head>
             
@@ -130,7 +144,7 @@ else if($hour>12){$greeting='Good Afternoon';}
                         <div style="display:flex;align-items: center;height:100%;margin-left:10px;font-size:20px;font-weight: bold;">ENSIT Geeks Club</div>
                     </div>
                     <div style="width:100%;background:white;box-sizing: border-box;padding:30px;">
-                        <b>'.$greeting.' Dear '.$_POST['nom'].' '.$_POST['prenom'].',</b><br><br>
+                        <b>' . $greeting . ' Dear ' . $_POST['nom'] . ' ' . $_POST['prenom'] . ',</b><br><br>
                         <br>  Your request has been successfully received <br>  
                         <br>  Stay tuned for the confirmation <br>
                         Feel free to contact us for any other information.<br>
@@ -147,16 +161,13 @@ else if($hour>12){$greeting='Good Afternoon';}
               </body>  
     </html>
            ';
-          
-          
 
 
-
-          $header2="MIME-Version: 1.0\r\n";
-           $header2.='From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>'."\n";
-           $header2.='Content-Type:text/html; charset="utf-8"'."\n";
-           $header2.='Content-Transfer-Encoding: 8bit';
-           $message2 = '
+                    $header2 = "MIME-Version: 1.0\r\n";
+                    $header2 .= 'From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>' . "\n";
+                    $header2 .= 'Content-Type:text/html; charset="utf-8"' . "\n";
+                    $header2 .= 'Content-Transfer-Encoding: 8bit';
+                    $message2 = '
                     <html>
                 <head>
                         <title>Registration</title>
@@ -170,8 +181,8 @@ else if($hour>12){$greeting='Good Afternoon';}
                                 </div>
                                 <div style="width:100%;background:white;box-sizing: border-box;padding:30px;">
                                     <b>Geeks Hack registration</b><br><br>
-                                    <b> Name: </b>'.$_POST['nom'].' '.$_POST['prenom'].'<br><br>
-                                    <b> Email: </b>'.$_POST['email'].'<br><br>
+                                    <b> Name: </b>' . $_POST['nom'] . ' ' . $_POST['prenom'] . '<br><br>
+                                    <b> Email: </b>' . $_POST['email'] . '<br><br>
                                 </div>
                                 <br>
                                 <div style="font-size: 11px;text-align: center;color:gray;">
@@ -184,44 +195,50 @@ else if($hour>12){$greeting='Good Afternoon';}
                             </body>
                 </html>
            ';
-           $subject='GeeksHack Pre-Registration';
-      if(mail($_POST['email'], $subject, $message, $header)){
-            if(mail("essid.nizar.123@gmail.com", $subject, $message2, $header2)){
+                    $subject = 'GeeksHack Pre-Registration';
+                    if (mail($_POST['email'], $subject, $message, $header)) {
+                        if (mail("hadjsassiscompany@gmail.com", $subject, $message2, $header2)) {
 
-            }
-          }
+                        }
+                    }
 
 /////////////////////////////////////////////////////
 
-            echo "Your request has been successfully uploaded. Please check your mail";
-            
-            http_response_code(200);
-        } catch (PDOException $e) {
-        try{
-            $up = "UPDATE candidat SET nom = '".htmlspecialchars($_POST['nom'])."', prenom = '".$_POST['prenom']."', phone= '".$_POST['phone']."', ecole = '".$_POST['ecole']."' ,preuve_etudiant = '".$target_file."' WHERE email = '".$_POST['email']."';";
-            $stm = $conn->prepare($up);
+                    echo "Your request has been successfully uploaded. Please check your mail";
+                    header('Location: index.php');
+                    exit();
 
-            // execute the query
-            $stm->execute();
+                    http_response_code(200);
+                } catch (PDOException $e) {
+                    try {
+                        $up = "UPDATE candidat SET nom = '" . htmlspecialchars($_POST['nom']) . "', prenom = '" . $_POST['prenom'] . "', phone= '" . $_POST['phone'] . "', ecole = '" . $_POST['ecole'] . "' ,preuve_etudiant = '" . $target_file . "' WHERE email = '" . $_POST['email'] . "';";
+                        $stm = $conn->prepare($up);
+
+                        // execute the query
+                        $stm->execute();
 /////////////////////////////////////////////////////
 
 
-date_default_timezone_set('Africa/Tunis');
-$hour = date('H');
-$error_mail=null;
-$groupLimit=25;
-$limit=50;
-$greeting="";
+                        date_default_timezone_set('Africa/Tunis');
+                        $hour = date('H');
+                        $error_mail = null;
+                        $groupLimit = 25;
+                        $limit = 50;
+                        $greeting = "";
 
-if($hour > 18 || $hour < 1) {$greeting='Good Evening';}
-else if($hour>12){$greeting='Good Afternoon';}
-        else  {$greeting='Good Morning';}
-           $header="MIME-Version: 1.0\r\n";
-           $header.='From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>'."\n";
-           $header.='Content-Type:text/html; charset="utf-8"'."\n";
-           $header.='Content-Transfer-Encoding: 8bit';
-       
-           $message = '
+                        if ($hour > 18 || $hour < 1) {
+                            $greeting = 'Good Evening';
+                        } else if ($hour > 12) {
+                            $greeting = 'Good Afternoon';
+                        } else {
+                            $greeting = 'Good Morning';
+                        }
+                        $header = "MIME-Version: 1.0\r\n";
+                        $header .= 'From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>' . "\n";
+                        $header .= 'Content-Type:text/html; charset="utf-8"' . "\n";
+                        $header .= 'Content-Transfer-Encoding: 8bit';
+
+                        $message = '
          <html>
     <head>
             
@@ -234,7 +251,7 @@ else if($hour>12){$greeting='Good Afternoon';}
                         <div style="display:flex;align-items: center;height:100%;margin-left:10px;font-size:20px;font-weight: bold;">ENSIT Geeks Club</div>
                     </div>
                     <div style="width:100%;background:white;box-sizing: border-box;padding:30px;">
-                        <b>'.$greeting.' Dear '.$_POST['nom'].' '.$_POST['prenom'].',</b><br><br>
+                        <b>' . $greeting . ' Dear ' . $_POST['nom'] . ' ' . $_POST['prenom'] . ',</b><br><br>
                         <br>  Your request has been successfully updated <br>  
                         <br>  Stay tuned for the confirmation <br>
                         Feel free to contact us for any other information.<br>
@@ -251,16 +268,13 @@ else if($hour>12){$greeting='Good Afternoon';}
               </body>  
     </html>
            ';
-          
-          
 
 
-
-          $header2="MIME-Version: 1.0\r\n";
-           $header2.='From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>'."\n";
-           $header2.='Content-Type:text/html; charset="utf-8"'."\n";
-           $header2.='Content-Transfer-Encoding: 8bit';
-           $message2 = '
+                        $header2 = "MIME-Version: 1.0\r\n";
+                        $header2 .= 'From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>' . "\n";
+                        $header2 .= 'Content-Type:text/html; charset="utf-8"' . "\n";
+                        $header2 .= 'Content-Transfer-Encoding: 8bit';
+                        $message2 = '
                     <html>
                 <head>
                         <title>Registration</title>
@@ -274,8 +288,8 @@ else if($hour>12){$greeting='Good Afternoon';}
                                 </div>
                                 <div style="width:100%;background:white;box-sizing: border-box;padding:30px;">
                                     <b>Geeks Hack registration</b><br><br>
-                                    <b> Name: </b>'.$_POST['nom'].' '.$_POST['prenom'].'<br><br>
-                                    <b> Email: </b>'.$_POST['email'].'<br><br>
+                                    <b> Name: </b>' . $_POST['nom'] . ' ' . $_POST['prenom'] . '<br><br>
+                                    <b> Email: </b>' . $_POST['email'] . '<br><br>
                                 </div>
                                 <br>
                                 <div style="font-size: 11px;text-align: center;color:gray;">
@@ -288,27 +302,34 @@ else if($hour>12){$greeting='Good Afternoon';}
                             </body>
                 </html>
            ';
-           $subject='GeeksHack Pre-Registration';
-mail($_POST['email'], $subject, $message, $header);
+                        $subject = 'GeeksHack Pre-Registration';
+                        mail($_POST['email'], $subject, $message, $header);
 
 /////////////////////////////////////////////////////
 
 
-            echo "Your request is updated";
-            http_response_code(200);
-        }catch (PDOException $e) {
-        	echo "Error when updating your data !";
-            http_response_code(201);
-        }
-        
-        }
-        }
-        
+                        echo "Your request is updated";
+                        header('Location: index.php');
+                        exit();
+                        http_response_code(200);
+                    } catch (PDOException $e) {
+                        $error_message =  "Error when updating your data !";
+                        echo json_encode(array('error' => $error_message));
+                        http_response_code(201);
+                        exit();
+                    }
+
+                }
+            }
 
 
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-        http_response_code(202);
-    }}
+        }
+        else {
+            $error_message = "Sorry, there was an error uploading your file.";
+            echo json_encode(array('error' => $error_message));
+            http_response_code(202);
+            exit();
+        }
+    }
 }
 ?>		

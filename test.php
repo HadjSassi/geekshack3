@@ -429,8 +429,8 @@ else {
                 <div class="row area">
                     <div class="col-sm-3" style="margin-left:3em ;">
                         <h2 style="text-align: start;">ENSIT Geeks Club</h2>
-                        <p style="text-align: start;">Contact : 43 308 524</p>
-                        <p style="text-align: start;">Email : contact@ensitgeeksclub.com</p>
+                        <p style="text-align: start;">Contact : 51 907 825</p>
+                        <p style="text-align: start;">Email : ensitgeeksclub@gmail.com </p>
                     </div>
                     <div class="col-sm-5"> 
                         <div class="fm">
@@ -516,7 +516,7 @@ else {
                                 success: function(data) {
                                         console.log("data:",data)
                                         //data par le contenu de $add
-                                        window.location.href = "https://geekshack.ensitgeeksclub.com/login.php";
+                                        window.location.href = "http://localhost:1234/login.php";
 
 
                                 }

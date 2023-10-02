@@ -1,6 +1,0 @@
-Traceback (most recent call last):
-  File "main.py", line 29, in <module>
-    j=j+calc()
-  File "main.py", line 21, in calc
-    if (t[i] -t[0] <= T): 
-TypeError: '<=' not supported between instances of 'int' and 'str'
