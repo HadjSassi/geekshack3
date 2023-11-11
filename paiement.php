@@ -8,7 +8,7 @@ header("Content-type: application/json;charset=utf8");
 
 
 
- $host="51.38.112.160";
+ $host="localhost";
  $db="geekshack3";
     $user="root";
     $password="geeks_hack_2023";

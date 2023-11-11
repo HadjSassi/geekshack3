@@ -10,7 +10,7 @@ header("Access-Control-Allow-Headers: *");
 header("Content-type: application/json;charset=utf8");
 
 
-$host = "51.38.112.160";
+$host = "localhost";
 $user = "root";
 $password = "geeks_hack_2023";
 $dbname = "geekshack3";

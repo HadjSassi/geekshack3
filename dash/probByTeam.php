@@ -13,7 +13,7 @@ if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
 $tag = $_GET['tag'];
 $prob = $_GET['prob'];
 
-$link = mysqli_connect('51.38.112.160', 'root', "geeks_hack_2023", 'geekshack3');
+$link = mysqli_connect('localhost', 'root', "geeks_hack_2023", 'geekshack3');
 
 $requete1 = "select score.* from score,team where team.id_team = score.id_team and team.team_tag ='$tag';";
 $result1 = mysqli_query($link, $requete1);

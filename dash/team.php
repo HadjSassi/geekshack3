@@ -22,7 +22,7 @@ $tag = $_GET['tag'];
 //    }
 //}
 
-$link = mysqli_connect('51.38.112.160', 'root', "geeks_hack_2023", 'geekshack3');
+$link = mysqli_connect('localhost', 'root', "geeks_hack_2023", 'geekshack3');
 
 //tous les scores de team
 $requete1 = "select score.* from score,team where team.id_team = score.id_team and team.team_tag ='$tag';";
