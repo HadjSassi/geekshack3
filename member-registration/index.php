@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GeeksHack Pre-Registration Form</title>
-    <link rel="icon" href="assets/logo-geeks.png"/>
+    <link rel="icon" href="../assets/logo-geeks.png"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css"> <!-- Create a separate CSS file for your custom styles -->
+    <link rel="stylesheet" href="../css/style.css"> <!-- Create a separate CSS file for your custom styles -->
     <style>
         body {
             color: white;
@@ -24,16 +24,12 @@
     </style>
 </head>
 <body>
-<video autoplay loop muted>
-    <source src="your-video-file.mp4" type="video/mp4"> <!-- Replace with your video source -->
-    Your browser does not support the video tag.
-</video>
 <div class="container" style="margin-top: -9%;">
     <div class="text-center mt-4 mb-4">
         <h1>GeeksHack Pre-Registration Form</h1>
     </div>
 
-    <form action="inscri.php" method="post" enctype="multipart/form-data" onsubmit="return validatePhoneNumber()">
+    <form action="../inscri.php" method="post" enctype="multipart/form-data" onsubmit="return validatePhoneNumber()">
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="nom">Nom:</label>
@@ -76,10 +72,6 @@
     </form>
 </div>
 
-<video autoplay loop muted>
-    <source src="your-video-file.mp4" type="video/mp4"> <!-- Replace with your video source -->
-    Your browser does not support the video tag.
-</video>
 <script>
     function validatePhoneNumber() {
         const phoneNumberInput = document.getElementById('phone');
