@@ -24,6 +24,10 @@
     </style>
 </head>
 <body>
+<video autoplay loop muted>
+    <source src="your-video-file.mp4" type="video/mp4"> <!-- Replace with your video source -->
+    Your browser does not support the video tag.
+</video>
 <div class="container" style="margin-top: -9%;">
     <div class="text-center mt-4 mb-4">
         <h1>GeeksHack Pre-Registration Form</h1>
@@ -72,6 +76,10 @@
     </form>
 </div>
 
+<video autoplay loop muted>
+    <source src="your-video-file.mp4" type="video/mp4"> <!-- Replace with your video source -->
+    Your browser does not support the video tag.
+</video>
 <script>
     function validatePhoneNumber() {
         const phoneNumberInput = document.getElementById('phone');
