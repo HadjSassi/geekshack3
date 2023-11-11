@@ -1,9 +1,9 @@
 <?php
 
-$base = "tsutnnytsu";
+$base = "geekshack3";
 
- $host="localhost";
+ $host="51.38.112.160";
     $user="root";
-    $password="Magali_1984";
+    $password="geeks_hack_2023";
 
 ?>

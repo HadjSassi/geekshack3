@@ -516,7 +516,7 @@ else {
                                 success: function(data) {
                                         console.log("data:",data)
                                         //data par le contenu de $add
-                                        window.location.href = "http://localhost:1234/login.php";
+                                        window.location.href = "http://https://geekshack.ensitgeeksclub.com//login.php";
 
 
                                 }

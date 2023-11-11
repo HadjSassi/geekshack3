@@ -9,7 +9,7 @@ require 'config.php';
 
 if (!(isset($_SESSION['ID'])))
 // badalet add bel valeur mta3o bech ntesti 
-	echo " <script>window.location.href = http://localhost:1234/login.php';</script> ";
+	echo " <script>window.location.href = http://https://geekshack.ensitgeeksclub.com//login.php';</script> ";
 
 
 else {
@@ -472,7 +472,7 @@ else {
 				success: function(data) {
 					console.log("data:",data)
 					//data par le contenu de $add
-					window.location.href = "https://localhost:1234/login.php";
+					window.location.href = "https://https://geekshack.ensitgeeksclub.com//login.php";
 					
 
 				}

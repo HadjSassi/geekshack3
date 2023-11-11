@@ -6,7 +6,7 @@ $tag = $_POST['tag'];
 $prob = $_POST['prob'];
 $idteam = $_POST['idteam'];
 
-$link = mysqli_connect('localhost', 'root', 'Magali_1984', 'tsutnnytsu');
+$link = mysqli_connect('51.38.112.160', 'root', 'geeks_hack_2023', 'geekshack3');
 
 // Update the score in the database
 $sql = "UPDATE score SET prob$prob = $score WHERE id_team = $idteam";

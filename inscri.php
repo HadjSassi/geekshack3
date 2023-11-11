@@ -10,10 +10,10 @@ header("Access-Control-Allow-Headers: *");
 header("Content-type: application/json;charset=utf8");
 
 
-$host = "localhost";
+$host = "51.38.112.160";
 $user = "root";
-$password = "Magali_1984";
-$dbname = "tsutnnytsu";
+$password = "geeks_hack_2023";
+$dbname = "geekshack3";
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=UTF8", $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));

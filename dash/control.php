@@ -10,7 +10,7 @@ if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
     header('Location: login.php');
     exit();
 }
-$link = mysqli_connect('localhost', 'root', "Magali_1984", 'tsutnnytsu');
+$link = mysqli_connect('51.38.112.160', 'root', "geeks_hack_2023", 'geekshack3');
 
 
 //nb des particiapnts 
