@@ -279,7 +279,7 @@
                                     children: Object(f.jsx)("strong", {children: "*Make sure to provide us with a photo of your payment receipt"})
                                 }), Object(f.jsxs)("p", {
                                     style: {paddingLeft: "2%", color: "#1c83d1"},
-                                    children: ["*You have to pay ", Object(f.jsxs)("strong", {children: [25 + ye + Ne, " DT"]}), " by money transfer through ", Object(f.jsx)("strong", {children: "D17"}), " app ", Object(f.jsx)("strong", {children: "43308524"})]
+                                    children: ["*You have to pay ", Object(f.jsxs)("strong", {children: [20 + ye + Ne, " DT"]}), " by money transfer through ", Object(f.jsx)("strong", {children: "D17"}), " app ", Object(f.jsx)("strong", {children: "43308524"})]
                                 }), Object(f.jsxs)("label", {
                                     className: "doc",
                                     children: [Object(f.jsx)(b.a, {
