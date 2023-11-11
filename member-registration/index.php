@@ -10,7 +10,7 @@
     <style>
         body {
             color: white;
-            background-image: url('assets/bg.jpg'); /* Replace with the actual path to your background image */
+            background-image: url('../assets/bg.jpg'); /* Replace with the actual path to your background image */
             /*background-size: cover;*/
             /*background-repeat: no-repeat;*/
             /*background-attachment: fixed;*/
