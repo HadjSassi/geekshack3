@@ -70,7 +70,7 @@ else if($hour>12){$greeting='Good Afternoon';}
                         
                         <br>Your username : <strong>'.$username.'</strong><br>
                         
-                        <br>Now, you can participate in team or without team <a href="http://https://geekshack.ensitgeeksclub.com//team-registration">From this Link</a><br>
+                        <br>Now, you can participate in team or without team <a href="https://geekshack.ensitgeeksclub.com/team-registration">From this Link</a><br>
                         <br>You will need your <strong>username</strong> to finalize your particiation request<br>
                           
                         <br>Feel free to contact us for any other information.<br>

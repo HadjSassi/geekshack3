@@ -9,7 +9,7 @@ require 'config.php';
 
 if (!(isset($_SESSION['ID'])))
 // badalet add bel valeur mta3o bech ntesti 
-	echo " <script>window.location.href = http://https://geekshack.ensitgeeksclub.com//login.php';</script> ";
+	echo " <script>window.location.href = https://geekshack.ensitgeeksclub.com/login.php';</script> ";
 
 
 else {
