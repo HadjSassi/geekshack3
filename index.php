@@ -295,7 +295,7 @@ else {
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#"> 
+                    <a class="navbar-brand" href="https://www.ensitgeeksclub.com/">
                         <img src="assets/logo-geekswhite.png" height="35px" style="margin-top:-7px;" width="55px">
                     </a>
                 </div>
