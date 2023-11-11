@@ -472,7 +472,7 @@ else {
 				success: function(data) {
 					console.log("data:",data)
 					//data par le contenu de $add
-					window.location.href = "https://https://geekshack.ensitgeeksclub.com//login.php";
+					window.location.href = "https://https://geekshack.ensitgeeksclub.com/login.php";
 					
 
 				}
