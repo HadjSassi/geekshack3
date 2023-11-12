@@ -125,7 +125,7 @@ $nb_team = $result1->num_rows;
                     <?php
                     $imagePath = '../' . $row['preuve']; // Change this path to the actual path
                     ?>
-                    <img src="<?php echo $imagePath; ?>" alt="Student Proof">
+                    <img  style="max-width: 100%; height: auto"  src="<?php echo $imagePath; ?>" alt="Student Proof">
                 </div>
                 <!-- Accepter button and form -->
                 <form id="acceptForm" action="update_team_state.php" method="post">
