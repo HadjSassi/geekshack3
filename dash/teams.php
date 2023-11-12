@@ -128,7 +128,7 @@ $nb_team = $result1->num_rows;
                     <img  style="max-width: 100%; height: auto"  src="<?php echo $imagePath; ?>" alt="Student Proof">
                 </div>
                 <!-- Accepter button and form -->
-                <form id="acceptForm" action="update_team_state.php" method="post">
+                <form id="acceptForm" action="update_team_state.php?tag=<?php echo $row['team_tag']; ?>" method="post">
                     <!-- Add a hidden input field to pass the username to the server -->
                     <input type="hidden" disabled name="username" value="<?php echo $row['team_tag']; ?>">
 

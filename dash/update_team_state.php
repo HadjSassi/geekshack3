@@ -1,7 +1,7 @@
 <?php
 // update_score.php
 
-$tag = $_POST['tag'];
+$tag = $_GET['tag'];
 
 $link = mysqli_connect('localhost', 'root', 'geeks_hack_2023', 'geekshack3');
 

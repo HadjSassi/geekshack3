@@ -1,12 +1,12 @@
 <?php
 // update_score.php
 
-$username = $_POST['username'];
+$id = $_GET['id'];
 
 $link = mysqli_connect('localhost', 'root', 'geeks_hack_2023', 'geekshack3');
 
 // Update the score in the database
-$sql = "UPDATE candidat SET state = 1 WHERE username = '$username'";
+$sql = "UPDATE candidat SET state = 1 WHERE username = '$id'";
 
 if (mysqli_query($link, $sql)) {
     echo "Score updated successfully.";
