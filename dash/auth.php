@@ -2,7 +2,9 @@
 
 function authenticate($password) {
     $credentials = json_decode(file_get_contents('credentials.json'), true);
-    return isset($credentials['pass']) && $credentials['pass'] === $password;
+    $algorithm = "sha256"; // You can use other algorithms like sha256, sha512, etc.
+    $hash = hash($algorithm, $password);
+    return isset($credentials['pass']) && $credentials['pass'] === $hash;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
