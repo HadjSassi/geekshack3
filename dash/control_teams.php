@@ -56,7 +56,7 @@ $resultTeam = mysqli_query($link, $requeteTeam);
             </li>
             <li>
                 <span class="active las la-users"></span>
-                <span style="cursor: pointer" onclick="window.location.href='control_teams.php'">Control Teams</span>
+                <span  class="active" style="cursor: pointer" onclick="window.location.href='control_teams.php'">Control Teams</span>
             </li>
             <li>
                 <span class=" las la-code"></span>

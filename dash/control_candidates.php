@@ -52,7 +52,7 @@ $resultCandidates = mysqli_query($link, $requeteCandidates);
             </li>
             <li>
                 <span class="active las la-users"></span>
-                <span style="cursor: pointer" onclick="window.location.href='control_candidates.php'">Control Candidates</span>
+                <span class="active" style="cursor: pointer" onclick="window.location.href='control_candidates.php'">Control Candidates</span>
             </li>
             <li>
                 <span class="las la-users"></span>
