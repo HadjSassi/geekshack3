@@ -10,7 +10,7 @@ if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
     header('Location: login.php');
     exit();
 }
-$tag = $_GET['id'];
+$tag = $_GET['tag'];
 
 //if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_GET['action']) && $_GET['action'] === 'apply') {
 //    if (isset($_POST['input_value'])) {
@@ -25,7 +25,7 @@ $tag = $_GET['id'];
 $link = mysqli_connect('localhost', 'root', "geeks_hack_2023", 'geekshack3');
 
 //tous les infos sur le candidat
-$requete1 = "select * from candidat where username = '$tag'";
+$requete1 = "select * from team where team_tag = '$tag'";
 $result1 = mysqli_query($link, $requete1);
 $nb_team = $result1->num_rows;
 
@@ -109,28 +109,28 @@ $nb_team = $result1->num_rows;
             if ($row = mysqli_fetch_assoc($result1)) {
                 ?>
                 <div class="candidate-info">
-                    <h3>Candidate Information</h3>
-                    <p>ID: <?php echo $row['id_condidat']; ?></p>
-                    <p>Name: <?php echo $row['nom'] . ' ' . $row['prenom']; ?></p>
-                    <p>Email: <?php echo $row['email']; ?></p>
-                    <p>Phone: <?php echo $row['phone']; ?></p>
-                    <p>Username: <?php echo $row['username']; ?></p>
+                    <h3>Team Information</h3>
+                    <p>Team Id: <?php echo $row['id_team']; ?></p>
+                    <p>Team Tag: <?php echo $row['team_tag']; ?></p>
+                    <p>Credentials: <?php echo $row['login'] . ':' . $row['password']; ?></p>
+                    <p>Leader Username: <?php echo $row['leader_username']; ?></p>
+                    <p>Member 2: <?php echo $row['member_one_username']; ?></p>
+                    <p>Member 3: <?php echo $row['member_two_username']; ?></p>
                     <p>State: <?php echo $row['state']; ?></p>
-                    <p>School: <?php echo $row['ecole']; ?></p>
                 </div>
 
                 <!-- Display the image -->
                 <div class="candidate-image">
                     <h3>Student Proof</h3>
                     <?php
-                    $imagePath = '../' . $row['preuve_etudiant']; // Change this path to the actual path
+                    $imagePath = '../' . $row['preuve']; // Change this path to the actual path
                     ?>
                     <img src="<?php echo $imagePath; ?>" alt="Student Proof">
                 </div>
                 <!-- Accepter button and form -->
-                <form id="acceptForm" action="update_candidate_state.php" method="post">
+                <form id="acceptForm" action="update_team_state.php" method="post">
                     <!-- Add a hidden input field to pass the username to the server -->
-                    <input type="hidden" disabled name="username" value="<?php echo $row['username']; ?>">
+                    <input type="hidden" disabled name="username" value="<?php echo $row['team_tag']; ?>">
 
                     <!-- Stylish Accepter button -->
                     <button type="button" onclick="acceptCandidate()">Accepter</button>
