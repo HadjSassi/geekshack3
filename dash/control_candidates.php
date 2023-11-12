@@ -60,7 +60,7 @@ $resultCandidates = mysqli_query($link, $requeteCandidates);
             </li>
             <li>
                 <span class=" las la-code"></span>
-                <span style="cursor: pointer" onclick="window.location.href='control_codes.php'">Control Codes</span>
+                <span style="cursor: pointer" onclick="window.location.href='control.php'">Control Codes</span>
             </li>
             <li>
                 <span class="las la-door-open"></span>
@@ -87,13 +87,13 @@ $resultCandidates = mysqli_query($link, $requeteCandidates);
     <main>
         <div class="recent-grid" >
             <div class="projects">
-                <div class="card">
+                <div class="">
                     <div class="card-header">
                         <h3>Candidates</h3>
                     </div>
 
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="">
                             <table width="120%" id ="myTable" data-filter-control="true" data-show-search-clear-button="true">
                                 <thead>
                                 <tr>
@@ -108,7 +108,7 @@ $resultCandidates = mysqli_query($link, $requeteCandidates);
                                 </thead>
                                 <tbody>
                                 <?php while ($row = mysqli_fetch_assoc($resultCandidates)) { ?>
-                                    <tr>
+                                    <tr style="cursor: pointer" onclick="window.location.href='candidat.php?id=<?php echo $row['username']; ?>'">
                                         <td><?php echo $row['username']; ?></td>
                                         <td><?php echo $row['nom']; ?></td>
                                         <td><?php echo $row['prenom']; ?></td>

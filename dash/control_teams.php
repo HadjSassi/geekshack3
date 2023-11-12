@@ -104,7 +104,7 @@ foreach ($problemFolders as $problemFolder) {
             </li>
             <li>
                 <span class=" las la-code"></span>
-                <span class="active">Control Codes</span>
+                <span style="cursor: pointer" onclick="window.location.href='control.php'">Control Codes</span>
             </li>
             <li>
                 <span class="las la-door-open"></span>
