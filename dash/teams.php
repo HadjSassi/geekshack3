@@ -133,7 +133,7 @@ $nb_team = $result1->num_rows;
                     <input type="hidden" disabled name="username" value="<?php echo $row['team_tag']; ?>">
 
                     <!-- Stylish Accepter button -->
-                    <button type="button" onclick="acceptCandidate()">Accepter</button>
+                    <button class="btn btn-info" type="button" onclick="acceptCandidate()">Accepter</button>
                 </form>
                 <script>
                     // JavaScript function to handle the button click

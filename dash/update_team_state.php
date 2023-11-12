@@ -15,6 +15,6 @@ if (mysqli_query($link, $sql)) {
 }
 
 mysqli_close($link);
-header('Location: https://geekshack.ensitgeeksclub.com/dash');
+header('Location: https://geekshack.ensitgeeksclub.com/dash/control_teams.php');
 exit;
 ?>
