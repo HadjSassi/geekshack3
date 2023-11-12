@@ -138,7 +138,7 @@ $nb_team = $result1->num_rows;
                 <script>
                     // JavaScript function to handle the button click
                     function acceptCandidate() {
-                        var confirmAccept = confirm("Are you sure you want to accept this candidate?");
+                        var confirmAccept = confirm("Are you sure you want to accept this team?");
                         if (confirmAccept) {
                             // Submit the form
                             document.getElementById('acceptForm').submit();
