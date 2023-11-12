@@ -30,6 +30,27 @@ $resultCandidates = mysqli_query($link, $requeteCandidates);
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="../assets/logo-geeks.png"/>
+    <style>
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        #myTable {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        #myTable th, #myTable td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #myTable th {
+            background-color: #f2f2f2;
+        }
+    </style>
 </head>
 
 <body>
