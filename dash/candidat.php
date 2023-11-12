@@ -25,7 +25,7 @@ $tag = $_GET['id'];
 $link = mysqli_connect('localhost', 'root', "geeks_hack_2023", 'geekshack3');
 
 //tous les infos sur le candidat
-$requete1 = "select * from candidat where username = $tag";
+$requete1 = "select * from candidat where username = '$tag'";
 $result1 = mysqli_query($link, $requete1);
 $nb_team = $result1->num_rows;
 
@@ -96,131 +96,43 @@ $nb_team = $result1->num_rows;
         <h2>
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
-            </label> Solutions de <?php echo $tag; ?>
+            </label> <?php echo $tag; ?>
         </h2>
 
     </header>
 
     <main>
         <!-- Add the following code to display the image and the button for the selected candidate -->
-        <div class="recent-grid">
-            <div class="projects">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Problemes</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table width="100%" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
-                                <thead>
-                                <tr>
-                                    <td>Problem</td>
-                                    <td>Score</td>
-                                    <td>Preuve Etudiant</td>
-                                    <td>Action</td>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <?php if ($row = mysqli_fetch_array($result1)) { ?>
-                                    <?php
-                                    $num_problems = (count($row) - 1) / 2;
-                                    for ($i = 1; $i <= $num_problems; $i++) {
-                                        $prob_column = 'prob' . $i;
-                                        $preuve_etudiant_column = 'preuve_etudiant' . $i;
-                                        ?>
-                                        <tr style="cursor: pointer">
-                                            <td>Problem <?php echo $i; ?></td>
-                                            <td><?php echo $row[$prob_column]; ?></td>
-                                            <!-- Display the image -->
-                                            <td><img src="<?php echo $row[$preuve_etudiant_column]; ?>" alt="Preuve Etudiant" style="max-width: 100px; max-height: 100px;"></td>
-                                            <!-- Add a button for accepting registration -->
-                                            <td>
-                                                <button onclick="acceptRegistration('<?php echo $tag; ?>', '<?php echo $row[$preuve_etudiant_column]; ?>')">Accept Registration</button>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                <?php } ?>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+        <main>
+            <?php
+            // Fetch the candidate information
+            if ($row = mysqli_fetch_assoc($result1)) {
+                ?>
+                <div class="candidate-info">
+                    <h3>Candidate Information</h3>
+                    <p>ID: <?php echo $row['id_condidat']; ?></p>
+                    <p>Name: <?php echo $row['nom'] . ' ' . $row['prenom']; ?></p>
+                    <p>Email: <?php echo $row['email']; ?></p>
+                    <p>Phone: <?php echo $row['phone']; ?></p>
+                    <p>Username: <?php echo $row['username']; ?></p>
+                    <p>State: <?php echo $row['state']; ?></p>
+                    <p>School: <?php echo $row['ecole']; ?></p>
                 </div>
-            </div>
-        </div>
+
+                <!-- Display the image -->
+                <div class="candidate-image">
+                    <h3>Student Proof</h3>
+                    <?php
+                    $imagePath = '../' . $row['preuve_etudiant']; // Change this path to the actual path
+                    ?>
+                    <img src="<?php echo $imagePath; ?>" alt="Student Proof">
+                </div>
+            <?php } ?>
+        </main>
+
     </main>
 
 </div>
 
 </body>
-<script>
-    function acceptRegistration(username, preuveEtudiant) {
-        // You can implement your logic here to handle the registration acceptance
-        // For example, you can send an AJAX request to a PHP script that updates the database
-        // and performs any other necessary actions.
-
-        // For demonstration purposes, let's show an alert.
-        alert('Registration accepted for ' + username);
-
-        // You can redirect or perform any other actions after accepting the registration.
-    }
-    function tableSearch() {
-        let input, filter, table, tr, td1, txtValue;
-
-        //Intialising Variables
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("myTable");
-        tr = table.getElementsByTagName("tr");
-
-        for (let i = 0; i < tr.length; i++) {
-            td1 = tr[i].getElementsByTagName("td")[0];
-            td2 = tr[i].getElementsByTagName("td")[1];
-            if (td1 || td2) {
-                txtValue = (td1.textContent || td1.innerText) + (td2.textContent || td2.innerText);
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    tr[i].style.display = "";
-                } else {
-                    tr[i].style.display = "none";
-                }
-            }
-        }
-
-    }
-
-
-    function pickUp() {
-        score = document.getElementById("score");
-    }
-</script>
-
-
-<script>
-    function sortTable() {
-        var table, rows, switching, i, x, y, shouldSwitch;
-        table = document.getElementById("myTable");
-        switching = true;
-
-        while (switching) {
-            switching = false;
-            rows = table.rows;
-
-            for (i = 1; i < (rows.length - 1); i++) {
-                shouldSwitch = false;
-                x = parseInt(rows[i].getElementsByTagName("TD")[1].innerHTML);
-                y = parseInt(rows[i + 1].getElementsByTagName("TD")[1].innerHTML);
-
-                if (x < y) {
-                    shouldSwitch = true;
-                    break;
-                }
-            }
-
-            if (shouldSwitch) {
-                rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-                switching = true;
-            }
-        }
-    }
-
-</script>
 </html>
