@@ -2,7 +2,18 @@
 session_start();
 function authenticate($password) {
     $credentials = json_decode(file_get_contents('credentials.json'), true);
-    return isset($credentials['pass']) && $credentials['pass'] === $password;
+    $algorithm = "sha256"; // You can use other algorithms like sha256, sha512, etc.
+
+    if (isset($credentials['pass']) && hash($algorithm, $password) === $credentials['pass']) {
+        // User is an admin with full access
+        return array('role' => 'admin', 'authenticated' => true);
+    } elseif (isset($credentials['visitorPass']) && $password === $credentials['visitorPass']) {
+        // User is a visitor with read-only access
+        return array('role' => 'visitor', 'authenticated' => true);
+    } else {
+        // Authentication failed
+        return array('authenticated' => false);
+    }
 }
 
 if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
@@ -162,8 +173,14 @@ foreach ($problemFolders as $problemFolder) {
                                             style="cursor: pointer;"><?php echo $problem['difficulty']; ?></td>
 
                                         <td>
-                                            <button class="btn btn-primary" style="margin-right: 3%;" onclick="copyProblemFolder('<?php echo $problem['problemNumber']; ?>')">Add</button>
-                                            <button class="btn btn-danger" style="" onclick="deleteProblemFolder('<?php echo $problem['problemNumber']; ?>')">Revoke</button>
+                                            <?php if ($_SESSION['role'] === 'admin') { ?>
+                                                <button class="btn btn-primary" style="margin-right: 3%;" onclick="copyProblemFolder('<?php echo $problem['problemNumber']; ?>')">Add</button>
+                                                <button class="btn btn-danger" style="" onclick="deleteProblemFolder('<?php echo $problem['problemNumber']; ?>')">Revoke</button>
+                                            <?php } else { ?>
+                                                <!-- Display a message or a disabled button for non-admin users -->
+                                                <button class="btn btn-primary disabled" style="margin-right: 3%;">Add</button>
+                                                <button class="btn btn-danger disabled" style="" >Revoke</button>
+                                            <?php } ?>
                                         </td>
                                     </tr>
                                 <?php } ?>
