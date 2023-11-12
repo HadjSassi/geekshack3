@@ -15,4 +15,6 @@ if (mysqli_query($link, $sql)) {
 }
 
 mysqli_close($link);
+header('Location: https://geekshack.ensitgeeksclub.com/dash');
+exit;
 ?>
