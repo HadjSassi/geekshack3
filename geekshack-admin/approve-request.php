@@ -90,7 +90,7 @@ else if($hour>12){$greeting='Good Afternoon';}
          
            $subject='GeeksHack Confirmation';
       if(mail($email, $subject, $message, $header)){
-           if(mail("ahmedraies594@gmail.com", $subject, $message, $header)){
+           if(mail("hadjsassiscompany@gmail.com", $subject, $message, $header)){
             
           } 
           }

@@ -5,6 +5,9 @@ ini_set('display_errors', 1);
 header('Access-Control-Allow-Origin: *');
 
 header('Access-Control-Allow-Methods: *');
+header("Access-Control-Max-Age: 3600");
+header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
+
 
 header("Access-Control-Allow-Headers: *");
 header("Content-type: application/json;charset=utf8");
@@ -127,7 +130,7 @@ if ($uploadOk == 0) {
                         $greeting = 'Good Morning';
                     }
                     $header = "MIME-Version: 1.0\r\n";
-                    $header .= 'From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>' . "\n";
+                    $header .= 'From:"ENSIT Geeks Club"<contact@ensitGeeksclub.com>' . "\n";
                     $header .= 'Content-Type:text/html; charset="utf-8"' . "\n";
                     $header .= 'Content-Transfer-Encoding: 8bit';
 
@@ -164,7 +167,7 @@ if ($uploadOk == 0) {
 
 
                     $header2 = "MIME-Version: 1.0\r\n";
-                    $header2 .= 'From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>' . "\n";
+                    $header2 .= 'From:"ENSIT Geeks Club"<contact@ensitGeeksclub.com>' . "\n";
                     $header2 .= 'Content-Type:text/html; charset="utf-8"' . "\n";
                     $header2 .= 'Content-Transfer-Encoding: 8bit';
                     $message2 = '
@@ -234,7 +237,7 @@ if ($uploadOk == 0) {
                             $greeting = 'Good Morning';
                         }
                         $header = "MIME-Version: 1.0\r\n";
-                        $header .= 'From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>' . "\n";
+                        $header .= 'From:"ENSIT Geeks Club"<contact@ensitGeeksclub.com>' . "\n";
                         $header .= 'Content-Type:text/html; charset="utf-8"' . "\n";
                         $header .= 'Content-Transfer-Encoding: 8bit';
 
@@ -271,7 +274,7 @@ if ($uploadOk == 0) {
 
 
                         $header2 = "MIME-Version: 1.0\r\n";
-                        $header2 .= 'From:"ENSIT Geeks Club"<contact@ensitgeeksclub.com>' . "\n";
+                        $header2 .= 'From:"ENSIT Geeks Club"<contact@ensitGeeksclub.com>' . "\n";
                         $header2 .= 'Content-Type:text/html; charset="utf-8"' . "\n";
                         $header2 .= 'Content-Transfer-Encoding: 8bit';
                         $message2 = '
