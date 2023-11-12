@@ -99,11 +99,11 @@ foreach ($problemFolders as $problemFolder) {
                 <span style="cursor: pointer" onclick="window.location.href='control_candidates.php'">Control Candidates</span>
             </li>
             <li>
-                <span class="las la-users"></span>
+                <span class="active las la-users"></span>
                 <span style="cursor: pointer" onclick="window.location.href='control_teams.php'">Control Teams</span>
             </li>
             <li>
-                <span class="active las la-code"></span>
+                <span class=" las la-code"></span>
                 <span class="active">Control Codes</span>
             </li>
             <li>

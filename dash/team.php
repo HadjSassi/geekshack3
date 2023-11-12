@@ -75,6 +75,14 @@ $nb_condidat = $result2->num_rows;
                 <span style="cursor: pointer" onclick="window.location.href='/dash/'">Mon Dashoard</span>
             </li>
             <li>
+                <span class="las la-users"></span>
+                <span style="cursor: pointer" onclick="window.location.href='control_candidates.php'">Control Candidates</span>
+            </li>
+            <li>
+                <span class="las la-users"></span>
+                <span style="cursor: pointer" onclick="window.location.href='control_teams.php'">Control Teams</span>
+            </li>
+            <li>
                 <span class="las la-code"></span>
                 <span style="cursor: pointer" onclick="window.location.href='control.php'">Control Codes</span>
             </li>
