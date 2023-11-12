@@ -2,7 +2,18 @@
 session_start();
 function authenticate($password) {
     $credentials = json_decode(file_get_contents('credentials.json'), true);
-    return isset($credentials['pass']) && $credentials['pass'] === $password;
+    $algorithm = "sha256"; // You can use other algorithms like sha256, sha512, etc.
+
+    if (isset($credentials['pass']) && hash($algorithm, $password) === $credentials['pass']) {
+        // User is an admin with full access
+        return array('role' => 'admin', 'authenticated' => true);
+    } elseif (isset($credentials['visitorPass']) && $password === $credentials['visitorPass']) {
+        // User is a visitor with read-only access
+        return array('role' => 'visitor', 'authenticated' => true);
+    } else {
+        // Authentication failed
+        return array('authenticated' => false);
+    }
 }
 
 if (!isset($_SESSION['authenticated']) || !$_SESSION['authenticated']) {
@@ -180,7 +191,7 @@ $lastscore = $record4["prob$prob"];
             </div>
 
             <div class="customers">
-
+                <?php if ($_SESSION['role'] === 'admin') { ?>
                 <div class="card">
                     <div class="card-header">
                         <h3>Scoring System</h3>
@@ -201,6 +212,7 @@ $lastscore = $record4["prob$prob"];
                         </div>
                     </div>
                 </div>
+                <?php }?>
             </div>
 
         </div>
