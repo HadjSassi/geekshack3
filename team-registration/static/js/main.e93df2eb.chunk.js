@@ -62,7 +62,7 @@
                 return o.a.wrap((function (e) {
                     for (; ;) switch (e.prev = e.next) {
                         case 0:
-                            return e.next = 2, g.a.get("http://localhost:1234/number.php");
+                            return e.next = 2, g.a.get("https://ensitgeeksclub.com/number.php");
                         case 2:
                             t = e.sent, mt(t.data), St(kt());
                         case 5:
@@ -122,7 +122,7 @@
                         onSubmit: function (e) {
                             if (e.preventDefault(), r(!0), "" !== Z && "" !== et && m) {
                                 var t = new FormData;
-                                t.append("team_tag", Z), t.append("leader_username", et), t.append("member_one_username", _e), t.append("member_two_username", Me), t.append("preuve", m), g.a.post("http://localhost:1234/paiement.php", t).then((function (e) {
+                                t.append("team_tag", Z), t.append("leader_username", et), t.append("member_one_username", _e), t.append("member_two_username", Me), t.append("preuve", m), g.a.post("https://ensitgeeksclub.com/paiement.php", t).then((function (e) {
                                     r(!1), 200 == e.status && (J("#41d888"), C(!0), F(e.data), z("white"), A("Success")), e.status >= 201 && (J("#f94416"), C(!0), F(e.data), z("white"), A("Error"))
                                 })).catch((function (e) {
                                     J("#f94416"), C(!0), F("Server error"), z("white"), A("Error")
@@ -151,7 +151,7 @@
                                             if (/[^a-zA-Z0-9_]/.test(e.target.value)) $("Team tag must contain letters and numbers only !!"), ne("red"); else if (5 <= e.target.value.length && e.target.value.length <= 15) {
                                                 G(e.target.value);
                                                 var t = new FormData;
-                                                t.append("team_tag", e.target.value), g.a.post("http://localhost:1234/teamname.php", t).then((function (e) {
+                                                t.append("team_tag", e.target.value), g.a.post("https://ensitgeeksclub.com/teamname.php", t).then((function (e) {
                                                     r(!1), 200 == e.status && (he(!1), $(e.data), ne("green")), e.status >= 201 && ($(e.data), he(!0), ne("red"))
                                                 })).catch((function (e) {
                                                     J("#f94416"), C(!0), F("Server error"), z("white"), A("Error")
@@ -171,7 +171,7 @@
                                         !function (e) {
                                             tt(e.target.value);
                                             var t = new FormData;
-                                            t.append("leader_username", e.target.value), g.a.post("http://localhost:1234/leader.php", t).then((function (e) {
+                                            t.append("leader_username", e.target.value), g.a.post("https://ensitgeeksclub.com/leader.php", t).then((function (e) {
                                                 r(!1), 200 == e.status && (fe(!1), We(e.data), st("green")), e.status >= 201 && (We(e.data), fe(!0), st("red"))
                                             })).catch((function (e) {
                                                 J("#f94416"), C(!0), F("Server error"), z("white"), A("Error")
@@ -207,7 +207,7 @@
                                                 !function (e) {
                                                     if ("" != e.target.value) if (Fe(e.target.value), e.target.value == Me) de("Don't use the same username twice"), ut("red"), Ge(!0), we(0); else if (e.target.value != et) {
                                                         var t = new FormData;
-                                                        t.append("username", e.target.value), g.a.post("http://localhost:1234/member.php", t).then((function (e) {
+                                                        t.append("username", e.target.value), g.a.post("https://ensitgeeksclub.com/member.php", t).then((function (e) {
                                                             r(!1), 200 == e.status && (fe(!1), de(e.data), ut("green"), Ge(!1), we(25)), e.status >= 201 && (de(e.data), fe(!0), ut("red"), Ge(!0), we(0))
                                                         })).catch((function (e) {
                                                             J("#f94416"), C(!0), F("Server error"), z("white"), A("Error"), Ge(!0), we(0)
@@ -235,7 +235,7 @@
                                                     if ("" != e.target.value) if (e.target.value == _e) ie("Don't use the same username twice"), bt("red"), Ge(!0), Ce(0); else if (e.target.value != et) {
                                                         Ae(e.target.value);
                                                         var t = new FormData;
-                                                        t.append("username", e.target.value), g.a.post("http://localhost:1234/member.php", t).then((function (e) {
+                                                        t.append("username", e.target.value), g.a.post("https://ensitgeeksclub.com/member.php", t).then((function (e) {
                                                             r(!1), 200 == e.status && (ie(e.data), bt("green"), Ge(!1), Ce(25)), e.status >= 201 && (ie(e.data), bt("red"), Ge(!0), Ce(0))
                                                         })).catch((function (e) {
                                                             J("#f94416"), C(!0), F("Server error"), z("white"), A("Error"), Ge(!0), Ce(0)
