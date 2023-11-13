@@ -213,7 +213,7 @@ if ($uploadOk == 0) {
 /////////////////////////////////////////////////////
 
                     echo "Your request has been successfully uploaded. Please check your mail";
-                    header('Location: https://geekshack.ensitgeeksclub.com/team-registration/');
+                    header('Location: https://geekshack.ensitgeeksclub.com');
                     exit();
 
                     http_response_code(200);
@@ -318,7 +318,7 @@ if ($uploadOk == 0) {
 
 
                         echo "Your request is updated";
-                        header('Location: https://geekshack.ensitgeeksclub.com/team-registration/');
+                        header('Location: https://geekshack.ensitgeeksclub.com/');
                         exit();
                         http_response_code(200);
                     } catch (PDOException $e) {
