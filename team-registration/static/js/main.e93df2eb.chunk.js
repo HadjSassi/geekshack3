@@ -208,7 +208,7 @@
                                                     if ("" != e.target.value) if (Fe(e.target.value), e.target.value == Me) de("Don't use the same username twice"), ut("red"), Ge(!0), we(0); else if (e.target.value != et) {
                                                         var t = new FormData;
                                                         t.append("username", e.target.value), g.a.post("https://geekshack.ensitgeeksclub.com/member.php", t).then((function (e) {
-                                                            r(!1), 200 == e.status && (fe(!1), de(e.data), ut("green"), Ge(!1), we(20)), e.status >= 201 && (de(e.data), fe(!0), ut("red"), Ge(!0), we(0))
+                                                            r(!1), 200 == e.status && (fe(!1), de(e.data), ut("green"), Ge(!1), we(25)), e.status >= 201 && (de(e.data), fe(!0), ut("red"), Ge(!0), we(0))
                                                         })).catch((function (e) {
                                                             J("#f94416"), C(!0), F("Server error"), z("white"), A("Error"), Ge(!0), we(0)
                                                         }))
@@ -236,7 +236,7 @@
                                                         Ae(e.target.value);
                                                         var t = new FormData;
                                                         t.append("username", e.target.value), g.a.post("https://geekshack.ensitgeeksclub.com/member.php", t).then((function (e) {
-                                                            r(!1), 200 == e.status && (ie(e.data), bt("green"), Ge(!1), Ce(20)), e.status >= 201 && (ie(e.data), bt("red"), Ge(!0), Ce(0))
+                                                            r(!1), 200 == e.status && (ie(e.data), bt("green"), Ge(!1), Ce(25)), e.status >= 201 && (ie(e.data), bt("red"), Ge(!0), Ce(0))
                                                         })).catch((function (e) {
                                                             J("#f94416"), C(!0), F("Server error"), z("white"), A("Error"), Ge(!0), Ce(0)
                                                         }))
@@ -279,7 +279,7 @@
                                     children: Object(f.jsx)("strong", {children: "*Make sure to provide us with a photo of your payment receipt"})
                                 }), Object(f.jsxs)("p", {
                                     style: {paddingLeft: "2%", color: "#1c83d1"},
-                                    children: ["*You have to pay ", Object(f.jsxs)("strong", {children: [20 + ye + Ne, " DT"]}), " by money transfer through ", Object(f.jsx)("strong", {children: "D17"}), " app ", Object(f.jsx)("strong", {children: "43308524"})]
+                                    children: ["*You have to pay ", Object(f.jsxs)("strong", {children: [25 + ye + Ne, " DT"]}), " by money transfer through ", Object(f.jsx)("strong", {children: "D17"}), " app ", Object(f.jsx)("strong", {children: "43308524"})]
                                 }), Object(f.jsxs)("label", {
                                     className: "doc",
                                     children: [Object(f.jsx)(b.a, {
