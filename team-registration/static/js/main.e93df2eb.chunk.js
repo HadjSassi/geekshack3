@@ -137,7 +137,7 @@
                                     children: ["Team Registration Form", Object(f.jsx)("br", {})]
                                 }), Object(f.jsxs)("h3", {
                                     style: {textAlign: "center", color: "#1c83d1"},
-                                    children: ["You have only ", vt, " to upload your request"]
+                                    children: [""]
                                 })]
                             }), Object(f.jsxs)("div", {
                                 hidden: Pe[0],
