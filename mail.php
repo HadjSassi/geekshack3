@@ -17,7 +17,7 @@ class Mailer
 		$this->mail = new PHPMailer();
 
 		// Enable debugging (optional)
-		$this->mail->SMTPDebug = 2;
+//		$this->mail->SMTPDebug = 2;
 
 		// Set up your SMTP configuration
 		$this->mail->isSMTP();
