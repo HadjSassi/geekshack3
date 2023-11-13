@@ -6,7 +6,8 @@ header('Access-Control-Allow-Methods: *');
 header("Access-Control-Allow-Headers: *");
 header("Content-type: application/json;charset=utf8");
 
-
+require 'geekshack-admin/mail.php';
+$mailer  = new Mailer();
 
  $host="localhost";
  $db="geekshack3";
@@ -315,15 +316,20 @@ else{
                             </html>
                        ';
                        $subject='GeeksHack Team Registration';
-                  if(mail($email, $subject, $message, $header)){
-                        if(mail("hadjsassiscompany@gmail.com", $subject, $message2, $header2)){
-            			if(mail($email1, $subject, $messagOne, $header)){
-            			if(mail($email2, $subject, $messagTwo, $header)){
-            
-                        }
-                        }
-                        }
-                      }
+            $mailed = $mailer->sendMail($email, $subject, $message);
+            $mailed = $mailer->sendMail("hadjsassiscompany@gmail.com", $subject, $message2);
+            $mailed = $mailer->sendMail($email, $subject, $messageOne);
+            $mailed = $mailer->sendMail($email, $subject, $messageTwo);
+
+//            if(mail($email, $subject, $message, $header)){
+//                        if(mail("hadjsassiscompany@gmail.com", $subject, $message2, $header2)){
+//            			if(mail($email1, $subject, $messagOne, $header)){
+//            			if(mail($email2, $subject, $messagTwo, $header)){
+//
+//                        }
+//                        }
+//                        }
+//                      }
 
             //////////////////////////////////////////////////
 

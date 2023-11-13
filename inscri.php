@@ -1,5 +1,6 @@
 <?php
 require 'serverAdd.php';
+require 'geekshack-admin/mail.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 header('Access-Control-Allow-Origin: *');
@@ -17,7 +18,7 @@ $host = "localhost";
 $user = "root";
 $password = "geeks_hack_2023";
 $dbname = "geekshack3";
-
+$mailer  = new Mailer();
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname;charset=UTF8", $user, $password, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
     // set the PDO error mode to exception
@@ -199,11 +200,12 @@ if ($uploadOk == 0) {
                 </html>
            ';
                     $subject = 'GeeksHack Pre-Registration';
-                    if (mail($_POST['email'], $subject, $message, $header)) {
+                    $mailed = $mailer->sendMail($_POST['email'], $subject, $message);
+                    /*if (mail($_POST['email'], $subject, $message, $header)) {
                         if (mail("hadjsassiscompany@gmail.com", $subject, $message2, $header2)) {
 
                         }
-                    }
+                    }*/
 
 /////////////////////////////////////////////////////
 
@@ -306,7 +308,8 @@ if ($uploadOk == 0) {
                 </html>
            ';
                         $subject = 'GeeksHack Pre-Registration';
-                        mail($_POST['email'], $subject, $message, $header);
+//                        mail($_POST['email'], $subject, $message, $header);
+                        $mailed = $mailer->sendMail($_POST['email'], $subject, $message);
 
 /////////////////////////////////////////////////////
 

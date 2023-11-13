@@ -5,6 +5,9 @@ header('Access-Control-Allow-Methods: *');
 
 header("Access-Control-Allow-Headers: *");
 require "config.php";
+require 'geekshack-admin/mail.php';
+$mailer  = new Mailer();
+
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$base", $user, $password);
@@ -89,11 +92,12 @@ else if($hour>12){$greeting='Good Afternoon';}
            ';
          
            $subject='GeeksHack Confirmation';
-      if(mail($email, $subject, $message, $header)){
-           if(mail("hadjsassiscompany@gmail.com", $subject, $message, $header)){
-            
-          } 
-          }
+        $mailed = $mailer->sendMail($email, $subject, $message);
+//      if(mail($email, $subject, $message, $header)){
+//           if(mail("hadjsassiscompany@gmail.com", $subject, $message, $header)){
+//
+//          }
+//          }
 
 
         ////////////////////////

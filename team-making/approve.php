@@ -5,7 +5,8 @@ header('Access-Control-Allow-Methods: *');
 
 header("Access-Control-Allow-Headers: *");
 require "config.php";
-
+require 'geekshack-admin/mail.php';
+$mailer  = new Mailer();
 try {
     $conn = new PDO("mysql:host=$host;dbname=$base", $user, $password);
     // set the PDO error mode to exception
@@ -147,10 +148,11 @@ else if($hour>12){$greeting='Good Afternoon';}
                  </body>  
        </html>
               ';
+               $mailed = $mailer->sendMail($member_one_email, $subject, $message2);
 
-              if(mail($member_one_email, $subject, $message2, $header)){
-            
-            }
+//              if(mail($member_one_email, $subject, $message2, $header)){
+//
+//            }
            }
 
 
@@ -199,19 +201,21 @@ else if($hour>12){$greeting='Good Afternoon';}
                  </body>  
        </html>
               ';
+               $mailed = $mailer->sendMail($member_two_email, $subject, $message3);
 
-              if(mail($member_two_email, $subject, $message3, $header)){
-            
-            }
+//              if(mail($member_two_email, $subject, $message3, $header)){
+//
+//            }
            }
 
 
            /////////////////////////////
-         
-           
-      if(mail($leader_email, $subject, $message, $header)){
-            
-      }
+
+        $mailed = $mailer->sendMail($leader_email, $subject, $message);
+
+//        if(mail($leader_email, $subject, $message, $header)){
+//
+//      }
 
         ////////////////////////
         $res = array ("res" => "Success");
