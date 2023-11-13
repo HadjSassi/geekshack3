@@ -5,7 +5,7 @@ header('Access-Control-Allow-Methods: *');
 
 header("Access-Control-Allow-Headers: *");
 require "config.php";
-require 'geekshack-admin/mail.php';
+require '../mail.php';
 $mailer  = new Mailer();
 try {
     $conn = new PDO("mysql:host=$host;dbname=$base", $user, $password);

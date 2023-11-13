@@ -1,9 +1,10 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 require 'serverAdd.php';
 require 'mail.php';
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+
 $mailer = new Mailer();
 
 //l
