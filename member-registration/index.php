@@ -11,11 +11,12 @@
         body {
             color: white;
             background-image: url('../assets/bg.jpg'); /* Replace with the actual path to your background image */
-            /*background-size: cover;*/
-            /*background-repeat: no-repeat;*/
-            /*background-attachment: fixed;*/
-            /*position: relative; !* Make sure the overlay is positioned relative to this element *!*/
-            backdrop-filter: blur(10px);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            position: relative; /* Make sure the overlay is positioned relative to this element */
+            backdrop-filter: blur(5px);
+            background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to control the opacity */
         }
         #errorModalContent {
             color: black;
@@ -24,10 +25,13 @@
     </style>
 </head>
 <body>
-<video autoplay loop muted>
-    <source src="your-video-file.mp4" type="video/mp4"> <!-- Replace with your video source -->
-    Your browser does not support the video tag.
-</video>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <div class="container" style="margin-top: -9%;">
     <div class="text-center mt-4 mb-4">
         <h1>GeeksHack Pre-Registration Form</h1>
@@ -36,12 +40,12 @@
     <form action="../inscri.php" method="post" enctype="multipart/form-data" onsubmit="return validatePhoneNumber()">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="nom">Nom:</label>
+                <label for="nom">Name:</label>
                 <input type="text" class="form-control" id="nom" name="nom" required>
             </div>
 
             <div class="form-group col-md-6">
-                <label for="prenom">Prénom:</label>
+                <label for="prenom">Prename:</label>
                 <input type="text" class="form-control" id="prenom" name="prenom" required>
             </div>
         </div>
@@ -60,14 +64,25 @@
 
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="ecole">École:</label>
+                <label for="ecole">School, Faculty, Institute...:</label>
                 <input type="text" class="form-control" id="ecole" name="ecole" required>
             </div>
 
             <div class="form-group col-md-6">
-                <label for="preuve_etudiant">Preuve d'étudiant: Photo de la carte étudiant</label>
-                <input type="file" class="form-control-file" id="preuve_etudiant" name="preuve_etudiant" required>
+                <label for="preuve_etudiant">Student Proof:</label>
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" id="preuve_etudiant" name="preuve_etudiant" required>
+                    <label class="custom-file-label" for="preuve_etudiant" id="fileLabel">Choose file</label>
+                </div>
             </div>
+
+            <script>
+                document.getElementById('preuve_etudiant').addEventListener('change', function () {
+                    var fileName = this.value.split("\\").pop(); // Get the file name without the path
+                    document.getElementById('fileLabel').innerText = fileName;
+                });
+            </script>
+
         </div>
 
         <div class="text-center">
@@ -76,10 +91,6 @@
     </form>
 </div>
 
-<video autoplay loop muted>
-    <source src="your-video-file.mp4" type="video/mp4"> <!-- Replace with your video source -->
-    Your browser does not support the video tag.
-</video>
 <script>
     function validatePhoneNumber() {
         const phoneNumberInput = document.getElementById('phone');
@@ -120,5 +131,13 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
 </body>
 </html>
