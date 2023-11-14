@@ -10,7 +10,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CountDown</title>
-    <link rel="icon" type="image/png" href="images/icons/favicon.ico" />
+    <link rel="icon" href="assets/logo-geeks.png"/>
 
     <!--===============================================================================================-->
     <link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
@@ -44,6 +44,7 @@
     <div class="limiter">
         <div class="container-login100">
             <div class="wrap-login100 p-l-85 p-r-85 p-t-55 p-b-55">
+                <h1 class="text-primary"><b>Geeks Hack Starts in</b></h1>
                 <p id="demo"></p>
             </div>
         </div>
