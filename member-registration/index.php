@@ -13,7 +13,7 @@
             background-image: url('../assets/bg.jpg'); /* Replace with the actual path to your background image */
             background-size: cover;
             background-repeat: no-repeat;
-            background-attachment: fixed;
+            /*background-attachment: fixed;*/
             position: relative; /* Make sure the overlay is positioned relative to this element */
             backdrop-filter: blur(5px);
             background-color: rgba(0, 0, 0, 0.5); /* Adjust the last value (0.5) to control the opacity */
@@ -40,12 +40,12 @@
     <form action="../inscri.php" method="post" enctype="multipart/form-data" onsubmit="return validatePhoneNumber()">
         <div class="form-row">
             <div class="form-group col-md-6">
-                <label for="nom">Name:</label>
+                <label for="nom">First Name:</label>
                 <input type="text" class="form-control" id="nom" name="nom" required>
             </div>
 
             <div class="form-group col-md-6">
-                <label for="prenom">Prename:</label>
+                <label for="prenom">Last Name:</label>
                 <input type="text" class="form-control" id="prenom" name="prenom" required>
             </div>
         </div>
@@ -69,7 +69,7 @@
             </div>
 
             <div class="form-group col-md-6">
-                <label for="preuve_etudiant">Student Proof:</label>
+                <label for="preuve_etudiant">Student Proof(Student ID):</label>
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="preuve_etudiant" name="preuve_etudiant" required>
                     <label class="custom-file-label" for="preuve_etudiant" id="fileLabel">Choose file</label>
