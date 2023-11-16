@@ -16,6 +16,7 @@ $link = mysqli_connect('localhost', 'root', "geeks_hack_2023", 'geekshack3');
 // Fetch all candidates ordered by state descending
 $requeteTeam = "SELECT * FROM team ORDER BY state ";
 $resultTeam = mysqli_query($link, $requeteTeam);
+$num_rows = mysqli_num_rows($resultTeam);
 
 ?>
 
@@ -89,7 +90,7 @@ $resultTeam = mysqli_query($link, $requeteTeam);
             <div class="projects">
                 <div class="">
                     <div class="card-header">
-                        <h3>Teams</h3>
+                        <h3>Teams (total: <?php echo $num_rows; ?>)</h3>
                     </div>
 
                     <div class="card-body">
