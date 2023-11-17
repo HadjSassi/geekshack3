@@ -45,7 +45,7 @@ function getProblemDetails($problemFolder) {
     foreach ($problemFiles as $file) {
         $fileName = basename($file);
 
-        // Assuming the filename is in the format "prob1 easy.html"
+        // Assuming the filename is in the format "prob5 easy.html"
         $fileParts = explode(' ', $fileName);
         if (count($fileParts) >= 2) {
             // Extracting difficulty from the filename
