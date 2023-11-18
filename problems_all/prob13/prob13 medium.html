@@ -1,6 +1,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
       rel="stylesheet">
 <meta charset="utf-8" />
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
 <style>
     .title {
         font-weight: 700;
@@ -227,40 +235,41 @@
 
     </div>
     <div class="content1" style="word-break:break-word;">
-    <p>
-        In the midst of a historic struggle for independence, a group of Palestinian Restistance is determined to weaken the formidable Colonist's Iron Dome defense system.<br>
-        They have managed to obtain vital information about the Iron Dome's missile shooters,<br>
-        and their mission is to infiltrate the defense system to disable it.<br>
-        <br>
-        the Colonist state has 'n' cities, numbered with integers from 1 to n.<br>
-        According to the documents in their possession, the Iron Dome's missile shooters are strategically located at a specific distance 'l' from the capital city.<br>
-        The capital city is denoted as city number 's' .<br>
-        Each missile shooter is carefully positioned so that the shortest distance from the capital to the shooter,<br>
-        using the country's road network, equals exactly 'l'.<br>
-        <br>
-        The infiltrators are focused on uncovering the number of missile shooters in the Colonist's territory to aid in their mission to infiltrate the Iron Dome.<br>
-        <br>
-        <i>Input:</i><br>
-        ** The first line contains three integers: n, m, and s (2 ≤ n ≤ 10^5, ≤ m ≤ , 1 ≤ s ≤ n) — representing the number of cities, the number of roads in the Colonist's territory, and the number of the capital city, respectively. The capital city is city number 's'.<br>
-        <br>
-        The following 'm' lines describe the roads in the Colonist's territory. Each road is represented by three integers: v_i, u_i, w_i (1 ≤ v_i, u_i ≤ n, v_i ≠ u_i, 1 ≤ w_i ≤ 1000), where v_i and u_i are city numbers connected by the road, and w_i is the length of the road between them.<br>
-        <br>
-        The last input line contains an integer 'l' (0 ≤ l ≤ 10^9) — representing the distance from the capital to the missile shooters.<br>
-        <br>
-        It is guaranteed that:<br>
-        <br>
-        *Only one road exists between any two cities.<br>
-        *All roads connect different cities.<br>
-        *There is a path from any city to any other city in the Colonist's territory using the road network.<br>
-        <br>
-        <i>Output:</i><br>
-        ** Print a single integer — the number of Iron Dome missile shooters located in the Colonist's territory.
-        <br>
-        <br>
-        <img  style="margin-left: 20%" width="50%" src="../../assets/problemsPics/Medium%20-%20Iron%20dome%20examples%20explained.PNG" alt="">
-        <br>
-    </p>
-</div>
+        <p>
+            In the midst of a historic struggle for independence, a group of Palestinian Resistance is determined to weaken the formidable Colonist's Iron Dome defense system.<br>
+            They have managed to obtain vital information about the Iron Dome's missile shooters,<br>
+            and their mission is to infiltrate the defense system to disable it.<br>
+            <br>
+            The Colonist state has 'n' cities, numbered with integers from 1 to n.<br>
+            According to the documents in their possession, the Iron Dome's missile shooters are strategically located at a specific distance 'l' from the capital city.<br>
+            The capital city is denoted as city number 's' .<br>
+            Each missile shooter is carefully positioned so that the shortest distance from the capital to the shooter,<br>
+            using the country's road network, equals exactly 'l'.<br>
+            <br>
+            The infiltrators are focused on uncovering the number of missile shooters in the Colonist's territory to aid in their mission to infiltrate the Iron Dome.<br>
+            <br>
+            <i>Input:</i><br>
+            ** The first line contains three integers: \(n\), \(m\), and \(s\) (\(2 \leq n \leq 10^5\), \(m \leq\), \(1 \leq s \leq n\)) — representing the number of cities, the number of roads in the Colonist's territory, and the number of the capital city, respectively. The capital city is city number \(s\).<br>
+            <br>
+            The following 'm' lines describe the roads in the Colonist's territory. Each road is represented by three integers: \(v_i, u_i, w_i\) (\(1 \leq v_i, u_i \leq n\), \(v_i \neq u_i\), \(1 \leq w_i \leq 1000\)), where \(v_i\) and \(u_i\) are city numbers connected by the road, and \(w_i\) is the length of the road between them.<br>
+            <br>
+            The last input line contains an integer 'l' (\(0 \leq l \leq 10^9\)) — representing the distance from the capital to the missile shooters.<br>
+            <br>
+            It is guaranteed that:<br>
+            <br>
+            *Only one road exists between any two cities.<br>
+            *All roads connect different cities.<br>
+            *There is a path from any city to any other city in the Colonist's territory using the road network.<br>
+            <br>
+            <i>Output:</i><br>
+            ** Print a single integer — the number of Iron Dome missile shooters located in the Colonist's territory.
+            <br>
+            <br>
+            <img style="margin-left: 25%" width="50%" src="../../assets/problemsPics/Medium%20-%20Iron%20dome%20examples%20explained.PNG" alt="">
+            <br>
+        </p>
+
+    </div>
 <div class="content3" style="padding: 2px 0;">
     <ul>
         <li>

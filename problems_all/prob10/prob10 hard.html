@@ -1,6 +1,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
       rel="stylesheet">
 <meta charset="utf-8" />
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
 <style>
     .title {
         font-weight: 700;
@@ -226,33 +234,32 @@
         </ul>
 
     </div>
-    <div class="content1" style="word-break:break-word;"
-    ">
-    <p>
-        Bachka and Ashref are engaged in an intriguing card game. On the table, there are 'n' stack of cards, each stack containing positive integers on the cards.<br>
-        <br>
-        The game unfolds with Bachka taking the first turn, followed by Ashref. In each turn, Bachka selects a card from the top of any non-empty stack,<br>
-        while Ashref takes a card from the bottom of any non-empty stack. The goal for both players is to maximize the total sum of the cards they acquire during the game.<br>
-        The game continues until all the piles become empty.<br>
-        <br>
-        Assuming Bachka and Ashref play smart and optimally, your task is to determine the final score of the game.<br>
-        <br>
-        <i>Input:</i><br>
-        ** The first line contains an integer 'n' (1 ≤ n ≤ 100) — representing the number of card piles on the table.<br>
-        <br>
-        Each of the following 'n' lines provides a description of a pile: the first integer 's_i' is the number of cards in the 'i-th' pile (1 ≤ s_i ≤ 100),<br>
-        followed by 's_i' positive integers 'c_1, c_2, ..., c_k, ..., c_si' (1 ≤ c_k ≤ 1000) — representing the sequence of numbers on the cards from the top of the pile to the bottom.<br>
-        <br>
-        <br>
-        <i>Output:</i><br>
-        ** Print two integers: the sum of Bachka's cards and the sum of Ashref's cards if they both play optimally.
-        <br>
-        <br>
-        <img width="50%" style="margin-left: 20%" src="../../assets/problemsPics/who%20wins%201.png" alt="">
-        <img width="50%" style="margin-left: 20%" src="../../assets/problemsPics/who%20wins%202.png" alt="">
-    </p>
+    <div class="content1" style="word-break:break-word;">
+        <p>
+            Bachka and Ashref are engaged in an intriguing card game. On the table, there are 'n' stack of cards, each stack containing positive integers on the cards.<br>
+            <br>
+            The game unfolds with Bachka taking the first turn, followed by Ashref. In each turn, Bachka selects a card from the top of any non-empty stack,<br>
+            while Ashref takes a card from the bottom of any non-empty stack. The goal for both players is to maximize the total sum of the cards they acquire during the game.<br>
+            The game continues until all the piles become empty.<br>
+            <br>
+            Assuming Bachka and Ashref play smart and optimally, your task is to determine the final score of the game.<br>
+            <br>
+            <i>Input:</i><br>
+            ** The first line contains an integer \(n\) (1 ≤ \(n\) ≤ 100) — representing the number of card piles on the table.<br>
+            <br>
+            Each of the following \(n\) lines provides a description of a pile: the first integer \(s_i\) is the number of cards in the 'i-th' pile (1 ≤ \(s_i\) ≤ 100),<br>
+            followed by \(s_i\) positive integers \(c_1, c_2, ..., c_k, ..., c_{s_i}\) (1 ≤ \(c_k\) ≤ 1000) — representing the sequence of numbers on the cards from the top of the pile to the bottom.<br>
+            <br>
+            <br>
+            <i>Output:</i><br>
+            ** Print two integers: the sum of Bachka's cards and the sum of Ashref's cards if they both play optimally.
+            <br>
+            <br>
+            <img width="50%" style="margin-left: 25%" src="../../assets/problemsPics/who%20wins%201.png" alt="">
+            <img width="50%" style="margin-left: 25%" src="../../assets/problemsPics/who%20wins%202.png" alt="">
+        </p>
 </div>
-<div class="content3" style="padding: 2px 0;">
+<div class="content3" style="padding: 2px 0;    ">
     <ul>
         <li>
             <div class="li_container">

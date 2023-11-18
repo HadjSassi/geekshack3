@@ -1,5 +1,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
 <style>
     .title{
         font-weight: 700;
@@ -213,7 +220,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li >
-                <div class="title">Bad Neighbourhoods </div>
+                <div class="title">More Palindromes </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -223,24 +230,24 @@
         </ul>
 
     </div>
-    <div class="content1" style="word-break:break-word;"">
+    <div class="content1" style="word-break:break-word;">
         <p>
-            In "Medina alArbi", entrepreneurs Ali and Iheb manage their trade locations.<br>    
-            Each of them oversees specific points for their business activities. Due to persistent conflicts among their subordinates, 
-            Ali and Iheb decided to establish a boundary in the form of a circle. The condition is that the trade points of one entrepreneur must be strictly within the circle, 
+            In "Medina alArbi", entrepreneurs Ali and Iheb manage their trade locations.<br>
+            Each of them oversees specific points for their business activities. Due to persistent conflicts among their subordinates,
+            Ali and Iheb decided to establish a boundary in the form of a circle. The condition is that the trade points of one entrepreneur must be strictly within the circle,
             while the points of the other must be strictly outside. The decision of which entrepreneur has trade points inside the circle is arbitrary.<br>
-            <br>    
+            <br>
             Determine whether they can successfully establish the boundary or not.
             <br>
             <br>
-            <i>Input:</i><br> 
-            ** The first line contains two integers n and m (1≤n,m≤10000), representing the number of trade points for Ali and Iheb, respectively.
+            <i>Input:</i><br>
+            ** The first line contains two integers \(n\) and \(m\) (1 ≤ n, m ≤ 10000), representing the number of trade points for Ali and Iheb, respectively.
             <br>
-            ** The next n lines contain pairs of space-separated integers Ax, Ay ( - 10^4 ≤ Ax, Ay ≤ 10^4), representing the coordinates of Ali's trade points.
+            ** The next \(n\) lines contain pairs of space-separated integers \(Ax, Ay\) (\(-10^4 \leq Ax, Ay \leq 10^4\)), representing the coordinates of Ali's trade points.
             <br>
-            ** The next m lines contain pairs of space-separated integers Ix, Iy ( - 10^4 ≤ Ix, Iy ≤ 10^4), representing the coordinates of Iheb's trade points.
+            ** The next \(m\) lines contain pairs of space-separated integers \(Ix, Iy\) (\(-10^4 \leq Ix, Iy \leq 10^4\)), representing the coordinates of Iheb's trade points.
             <br>
-            ** It is guaranteed that all n+m points are all distinct.
+            ** It is guaranteed that all \(n+m\) points are all distinct.
             <br>
             <i>Output:</i><br>
             ** The only output line should contain either the word "YES" (without quotes) if it is possible to establish such a boundary or the word "NO" if it is not possible.
@@ -248,6 +255,7 @@
 
             <!-- hatha ana katobo a verifier -->
         </p>
+
     </div>
     <div class="content3" style="padding: 2px 0;">
         <ul>
@@ -265,7 +273,7 @@
         <table class="content_table">
             <thead>
                 <tr>
-                    <th>Input:(image needed)!!! </th>
+                    <th>Input</th>
                     <th>Output</th>
                 </tr>
             </thead>

@@ -1,6 +1,14 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
       rel="stylesheet">
 <meta charset="utf-8" />
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
 <style>
     .title {
         font-weight: 700;
@@ -226,34 +234,28 @@
         </ul>
 
     </div>
-    <div class="content1" style="word-break:break-word;"
-    ">
-    <p>
-        Imagine you're playing Candy Crush for the first time, and you've just completed the levels in the first candy
-        box.<br>
-        Each level is characterized by two integers:<br>
-        ai -> the minimum number of moves needed to complete the level with one star,<br>
-        bi -> the minimum number of moves needed to complete the level with two stars (ai < bi).<br>
-        <br>
-        To unlock the next candy box as quickly as possible, you aim to earn at least 'z' stars.<br>
-        Your goal is to determine the minimum number of moves required to achieve this.<br>
-        Note that each level can only be completed once, either with one star or two stars.<br>
-        You do not necessarily need to complete all the levels.<br>
-        <br>
-        <i>Input:</i><br>
-        ** The first line contains two integers 'n' and 'z' (1 ≤ n ≤ 300000 ; 1 ≤ z ≤ 2n) —<br>
-        representing the number of levels in the first candy box and the number of stars you need to unlock the next
-        candy box.<br>
-        <br>
-        Each of the following 'n' lines contains two integers 'ai' and 'bi' (1 ≤ ai < bi ≤ 10^9) — the attributes of the
-        'i-th' level.<br>
-        <br>
-        <i>Output:</i><br>
-        ** Print a single integer 't' — the minimum number of moves required to unlock the next candy box as quickly as
-        possible.<br>
-        <br>
-    </p>
-</div>
+    <div class="content1" style="word-break: break-word;">
+        <p>
+            Imagine you're playing Candy Crush for the first time, and you've just completed the levels in the first candy box.<br>
+            Each level is characterized by two integers:<br>
+            \(a_i\) -> the minimum number of moves needed to complete the level with one star,<br>
+            \(b_i\) -> the minimum number of moves needed to complete the level with two stars (\(a_i < b_i\)).<br>
+            <br>
+            To unlock the next candy box as quickly as possible, you aim to earn at least 'z' stars.<br>
+            Your goal is to determine the minimum number of moves required to achieve this.<br>
+            Note that each level can only be completed once, either with one star or two stars.<br>
+            You do not necessarily need to complete all the levels.<br>
+            <br>
+            <i>Input:</i><br>
+            ** The first line contains two integers 'n' and 'z' (\(1 \leq n \leq 300000\); \(1 \leq z \leq 2n\)) —<br>
+            representing the number of levels in the first candy box and the number of stars you need to unlock the next candy box.<br>
+            <br>
+            Each of the following 'n' lines contains two integers \(a_i\) and \(b_i\) (\(1 \leq a_i < b_i \leq 10^9\)) — the attributes of the 'i-th' level.<br>
+            <br>
+            <i>Output:</i><br>
+            ** Print a single integer 't' — the minimum number of moves required to unlock the next candy box as quickly as possible.<br>
+        </p>
+    </div>
 <div class="content3" style="padding: 2px 0;">
     <ul>
         <li>

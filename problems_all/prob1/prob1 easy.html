@@ -1,5 +1,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
 <style>
     .title{
         font-weight: 700;
@@ -223,23 +230,23 @@
         </ul>
 
     </div>
-    <div class="content1" style="word-break:break-word;"">
+    <div class="content1" style="word-break: break-word;">
         <p>
             Algebra! Remember algebra? There is a theory that as engineers progress further and further in
             their studies, they lose basic math skills. This problem is designed to help you remember those basic
             algebra skills, make the world a better place, etc...<br>
             <br>
-            <i>Input:</i><br> 
+            <i>Input:</i><br>
             ** Your program should accept an 'even' number of lines of text. Each pair of lines will represent one
-            problem. The first line will contain a list of integers {c0, c1, . . . , cn} which represent a set of coefficients
-            to a polynomial expression. The order of the polynomial is n. The coefficients should be paired with
+            problem. The first line will contain a list of integers \( \{c_0, c_1, \ldots, c_n\} \) which represent a set of coefficients
+            to a polynomial expression. The order of the polynomial is \( n \). The coefficients should be paired with
             the terms of the polynomial in the following manner:<br>
-            c0xn + c1xn−1 + · · · + cnx0<br>
-            The second line of text represents a sequence of values for x, {x0, x1, . . . , xm}.<br>
+            \( c_0x^n + c_1x^{n-1} + \ldots + c_nx^0 \)<br>
+            The second line of text represents a sequence of values for \( x \), \( \{x_0, x_1, \ldots, x_m\} \).<br>
             <br>
             <i>Output:</i><br>
-            ** For each pair of lines, your program should evaluate the polynomial for all the values of x (x0 through
-            xm) and output the resulting values on a single line.<br>
+            ** For each pair of lines, your program should evaluate the polynomial for all the values of \( x \) (\( x^0 \) through
+            \( x^m \)) and output the resulting values on a single line.<br>
         </p>
     </div>
     <div class="content3" style="padding: 2px 0;">

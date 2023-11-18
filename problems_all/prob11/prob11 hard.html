@@ -1,11 +1,21 @@
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet">
+<meta charset="utf-8" />
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
 <style>
-    .title{
+    .title {
         font-weight: 700;
         font-family: 'Titillium Web', sans-serif;
 
     }
+
     .container {
         width: 100%;
         grid-template-columns: 2fr 2fr 1fr;
@@ -26,7 +36,7 @@
         grid-column-start: 1;
         grid-column-end: 4;
         border-radius: 5px;
-        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
         font-size: 18px;
         color: cornsilk;
         font-family: 'Titillium Web', sans-serif;
@@ -56,10 +66,11 @@
 
     }
 
-    .content1,.content21,.content22,.content3,.content4,.content5,.content6{
+    .content1, .content21, .content22, .content3, .content4, .content5, .content6 {
         font-family: 'Titillium Web', sans-serif;
         border-radius: 5px;
     }
+
     .content1 {
         grid-column-start: 1;
         grid-column-end: 3;
@@ -71,7 +82,7 @@
         font-weight: 600;
         font-size: 15px;
         padding: 5px 40px;
-        
+
     }
 
     .content21 {
@@ -79,7 +90,7 @@
         grid-column-end: 4;
         grid-row-start: 2;
         grid-row-end: 3;
-        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
 
         color: white;
         border: none;
@@ -99,7 +110,7 @@
         grid-row-start: 3;
         padding: 0.5em auto;
         grid-row-end: 4;
-        background-image: linear-gradient(115deg,#25304e 1%,#010c24) ;
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
         color: cornsilk;
     }
 
@@ -134,13 +145,13 @@
         border-collapse: collapse;
         margin: 25px 0;
         min-width: fit-content;
-        
+
     }
 
     .content_table thead tr {
         color: cornsilk;
         letter-spacing: 8px;
-        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
         text-align: left;
     }
 
@@ -178,7 +189,7 @@
         grid-column-end: 3;
         grid-row-start: 4;
         grid-row-end: 5;
-        
+
         padding: 0 15px;
     }
 
@@ -201,9 +212,9 @@
         grid-column-end: 4;
         margin: 2em auto;
         padding: 5px 0;
-        font-weight:500;
+        font-weight: 500;
         border-radius: 5px;
-        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
         color: white;
         font-family: 'Titillium Web', sans-serif;
 
@@ -212,8 +223,8 @@
 <div class="container" style="overflow: hidden;">
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
-            <li >
-                <div class="title"> Nizarian Number </div>
+            <li>
+                <div class="title">2045</div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -223,82 +234,99 @@
         </ul>
 
     </div>
-    <div class="content1" style="word-break:break-word;"">
+    <div class="content1" style="word-break:break-word;">
         <p>
-            The teacher gave you homework, you have to identify the Nizarian numbers among the rest.
-            A Nizarian number presents, in his fractional part ( After "," ), a group of N digits ( N in [1,20] ) repeated infinitely  
-
-            .<br>
+            BI saw somewhere that by 2045,<br>
+            AI will overtake the world and no human will be better than an AI at any job,<br>
+            what do you think ?<br>
+            See, being a Geek I ignored the statement and found something pretty interesting :<br>
+            2045's representation in binary has only one zero!<br>
+            2015 -> '11111111101'<br>
+            Your task is to count all the years within a given interval that share this peculiar property:<br>
+            having just one zero in their binary representation.<br><br>
+            <i>Input:</i><br>
+            ** The input consists of a single line containing two integers 'x' and 'y' (1 ≤ x ≤ y ≤ $10^{14}$) — representing the first year and the last year of the interval.
             <br>
-            <i>Input:</i><br> 
-            ** The input is a fractional number<br>
+            <br>
             <i>Output:</i><br>
-            ** 1st Line: Valid/Not Valid <br>
-            ** 2nd Line: if Valid display the repeating sequence
-            else nothing<br>
-            <!-- hatha ana katobo a verifier -->
+            ** Print a single integer — the number of years within the chosen interval that have only one zero
+            in their binary representation.
+            <br>
+            <br>
         </p>
-    </div>
-    <div class="content3" style="padding: 2px 0;">
-        <ul>
-            <li>
-                <div class="li_container">
-                    <!-- <div class="icon">
-                        <i class="far fa-keyboard"></i>
-                    </div> -->
-                    <div class="title" style="font-size:16px ;"> Example :</div>
-                </div>
-            </li>
-        </ul>
-    </div>
-    <div class="content4" style="color:#010c24;">
-        <table class="content_table">
-            <thead>
-                <tr>
-                    <th>Input </th>
-                    <th>Output</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>
-                        5/7
-                    </td>
-                    <td>
-                        Valid
-                        <br>
-                        714285
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="content21">
-        <ul>
-            <li class="title" style="font-size:16px ;"> Notes </li>
-        </ul>
-        <ul class="content22">
-            <ol style="font-size: 12px;">If the number is not Nizarian, display only " Not Valid "</ol>
-        </ul>
-    </div>
-    <div class="content5" >
-        
-    </div>
-    <!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
-        <div> explanation </div>
-        <p> caller, callar, recall are the only equivalent words.</p>
-    </div> -->
-    <div class="footer"> 
-        <ul>
-            <li style="font-weight: bold;">Quote</li>
-        </ul>
-        <ul>
-            <ol style="letter-spacing: 3px;">
-                "Debug your skills... <br> Compile your world"
-            </ol>
-        </ul>    
-    </div>
+</div>
+<div class="content3" style="padding: 2px 0;">
+    <ul>
+        <li>
+            <div class="li_container">
+                <!-- <div class="icon">
+                    <i class="far fa-keyboard"></i>
+                </div> -->
+                <div class="title" style="font-size:16px ;"> Example :</div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="content4" style="color:#010c24;">
+    <table class="content_table">
+        <thead>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                100 105<br>
+            </td>
+            <td>
+                0<br>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                5 10<br>
+            </td>
+            <td>
+                2<br>
+            </td>
+        </tr>
 
+        </tbody>
+    </table>
+</div>
+<div class="content21">
+    <ul>
+        <li class="title" style="font-size:16px ;"> Notes</li>
+    </ul>
+    <ul class="content22">
+        <ol style="font-size: 12px;">
+            In the first sample Limak's interval contains numbers 5_10 = 101_2, 6_10 = 110_2, 7_10 = 111_2, 8_10 = 1000_2, 9_10 = 1001_2 and 10_10 = 1010_2.
+            Two of them (1012 and 1102) have the described property.<br>
+            ----------------------------------------------------------------------------<br>
+            hint(WILL NOT BE SHOWN TO PLAYERS!!): get the numbers that are all 1's and subtract a power of 2 ;<br>
+            getting the all 1s => they all can be written like \( (2^x) - 1 \)<br>
+        </ol>
+    </ul>
+</div>
+<div class="content5">
+
+</div>
+<!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
+    <div> explanation </div>
+    <p> caller, callar, recall are the only equivalent words.</p>
+</div> -->
+<div class="footer">
+    <ul>
+        <li style="font-weight: bold;">Quote</li>
+    </ul>
+    <ul>
+        <ol style="letter-spacing: 3px;">
+            "Debug your skills... <br> Compile your world"
+        </ol>
+    </ul>
+</div>
 
 
 </div>
