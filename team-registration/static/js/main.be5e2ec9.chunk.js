@@ -224,7 +224,7 @@
                                     children: Object(O.jsx)("strong", {children: "*Make sure to provide us with a photo of your payment receipt"})
                                 }), Object(O.jsxs)("p", {
                                     style: {paddingLeft: "2%", color: "#1c83d1"},
-                                    children: ["*You have to pay ", Object(O.jsxs)("strong", {children: [25 + xe + Se, " DT"]}), " by money transfer through ", Object(O.jsx)("strong", {children: "D17"}), " app ", Object(O.jsx)("strong", {children: "43308524"})]
+                                    children: ["*You have to pay ", Object(O.jsxs)("strong", {children: [25 + xe + Se, " DT"]}), " by money transfer through ", Object(O.jsx)("strong", {children: "D17"}), " app ", Object(O.jsx)("strong", {children: "56634942"})]
                                 }), Object(O.jsxs)("label", {
                                     className: "doc", children: [Object(O.jsx)(l.a, {
                                         icon: d.a, style: {paddingRight: "1%"}
