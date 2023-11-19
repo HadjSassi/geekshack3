@@ -34,7 +34,7 @@ use function PHPSTORM_META\type;
 					$_SESSION["index"]=0;
 					$_SESSION["seconds"]=0;
 					$_SESSION["numProb"]=0;
-					for ($i = 1; $i <= 6; $i++) {
+					for ($i = 1; $i <= 10; $i++) {
 						// echo "problems/".$prob_name."/input".$i.".txt";
 						// echo "<br>";
 						$_SESSION["numProb"]=$i;
@@ -86,7 +86,7 @@ use function PHPSTORM_META\type;
 			$stmt = $conn->prepare($sql);
 			$stmt->execute();
 			$scoreTousEquipesParProbleme=$stmt->fetchAll()[0][0];
-			$avrege=($scoreTousEquipesParProbleme-$res[0][0])/($numberOfTeam*60);
+			$avrege=($scoreTousEquipesParProbleme-$res[0][0])/($numberOfTeam*100);
 			$score_final+=$bonuse*pow((1-$avrege),2);
 			$score_final=number_format($score_final,3);
 		}
@@ -105,7 +105,7 @@ use function PHPSTORM_META\type;
 		//echo "<td><img src=\"images/icons/score.png\" width=\"100\" height=\"80\"></td>";
 		echo "<td><h5 style='color:white;font-family:Titillium Web, sans-serif;'>Execution Time :".intval($_SESSION["seconds"]*1000)."ms</h5></td>";
 		echo "<td><h3 style='color:white;font-family:Titillium Web, sans-serif;'>Total Score in this Probleme :" .intval($score_final) . " ( <b style=\"color:#ff7676;\">$pourcentage%</b> )</h3></td>";
-		echo "<td><h4 style='color:white;font-family:Titillium Web, sans-serif;'>TESTS :" .round($pourcentage*6/100)."/6</h4></td>";
+		echo "<td><h4 style='color:white;font-family:Titillium Web, sans-serif;'>TESTS :" .round($pourcentage*10/100)."/10</h4></td>";
 		
 		//echo "</tr></table>";
 
