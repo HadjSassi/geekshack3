@@ -252,7 +252,7 @@
                                     className: "btc",
                                     children: [Object(f.jsx)("p", {
                                         style: {color: "#1c83d1", paddingLeft: "1em"},
-                                        children: Object(f.jsx)("strong", {children: "You can skip this step if you are a solo candidate !"})
+                                        children: Object(f.jsx)("strong", {children: ""})
                                     }), Object(f.jsx)("input", {
                                         type: "button",
                                         value: "Previous",

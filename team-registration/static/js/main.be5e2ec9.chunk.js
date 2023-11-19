@@ -202,7 +202,7 @@
                                 }), Object(O.jsxs)("div", {
                                     className: "btc", children: [Object(O.jsx)("p", {
                                         style: {color: "#1c83d1", paddingLeft: "1em"},
-                                        children: Object(O.jsx)("strong", {children: "You can skip this step if you are a solo candidate !"})
+                                        children: Object(O.jsx)("strong", {children: ""})
                                     }), Object(O.jsx)("input", {
                                         type: "button", value: "Previous", className: "btn", onClick: function () {
                                             Ye(1)
