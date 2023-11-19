@@ -90,7 +90,7 @@ use function PHPSTORM_META\type;
 			$score_final+=$bonuse*pow((1-$avrege),2);
 			$score_final=number_format($score_final,3);
 		}
-		if($res[0][0]<=65)
+		if($res[0][0]<=160)
 		{
 			try {
 				$sql = "UPDATE score set " . $namep . "=" . $score_final . " where id_team =" . $team_id . ";";
