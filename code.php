@@ -349,7 +349,7 @@ else {
 							<option value="Select" disabled selected>Select Your langage</option>
 							<option value="c">C</option>
 							<option value="cpp11">C++</option>
-							<option value="java">Java</option>
+							<option value="java">Java 17</option>
 							<option value="python3.2">Python3</option>
 
 						</select>
