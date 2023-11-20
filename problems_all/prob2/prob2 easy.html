@@ -229,7 +229,7 @@
             <br>
             Professor Polygon, the town's math enthusiast, needs your help. He's tangled up in geometry knots and can't calculate where the magical ball will end up after a set number of bounces. It's time for you, the programming geek, to unveil the secrets of this bouncing ball.<br>
             <br>
-            You are given a rectangular box. Inside this box, there is a ball initially located at coordinates (x, y),<br>
+            You are given a rectangular box(the rectangle bottom left vertex is always on coordinates (0,0) ). Inside this box, there is a ball initially located at coordinates (x, y),<br>
             and it is launched with an initial velocity vector (vx, vy).<br>
             <br>
             *The ball obeys the laws of physics and bounces off the walls of the box according to the following rules:<br>
@@ -241,16 +241,19 @@
             Your task is to determine the final position of the ball after K bounces!<br>
             <br>
             <i>Input:</i><br>
-            ** The first line of the input contains an integer t (1≤t≤100) — the number of test cases.<br>
             <br>
-            for each test case line of input consists of five space-seperated integers : l, h, x, y, vx, vy, K (1 ≤ l, h, x, y, K ≤ 1000).<br>
-            vx, vy (1 ≤ vx,vy ≤ 100)<br>
+            One line of input consists of seven space-seperated integers : l, h, x, y, vx, vy, K <br>
+            (1 ≤ l, h ≤ 10000)<br>
+            (0<=K ≤ 10000) <br>
+            (0 <=x, y<=10000).<br>
+            (0 ≤ vx,vy ≤ 10000)<br>
             The input is such that the ball always starts inside the box(or on one of the edges).<br>
             <br>
             <br>
             <i>Output:</i><br>
-            ** For each test case print the final coordinates (x_final, y_final) of the ball after K bounces, each separated by a space.
-            note: if x_final and y_final are decimals (ex 2.5) return the floored value (in this case 2)<br>
+            ** For each test case print the final coordinates ({x_final}, {y_final}) of the ball after K bounces, each separated by a space.
+            
+                --------------------!IMAGE!-----------------------
         </p>
     </div>
     <div class="content3" style="padding: 2px 0;">
@@ -286,14 +289,14 @@
             </tbody>
         </table>
     </div>
-    <!--<div class="content21">
+    <div class="content21">
         <ul>
             <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">If the number is not Nizarian, display only " Not Valid "</ol>
+            <ol style="font-size: 12px;">If {x_final} and {y_final} are decimals (ex 2.5) return the floored value (in this case 2)<br></ol>
         </ul>
-    </div>-->
+    </div>
     <div class="content5" >
         
     </div>
