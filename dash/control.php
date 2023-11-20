@@ -165,8 +165,12 @@ foreach ($problemFolders as $problemFolder) {
                                 <tbody>
                                 <?php foreach ($problemsData as $problem) { ?>
                                     <tr>
+                                        <?php
+                                        // Extract only numeric part from problem number
+                                        $numericProblemNumber = preg_replace('/[^\d]/', '', $problem['problemNumber']);
+                                        ?>
                                         <td onclick="window.location.href='../problems_all/<?php echo $problem['problemNumber']; ?>/<?php echo $problem['problemNumber']; ?> <?php echo $problem['difficulty']; ?>.html'"
-                                            style="cursor: pointer;"><?php echo $problem['problemNumber']; ?></td>
+                                            style="cursor: pointer;"><?php echo $numericProblemNumber; ?></td>
                                         <td onclick="window.location.href='../problems_all/<?php echo $problem['problemNumber']; ?>/<?php echo $problem['problemNumber']; ?> <?php echo $problem['difficulty']; ?>.html'"
                                             style="cursor: pointer;"><?php echo $problem['problemName']; ?></td>
                                         <td onclick="window.location.href='../problems_all/<?php echo $problem['problemNumber']; ?>/<?php echo $problem['problemNumber']; ?> <?php echo $problem['difficulty']; ?>.html'"
