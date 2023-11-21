@@ -2,8 +2,10 @@
 session_start();
 $prob_name = $_SESSION['namep'];
 $id = $_SESSION['ID'];
-$timeing = 1;
-$CC = "timeout ".$timeing."s python3";
+// Read timeout value from file, default to 3 seconds if not available
+$timeoutFilePath = "problems/".$prob_name."/titre.txt";
+$timeing = (file_exists($timeoutFilePath) && ($lines = file($timeoutFilePath)) && isset($lines[1])) ? intval(trim($lines[1])) : 2;
+$CC = "timeout 1s python3";
 $code = $_POST["code"];
 //$input = $_POST["input"];
 $input = $inputContent;
