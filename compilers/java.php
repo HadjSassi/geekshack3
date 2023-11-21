@@ -5,7 +5,10 @@ $input = $inputContent;
 $prob_name = $_SESSION['namep'];
 $id = $_SESSION['ID'];
 $CC = "javac";
-$out = "timeout 2s java Main";
+// Read timeout value from file, default to 3 seconds if not available
+$timeoutFilePath = "problems/".$prob_name."/titre.txt";
+$timeing = (file_exists($timeoutFilePath) && ($lines = file($timeoutFilePath)) && isset($lines[1])) ? intval(trim($lines[1])) : 2;
+$out = "timeout ".$timeing."s java Main";
 //$input=$_POST["input"];
 
 $filename_error = "error.txt";

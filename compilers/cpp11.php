@@ -4,8 +4,10 @@ $prob_name = $_SESSION['namep'];
 $id = $_SESSION['ID'];
 
 $filename_error = "error.txt";
-
-$out = "timeout 2s ./a.out";
+// Read timeout value from file, default to 3 seconds if not available
+$timeoutFilePath = "problems/".$prob_name."/titre.txt";
+$timeing = (file_exists($timeoutFilePath) && ($lines = file($timeoutFilePath)) && isset($lines[1])) ? intval(trim($lines[1])) : 2;
+$out = "timeout ".$timeing."s ./a.out";
 
 $runtime_file = "runtime.txt";
 //$input=$_POST["input"];
