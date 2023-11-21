@@ -52,7 +52,7 @@ if (trim($error) == "") {
     }
 
 
-    if ($seconds >= 2 && $_SESSION["index"] == 0) {
+    if ($seconds >= $timeing && $_SESSION["index"] == 0) {
         echo '<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
 			<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired</h3>
 			</fieldset>';
