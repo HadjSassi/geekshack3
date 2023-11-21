@@ -17,13 +17,14 @@ $file_in = fopen("scode/" . $id . "/" . $prob_name . "/" . $filename_in, "w+");
 fwrite($file_in, $input);
 fclose($file_in);
 
-$executionStartTime = microtime(true);
+
 $error = file_get_contents("scode/" . $id . "/" . $prob_name . "/" . $filename_error);
 
 $expectedOutput = file_get_contents("problems/" . $prob_name . "/output" . $i . ".txt");
 if (trim($error) == "") {
+    $executionStartTime = microtime(true);
 	shell_exec("cd scode/" . $id . "/" . $prob_name . "; " . $runtime_error_command);
-
+    $executionEndTime = microtime(true);
 
 	$runtime_error = file_get_contents("scode/" . $id . "/" . $prob_name . "/" . $runtime_file);
 	if (trim($input) == "") {
@@ -39,7 +40,7 @@ if (trim($error) == "") {
 		$score = 10;
 		$score_final += 10;
 	}
-	$executionEndTime = microtime(true);
+
 	$seconds = $executionEndTime - $executionStartTime;
 	$seconds = sprintf('%0.8f', $seconds);
 
@@ -60,15 +61,17 @@ if (trim($error) == "") {
 	}
 	
 	if($expectedOutput!=trim($output,"\n") && $_SESSION["index"]==0){
-		echo '
-				<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
-					<h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
-					<pre style="font-size:20px;color:white;">Input :<br>'.$input.'</pre>
-					<pre style="font-size:20px;color:white;">Expected Output :<br>'.$expectedOutput.'</pre>
-					<pre style="font-size:20px;color:white;">Your Output :<br>'.$output.'</pre>
-				</fieldset>';
-		$_SESSION["index"]++;
-	}
+        if ($_SESSION["numProb"] <= 4) { // Check if it's one of the first four test cases
+            echo '
+            <fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
+                <h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
+                <pre style="font-size:20px;color:white;">Input :<br>' . $input . '</pre>
+                <pre style="font-size:20px;color:white;">Expected Output :<br>' . $expectedOutput . '</pre>
+                <pre style="font-size:20px;color:white;">Your Output :<br>' . $output . '</pre>
+            </fieldset>';
+            $_SESSION["index"]++;
+        }
+    }
 
 
 	// echo "<tr>
