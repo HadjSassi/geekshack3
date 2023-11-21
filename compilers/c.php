@@ -5,6 +5,7 @@ $id = $_SESSION['ID'];
 // Read timeout value from file, default to 3 seconds if not available
 $timeoutFilePath = "problems/".$prob_name."/titre.txt";
 $timeing = (file_exists($timeoutFilePath) && ($lines = file($timeoutFilePath)) && isset($lines[1])) ? intval(trim($lines[1])) : 2;
+$timeing /= 10;
 $out = "timeout ".$timeing."s ./a.out";
 $code = $_POST["code"];
 //$input=$_POST["input"];
