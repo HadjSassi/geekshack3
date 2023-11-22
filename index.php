@@ -384,9 +384,11 @@ else {
                                 echo "<input type=hidden name=\"file_name\" value= 'prob$i $key.html'>";
                                 echo "<div class='mt-5'>
                             <h3 style=''>";
-                            
-           
-                                echo file_get_contents("problems/prob" . $i . "/titre.txt");
+
+                                $pathss = "problems/prob" . $i . "/titre.txt";
+                                $problemName = (file_exists($pathss) && ($lines = file($pathss)) && isset($lines[0])) ? intval(trim($lines[0])) : "";
+                                echo $problemName;
+//                                echo file_get_contents("problems/prob" . $i . "/titre.txt");
                             
                             echo "</h3>
                             <div id='cont'>
