@@ -224,7 +224,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li>
-                <div class="title"> Lexico Palindromes </div>
+                <div class="title"> TV </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -236,33 +236,22 @@
     </div>
     <div class="content1" style="word-break:break-word;">
         <p>
-            A palindromic string is a word that reads the same forwards and backwards. For instance, "lol", "oo", "r" ,and even the enigmatically long "cristianoronaldoodlanoronaitsirc" are all palindromes.<br>
-            However, strings like "app" and "xy" fall short of this definition.<br>
+            Given a string s containing only characters 't' and 'v',<br>
+            perform the following operations any number of times in any order:<br>
             <br>
-            You are presented with a string "s" consisting of lowercase English letters.<br>
-            And you have the power to change any letter at any position in the string to any other lowercase letter,<br>
-            all while maintaining the string's length. Moreover, you can rearrange the order of letters freely,<br>
-            and this rearrangement does not count as an operation.<br>
-            <br>
-            Your mission is two-fold:<br>
-            <br>
-            - Minimize Changes: Your first objective is to transform "s" into a palindrome while making as few changes as possible.<br>
-            <br>
-            - Alphabetical Minimization: In cases where multiple palindrome options require the same number of changes,<br>
-            you should opt for the alphabetically (lexicographically) smallest palindrome.<br>
-            <br>
-            Can you tackle this challenge and produce an alphabetically minimal palindrome while conserving changes?<br>
+            Replace any occurrence of 'tt' as a substring with 'v'.<br>
+            Replace any occurrence of 'vv' as a substring with 't'.<br>
+            Determine the number of possible strings that can be obtained by executing these operations on s. Find the count modulo 1000000007.<br>
             <br>
             <i>Input:</i><br>
-            **The input consists of a single line containing the string "s" (1 ≤ |s| ≤ 2·10^5), made up entirely of lowercase English letters.<br>
+            **the string s (1 ≤ |s| ≤ 10^5)<br>
             <br>
             <i>Output:</i><br>
-            ** Output the alphabetically smallest palindrome that can be obtained with the minimal number of changes.
+            ** the number of strings 's' that can be obtained, modulo 1000000007.
             <br>
             <br>
-            <i>Constraint:</i><br>
-            ** Time Limit 2s
-
+            <i>Constraints:</i><br>
+            ** Time Limit : 2s
         </p>
 
     </div>
@@ -288,27 +277,33 @@
         </thead>
         <tbody>
         <tr>
-            <td>aaqz</td>
-            <td>aqqa</td>
+            <td>tttt</td>
+            <td>6</td>
         </tr>
         <tr>
-            <td>aalcz</td>
-            <td>alcla</td>
+            <td>tvtvtvtv</td>
+            <td>1</td>
         </tr>
         </tbody>
     </table>
 </div>
-<!--<div class="content21">
+<div class="content21">
     <ul>
         <li class="title" style="font-size:16px ;"> Notes</li>
     </ul>
     <ul class="content22">
         <ol style="font-size: 12px;">
-            In the second example, you can achieve 3 stars by completing levels 2 and 4 with 2 stars, requiring a total
-            of 14 moves.
+            In example 1, only 6 strings can be obtained:<br>
+            - tttt<br>
+            - ttv<br>
+            - tvt<br>
+            - vtt<br>
+            - vv<br>
+            - t<br>
+            In example 2, we can't perform any operation.
         </ol>
     </ul>
-</div>-->
+</div>
 <div class="content5">
 
 </div>
