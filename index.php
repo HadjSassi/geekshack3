@@ -386,7 +386,7 @@ else {
                             <h3 style=''>";
 
                                 $pathss = "problems/prob" . $i . "/titre.txt";
-                                $problemName = (file_exists($pathss) && ($lines = file($pathss)) && isset($lines[0])) ? intval(trim($lines[0])) : "";
+                                $problemName = (file_exists($pathss) && ($lines = file($pathss)) && isset($lines[0])) ? trim($lines[0]) : "";
                                 echo $problemName;
 //                                echo file_get_contents("problems/prob" . $i . "/titre.txt");
                             
