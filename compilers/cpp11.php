@@ -115,5 +115,6 @@ if (trim($error) == "") {
     // </tr>";
 }
 $_SESSION["seconds"] += $seconds;
+echo "score_final: $score_final";
 
 ?>
