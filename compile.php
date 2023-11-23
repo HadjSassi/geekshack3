@@ -46,8 +46,8 @@ session_start() ?>
                 include("compilers/" . $compilerFile);
                 $after = intval(microtime(true) * 1000);
                 $timeExec += $after - $before;
-                echo "le score_final: $score_final";
             }
+            echo "le score_final: $score_final";
         }
 
         // echo "<br>";
