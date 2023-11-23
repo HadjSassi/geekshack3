@@ -81,6 +81,8 @@ session_start() ?>
         $stmt = $conn->prepare($sql);
         $stmt->execute();
         $res = $stmt->fetchAll();
+        echo "pourcentage: $pourcentage, res[0][0]: {$res[0][0]}, score_final: $score_final";
+
         if ($pourcentage == 100) {
             $sql = "select sum(" . $namep . ") from  score ;";
             $stmt = $conn->prepare($sql);
@@ -105,6 +107,7 @@ session_start() ?>
         echo "<td><h5 style='color:white;font-family:Titillium Web, sans-serif;'>Execution Time :" . intval($_SESSION["seconds"] * 1000) . "ms</h5></td>";
         echo "<td><h3 style='color:white;font-family:Titillium Web, sans-serif;'>Total Score in this Probleme :" . intval($score_final) . " ( <b style=\"color:#ff7676;\">$pourcentage%</b> )</h3></td>";
         echo "<td><h4 style='color:white;font-family:Titillium Web, sans-serif;'>TESTS :" . round($pourcentage * 10 / 100) . "/10</h4></td>";
+        echo "pourcentage: $pourcentage, res[0][0]: {$res[0][0]}, score_final: $score_final";
 
         //echo "</tr></table>";
 
