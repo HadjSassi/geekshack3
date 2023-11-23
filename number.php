@@ -28,7 +28,7 @@ foreach ($conn->query($sql) as $row) {
 
 }
 
-if ($s3 != 24) {
+if ($s3 != 26) {
     echo 0;
 } else {
     echo 1;
