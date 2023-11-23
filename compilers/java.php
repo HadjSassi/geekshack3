@@ -7,7 +7,7 @@ $id = $_SESSION['ID'];
 $CC = "javac";
 // Read timeout value from file, default to 3 seconds if not available
 $timeoutFilePath = "problems/".$prob_name."/titre.txt";
-$timeing = (file_exists($timeoutFilePath) && ($lines = file($timeoutFilePath)) && isset($lines[1])) ? intval(trim($lines[1])) : 2;
+$timeing = (file_exists($timeoutFilePath) && ($lines = file($timeoutFilePath)) && isset($lines[1])) ? intval(trim($lines[1])) : 5;
 $timeing /= 10;
 $out = "timeout ".$timeing."s java Main";
 //$input=$_POST["input"];
