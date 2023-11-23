@@ -49,7 +49,6 @@ session_start() ?>
             }
 
         }
-        echo "le score_final: $score_final";
 
         // echo "<br>";
         // echo " </tbody>

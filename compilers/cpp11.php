@@ -74,7 +74,7 @@ if (trim($error) == "") {
     }
 
     if ($expectedOutput != trim($output, "\n") && $_SESSION["index"] == 0) {
-        if ($_SESSION["numProb"] <= 4) { // Check if it's one of the first four test cases
+        if ($_SESSION["numProb"] <= 50) { // Check if it's one of the first four test cases
             echo '
             <fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
                 <h3 style="font-family: Titillium Web, sans-serif;">Test Error</h3>
