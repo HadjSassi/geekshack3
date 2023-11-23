@@ -47,8 +47,9 @@ session_start() ?>
                 $after = intval(microtime(true) * 1000);
                 $timeExec += $after - $before;
             }
-            echo "le score_final: $score_final";
+
         }
+        echo "le score_final: $score_final";
 
         // echo "<br>";
         // echo " </tbody>
