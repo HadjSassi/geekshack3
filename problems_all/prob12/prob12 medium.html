@@ -1,5 +1,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
-
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
 <style>
     .title{
         font-weight: 700;
@@ -224,30 +231,31 @@
 
     </div>
     <div class="content1" style="word-break:break-word;"">
-        <p>
-            A sequence of integers is considered beautiful if its elements are arranged in blocks, as exemplified by [2,2,2,4,1,1]. <br>
-            More formally, if two elements are equal, all elements in between them must also be equal.
-            <br>
-            The complexity of a sequence is:  the minimum number of elements that need to be changed to transform it into a Beautiful sequence.<br> 
-            However, changing an element's value from a to b requires that all other elements with the value a are changed to b also. 
-            <br>
-            You are given a sequence of integers a_1, a_2, ..., a_n. The updates are not independent, and the changes persist for the future.<br>
-            <br>
-            Print the complexity of the initial sequence and the sequence after each update.
-            <br>
-            <br>
-            <i>Input:</i><br> 
-            ** The first line contains integers n (1 ≤ n ≤ 200000), representing the length of the sequence.
-            <br>
-            ** The second line contains n integers a_1, a_2, ..., a_n (1 ≤ ai ≤ 200000), representing the initial sequence.
-            <br>
-            <i>Output:</i><br>
-            ** Print one integer, representing the complexity of the sequence.
-            <br>
+    <p>
+        A sequence of integers is considered beautiful if its elements are arranged in blocks, as exemplified by [2,2,2,4,1,1]. <br>
+        More formally, if two elements are equal, all elements in between them must also be equal.
+        <br>
+        The complexity of a sequence is: the minimum number of elements that need to be changed to transform it into a Beautiful sequence.<br>
+        However, changing an element's value from \(a\) to \(b\) requires that all other elements with the value \(a\) are changed to \(b\) also.
+        <br>
+        You are given a sequence of integers \(a_1, a_2, ..., a_n\). The updates are not independent, and the changes persist for the future.<br>
+        <br>
+        Print the complexity of the initial sequence and the sequence after each update.
+        <br>
+        <br>
+        <i>Input:</i><br>
+        ** The first line contains integers \(n\) (\(1 \leq n \leq 200000\)), representing the length of the sequence.
+        <br>
+        ** The second line contains \(n\) integers \(a_1, a_2, ..., a_n\) (\(1 \leq a_i \leq 200000\)), representing the initial sequence.
+        <br>
+        <i>Output:</i><br>
+        ** Print one integer, representing the complexity of the sequence.
+        <br>
 
-            <!-- hatha ana katobo a verifier -->
-        </p>
-    </div>
+        <!-- hatha ana katobo a verifier -->
+    </p>
+
+</div>
     <div class="content3" style="padding: 2px 0;">
         <ul>
             <li>
