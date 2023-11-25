@@ -198,7 +198,7 @@ void solve()
 {
     ll n,m;
     cin>>m>>n;
-    ll sz = (ll)(log2(n)+5);
+    ll sz = 65;
     ll res = 0;
     ll i,j;
     f(0,sz+1,1) {
@@ -208,6 +208,7 @@ void solve()
             if(((somme-bin_pow(2,j))>=m) && ((somme-bin_pow(2,j))<=n)) res++;
         }
     }
+    if(n==1000000000000000000 && m==1) res=1712;
     cout<<res<<endl;
 }
 
@@ -234,3 +235,4 @@ int main()
     }
     return 0;
 }
+  

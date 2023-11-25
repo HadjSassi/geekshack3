@@ -1,7 +1,7 @@
 import math
 l,h,x,y,vx,vy,k=map(int,input().split())
 nb=0
-while (nb<k+1):
+while (nb<k):
     x=x+vx
     y=y+vy
     if (y==h or y==0):

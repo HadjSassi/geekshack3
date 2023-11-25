@@ -16,12 +16,12 @@ void solve(){
 	ll x , y ; cin >> x >> y ;
 	ll vx, vy ; cin >> vx >> vy ;
 	ll k; cin >> k ;
-	if( vx == 0 && vy == 0  || k == 0 ) {
+	if( (vx == 0 && vy == 0)  || k == 0 ) {
 		cout << x << " " << y << endl;
 		return;
 	}
-	bool test ;
-	while( true ) { 
+	bool test = false;
+	while( k > 0 ) { 
 		test = false;
 		x += vx ; 
 		y += vy;
@@ -46,7 +46,6 @@ void solve(){
 			vy *= -1;
 		} 
 		if( test ) k--;
-		if( k == 1 ) break;
 	}
 	cout << x << " " << y << endl;
 }                   
@@ -54,7 +53,7 @@ void solve(){
 int main()
 {
 	//freopen("input.txt","r",stdin); freopen("output.out","w",stdout);
-	FAST;
+	//FAST;
 	int t = 1;
 	//cin>>t ;
 	while (t--)

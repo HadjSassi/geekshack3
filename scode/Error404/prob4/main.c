@@ -9,16 +9,16 @@ void bounce(int l,int h,int *x ,int *y,int vx,int vy){
             *x+=vx;
             *y-=vy;
         }
-        vy=-vy;
+        //vy=-vy;
     }
-    if(*x==0 || *x==l){
+    else if(*x==0 || *x==l){
         *x-=vx;
         *y+=vy;
         while(*y!=h && *y!=0 && *x!=0 && *x!=l){
             *x-=vx;
             *y+=vy;
         }
-        vx=-vx;
+        //vx=-vx;
     }
 
 }

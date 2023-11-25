@@ -1,22 +1,35 @@
-def estPalind(ch):
-    if len(ch) == 0 or len(ch) == 1:
-        return 1
-    if ch[0] == ch[-1]:
-        return estPalind(ch[1:len(ch) - 1])
-    return 0
+l,h,x,y,vx,vy,K = map (int, input().split())
+t = 0
+k1 = 0
+def find_t(posf,posi,v):
+    return (posf - posi)/v
+xt , yt =x,y
+while True:
+    b = True
+    t+=1
+    xt=vx*t+x
+    yt=vy*t+y
+
+    if xt<=0 or xt >= l:
+        b = False
+        x = xt
+        y = yt
+        t=0
+        vx = -1*vx
+        k1+=1
+    if yt<=0 or yt >= h:
+
+        x = xt
+        y = yt
+        t=0
+        vy = -1*vy
+        if b :
+            k1+=1
+
+    if k1 >= K:
+        break;
+
+print(xt,yt)
 
 
-ch = input()
 
-j = 0
-palind = 1
-while j < len(ch) and palind:
-
-    if estPalind(ch):
-        print(str(j))
-        palind = 0
-    else:
-        ch = ch[1:] + ch[0]
-        j += 1
-if not (estPalind(ch)):
-    print(-1)

@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/TeamDigital/prob15/main.py", line 7, in <module>
-    if str(i)==str(i+1):
-TypeError: can only concatenate str (not "int") to str

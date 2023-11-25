@@ -3,7 +3,6 @@ levels=[]
 
 def min_moves_to_unlock(n, z, levels):
     levels.sort(key=lambda x: x[1] - x[0])
-
     one_star_levels = [a for a, b in levels]
     two_star_levels = [b for a, b in levels]
 
@@ -19,6 +18,7 @@ def min_moves_to_unlock(n, z, levels):
             stars_collected += 1  # We gain one additional star for the upgrade
 
     print (total_moves)
+
 
 
        
