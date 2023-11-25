@@ -1,17 +1,20 @@
-a, b = [int(i) for i in input().split()]
+first, last = map(int,input().split())
 
-def count_zeros(a):
-    zeros = 0
-    while(a!=0 and zeros<=2):
-        if a%2 ==0:
-            zeros+=1
-        a = a >> 1
-    return zeros == 1
 
-count = 0
+res = 0
+for year in range(first,last+1):
+    found = False
+    while year > 1:
+        if year % 2 == 0:
+            if found:
+                found = False
+                break
+            else:
+                found = True
 
-for i in range(a, b+1):
-    if count_zeros(i):
-        count+=1
-        
-print(count)
+        year = year // 2
+    if found:
+        res+=1
+
+print(res)
+

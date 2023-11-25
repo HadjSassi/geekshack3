@@ -38,7 +38,7 @@ int minSwap(string s)
 }
 int main()
 {
-    string s = "aabcc";
+    string s;cin >> s;
     cout << minSwap(s);
     return 0;
 } 

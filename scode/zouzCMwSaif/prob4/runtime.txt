@@ -1,2 +1,0 @@
-a.out: main.cpp:36: void calc(long long int&, long long int&, long long int, long long int): Assertion `(c - a) >= 0' failed.
-Aborted

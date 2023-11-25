@@ -1,4 +1,0 @@
-  File "/var/www/html/scode/PinkScript/prob4/main.py", line 5
-    a=int(l[6])mod 2
-               ^^^
-SyntaxError: invalid syntax

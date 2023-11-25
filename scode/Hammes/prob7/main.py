@@ -10,18 +10,10 @@ for i in range(n):
     k=0
     for i in range(len(ch[0])):
         tab.insert(j,ch[0])
-
-        
     for i in range(len(ch[0])):
         tab1.insert(j,ch[2])
-
-        
-
-        
-
 res = [eval(i) for i in tab]
 print("Modified list is: ", res)
 res1 = [eval(i) for i in tab1]
+res1.sort()
 print("Modified list is: ", res1)
-array_2d = [[res[i], res1[i]] for i in range(len(res1))]
-print(array_2d) 

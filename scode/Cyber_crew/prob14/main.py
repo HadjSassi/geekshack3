@@ -21,4 +21,4 @@ while (i<len(l)-1):
             break
     i+=1
 if l!=l[::-1]:
-    print('-1') 
+    print('-1')  

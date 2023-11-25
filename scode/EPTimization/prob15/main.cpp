@@ -52,8 +52,16 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 
 ll fh(string &t)
 {
+    if (t=="0")
+    {
+        return 0;
+    }
+    if (t=="1")
+    {
+        return 0;
+    }
     ll p,q,r,l;
-    p=-1;
+    p=t.size();
     f(i,0,t.size(),1)
     {
         if (t[i]=='0')
@@ -81,7 +89,7 @@ string pr(ll x)
     string t="";
     while (x)
     {
-        t+=(x%2)+'0';
+        t+=((x%2)+'0');
         x/=2;
     }
     reverse(t.begin(),t.end());
@@ -103,7 +111,7 @@ int run_case()
         cout << (p==1) << endl;
         return 0;
     }
-    cout << fh(t)-fh(t1)-(k==1) << endl;
+    cout << fh(t)-fh(t1) << endl;
     return 0;
 }
 

@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/AbtalAlDigital/prob14/main.py", line 2
+    s=[x, for x int]
+              ^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?

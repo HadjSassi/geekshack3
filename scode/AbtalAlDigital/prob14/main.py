@@ -1,4 +1,5 @@
-s = input()
+t = input()
+s=[x, for x int]
 if len(s) == 1:
     print(0)
 occur = 0
@@ -18,7 +19,12 @@ if occur <= 1:
         j = 0
         while s[k - j] != s[i]:
             j += 1
-            count += j
+        for z in range(k-j,k):
+            aux=s[z]
+            s[z]=s[z+1]
+            s[z+1]=aux
+        count += j
+        
         
     print(count)
 
@@ -29,4 +35,4 @@ if occur <= 1:
 
 
 
- 
+  

@@ -22,11 +22,11 @@ while(z!=string::npos){
 }
 //cout<<b;
 if (a<b){
-    cout<<a*2;
+    cout<<a*a;
 }else if (a>b){
-    cout<<b*2;
+    cout<<b*b;
 }else{
-    cout<<a*2;
+    cout<<a*a;
 }
 
    
