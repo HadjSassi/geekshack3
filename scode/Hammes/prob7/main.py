@@ -5,14 +5,13 @@ z=int(l[1])
 tab=[]
 tab1=[]
 for i in range(n):
-    ch=input()
+    ch=input().split(" ")
     j=0
     k=0
     for i in range(len(ch[0])):
         tab.insert(j,ch[0])
     for i in range(len(ch[0])):
-        tab1.insert(j,ch[2])
-
+        tab1.insert(j,ch[1])
 s=0
 def findsum(x):
     numbers = []
@@ -24,17 +23,14 @@ def findsum(x):
         numbers.append([2]*(int(x/2))) # all twos
         if x >= 6:
             numbers.append([2] * numOfTwos+ [1,1]) #all twos and 2 ones
-
     else:
         numOfTwos = int((x - 1)/2)
         numbers.append([2] * numOfTwos+ [1])
-
     return numbers 
 result=findsum(z);
 for i in result:
     if len(i)>n:
         result.pop(result.index(i))
-        
 s=0;
 tab_s = []
 tab_r=[]
@@ -51,16 +47,12 @@ for i in (result):
                 m=min(res)
                 indice=res.index(min(res))
                 res.pop(indice)
-            
                 res1.pop(indice) 
-               
                 s=s+m;
-               
                 tab_s.append(s)
             if (len(res)==0) and (j!=len(res)):
                 tab_s.clear()
         else:
-            
             if(len(res1)>0):
                 indice=res1.index(min(res1))
                 m=min(res1)
@@ -68,16 +60,14 @@ for i in (result):
                 res1.pop(indice)
                 s=m
                 tab_s.append(s)
-        
     x=x+1
     s=0
     res,res1=first,second
-
 tb=[]
 second=[]
 first=[]
 for i in tab_r:
     tb.append(sum(i))
 tb.sort()
+
 print(tb[0])
-  

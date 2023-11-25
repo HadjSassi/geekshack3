@@ -1,35 +1,24 @@
-#include <iostream>
-#include <string>
+#include <bits/stdc++.h>
+using namespace std;
 
-int main()
-{
-    std::string r;
-    std::string k;
-    std::string w;
-    std::string r1;
-    std::string r2;
-    std::string test;
-    
-    std::getline(std::cin, r);
-    std::getline(std::cin, k);
-    std::getline(std::cin, w);
-    
-    r1 = r;
-    r2 = r;
-    r1[2] = w[2];
-    r2[1] = w[1];
-    
-    if (k[1] == r[1] && k[2] == r[2])
-    {
-        test = "NO";
-        std::cout << test;
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    vector<int> x(3), y(3);
+    for (int i = 0; i < 3; i++) {
+        char ch; cin >> ch;
+        char a, b;
+        cin >> a >> b;
+        x[i] = a - 'a';
+        y[i] = b - '1';
     }
-    else
-    {
-        test = "YES";
-        std::cout << test;
+    for (int i = 0; i < 2; i++) {
+        if (x[0] == x[1] && x[1] == x[2] && ((y[1] > y[0] && y[1] < y[2]) || (y[1] > y[2] && y[1] < y[0]))) {
+            cout << "NO\n";
+            return 0;
+        }
+        swap(x, y);
     }
-    
+    cout << "YES\n";
     return 0;
 }
-

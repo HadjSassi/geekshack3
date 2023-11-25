@@ -15,15 +15,15 @@ for _ in range(n_vertecies):
     graph[dst].append((src,length))
     
 max_cost = int(input())
-# print(graph)
 
 
 def bfs(start, graph, max_cost):
     count = 0
-    visited = {}
+    visited = []
     queue = deque()
     # visited[start] = 0
     queue.append((start, 0))
+    visited.append((start, 0))
     
     while queue:
         for _ in range(len(queue)):
@@ -32,17 +32,14 @@ def bfs(start, graph, max_cost):
                 continue
             if cost == max_cost and curr!=start:
                 count+=1
-                # print("end_path",curr)
                 continue
             for node in graph[curr]:
-                # node0 = node name
-                # node1 = cost from parent to node
-                queue.append((node[0], cost + node[1]))
+                if node not in visited:
+                    if cost < max_cost:
+                        if cost + node[1] > max_cost:
+                            count+=1
+                    queue.append((node[0], cost + node[1]))
     return count
             
 b = bfs(start, graph, max_cost)
-    
-print(b)
-
-# multipath
-     
+print(b)  

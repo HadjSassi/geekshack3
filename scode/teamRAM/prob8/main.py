@@ -1,56 +1,32 @@
-while True:
-    n=int(input()) #nb de pile
-    if (1<=n<=100):
-        break
-mabrouk=0
-bachka=0
-def lenlist(piles):
-    t=False
-    for i in piles:
-        if len(i)!=0:
-            t=True
-            return (t)
-    return (t)
+def calculate_values(piles):
+    n1, n2 = 0, 0
+    
+    while any(piles):
+        first_max = max(p[0] for p in piles if p)
+        n1 += first_max
 
-piles=[]
+        last_max = max(p[-1] if p else 0 for p in piles)
+        n2 += last_max
+        
+        for i in range(len(piles)):
+            if piles[i] and piles[i][0] == first_max:
+                piles[i].pop(0)
+                break
+                
+        for i in range(len(piles)):
+            if piles[i] and piles[i][-1] == last_max:
+                piles[i].pop()
+                break
+    
+    return n1, n2
+
+n = int(input(""))
+    
+piles = []
 for i in range(n):
-    l=[]
-    nb_el=int(input())
-    l.append(nb_el)
-    for j in range(nb_el):
-        l.append(int(input()))
-    piles.append(l)
-
-#dibit di jeu
-if len(piles)==1:
-    l=piles[0]
-    l.pop(0)
-    if len(l)%2==0:
-        for i in range(len(l)/2):
-            bachka+=l.pop(i)
-        for i in l:
-            bachka+=i
-    else:
-        if len(l) % 2 == 0:
-            for i in range((len(l) / 2)+1):
-                bachka += l.pop(i)
-            for i in l:
-                bachka += i
-else:
-    c=True
-    while lenlist(piles) and len(piles)!=0:
-        lb=[]
-        lm=[]
-        for i in piles:
-            if len(i)==0:
-                piles.pop(piles.index(i))
-            else:
-                lb.append(i[0])
-                lm.append(i[len(i)])
-        maxB=max(lb)
-        iB=lb.index(maxB)
-        bachka+=piles.pop(piles[iB][0])
-        maxM = max(lm)
-        iM = lm.index(maxM)
-        mabrouk+=piles.pop(piles[iM][len(piles[iM])])
-print(bachka, mabrouk)
+        pile_info = list(map(int, input().split()))
+        pile_elements = list(map(int, input().split()))
+        piles.append(pile_elements)
+    
+n1, n2 = calculate_values(piles)
+print(n1 , n2)

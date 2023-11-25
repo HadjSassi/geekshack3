@@ -1,22 +1,42 @@
-def maximize_score(n, piles):
-    bachka_score = 0
-    mabrouk_score = 0
+from collections import defaultdict, deque
 
-    for i in range(n):
-        if i % 2 == 0:  # Bachka's turn (0-based index)
-            bachka_score += sum(piles[i])
-        else:  # Mabrouk's turn
-            mabrouk_score += sum(piles[i])
+def count_missile_shooters(n, m, s, roads, l):
+    graph = defaultdict(list)
+    for road in roads:
+        v, u, w = road
+        graph[v].append((u, w))
+        graph[u].append((v, w))
 
-    print(bachka_score, mabrouk_score)
+    def bfs(start, target_dist):
+        visited = [False] * (n + 1)
+        queue = deque([(start, 0)])
+        count = 0
 
-# Input reading
-n = int(input())
-piles = []
+        while queue:
+            current, dist = queue.popleft()
 
-for _ in range(n):
-    pile = list(map(int, input().split()[1:]))
-    piles.append(pile)
+            if visited[current]:
+                continue
 
-# Call the function with the input values
-maximize_score(n, piles) 
+            visited[current] = True
+
+            if dist == target_dist:
+                count += 1
+
+            for neighbor, weight in graph[current]:
+                if not visited[neighbor]:
+                    queue.append((neighbor, dist + weight))
+
+        return count
+
+    result = bfs(s, l)
+    print(result)
+
+
+
+input_lines = input().split("\n")
+n, m, s = map(int, input_lines[0].split())
+roads = [list(map(int, line.split())) for line in input_lines[1:m+1]]
+l = int(input_lines[3])
+count_missile_shooters(n, m, s, roads, l)   
+ 

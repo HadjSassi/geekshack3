@@ -301,12 +301,12 @@ int count(vector<int> &v, ll m, ll n)
 
 
 
-map<ll,ll> dp[300001];
+map<ll,map<ll,ll>> dp;
 
 ll fh(ll i,ll j,vll &a,vll &b)
 {
-    if (j<=0) return 0;
-    if (i<0) return 1e18;
+    if ((i<0 && j>0) || j>2*i+2) return 1e18;
+    if(j<=0)return 0 ;
     if (dp[i].count(j)) return dp[i][j];
     return dp[i][j]= min(fh(i-1,j,a,b),min(a[i]+fh(i-1,j-1,a,b),b[i]+fh(i-1,j-2,a,b)));
 }
@@ -321,6 +321,7 @@ void solve()
         cin >> a[i] ;
         cin >> b[i] ;
     }
+    
     cout << fh(k-1,z,a,b) << endl;
 }
 int main()
@@ -337,8 +338,3 @@ int main()
 }
 
 
-
-
-
-
- 

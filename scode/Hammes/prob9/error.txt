@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Hammes/prob9/main.py", line 37, in <module>
+    print(territory())
+  File "/var/www/html/scode/Hammes/prob9/main.py", line 34, in territory
+    if Comaparer(l1,l2)==True: 
+  File "/var/www/html/scode/Hammes/prob9/main.py", line 4, in Comaparer
+    if sqrt(pow(element1[0],2)+pow(element1[1],2))>sqrt(pow(element2[0],2)+pow(element2[1],2)):
+NameError: name 'sqrt' is not defined
