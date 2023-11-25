@@ -4,7 +4,6 @@
 int main() { int nb=0,i,j,K=0,L=0;char*s [1000];char ch1,ch2;
 do{printf("input a string so i can give you the number of delicious substrings:\n");
 scanf("%1000s",s);}
-while(strlen(*s)>=1 && strlen(*s) <= 1000);
 for (i=0;i<=1000;i++)
 {
         if((*s[i]=="c")&&(*s[i++]=="h")&&(*s[i+=2]=="a")&&(*s[i+=3]=="k"))

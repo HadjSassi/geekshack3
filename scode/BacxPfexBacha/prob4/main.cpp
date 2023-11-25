@@ -40,9 +40,9 @@ void no() { cout<<"NO\n"; }
 
 
 void solve() {
-    double l,h; cin>>l>>h;
-    double x_curr ,y_curr; cin>>x_curr>>y_curr;
-    double x_v, y_v; cin>>x_v>>y_v;
+    ld l,h; cin>>l>>h;
+    ld x_curr ,y_curr; cin>>x_curr>>y_curr;
+    ld x_v, y_v; cin>>x_v>>y_v;
     ll K; cin>>K;
     if (K==0){
         cout<<(int)x_curr<<" "<<(int)y_curr;
@@ -96,14 +96,14 @@ void solve() {
         return;
     }
 
-    if (((int)x_curr==0 && x_v<0) || (x_curr==l && x_v>0) || ((int)y_curr==0 && y_v<0) || ((int)y_curr==h && y_v>0)) {
-        K--;
-        x_v*=-1;
-        y_v*=-1;
-    }
+//    if (((int)x_curr==0 && x_v<0) || (x_curr==l && x_v>0) || ((int)y_curr==0 && y_v<0) || ((int)y_curr==h && y_v>0)) {
+////        K--;
+//        x_v*=-1;
+//        y_v*=-1;
+//    }
 
     for (int i=0; i<K; i++){
-//        if (x_curr<0 || y_curr<0) break;
+        if (x_curr<0 || y_curr<0) break;
         if (x_v >0 && y_v>0){
 //            cout<<"NOWWWW 1"<<"\n";
             double inter_fouk = (h - y_curr)/y_v;

@@ -12,20 +12,7 @@ l2.sort()
 resultat = 0
 i = 0
 j = 0
-
-if z - etoile == 1:
-    resultat += l1[j]
-
-
-
-elif z - etoile == 2:
-    if l2[i] > l1[j] + l1[j+1]:
-        resultat += l1[j] + l1[j+1]
-    else:
-        resultat += l2[i]
-        
-
-while z - etoile > 0:
+while z - etoile > 2:
     if l2[i] > l1[j] + l1[j + 1]:
 
         etoile += 2
@@ -37,10 +24,18 @@ while z - etoile > 0:
         resultat += l2[i]
         i += 1
 
+if z - etoile == 1:
+    resultat += l1[j]
 
+
+
+elif z - etoile == 2:
+    if l2[i] > l1[j] + l1[j+1]:
+        resultat += l1[j] + l1[j+1]
+    else:
+        resultat += l2[i]
 
 print(resultat)
 
 
 
-  

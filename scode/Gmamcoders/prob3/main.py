@@ -1,17 +1,10 @@
-x,y=map(int,input().split())
-c=0
-for i in range(x,y+1):
-    c=bin(i)[2:]
-    ch=str(c)
-    sum=0
-    test=0
-    j=0
-    while (j <len(ch) ) and (test==0):
-        if ch[j]=="0":
-            sum+=1
-        j+=1
-        if sum>=2:
-            test=1
-    if test==0:
-        c+=1
-print(c)
+s = input("")
+a = s.lower()
+c=a.replace(" ","")
+n=0;
+for i in range(len(c)-1) :
+    if ((c[i] == 'c') and (c[i+1]=='h')):
+        for j in range(i+1,len(c)+1):
+            if (c[i:j].startswith('chak') and c[i:j].endswith('chouka')):
+                n=n+1
+print(n) 

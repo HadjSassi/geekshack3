@@ -1,41 +1,45 @@
+// C++ program for the above approach
 #include <bits/stdc++.h>
 using namespace std;
-int getSubstringsCount(string str, string start, string end) {
-   int substrings_count = 0, str_length = str.size(), start_length = start.size(), end_length = end.size();
-   int start_matches_index[str_length] = {0}, end_matches_index[str_length] = {0};
-   for (int i = 0; i < str_length; i++) {
-      if (str.substr(i, start_length) == start) {
-         start_matches_index[i] = 1;
-      }
-      if (str.substr(i, end_length) == end) {
-         end_matches_index[i] = 1;
-      }
-   }
-   set<string> substrings;
-   string current_substring = "";
-   for (int i = 0; i < str_length; i++) {
-      if (start_matches_index[i]) {
-         for (int j = i; j < str_length; j++) {
-            if (!end_matches_index[j]) {
-               current_substring += str[j];
-            }
-            if (end_matches_index[j]) {
-               current_substring += str.substr(j, end_length);
-               if (substrings.find(current_substring) == substrings.end()) {
-                  substrings_count++;
-               }
-               substrings.insert(current_substring);
-            }
-         }
-         current_substring = "";
-      }
-   }
-   return substrings_count;
+
+// Function to count numbers in the range
+// [l, r] having exactly one unset bit
+int count_numbers(int L, int R)
+{
+	// Stores the required count
+	int ans = 0;
+
+	// Iterate over the range
+	for (int n = L; n <= R; n++) {
+
+		// Calculate number of bits
+		int no_of_bits = log2(n) + 1;
+
+		// Calculate number of set bits
+		int no_of_set_bits
+			= __builtin_popcount(n);
+
+		// If count of unset bits is 1
+		if (no_of_bits
+				- no_of_set_bits
+			== 1) {
+
+			// Increment answer
+			ans++;
+		}
+	}
+
+	// Return the answer
+	return ans;
 }
-int main() {
-   string str = "getmesomecoffee";
-   string start = "m";
-   string end = "e";
-   cout << getSubstringsCount(str, start, end) << endl;
-   return 0;
-}   
+
+// Driver Code
+int main()
+{
+	int L = 4, R = 9;
+
+	// Function Call
+	cout << count_numbers(L, R);
+
+	return 0;
+}

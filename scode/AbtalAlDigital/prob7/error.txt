@@ -1,4 +1,4 @@
 Traceback (most recent call last):
-  File "/var/www/html/scode/AbtalAlDigital/prob7/main.py", line 29, in <module>
-    if l2[i] > l1[j] + l1[j + 1]:
+  File "/var/www/html/scode/AbtalAlDigital/prob7/main.py", line 33, in <module>
+    if l2[i] > l1[j] + l1[j+1]:
 IndexError: list index out of range

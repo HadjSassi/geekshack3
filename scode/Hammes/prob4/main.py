@@ -36,4 +36,4 @@ def simulate_bouncing_ball():
 
 # Print the final position of the ball
 #print(x_final, y_final)
-print(simulate_bouncing_ball())
+print(simulate_bouncing_ball()) 

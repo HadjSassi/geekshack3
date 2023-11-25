@@ -57,9 +57,14 @@ else if  ((n<z)&&(z%n==0))
  {sum+=minbi;
  s+=2;}
 }
+
+
 else if (n<z)
 {sum+=minbi;
  s+=2;
+  if((s-2==z)&&(minai+minbi<minbi) )
+  {sum+=minbi;
+   s+=2;}
  if (s<z)
  {sum+=minai;
  s++;}
@@ -69,5 +74,7 @@ else if (n<z)
 printf("%d",sum);
 
 }
+
+
 
 

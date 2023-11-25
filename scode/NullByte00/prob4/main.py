@@ -96,4 +96,4 @@ else:
             x=(abs(vx)*(lastty-lasttx))
             while x < 0 :
                 x+=l 
-    print(floor(x),floor(y))
+    print(floor(x),floor(y)) 

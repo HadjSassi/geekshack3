@@ -165,4 +165,4 @@ input1 = input()
 if (not canFormPalindrome(input1)):
   print("-1")
 else:
-  print(str(numberSwappOneOdd(input1)))
+  print(str(numberSwappOneOdd(input1))) 

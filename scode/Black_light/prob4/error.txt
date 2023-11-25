@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/Black_light/prob4/main.py", line 15
+    elif x==w:
+    ^^^^
+SyntaxError: invalid syntax

@@ -1,4 +1,3 @@
-
 def permute(l,i):
    n=l[i]
    l[i+1]=l[i]
@@ -10,7 +9,6 @@ l=list(ch)
 i=0 
 m=0
 j=0
-l=l[::-1]
 while (i<len(l)-1):
     if l[i]!=l[len(ch)-j-1]:
         if l[i]!=l[i+1]:
@@ -22,4 +20,4 @@ while (i<len(l)-1):
             break
     i+=1
 if l!=l[::-1]:
-    print('-1')     
+    print('-1')

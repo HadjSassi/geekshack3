@@ -1,27 +1,32 @@
-def calculate_final_position(l, h, x, y, vx, vy, K):
-    for _ in range(K):
-        # Calculate time to hit vertical wall
-        t_vertical = (l - x) / vx if vx > 0 else x / abs(vx)
-        
-        # Calculate time to hit horizontal wall
-        t_horizontal = (h - y) / vy if vy > 0 else y / abs(vy)
-        
-        # Determine the next collision time and update coordinates
-        t_collision = min(t_vertical, t_horizontal)
-        x += vx * t_collision
-        y += vy * t_collision
-        
-        # Update velocity based on the wall hit
-        if t_vertical < t_horizontal:
-            vx *= -1
+
+def min_moves_to_unlock(n, z, levels):
+    levels.sort(key=lambda x: (x[1], x[0]))  # Sort levels by the minimum moves needed for two stars and then one star
+    stars_collected = 0
+    moves_required = 0
+
+    for level in levels:
+        if stars_collected >= z:
+            break
+
+        if level[1] <= stars_collected:
+            stars_collected += 2
+        elif level[0] <= stars_collected:
+            stars_collected += 1
         else:
-            vy *= -1
-    
-    return x, y
+            moves_required += 1
+            stars_collected += 1
 
-# Read input
-l, h, x, y, vx, vy, K = map(int, input().split())
+    if stars_collected < z:
+        print("Impossible to achieve the required stars.")
+        return -1
 
-# Calculate and print the final position
-final_position = calculate_final_position(l, h, x, y, vx, vy, K)
-print(*final_position)
+    return moves_required
+
+# Input
+n, z = map(int, input().split())
+levels = [list(map(int, input().split())) for _ in range(n)]
+
+# Output
+result = min_moves_to_unlock(n, z, levels)
+if result != -1:
+    print(result)
