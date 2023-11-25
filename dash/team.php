@@ -131,15 +131,31 @@ $nb_condidat = $result2->num_rows;
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <?php if ($row = mysqli_fetch_array($result1)) { ?>
+                                <?php
+                                if ($row = mysqli_fetch_array($result1)) { ?>
                                     <?php
                                     $num_problems = (count($row) - 1) / 2;
+                                    // Fetch problem names
+                                    $problemNames = [];
+                                    $problemsFolder = 'problems_all';
+
+                                    for ($i = 1; $i <= $num_problems; $i++) {
+                                        $problemFolder = $problemsFolder . '/prob' . $i;
+                                        $problemTitleFile = $problemFolder . '/titre.txt';
+
+                                        if (file_exists($problemTitleFile)) {
+                                            $lines = file($problemTitleFile);
+                                            $problemNames[$i] = trim($lines[0]);
+                                        } else {
+                                            $problemNames[$i] = 'Unknown';
+                                        }
+                                    }
                                     for ($i = 1; $i <= $num_problems; $i++) {
                                         $prob_column = 'prob' . $i;
                                         ?>
                                         <tr style="cursor: pointer"
                                             onclick="window.location.href='probByTeam.php?tag=<?php echo $tag; ?>&prob=<?php echo $i; ?>'">
-                                            <td>Problem <?php echo $i; ?></td>
+                                            <td>Problem <?php echo $i; ?>: <?php echo $problemNames[$i]; ?></td>
                                             <td><?php echo $row[$prob_column]; ?></td>
                                         </tr>
                                     <?php } ?>
