@@ -49,27 +49,26 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 }*/
 
 map<ll,ll> dp[300010];
-ll a[300000],b[300000];
 
-
-ll fh(ll i,ll j)
+ll fh(ll i,ll j,vl &a,vl &b)
 {
     if (j<=0) return 0;
-    if (i<0 || j>2*i+2) return 1e18;
+    if (i<0) return 1e18;
     if (dp[i].count(j)) return dp[i][j];
-    return dp[i][j]=min(fh(i-1,j),min(a[i]+fh(i-1,j-1),b[i]+fh(i-1,j-2)));
+    return dp[i][j]=min(fh(i-1,j,a,b),min(a[i]+fh(i-1,j-1,a,b),b[i]+fh(i-1,j-2,a,b)));
 }
 
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
     cin >> k >> z;
+    vl a(k),b(k);
     f(i,0,k,1)
     {
         cin >> a[i] ;
         cin >> b[i] ;
     }
-    cout << fh(k-1,z) << endl;
+    cout << fh(k-1,z,a,b) << endl;
     return 0;
 }
 

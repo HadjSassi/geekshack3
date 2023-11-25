@@ -1,4 +1,4 @@
-  File "/var/www/html/scode/TeamDigital/prob15/main.py", line 5
-    for i in range(f:l+1) :
-                    ^
-SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "/var/www/html/scode/TeamDigital/prob15/main.py", line 2, in <module>
+    f,l = input()
+ValueError: too many values to unpack (expected 2)

@@ -4,33 +4,37 @@ k1 = 0
 def find_t(posf,posi,v):
     return (posf - posi)/v
 xt , yt =x,y
+b= True
 while True:
-    b = True
-    t+=1
-    xt=vx*t+x
-    yt=vy*t+y
-
-    if xt<=0 or xt >= l:
+    b=True
+    #print(xt, yt, "b")
+    if xt<0 or xt > l:
         b = False
-        x = xt
-        y = yt
+
+        y = (vy*find_t((xt > l) * l,x,vx)+y)
+        x = (xt > l) * l
+        #print(x,y ,"y")
         t=0
         vx = -1*vx
         k1+=1
-    if yt<=0 or yt >= h:
+    if yt<0 or yt > h:
 
-        x = xt
-        y = yt
+        x = (vx * find_t((yt > h) * h, y, vy) + x)
+        y = (yt > h) * h
+        """x = xt
+        y = yt"""
+        #print(x, y, "x")
         t=0
         vy = -1*vy
         if b :
             k1+=1
-
     if k1 >= K:
+        xt = x
+        yt = y
         break;
+    t += 1
+    xt = vx * t + x
+    yt = vy * t + y
 
-print(xt,yt)
 
-
-
- 
+print(int(xt),int(yt))
