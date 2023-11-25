@@ -1,6 +1,4 @@
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
-      rel="stylesheet">
-<meta charset="utf-8" />
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -10,12 +8,11 @@
     });
 </script>
 <style>
-    .title {
+    .title{
         font-weight: 700;
         font-family: 'Titillium Web', sans-serif;
 
     }
-
     .container {
         width: 100%;
         grid-template-columns: 2fr 2fr 1fr;
@@ -36,7 +33,7 @@
         grid-column-start: 1;
         grid-column-end: 4;
         border-radius: 5px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         font-size: 18px;
         color: cornsilk;
         font-family: 'Titillium Web', sans-serif;
@@ -66,11 +63,10 @@
 
     }
 
-    .content1, .content21, .content22, .content3, .content4, .content5, .content6 {
+    .content1,.content21,.content22,.content3,.content4,.content5,.content6{
         font-family: 'Titillium Web', sans-serif;
         border-radius: 5px;
     }
-
     .content1 {
         grid-column-start: 1;
         grid-column-end: 3;
@@ -82,7 +78,7 @@
         font-weight: 600;
         font-size: 15px;
         padding: 5px 40px;
-
+        
     }
 
     .content21 {
@@ -90,7 +86,7 @@
         grid-column-end: 4;
         grid-row-start: 2;
         grid-row-end: 3;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
 
         color: white;
         border: none;
@@ -110,7 +106,7 @@
         grid-row-start: 3;
         padding: 0.5em auto;
         grid-row-end: 4;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image: linear-gradient(115deg,#25304e 1%,#010c24) ;
         color: cornsilk;
     }
 
@@ -145,13 +141,13 @@
         border-collapse: collapse;
         margin: 25px 0;
         min-width: fit-content;
-
+        
     }
 
     .content_table thead tr {
         color: cornsilk;
         letter-spacing: 8px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         text-align: left;
     }
 
@@ -189,7 +185,7 @@
         grid-column-end: 3;
         grid-row-start: 4;
         grid-row-end: 5;
-
+        
         padding: 0 15px;
     }
 
@@ -212,9 +208,9 @@
         grid-column-end: 4;
         margin: 2em auto;
         padding: 5px 0;
-        font-weight: 500;
+        font-weight:500;
         border-radius: 5px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         color: white;
         font-family: 'Titillium Web', sans-serif;
 
@@ -223,8 +219,8 @@
 <div class="container" style="overflow: hidden;">
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
-            <li>
-                <div class="title"> Levi vs. Titans </div>
+            <li >
+                <div class="title"> Ayoub's Polynomial </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -234,103 +230,91 @@
         </ul>
 
     </div>
-    <div class="content1" style="word-break:break-word;">
-        <img style="margin-left: 20%" width="50%" src="../../assets/problemsPics/titan.gif" alt="">
+    <div class="content1" style="word-break: break-word;">
         <p>
-            Levi is facing off against a group of Titans. Each Titan has its health denoted by \(H_i\).<br>
+            Algebra! Remember algebra? There is a theory that as engineers progress further and further in
+            their studies, they lose basic math skills. This problem is designed to help you remember those basic
+            algebra skills, make the world a better place, etc...<br>
             <br>
-            In this battle, Levi has two combat options:<br>
-            <br>
-            Attack: Levi selects a Titan, decreasing its health by 1.<br>
-            Special Move: Levi selects a Titan, instantly reducing its health to 0.<br>
-            Levi's triumph comes when all the Titans' healths reach 0 or below.<br>
-            <br>
-            Calculate the minimum number of times Levi needs to use regular attacks (excluding Special Moves) <br>
-            to secure victory when he can utilize the Special Move at most \(K\) times.<br>
             <i>Input:</i><br>
-            The first line of input will have \(N(1 \leq N \leq 10000)\), \(K(0 < K < 10000)\) the number of titans<br>
-            The second line will represent the healths of each titan. \(H_1, H_2, …, H_n (1 \leq H_i \leq 10^{10})\)
+            ** t : number of pairs of lines of text.<br>
+            Each pair of the following lines will represent one problem. The first line will contain a list off integers \( \{c_0, c_1, \ldots, c_n\} \)<br>
+            which represent a set of coefficients to a polynomial expression. The order of the polynomial is \( n \). The coefficients should be paired with
+            the terms of the polynomial in the following manner:<br>
+            \( c_0x^n + c_1x^{n-1} + \ldots + c_nx^0 \)<br>
+            The second line of text represents a sequence of values for \( x \), \( \{x_0, x_1, \ldots, x_m\} \).<br>
             <br>
             <i>Output:</i><br>
-            Display the minimum number of times Levi must perform regular attacks (excluding Special Moves) before achieving victory.
-            <br>
+            ** For each pair of lines, your program should evaluate the polynomial for all the values of \( x \) (\( x^0 \) through
+            \( x^m \)) and output the resulting values on a single line.<br>
             <br>
             <i>Constraints:</i><br>
-            ** Time Limit : 2s
+            ** Time Limit : 3s
         </p>
-
     </div>
-<div class="content3" style="padding: 2px 0;">
-    <ul>
-        <li>
-            <div class="li_container">
-                <!-- <div class="icon">
-                    <i class="far fa-keyboard"></i>
-                </div> -->
-                <div class="title" style="font-size:16px ;"> Example :</div>
-            </div>
-        </li>
-    </ul>
-</div>
-<div class="content4" style="color:#010c24;">
-    <table class="content_table">
-        <thead>
-        <tr>
-            <th>Input</th>
-            <th>Output</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                3 1<br>
-                4 1 5<br>
-            </td>
-            <td>
-                5<br>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                7 8<br>
-                7 2 3 2 5 8 4 1<br>
-            </td>
-            <td>
-                0<br>
-            </td>
-        </tr>
+    <div class="content3" style="padding: 2px 0;">
+        <ul>
+            <li>
+                <div class="li_container">
+                    <!-- <div class="icon">
+                        <i class="far fa-keyboard"></i>
+                    </div> -->
+                    <div class="title" style="font-size:16px ;"> Example :</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="content4" style="color:#010c24;">
+        <table class="content_table">
+            <thead>
+                <tr>
+                    <th>Input </th>
+                    <th>Output</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        2<br>
+                        -2<br>
+                        5 0 1 6<br>
+                        1 -1<br>
+                        7 6 -1<br>
+                    </td>
+                    <td>
+                        -2 -2 -2 -2<br>
+                        6 5 -2<br>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <!--<div class="content21">
+        <ul>
+            <li class="title" style="font-size:16px ;"> Notes </li>
+        </ul>
+        <ul class="content22">
+            <ol style="font-size: 12px;">If the number is not Nizarian, display only " Not Valid "</ol>
+        </ul>
+    </div>-->
+    <div class="content5" >
+        
+    </div>
+    <!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
+        <div> explanation </div>
+        <p> caller, callar, recall are the only equivalent words.</p>
+    </div> -->
+    <div class="footer"> 
+        <ul>
+            <li style="font-weight: bold;">Quote</li>
+        </ul>
+        <ul>
+            <ol style="letter-spacing: 3px;">
+                "Debug your skills... <br> Compile your world"
+            </ol>
+        </ul>    
+    </div>
 
-        </tbody>
-    </table>
-</div>
-<div class="content21">
-    <ul>
-        <li class="title" style="font-size:16px ;"> Notes</li>
-    </ul>
-    <ul class="content22">
-        <ol style="font-size: 12px;">
-            In the first example, By using Special Move on the third monster, and doing Attack four times on the first monster and once on the second monster, 
-            Levi can win with five Attacks.
-        </ol>
-    </ul>
-</div>
-<div class="content5">
-
-</div>
-<!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
-    <div> explanation </div>
-    <p> caller, callar, recall are the only equivalent words.</p>
-</div> -->
-<div class="footer">
-    <ul>
-        <li style="font-weight: bold;">Quote</li>
-    </ul>
-    <ul>
-        <ol style="letter-spacing: 3px;">
-            "Debug your skills... <br> Compile your world"
-        </ol>
-    </ul>
-</div>
 
 
 </div>
