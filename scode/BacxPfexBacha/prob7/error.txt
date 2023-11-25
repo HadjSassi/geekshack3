@@ -1,0 +1,11 @@
+/tmp/cc04GyGR.o: in function `dp(int, int)':
+main.cpp:(.text+0x26): relocation truncated to fit: R_X86_64_PC32 against symbol `op' defined in .bss section in /tmp/cc04GyGR.o
+main.cpp:(.text+0x3b): relocation truncated to fit: R_X86_64_PC32 against symbol `n' defined in .bss section in /tmp/cc04GyGR.o
+/tmp/cc04GyGR.o: in function `solve()':
+main.cpp:(.text+0x21d): relocation truncated to fit: R_X86_64_PC32 against symbol `n' defined in .bss section in /tmp/cc04GyGR.o
+main.cpp:(.text+0x239): relocation truncated to fit: R_X86_64_PC32 against symbol `op' defined in .bss section in /tmp/cc04GyGR.o
+main.cpp:(.text+0x2cd): relocation truncated to fit: R_X86_64_PC32 against symbol `n' defined in .bss section in /tmp/cc04GyGR.o
+/tmp/cc04GyGR.o: in function `__static_initialization_and_destruction_0(int, int)':
+main.cpp:(.text+0x365): relocation truncated to fit: R_X86_64_PC32 against `.bss'
+main.cpp:(.text+0x37e): relocation truncated to fit: R_X86_64_PC32 against `.bss'
+collect2: error: ld returned 1 exit status

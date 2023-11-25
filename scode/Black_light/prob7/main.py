@@ -1,9 +1,8 @@
 n,z=map(int,input().split)
-L=list()
-i=0
-for i  in range(n)
+levels=list()
+
  a,b=map(int,input().split)
- L.append(a,b)
+ list.append(a,b)
  def min_moves_to_unlock(n, z, levels):
     levels.sort(key=lambda x: x[1] - x[0])
 

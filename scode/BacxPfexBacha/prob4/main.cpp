@@ -40,15 +40,14 @@ void no() { cout<<"NO\n"; }
 
 
 void solve() {
-    double l,h; cin>>l>>h;
-    double x_curr ,y_curr; cin>>x_curr>>y_curr;
-    double x_v, y_v; cin>>x_v>>y_v;
+    ll l,h; cin>>l>>h;
+    ll x_curr ,y_curr; cin>>x_curr>>y_curr;
+    ll x_v, y_v; cin>>x_v>>y_v;
     ll K; cin>>K;
 
 
     for (int i=0; i<min((ll)K,(ll)100); i++){
-//        watch(x_v);
-//        watch(y_v);
+
         if (x_v >0 && y_v>0){
             ll inter_fouk = (h - y_curr)/y_v;
             ll supposed_x = x_curr + x_v * inter_fouk;
@@ -155,6 +154,11 @@ void solve() {
 
             }
         }
+
+//        watch(x_curr);
+//        watch(y_curr);
+//        watch(x_v);
+//        watch(y_v);
 
 //            watch(x_curr);
 //            watch(y_curr);

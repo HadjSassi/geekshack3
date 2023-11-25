@@ -18,18 +18,13 @@ m=0
 k=0
 nb=0
 while(m!=z):
-    if m<=z-2 :
+    if m<=z-2:
         t=min(l,1)
-        if l[t][1]<2*l[t][0]:
-            nb+=l[t][1]
-            m+=2
-        else:
-            t=min(l,0)
-            nb+=l[t][0]
-            m+=1
+        nb+=l[t][1]
+        m+=2
     else:
         t=min(l,0)
         nb+=l[t][0]
         m+=1
     l.remove(l[t])
-print(nb)
+print(nb) 

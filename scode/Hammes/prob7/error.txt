@@ -1,4 +1,4 @@
-  File "/var/www/html/scode/Hammes/prob7/main.py", line 7
-    int size = ch.length;
-        ^^^^
-SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "/var/www/html/scode/Hammes/prob7/main.py", line 12, in <module>
+    print(tab[i][j])
+TypeError: 'int' object is not subscriptable

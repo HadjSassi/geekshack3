@@ -1,43 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
-#define NO_OF_CHARS 256
  
-/* function to check whether 
- characters of a string can form a palindrome */
-bool canFormPalindrome(string str)
+int minSwap(string s)
 {
-    // Create a count array and initialize all
-    // values as 0
-    int count[NO_OF_CHARS] = { 0 };
+    unordered_map<char, int> unmp;
+    int odd = 0, left = 0, right = s.size() - 1, result = 0;
  
-    // For each character in input strings,
-    // increment count in the corresponding
-    // count array
-    for (int i = 0; str[i]; i++)
-        count[str[i]]++;
+    for (char ch : s)
+        unmp[ch]++;
  
-    // Count odd occurring characters
-    int odd = 0;
-    for (int i = 0; i < NO_OF_CHARS; i++) {
-        if (count[i] & 1)
+    for (auto i : unmp)
+        if (i.second % 2 == 1)
             odd++;
  
-        if (odd > 1)
-            return false;
+    if (odd > 1)
+        return -1;
+ 
+    while (left < right) {
+        int l = left, r = right;
+        while (s[l] != s[r])
+            r--;
+        if (l == r) {
+            swap(s[r], s[r + 1]);
+            result++;
+            continue;
+        }
+        else {
+            while (r < right) {
+                swap(s[r], s[r + 1]);
+                result++;
+                r++;
+            }
+        }
+        left++, right--;
     }
- 
-    // Return true if odd count is 0 or 1,
-    return true;
+    return result;
 }
- 
-/* Driver code*/
 int main()
 {
-    canFormPalindrome("geeksforgeeks")
-      ? cout << "Yes\n"
-      : cout << "No\n";
-    canFormPalindrome("geeksogeeks") 
-      ? cout << "Yes\n"
-      : cout << "No\n";
+    string s = "aabcc";
+    cout << minSwap(s);
     return 0;
 }

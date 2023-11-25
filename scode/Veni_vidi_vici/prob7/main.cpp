@@ -18,7 +18,7 @@ int main(){
     }
     long long res = 0;
     while(r > 1){
-
+        if(pq1.size() == 1)break;
         auto p1 = pq1.top(), p3 = pq2.top();
         pq1.pop();
         if(state[p1.s] >= 2){
@@ -54,6 +54,9 @@ int main(){
         }
         r -= 2;
     }
+    if(r == 2){
+        res += b[pq1.top().second];
+    }else
     if(r){
         res += pq1.top().first;
     }
@@ -62,4 +65,6 @@ int main(){
 
 
 
- 
+
+
+   

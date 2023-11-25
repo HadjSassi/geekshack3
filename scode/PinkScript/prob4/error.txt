@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/PinkScript/prob4/main.py", line 7, in <module>
+    z=x+y
+NameError: name 'x' is not defined
