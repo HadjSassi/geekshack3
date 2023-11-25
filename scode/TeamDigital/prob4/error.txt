@@ -1,0 +1,27 @@
+main.cpp:7:1: error: 'Vector' does not name a type
+    7 | Vector Add(Vector a, Vector b)
+      | ^~~~~~
+main.cpp:12:1: error: 'Vector' does not name a type
+   12 | Vector Mult(Vector a, float s)
+      | ^~~~~~
+main.cpp:17:11: error: 'Vector' was not declared in this scope
+   17 | float Dot(Vector a, Vector b)
+      |           ^~~~~~
+main.cpp:17:21: error: 'Vector' was not declared in this scope
+   17 | float Dot(Vector a, Vector b)
+      |                     ^~~~~~
+main.cpp:17:29: error: expression list treated as compound expression in initializer [-fpermissive]
+   17 | float Dot(Vector a, Vector b)
+      |                             ^
+main.cpp:22:12: error: 'Vector' was not declared in this scope
+   22 | float Norm(Vector a)
+      |            ^~~~~~
+main.cpp:27:1: error: 'Vector' does not name a type
+   27 | Vector Normalize(Vector a)
+      | ^~~~~~
+main.cpp:32:1: error: 'Vector' does not name a type
+   32 | Vector Project(Vector v, Vector a)
+      | ^~~~~~
+main.cpp:37:1: error: 'Vector' does not name a type
+   37 | Vector Bounce(Vector v, Vector n)
+      | ^~~~~~

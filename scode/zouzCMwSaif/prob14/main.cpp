@@ -28,8 +28,13 @@ int specialCalc(string &s, int idx) {
 	int p = 0 ;
 	int res = 0 ;
 	if( idx < n/2 ){
-		for(int i = idx ; i < (n+1)/2 ; i++ ){
+		for(int i = idx ; i < (n)/2 ; i++ ){
 			swap(s[i],s[i+1]);
+			res++;
+		}
+	}else {
+		for(int i = idx ; i > (n)/2 ; i-- ){
+			swap(s[i],s[i-1]);
 			res++;
 		}
 	}
@@ -39,10 +44,8 @@ int specialCalc(string &s, int idx) {
 
 void solve(){
 	string s; cin >> s;
-	string k; k = s;
-	reverse(k.begin(),k.end());
 	int n = (int)s.size();
-	map < char , int > mp,mpk;
+	map < char , int > mp;
 	for(int i = 0; i < n; i++){
 		mp[s[i]]++;
 	}
@@ -54,21 +57,18 @@ void solve(){
 		cout << -1 << endl;
 		return;
 	}
-	mpk = mp;
 	int ans = 0 ;
-	int ans2 = 0;
 	for(int i = 0 ;i < n ;i++){
 		if( mp[s[i]] == 1 ) {
+			mp[s[i]] -= 2 ;
 			ans += specialCalc(s,i);
 		}
-		else ans += calc(s,i), mp[s[i]]-=2;
-		if( mpk[k[i]] == 1 ) {
-			ans2 += specialCalc(k,i);
+		if( mp[s[i]] > 0 ) {
+			ans += calc(s,i), mp[s[i]]-=2;
 		}
-		else ans2 += calc(k,i), mp[k[i]]-=2;
 	}
 	//cout << s << endl;
-	cout << min(ans,ans2) << endl;
+	cout << ans << endl;
 }	             
                     
 int main()

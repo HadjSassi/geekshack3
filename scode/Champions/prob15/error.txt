@@ -1,0 +1,34 @@
+main.cpp:7:5: error: expected initializer before 'int'
+    7 |     int freq[26];
+      |     ^~~
+main.cpp:10:11: error: expected constructor, destructor, or type conversion before '(' token
+   10 |     memset(freq, 0, sizeof freq);
+      |           ^
+main.cpp:16:5: error: expected unqualified-id before 'for'
+   16 |     for (int i = 0; i < (int)s.length();
+      |     ^~~
+main.cpp:16:21: error: 'i' does not name a type
+   16 |     for (int i = 0; i < (int)s.length();
+      |                     ^
+main.cpp:17:36: error: expected unqualified-id before '++' token
+   17 |                                    ++i) {
+      |                                    ^~
+main.cpp:29:5: error: expected unqualified-id before 'for'
+   29 |     for (int i = 0; i < 26; ++i) {
+      |     ^~~
+main.cpp:29:21: error: 'i' does not name a type
+   29 |     for (int i = 0; i < 26; ++i) {
+      |                     ^
+main.cpp:29:29: error: expected unqualified-id before '++' token
+   29 |     for (int i = 0; i < 26; ++i) {
+      |                             ^~
+main.cpp:37:5: error: expected unqualified-id before 'if'
+   37 |     if (unique == 1 &&
+      |     ^~
+main.cpp:43:1: error: expected declaration before '}' token
+   43 | }
+      | ^
+main.cpp: In function 'int main()':
+main.cpp:71:13: error: 'plaindrome' was not declared in this scope
+   71 |         if( plaindrome(s)==1){
+      |             ^~~~~~~~~~

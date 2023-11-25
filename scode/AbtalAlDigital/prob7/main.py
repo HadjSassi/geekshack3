@@ -11,7 +11,7 @@ for i in range (n):
     else:
         l2.append([l1[i][1]/2,2])
 l2.sort()
-while(z-etoile>0):
+while(z-etoile>0 and i<=n):
     etoile+=l2[i][1]
     count+=l2[i][0]*l2[i][1]
     i+=1

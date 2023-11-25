@@ -5,7 +5,10 @@ typedef long long  ll;
 void solve(){
 	string p1,p2,p3;
 	cin>>p1>>p2>>p3;
-	cout <<"YES";
+	if ((p1[1]==p2[1] && p1[1]==p3[1] )||(p1[2]==p2[2] && p1[2]==p3[2]))	cout <<"NO";
+	else cout <<"YES";
+	
+
 }
 int main()
 {

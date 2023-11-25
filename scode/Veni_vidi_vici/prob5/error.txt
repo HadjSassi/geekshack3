@@ -1,35 +1,43 @@
 main.c: In function 'main':
-main.c:8:5: warning: implicit declaration of function 'fgets' [-Wimplicit-function-declaration]
-    8 |     fgets(r,5,stdin);
-      |     ^~~~~
-main.c:8:15: error: 'stdin' undeclared (first use in this function)
-    8 |     fgets(r,5,stdin);
-      |               ^~~~~
-main.c:1:1: note: 'stdin' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
-  +++ |+#include <stdio.h>
-    1 | int main()
-main.c:8:15: note: each undeclared identifier is reported only once for each function it appears in
-    8 |     fgets(r,5,stdin);
-      |               ^~~~~
-main.c:11:5: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
-   11 |     strcpy(r1,r);
-      |     ^~~~~~
-main.c:1:1: note: include '<string.h>' or provide a declaration of 'strcpy'
-  +++ |+#include <string.h>
-    1 | int main()
-main.c:11:5: warning: incompatible implicit declaration of built-in function 'strcpy' [-Wbuiltin-declaration-mismatch]
-   11 |     strcpy(r1,r);
-      |     ^~~~~~
-main.c:11:5: note: include '<string.h>' or provide a declaration of 'strcpy'
-main.c:20:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
-   20 |     printf(test);
-      |     ^~~~~~
-main.c:20:5: note: include '<stdio.h>' or provide a declaration of 'printf'
-main.c:20:5: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
-main.c:20:5: note: include '<stdio.h>' or provide a declaration of 'printf'
-main.c:20:12: warning: format not a string literal and no format arguments [-Wformat-security]
-   20 |     printf(test);
+main.c:20:16: warning: format not a string literal and no format arguments [-Wformat-security]
+   20 |         printf(test);
+      |                ^~~~
+main.c:21:16: warning: returning 'char *' from a function with return type 'char' makes integer from pointer without a cast [-Wint-conversion]
+   21 |         return test;
+      |                ^~~~
+main.c:24:12: warning: format not a string literal and no format arguments [-Wformat-security]
+   24 |     printf(test);
       |            ^~~~
-main.c:21:5: error: expected declaration or statement at end of input
-   21 |     return 0;
-      |     ^~~~~~
+main.c:25:12: warning: returning 'char *' from a function with return type 'char' makes integer from pointer without a cast [-Wint-conversion]
+   25 |     return test;}
+      |            ^~~~
+main.c:10:5: warning: 'fgets' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+   10 |     fgets(r,5,stdin);
+      |     ^~~~~~~~~~~~~~~~
+main.c:4:8: note: destination object 'r' of size 4
+    4 | { char r[4];
+      |        ^
+In file included from main.c:1:
+/usr/include/stdio.h:592:14: note: in a call to function 'fgets' declared with attribute 'access (write_only, 1, 2)'
+  592 | extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+      |              ^~~~~
+main.c:11:5: warning: 'fgets' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+   11 |     fgets(k,5,stdin);
+      |     ^~~~~~~~~~~~~~~~
+main.c:5:6: note: destination object 'k' of size 4
+    5 | char k[4];
+      |      ^
+In file included from main.c:1:
+/usr/include/stdio.h:592:14: note: in a call to function 'fgets' declared with attribute 'access (write_only, 1, 2)'
+  592 | extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+      |              ^~~~~
+main.c:12:5: warning: 'fgets' writing 5 bytes into a region of size 4 overflows the destination [-Wstringop-overflow=]
+   12 |     fgets(w,5,stdin);
+      |     ^~~~~~~~~~~~~~~~
+main.c:6:6: note: destination object 'w' of size 4
+    6 | char w[4];
+      |      ^
+In file included from main.c:1:
+/usr/include/stdio.h:592:14: note: in a call to function 'fgets' declared with attribute 'access (write_only, 1, 2)'
+  592 | extern char *fgets (char *__restrict __s, int __n, FILE *__restrict __stream)
+      |              ^~~~~

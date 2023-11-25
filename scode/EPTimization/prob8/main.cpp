@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
+typedef int ll;
 typedef unsigned long long ull;
 typedef long double db;
 #define ss second
@@ -29,6 +29,24 @@ const db EPS = 0.000000001; // 1 e -9
 const ll inf = (ll)1e18;
 ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
 ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
+
+/*vector<int> inpt(string s)
+{
+    s.erase(remove(s.begin(), s.end(), '['), s.end());
+    s.erase(remove(s.begin(), s.end(), ']'), s.end());
+
+    stringstream ss(s);
+    vector<int> numbers;
+    int num;
+
+    while (ss >> num) {
+        numbers.push_back(num);
+
+        ss.ignore(numeric_limits<streamsize>::max(), ',');
+    }
+
+    return numbers;
+}*/
 
 int run_case()
 {

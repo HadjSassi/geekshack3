@@ -16,15 +16,20 @@ def min_len_stacks_id(stacks):
     filtered_list = list(filter(lambda x: len(x)!=0, stacks))
 
     return stacks.index(min(filtered_list, key=lambda x: len(x)))
-
+def max_top(stacks):
+    filtered_list = filter(lambda x: len(x)!=0, stacks)
+    return stacks.index(min(filtered_list, key=lambda x: x[0]))
+def max_bottom(stacks):
+    filtered_list = filter(lambda x: len(x)!=0, stacks)
+    return stacks.index(min(filtered_list, key=lambda x: x[-1]))
 def player1_played(stacks: list):
-    index_min = min_len_stacks_id(stacks)
+    index_min = max_top(stacks)
     stack = stacks[index_min]
     sc = stack.pop(0)
     return stacks, sc
 
 def player2_played(stacks: list):
-    index_min = min_len_stacks_id(stacks)
+    index_min = max_bottom(stacks)
     stack = stacks[index_min]
 
     sc = stack.pop(-1)

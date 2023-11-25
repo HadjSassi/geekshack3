@@ -1,4 +1,6 @@
-int main()
+#include <stdio.h>
+#include <string.h>
+char main()
 { char r[4];
 char k[4];
 char w[4];
@@ -15,8 +17,13 @@ char test[4];
     if (k[1]==r[1] && k[2]==r[2])
     {
         strcpy(test,"no");
+        printf(test);
+        return test;
     }
-    else {strcpy(test,"yes");}
+    else {strcpy(test,"yes");
     printf(test);
-    return 0;
- 
+    return test;}
+
+
+
+}

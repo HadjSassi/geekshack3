@@ -1,4 +1,11 @@
-ch=input()
+x=int(input())
+l=[]
+m=[]
+for i in range(x):
+    ch=input()
+    l=ch.split(" ")
+    m.append(l)
 
-print(ch)
+for i in range
+  
 

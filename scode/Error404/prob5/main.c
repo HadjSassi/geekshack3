@@ -10,6 +10,6 @@ int main()
     else if (kc[1]!=rc[1] && kc[2]!=wc[2])
         printf("YES");
     else
-        printf("No");
+        printf("NO");
     return 0;
 }
