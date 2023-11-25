@@ -19,4 +19,4 @@ while c<z and one.index(min(one))!= two.index(min(two)):
     elif z-c>=3  :
         c+= (min(one)+min(two))
         starcount+=3
-print(c)
+print(c) 

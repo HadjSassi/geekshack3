@@ -10,13 +10,18 @@ for j in range(m):
 if (n!=m):
     print('NO')
     
-else:
+if n==m:
+    ch=''
     for i in range(n):
         if l1[i][0] in[0,1,-1] and l1[i][1] in[0,1,-1]:
-            if(l2[i][0]) not in [0,-1,1] and (l2[i][1]) not in [0,1,-1]:
-                print('YES')
-            else:
-                print('NO')
+            if(l2[i][0])!=0 and (l2[i][1])  !=0:
+                ch='YES'
+    if(ch==''):
+        print('NO')
+    else:
+        print(ch)
+        
 
     
 
+ 

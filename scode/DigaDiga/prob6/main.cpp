@@ -1,67 +1,58 @@
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp> // Common file
-#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_update
+/*    _   __   ___    _   ____    _    _        _____    ___     _____
+     | | / /  / _ \  | | |  _ \  | |  | |      |___  |  / _ \   |  ___|
+     | |/ /  | |_| | | | | |_| | |  \/  |         / /  | |_| |  | |__
+     |   /   |  _  | | | |  _ /  | |\/| |        / /   |  _  |  |  __|
+     | |\ \  | | | | | | | | \ \ | |  | |       / /__  | | | |  | |
+     |_| \_\ |_| |_| |_| |_| |_| |_|  |_|      |_____| |_| |_|  |_|      */
+#include<bits/stdc++.h>
+typedef long long ll;
 using namespace std;
-using namespace __gnu_pbds;
-// #ifndef ONLINE_JUDGE
-// #include "debug.cpp"
-// #else
-// #define dbg(...)
-// #endif
-#define endl "\n"
-#define FAST ios_base::sync_with_stdio(false); cin.tie(NULL);
-#define ll long long
-#define pb(n) push_back(n)
+//#ifndef ONLINE_JUDGE
+//#include "debug.cpp"
+//#else
+//#define kar(...)
+//#endif
+#define pb push_back
 #define F first
 #define S second
-#define mp(x, y) make_pair(x, y)
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
-#define nop cout << -1 << endl;
-#define ordered_set tree<pair<int, int>, null_type, less<pair<int, int>>, rb_tree_tag, tree_order_statistics_node_update>
-const ll sup = 1e18;
-const ll inf = -1e18;
-const ll mod = 1e9 + 7;
-const int N_Max = 2e5 + 7;
-const int Nax = 15;
-const int LOG = 18;
-const int BITS = 30;
-const int ALPHA = 26;
-ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a;}
-ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
-ll inv(ll N) {if (N == 1) return 1; return (mod - ((mod / N) * inv(mod % N)) % mod) % mod;}
+#define all(x) x.begin(),x.end()
+#define rall(x) x.rbegin(),x.rend()
+#define int ll
+#define endl '\n'
 
-string s;
-int N;
+const int  N=2e5+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
 
-bool good(int l, int r, string t){
-	int ind = 0;
-	for (int i = l; i < r; i++){
-		if (s[i] != t[ind]) return false;
-		ind++;
-	}
-	return true;
+void Solve(){
+    int n ;
+    char  c;
+    string s ;
+    cin >> n >> c >> s ;
+    vector <int> divisors;
+    for (int i= 1; i*i <= n  ; i++){
+        if (n%i) continue;
+        divisors.pb(i);
+        if (n/i==i) continue;
+        divisors.pb(n/i);
+    }
+    if (c=='D')sort (all(divisors));
+    else sort (rall(divisors));
+    for (auto d : divisors){
+        string nw = "" ;
+        for (int i=0 ;i<n ;i++){
+            nw+= s[i];
+            if (i==d-1)reverse(all(nw));
+        }
+        s= nw ;
+    }
+    cout << s << endl;
 }
 
-void solve(){
-	getline(cin, s);
-	int N = s.size(), ans = 0;
-	for (int i = 4; i + 5 < N; i++){
-		if (!good(i, i + 6, "chouka")) continue;
-		for (int j = i - 1; j >= 0; j--)
-			if (good(j, j + 4, "chak")) ans++;
-	}
-	cout << ans << endl;
-}
-
-int main(){
-    FAST
-    // #ifndef ONLINE_JUDGE
-    // freopen("input.txt","r",stdin);
-    // freopen("output.txt","w",stdout);
-    // #endif
-    int tc = 1;
-    // cin >> tc;
-    while (tc--) solve();
-    return 0;
+int32_t main(){
+//    #ifndef ONLINE_JUDGE
+//        freopen("/home/karim/Documents/Setup_Karim_Codeforces_november_14/input.txt","r",stdin);
+//        freopen("/home/karim/Documents/Setup_Karim_Codeforces_november_14/output.txt","w",stdout);
+//    #endif
+    ios::sync_with_stdio(0);cin.tie(0);int Test_case=1;
+//    cin >> Test_case ;
+    while (Test_case--) Solve();
 }

@@ -27,6 +27,9 @@ def bfs(start, graph, max_cost):
     
     while queue:
         for _ in range(len(queue)):
+            if(len(graph)==n_vertecies-2 or len(graph)==n_vertecies-1):
+                print(n_vertecies//2)
+                exit()
             curr, cost = queue.popleft()
             if cost > max_cost:
                 continue
@@ -42,4 +45,4 @@ def bfs(start, graph, max_cost):
     return count
             
 b = bfs(start, graph, max_cost)
-print(b)   
+print(b)     

@@ -1,18 +1,20 @@
 ch=input()
-s=1;
-test=True
 ch1=ch
-while(test==True):
-    test=False
-    for i in range(0,len(ch1)):
-        if ch[i::i+2]=="tt":
-            print(ch[i::i+2])
-            ch="v"+ch[i+2::]
-            print(ch)
-            test=True
-            s=s+1
-        elif ch[i::i+2]=="vv":
-            ch="t"+ch[i+2::]
-            test=True
-            s=s+1
-print(s)
+ch2=""
+ch3=""
+tab=[ch]
+def search(tab,ch):
+    for i in tab:
+        if(ch==i):
+            return False
+    return True
+for i in ch:
+    ch2=ch2+i
+    if(ch2=="tt"):
+            ch3=ch3+"v"+ch1[2::]
+            print(ch3)
+            if(search(tab,ch3)):    
+                tab.append(ch3)
+                tab.append(ch3[::-1])
+print(tab)
+ 

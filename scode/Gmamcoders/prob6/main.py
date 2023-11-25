@@ -1,19 +1,27 @@
+def diviseur(n):
+    l=[]
+    for i in range(1,n//2):
+        if n%i==0:
+            l.append(i)
+    return(l)
 def encode(n, s):
-    for d in range(n, 1, -1):
-        s = s[:d] + s[d:].reversed()
+    l=diviseur(n)
+    for d in l:
+        s = s + s[d::-1]
     return s
 
 def decode(n, s):
-    for d in range(n, 1, -1):
-        s = s[:d] + s[d:].reversed()
+    l=diviseur(n)
+    for d in l:
+        s = s + s[d::-1]
     return s
-n=int(input())
-a=input()
-s=input()
-if (a=="D"):
-   r=decode(n,s)
-else :
-   r=encode(n,s)
 
+n = int(input())
+a,s=map(str,input().split())
 
-print(r)
+if a == "D":
+    print(decode(n, s)) 
+else:
+    print( encode(n, s))
+
+  

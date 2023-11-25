@@ -1,4 +1,3 @@
-  File "/var/www/html/scode/Gmamcoders/prob16/main.py", line 3
-    s = [(start, 0)]  
-                      ^
-IndentationError: unindent does not match any outer indentation level
+  File "/var/www/html/scode/Gmamcoders/prob16/main.py", line 24
+    for i in range(len(s)-1, -1, -1):
+IndentationError: unexpected indent

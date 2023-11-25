@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Black_light/prob10/main.py", line 7, in <module>
+    c=3.14*(l1[3]+l2[3]-d)**2*(d**2+2*d*l1[3]-3*l1[3]**2+2*d*l2[2]-3*l2[3]**2+6*l2[3]*l1[3])/(12*d)
+ZeroDivisionError: float division by zero

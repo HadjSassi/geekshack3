@@ -1,4 +1,0 @@
-  File "/var/www/html/scode/The_Palestiners/prob8/main.py", line 10
-    bachka_score = 0
-    ^
-IndentationError: expected an indented block after function definition on line 9

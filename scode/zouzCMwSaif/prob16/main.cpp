@@ -33,26 +33,30 @@ void nop() {
     return;
 }
 
-const ll N = 1e5+5 ;
+const ll N = 1e6+5 ;
 vector<pi> adj[N] ;
-
+ll best[N] ;
 void solve() {
     ll n , m , s ;
-    cin>>n>>m>>s ;
+    scanf("%lld%lld%lld",&n , &m , &s) ;
+    for(int i = 1 ; i<=n ; i++) best[i] = 1e9 ;
+//    assert(m<N) ;
+//    assert(n<N) ;
     for(ll i = 1 ; i<=m ; i++){
-        ll u , v , w ; cin>>u>>v>>w ;
+        ll u , v , w ;
+        scanf("%lld%lld%lld",&u , &v , &w) ;
+
         adj[u].pb({v , w}) ;
         adj[v].pb({u , w}) ;
     }
     priority_queue<pi , vector<pi> , greater<pi>> pq ;
     pq.push({0 , s}) ;
-    vector<ll> best(n+1 , 1e14) ;
     best[s] = 0 ;
     while(!pq.empty()){
         auto p = pq.top() ; pq.pop() ;
         ll d = p.F , node = p.S ;
         if(d != best[node]) continue;
-        for(auto pp : adj[node]){
+        for(pi pp : adj[node]){
             ll to = pp.F , w = pp.S ;
             if(ckmin(best[to] , w + d)){
                 pq.push({best[to] , to}) ;
@@ -61,7 +65,9 @@ void solve() {
     }
     ll ans = 0 ;
     ll dup = 0 ;
-    ll l ; cin>>l ;
+    ll l ;
+    scanf("%lld",&l) ;
+
     for(ll i = 1 ; i<=n ; i++){
 //        cout<<best[i]<<' ';
         if(best[i] == l){
@@ -69,23 +75,24 @@ void solve() {
             ans++ ;
         }
         if(best[i] < l){
-            for(auto p : adj[i]){
+            for(pi p : adj[i]){
                 ll to = p.F , w = p.S ;
-                if(best[to] < best[i]) continue;
+                if(best[i] == w + best[to]) continue;
                 if(w + best[i] > l){
                     ans++ ;
                     if(best[to] < l && best[to] + w > l){
                         ll x = l - best[i]  ;
                         ll y = l - best[to] ;
                         if(x+y==w) dup++ ;
-                        else if(x+y > w){
-                            ans-- ;
-                        }
+//                        else if(x+y > w){
+//                            ans-- ;
+//                        }
                     }
                 }
             }
         }
     }
+//    assert(dup % 2 == 0) ;
     cout<<ans - dup/2<<endl;
 }
 

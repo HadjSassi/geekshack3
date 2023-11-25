@@ -15,4 +15,4 @@ for i in range (len(L1)):
     if L1[i].count("0")==1:
         nb=nb+1
     
-print (nb)  
+print (nb)   

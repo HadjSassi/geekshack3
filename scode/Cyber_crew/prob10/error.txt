@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Cyber_crew/prob10/main.py", line 9, in <module>
+    p=sqrt(((l1[0]-l2[0])**2)+((l1[1]-l2[1])**2)+(l1[2]-l2[2])**2)
+NameError: name 'sqrt' is not defined
