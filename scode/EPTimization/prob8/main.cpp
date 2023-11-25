@@ -30,24 +30,6 @@ const ll inf = (ll)1e18;
 ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
 ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 
-/*vector<int> inpt(string s)
-{
-    s.erase(remove(s.begin(), s.end(), '['), s.end());
-    s.erase(remove(s.begin(), s.end(), ']'), s.end());
-
-    stringstream ss(s);
-    vector<int> numbers;
-    int num;
-
-    while (ss >> num) {
-        numbers.push_back(num);
-
-        ss.ignore(numeric_limits<streamsize>::max(), ',');
-    }
-
-    return numbers;
-}*/
-
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;

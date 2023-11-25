@@ -39,8 +39,10 @@ int specialCalc(string &s, int idx) {
 
 void solve(){
 	string s; cin >> s;
+	string k; k = s;
+	reverse(k.begin(),k.end());
 	int n = (int)s.size();
-	map < char , int > mp;
+	map < char , int > mp,mpk;
 	for(int i = 0; i < n; i++){
 		mp[s[i]]++;
 	}
@@ -52,15 +54,21 @@ void solve(){
 		cout << -1 << endl;
 		return;
 	}
+	mpk = mp;
 	int ans = 0 ;
+	int ans2 = 0;
 	for(int i = 0 ;i < n ;i++){
 		if( mp[s[i]] == 1 ) {
 			ans += specialCalc(s,i);
 		}
 		else ans += calc(s,i), mp[s[i]]-=2;
+		if( mpk[k[i]] == 1 ) {
+			ans2 += specialCalc(k,i);
+		}
+		else ans2 += calc(k,i), mp[k[i]]-=2;
 	}
 	//cout << s << endl;
-	cout << ans << endl;
+	cout << min(ans,ans2) << endl;
 }	             
                     
 int main()

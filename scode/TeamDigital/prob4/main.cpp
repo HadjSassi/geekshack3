@@ -1,128 +1,208 @@
-#pragma GCC optimize("Ofast,no-stack-protector")
-#pragma GCC target("sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,avx2")
-#pragma GCC optimize("unroll-loops")
-#include <ext/pb_ds/assoc_container.hpp>
-#include <ext/pb_ds/tree_policy.hpp>
-using namespace __gnu_pbds;
-#include <bits/stdc++.h>
-
+#include<bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
 using namespace std;
-
-#define int int64_t
-#define forn(i, n) for (int i = 0; i < (int)(n); i++)
-
-typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
-
-const int mod = 998244353;
-const int inf = 2e18;
-
-struct my_hash {
-    size_t operator()(const pair<int, int>& a) const {
-        return a.first * 11 + a.second;
+using namespace __gnu_pbds;
+template <typename T>
+using orderded_set=tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+#define ll long long
+#define ull unsigned long long
+#define endl "\n"
+#define all(x) (x).begin(), (x).end()
+#define INF (1LL<<60)
+#define PB push_back
+#define fr(i,a,b) for(ll i = a; i < b; i++)
+#define prDouble(x) cout << fixed << setprecision(10) << x
+#define F first
+#define S second
+ 
+ 
+typedef vector<ll>vll ;
+typedef pair<ll,ll>pll;
+ 
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+ 
+ll mod=1e9+7; 
+const int N=1e7 + 5;
+ 
+bool prime[N];
+int spf[N];
+ 
+ 
+ll add(ll x,ll y){ll res=x+y ; return(res>=mod?res-mod:res);}
+ll mul(ll x,ll y){ll res=(x%mod)*(y%mod) ; return(res>=mod?res%mod:res);}
+ll sub(ll x,ll y){ll res=x-y ; return(res<0?res+mod:res);}
+ll power(ll x, ll y) {if (y < 0) return 1; ll res = 1; x %= mod; while (y) {if (y & 1)res = mul(res, x); y >>= 1; x = mul(x, x);} return res;}
+ll inv(ll x){return power(x,mod-2);}
+ 
+void seive(){
+  for(int i=0;i<N;i++){spf[i]=i;}
+  fill(prime,prime+N,true);
+  prime[0]=prime[1]=false;
+  for(int i=2;i*i<=N;i++){
+    if(prime[i]==true){
+      for(int j=i*i;j<N;j+=i){
+        prime[j]=false;
+        if(spf[j]==j)spf[j]=i;
+      }
     }
-};
-
-int div_up(int a, int b) {
-    if (b < 0) {
-        a = -a;
-        b = -b;
+  }
+}
+ 
+int fact[N],invfact[N];
+void initNCR(){
+    fact[0]=1;
+    int i;
+    for(i=1;i<N;i++){
+        fact[i]=mul(i,fact[i-1]);
     }
-    if (a < 0) {
-        return a / b;
-    } else {
-        return (a + b - 1) / b;
+    i--;
+    invfact[i]=power(fact[i],mod-2);
+    for(i--;i>=0;i--){
+        invfact[i]=mul((i+1),invfact[i+1]);
     }
 }
-
-int gcd(int n, int m, int& a, int& b) {
-    if (n == 0) {
-        a = 0;
-        b = 1;
-        return m;
-    }
-    int a_ = 0, b_ = 0;
-    int d = gcd(m % n, n, a_, b_);
-    // m % n = m - (m / n) * n
-    // d = a_ * (m % n) + b_ * n
-    // d = a_ * (m - (m / n) * n) + b_ * n
-    // d = a_ * m - a_ * (m / n) * n * n + b_ * n
-    // d = (b_ - a_ * (m / n)) * n + a_ * m
-    a = b_ - a_ * (m / n);
-    b = a_;
-    return d;
+int  ncr(int n,int r){
+    if(r>n || n<0 || r<0)return 0;
+    return mul(mul(fact[n],invfact[r]),invfact[n-r]);
 }
-
-pair<int, int> solve(int n, int m, int x1, int y1, int x2, int y2) {
-    // (x2 + a * n) - (y2 + b * m) = x1 - y1
-    // a * n - b * m = x1 - y1 - x2 + y2
-    int a = 0, b = 0;
-    int d = gcd(n, m, a, b);
-    int c = x1 - y1 - x2 + y2;
-    if (c % d) {
-        return {inf, inf};
-    }
-    a *= c / d;
-    b *= c / d;
-    b = -b;
-    int n_ = n / d;
-    int m_ = m / d;
-    // x2 + (a + m_ * k) * n >= x1
-    // (a + m_ * k) * n >= x1 - x2
-    // a + m_ * k >= up((x1 - x2) / n)
-    // m_ * k >= up((x1 - x2) / n) - a
-    // k >= up((up((x1 - x2) / n) - a) / m_)
-    int k = div_up((div_up(x1 - x2, n) - a), m_);
-    a += m_ * k;
-    b += n_ * k;
-    return {x2 + a * n, y2 + b * m};
+ 
+bool comp(pair<int , int> a, pair<int,int>b){
+    if(a.first!=b.first)
+    {return a.first>b.first;}
+    else return a.second>b.second;
 }
-
-int32_t main() {
-    ios_base::sync_with_stdio(0);
-    cin.tie(0); cout.tie(0);
-    int ttt;
-    cin >> ttt;
-    while (ttt--) {
-        int n, m, x1, y1, x2, y2;
-        cin >> n >> m >> x1 >> y1 >> x2 >> y2;
-        n--; m--; x1--; y1--; x2--; y2--;
-        string s;
-        cin >> s;
-        if (x1 == x2 && y1 == y2) {
-            cout << "0\n";
-            continue;
-        }
-        if (s[0] != 'D') {
-            x1 = n - x1;
-            x2 = n - x2;
-        }
-        if (s[1] != 'R') {
-            y1 = m - y1;
-            y2 = m - y2;
-        }
-        pair<int, int> closest = {inf, inf};
-        for (int i = 0; i < 2; i++, x2 = 2 * n - x2) {
-            for (int j = 0; j < 2; j++, y2 = 2 * m - y2) {
-                closest = min(closest, solve(n * 2, m * 2, x1, y1, x2, y2));
-            }
-        }
-        if (closest.first == inf) {
-            cout << -1 << '\n';
-            continue;
-        }
-        int ans = (closest.first - 1) / n + (closest.second - 1) / m;
-        for (int i = 0; i < 2; i++) {
-            for (int j = 0; j < 2; j++) {
-                int sx = x1, sy = y1;
-                if (i != 1 || j != 1) {
-                    sx++; sy++;
-                }
-                pair<int, int> closest_angle = solve(n * 2, m * 2, sx, sy, i * n, j * m);
-                if (closest_angle.first < closest.first) {
-                    ans--;
-                }
-            }
-        }
-        cout << ans << '\n';
-    }
+ 
+ 
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+ 
+ll n,m,i1,jj,i2,j2,d;
+map<string,ll>mp;
+ 
+bool meet(){
+  int x,y;
+  if(d==1){
+    x=j2-jj;
+    y=i1-i2;
+    if(x>=0 && y>=0 && x<m && y<n && x==y )return true;
+    return false;
+  }
+  else if(d==2){
+    x=j2-jj;
+    y=i2-i1;
+    if(x>=0 && y>=0 && x<m && y<n && x==y )return true;
+    return false;
+  }
+  else if(d==3){
+    x=jj-j2;
+    y=i2-i1;
+    if(x>=0 && y>=0 && x<m && y<n && x==y )return true;
+    return false;
+  }
+  else{
+    x=jj-j2;
+    y=i1-i2;
+    if(x>=0 && y>=0 && x<m && y<n && x==y )return true;
+    return false;
+  }
 }
+ 
+void nextCoordinate(){
+  if(d==1){
+    ll y=abs(i1-1);
+    ll x=abs(jj-m);
+    i1-=min(x,y);
+    jj+=min(x,y);
+    if(x==y){
+      d=3;
+    }
+    else if(x<y){
+      d=4;
+    }
+    else d=2;
+  }
+  else if(d==2){
+    ll y=abs(i1-n);
+    ll x=abs(jj-m);
+    i1+=min(x,y);
+    jj+=min(x,y);
+    if(x==y){
+      d=4;
+    }
+    else if(x<y){
+      d=3;
+    }
+    else d=1; 
+  }
+  else if(d==3){
+    ll y=abs(i1-n);
+    ll x=abs(jj-1);
+    i1+=min(x,y);
+    jj-=min(x,y);
+    if(x==y){
+      d=1;
+    }
+    else if(x<y){
+      d=2;
+    }
+    else d=4;
+  }
+  else{
+    ll y=abs(i1-1);
+    ll x=abs(jj-1);
+    i1-=min(x,y);
+    jj-=min(x,y);
+    if(x==y){
+      d=2;
+    }
+    else if(x<y){
+      d=1;
+    }
+    else d=3;
+ 
+  }
+}
+ 
+int main(){
+  std::ios::sync_with_stdio(false);
+  cin.tie(NULL);
+  int t;
+  cin>>t;
+  mp["UR"]=1;
+  mp["DR"]=2;
+  mp["DL"]=3;
+  mp["UL"]=4;
+  while(t--){
+    cin>>n>>m>>i1>>jj>>i2>>j2;
+    string dir;
+    cin>>dir;
+    map<vll,ll>vis;//i,j,dir
+    queue<vll>q;
+    q.push({i1,jj,mp[dir]});
+    ll level=0;
+    while(q.size()){
+      auto f=q.front();
+      i1=f[0];
+      jj=f[1];
+      d=f[2];
+      q.pop();
+      if(meet()){
+        break;
+      }
+      if(vis[{i1,jj,d}]){
+        level=-1;
+        break;
+      }
+      vis[{i1,jj,d}]=1;
+      nextCoordinate();
+      q.push({i1,jj,d});
+      level++;
+    }
+    cout<<level<<endl;
+ 
+  }
+ 
+}
+ 
