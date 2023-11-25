@@ -19,8 +19,7 @@ a=min(dist(ali))
 I=max(dist(iheb))
 i=min(dist(iheb))
 
-
-if A<i or I<a :
-    print('YES')
+if A<i or I<a  :
+        print('YES')
 else :
-    print('NO')  
+    print('NO')

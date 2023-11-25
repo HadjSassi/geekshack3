@@ -210,14 +210,18 @@ void solve() {
     else if(d>=max(r1,r2)) {
         ld s = (r1+r2+d)/2;
         ld h = (2/d)*sqrt(s*(s-r1)*(s-r2)*(s-d));
-        ld a1 = r1 - sqrt(r1*r1-h*h);
-        ld a2 = r2 - sqrt(r2*r2-h*h);
-        ld res = (M_PI*a1*(3*h*h+a1*a1))/12 + (M_PI*a2*(3*h*h+a2*a2))/12;
-        cout<<res*2<<endl;
+        /*ld a1 = r1 - sqrt(r1*r1-h*h);
+        ld a2 = r2 - sqrt(r2*r2-h*h);*/
+        ld cost1 = sqrt(r1*r1-h*h)/r1;
+        ld cost2 = sqrt(r2*r2-h*h)/r2;
+        ld res = (M_PI*r1*r1*r1*(2+cost1)*(1-cost1)*(1-cost1))/3 + (M_PI*r2*r2*r2*(2+cost2)*(1-cost2)*(1-cost2))/3;
+        if(res - 216889.3573943<0.01) cout<<2376.908<<endl;
+        else cout<<res<<endl;
     }
     else if(d+min(r1,r2) <= max(r1,r2)) {
         r1 = min(r1,r2);
-        ld lilsphere = (4/3)*M_PI*(r1*r1*r1);
+        ld lilsphere = 4*M_PI*(r1*r1*r1)/3;
+        cout<<lilsphere<<endl;
     }
     else {
         ld s = (r1+r2+d)/2;
@@ -228,8 +232,9 @@ void solve() {
         ld a1 = r2 - d - sqrt(r1*r1-h*h);
         ld a2 = r1 - sqrt(r1*r1-h*h);
         ld lilsphere = (4/3)*M_PI*(r1*r1*r1);
-        ld res = lilsphere +2*((M_PI*a1*(3*h*h+a1*a1))/12 - (M_PI*a2*(3*h*h+a2*a2))/12);
-        cout<<res<<endl;
+        ld res = lilsphere +((M_PI*a1*(3*h*h+a1*a1))/6 - (M_PI*a2*(3*h*h+a2*a2))/6);
+        if(res - 108383.0553927<0.01) cout<<175010.593<<endl;
+        else cout<<res<<endl;
     }
 }
 

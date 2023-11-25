@@ -8,3 +8,4 @@ for i in range (len(c)):
     d=(d[i:]).replace("vv","t")
     s.add(d)
 print(len(s)%1000000007)
+ 

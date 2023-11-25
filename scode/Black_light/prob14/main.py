@@ -18,4 +18,4 @@ s1=''.join(l)
 if isPalindrome(s1) :
     print(c)
 else:
-    print("-1") 
+    print("-1")  

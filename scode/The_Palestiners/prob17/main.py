@@ -4,11 +4,11 @@ def count_strings(s):
     t_count = s.count('t')
     v_count = s.count('v')
 
-    result = pow(2, min(t_count, v_count), MOD)
+    result = pow(3, min(t_count, v_count), MOD)
     
-    return result+5
+    return result
 
 # Example usage
 s = input().strip()
 output = count_strings(s)
-print(output) 
+print(output)   

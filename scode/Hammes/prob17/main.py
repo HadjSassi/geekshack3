@@ -1,22 +1,25 @@
-def tv():
-    s=input()
-    s1= s[::-1]
-    ctr=1
-    test1=False
-    for i in range(1,len(s1)):
-        if test1==True: pass
-        else:
-         ch1=s1[i]+s1[i-1]
-        if ch1=='tt':
-          test1=True
-          ctr+=1
-          s1.replace(s[i],'v')
-          s1.replace(s1[i-1],'')
-        if ch1=='vv':
-          test1=True
-          ctr+=1
-          s1[i]='t'
-          s1[i-1]=''  
-    return ctr    
 
-print(tv())            
+def count_strings(s):
+    MOD = 1000000007
+    n = len(s)
+
+    # Initialize DP array
+    dp = [0] * (n + 1)
+    dp[0] = 1
+
+    # Iterate through the string
+    for i in range(1, n + 1):
+        dp[i] = dp[i - 1]
+
+        if i >= 2 and s[i - 2:i] == 'tt':
+            dp[i] = (dp[i] + dp[i - 2]) % MOD
+
+        if i >= 2 and s[i - 2:i] == 'vv':
+            dp[i] = (dp[i] + dp[i - 2]) % MOD
+
+    return dp[n]
+
+# Example usage:
+s = input()
+result = count_strings(s)
+print(result)
