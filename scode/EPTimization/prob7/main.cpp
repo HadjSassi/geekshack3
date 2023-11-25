@@ -48,7 +48,7 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
     return numbers;
 }*/
 
-mll dp[300001];
+mll dp[3000001];
 
 ll fh(ll i,ll j,vl &a,vl &b)
 {
@@ -68,7 +68,7 @@ int run_case()
         cin >> a[i] ;
         cin >> b[i] ;
     }
-    cout << min(fh(k-1,z,a,b),fh(k-1,z,a,b)) << endl;
+    cout << min(fh(k-1,z,a,b),fh(k-1,z+1,a,b)) << endl;
     return 0;
 }
 

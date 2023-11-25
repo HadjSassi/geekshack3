@@ -1,14 +1,17 @@
 s=input()
-nb=0
+nb=-1
+
 def valide(s):
     return s==s[::-1]
-for i in range (len(s)):
-    s[i]=aux
-    aux=s[i+1]
-    s[i+1]=s[i]
+
+for i in range (len(s)-1):
+   
+    l=list(s)
+    l[i],l[i+1]=l[i+1],l[i]
+    s=''.join(l)
     if valide(s):
        nb =nb+1
-nb=-1
+
 print(nb)
        
 

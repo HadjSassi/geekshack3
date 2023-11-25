@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/Hammes/prob7/main.py", line 7
+    int size = ch.length;
+        ^^^^
+SyntaxError: invalid syntax

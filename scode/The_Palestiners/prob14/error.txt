@@ -1,4 +1,0 @@
-main.c:2:10: fatal error: iostream: No such file or directory
-    2 | #include <iostream>
-      |          ^~~~~~~~~~
-compilation terminated.

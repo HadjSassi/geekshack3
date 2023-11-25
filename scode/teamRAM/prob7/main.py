@@ -1,27 +1,35 @@
 while True:
     n, z = map(int, input().split())
-    if (1 <= n <= 300000 and 1 <= z <= 2 * n):
+    if (1 <= n <= 300000 and 1 <= z <= 2 * n): #z kadech mn star hachti
         break
 
-d={}
-for i in range(1,n+1):
+one_star=[]
+two_star=[]
+for i in range(n):
     while True:
         a, b = map(int, input().split())
-        if (1 <= a < b and a < b <= 10**9):
-            break
-    d[i]=[a,b]
+        one_star.append(a)
+        two_star.append(b)
+        break
 
-cmin=0
+starcount=0
 move=0
 
-for i in range (1,n+1):
-    if d[n-i+1][1]<z-cmin:
-        cmin+=d[n-i+1][1]
-        move+=2
-    else :
-        cmin+=d[n-i+1][0]
-        move+=1
+while starcount<z and len(one_star)!=0:
+    minA=min(one_star)
+    i_minA=one_star.index(minA)
+    minB = min(two_star)
+    i_minB =two_star.index(minB)
+    one_star.pop(i_minA)
+    two_star.pop(i_minB)
+    if z-starcount>=3  and i_minA !=i_minB:
+        starcount+=3
+        move+= (minA+minB)
+    elif 3>z-starcount>0 and i_minA !=i_minB:
+        starcount+=2
+        move+=minB
+    elif 1<=z-starcount<2 and i_minA!=i_minB:
+        starcount+=1
+        move+=minA
 
 print(move)
-
-

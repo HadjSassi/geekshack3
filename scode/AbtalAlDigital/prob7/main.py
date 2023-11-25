@@ -5,9 +5,11 @@ for s in range(n):
     levels.append((a, b))
 levels.sort(key=lambda x: x[1] - x[0])
 moves = 0
-for i in range(z):
-    moves += levels[i][0]
-
-for i in range(z, n):
-    moves += levels[i][1]
-print(moves)
+L=[]
+n=z
+while z != 0:
+    if z<n:
+        for a in range z:
+            for i in range (n):
+                for j in range (i,len(levels)-1):
+                    L.append([for j in range[j][k],])

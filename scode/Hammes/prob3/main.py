@@ -1,17 +1,26 @@
-def Delicious():
-    s1=input()
-    count=1
-    s=s1.replace(" ", "")
+ch =input()
+a = 0
+l = []
+i1 , i2 = 0,0
+for i in ch :
+    if i == "chak"[i1]:
+        i1+=1
+        if i1==3:
+            l.append("chak")
+            i1=0
+    else :
+        i1 = 0
+    if i == "chouka"[i2]:
+        i2+=1
+        if i2==5:
+            l.append("chouka")
+            i2=0
+    else :
+        i2 = 0
 
-    for i in range(0, len(s)):        
-
-        ch=s[i]
-        ch1=s
-        ch1.replace(ch1[i], '')
-        for j in range(i+1, len(s)):
-            ch=ch+ch1[j]
-            if (ch=='chak') or(ch=='chouka'):
-                count=count+1
-        
-    return(count)    
-print(Delicious())  
+for i in range(len(l)):
+    if l[i] == "chak":
+        for k in range(i,len(l)):
+            if l[k] == "chouka":
+                a+=1
+print(a)
