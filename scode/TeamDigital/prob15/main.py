@@ -14,4 +14,5 @@ while(i<l+1):
             q=q+1
 if q=1:
     nbr=nbr+1
+i=i+1
 print(nbr)
