@@ -9,15 +9,18 @@ for (j=0;j<d;j++)
 scanf("%d",&s[j]);
 b=d-1;
 k=0;
+s2+=s[b];
 while(k<b){
 s1+=s[k];
-s2+=s[b];
-if((k+1)!=(b-1))
-b--;
+
 k++;
+if(k!=(b-1)){
+b--;s2+=s[b];}
 }
 }
-
 printf("%d\n%d",s1,s2);
+return 0;
 }
 
+
+ 
