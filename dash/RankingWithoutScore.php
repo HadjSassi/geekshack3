@@ -148,7 +148,6 @@ $result5= mysqli_query($link, $requete5);
                                         <tr>
                                             <td>Nom d'Equipe</td>
                                             <td>Chef d'Equipe</td>
-                                            <td>Score</td>
                                         </tr>
                                     </thead>
                                     <tbody>
