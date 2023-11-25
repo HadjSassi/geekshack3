@@ -40,13 +40,14 @@ $score_max = $record['max'];
 $result4= mysqli_query($link, $requete4);
 */
 //
-$requete5 = "select team.team_tag as nom_equipe , 
-                    team.leader_username as leader , 
-                    score.prob1+ score.prob1 + score.prob3 + score.prob4+ score.prob5 + score.prob6 + score.prob7 + score.prob8+score.prob9 + score.prob10 + score.prob11 + score.prob12 + score.prob13 + score.prob14 + score.prob15 + score.prob16 
-                        + score.prob17 as sum_score
-             from team ,  score  
-             where team.id_team = score.id_team  group by team.id_team order by team.id_team DESC ";
-
+$requete5 = "SELECT team.team_tag AS nom_equipe, 
+                    team.leader_username AS leader, 
+                    score.prob1 + score.prob1 + score.prob3 + score.prob4 + score.prob5 + score.prob6 + score.prob7 + score.prob8 + score.prob9 + score.prob10 + score.prob11 + score.prob12 + score.prob13 + score.prob14 + score.prob15 + score.prob16 
+                        + score.prob17 AS sum_score
+             FROM team
+             JOIN score ON team.id_team = score.id_team
+             GROUP BY team.id_team
+             ORDER BY sum_score DESC";
 
 $result5= mysqli_query($link, $requete5);
 
@@ -145,20 +146,27 @@ $result5= mysqli_query($link, $requete5);
                             <div class="table-responsive">
                                 <table width="100%"  id ="myTable" data-filter-control="true" data-show-search-clear-button="true">
                                     <thead>
-                                        <tr>
-                                            <td>Nom d'Equipe</td>
-                                            <td>Chef d'Equipe</td>
-<!--                                            <td>Score</td>-->
-                                        </tr>
+                                    <tr>
+                                        <th>Ranking</th>
+                                        <th>Nom d'Equipe</th>
+                                        <th>Chef d'Equipe</th>
+<!--                                        <th>Score</th>-->
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <?php while ($row = mysqli_fetch_array($result5)) { ?>
-			                              <tr style="cursor: pointer" onclick="window.location.href='team.php?tag=<?php echo $row['nom_equipe']; ?>'">
-				                            <td><?php echo $row['nom_equipe']; ?></td>
-				                            <td><?php echo $row['leader']; ?></td>
-                                            <td style="color: white;"><?php echo $row['sum_score']; ?></td>
-                                          </tr>
-                                          <?php } ?>
+                                        <?php
+                                        $ranking = 1; // Initialize the ranking
+                                        while ($row = mysqli_fetch_array($result5)) {
+                                            ?>
+                                            <tr style="cursor: pointer" onclick="window.location.href='team.php?tag=<?php echo $row['nom_equipe']; ?>'">
+                                                <td><?php echo $ranking; ?></td>
+                                                <td><?php echo $row['nom_equipe']; ?></td>
+                                                <td><?php echo $row['leader']; ?></td>
+                                                <td style="color: white;"><?php echo $row['sum_score']; ?></td>
+                                            </tr>
+                                            <?php
+                                            $ranking++; // Increment the ranking for the next row
+                                        }?>
                                     </tbody>
                                 </table>
                             </div>
