@@ -20,7 +20,9 @@ void solve(){
 		cout << x << " " << y << endl;
 		return;
 	}
-	if( x == l || y == h  || x == 0 || y == 0) k--;
+	int gcdd = __gcd(vx,vy);
+	if( gcdd != 0 )
+	 vx /= gcdd, vy/= gcdd;
 	bool test = false;
 	while( true ) { 
 		int lastx = x;
@@ -52,7 +54,7 @@ void solve(){
 		
 		//cout << x << " " << y << " "  << k << endl;
 		if( k == 0 ) {
-			cout << x << " " << y << endl;
+			cout << lastx << " " << lasty << endl;
 			return;
 		}
 		
@@ -63,7 +65,7 @@ void solve(){
 int main()
 {
 	//freopen("input.txt","r",stdin); freopen("output.out","w",stdout);
-	FAST;
+	//FAST;
 	int t = 1;
 	//cin>>t ;
 	while (t--)

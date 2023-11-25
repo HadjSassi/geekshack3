@@ -65,4 +65,4 @@ def palindrome(s):
     return sum
 
 s=input()
-print(palindrome(s))
+print(palindrome(s)) 

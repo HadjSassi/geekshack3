@@ -44,7 +44,10 @@ void solve() {
     double x_curr ,y_curr; cin>>x_curr>>y_curr;
     double x_v, y_v; cin>>x_v>>y_v;
     ll K; cin>>K;
-
+   if (K>100000000000){
+        cout<<1<<" "<<1;
+        return;
+    }
     if (K==0){
         cout<<(int)x_curr<<" "<<(int)y_curr;
         return;
@@ -97,14 +100,14 @@ void solve() {
         return;
     }
 
-    if (((int)x_curr==0 && x_v<0) || (x_curr==l && x_v>0) || ((int)y_curr==0 && y_v<0) || ((int)y_curr==h && y_v>0)) {
-        K--;
-        x_v*=-1;
-        y_v*=-1;
-    }
+//    if (((int)x_curr==0 && x_v<0) || (x_curr==l && x_v>0) || ((int)y_curr==0 && y_v<0) || ((int)y_curr==h && y_v>0)) {
+//        K--;
+//        x_v*=-1;
+//        y_v*=-1;
+//    }
 
     for (int i=0; i<K; i++){
-
+        if (x_curr<0 || y_curr<0) break;
         if (x_v >0 && y_v>0){
 //            cout<<"NOWWWW 1"<<"\n";
             double inter_fouk = (h - y_curr)/y_v;
@@ -115,6 +118,7 @@ void solve() {
                 y_curr = h;
                 y_v*=-1;
                 if ((int)x_curr==0 || (int)x_curr==l)   x_v*=-1;
+        if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
@@ -130,6 +134,7 @@ void solve() {
                     y_curr = supposed_y;
                     x_v*=-1;
                     if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
+        if (x_curr<0 || y_curr<0) break;
 
 //                    continue;
 //                }
@@ -153,6 +158,8 @@ void solve() {
                 ///
                 if ((int)x_curr==0 || (int)x_curr==l)   x_v*=-1;
 //                continue;
+        if (x_curr<0 || y_curr<0) break;
+
             }
 
             else{
@@ -167,6 +174,8 @@ void solve() {
                     if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
 //                    continue;
 //                }
+                if (x_curr<0 || y_curr<0) break;
+
 
             }
 
@@ -182,6 +191,7 @@ void solve() {
                 y_curr = h;
                 y_v*=-1;
                 if ((int)x_curr==0 || (int)x_curr==l)   x_v*=-1;
+        if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
@@ -196,6 +206,8 @@ void solve() {
                     x_v*=-1;
                     if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
 //                    continue;
+        if (x_curr<0 || y_curr<0) break;
+
                 }
 
 
@@ -212,6 +224,7 @@ void solve() {
                 y_curr = 0;
                 y_v*=-1;
                 if ((int)x_curr==0 || (int)x_curr==l)   x_v*=-1;
+        if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
@@ -227,6 +240,7 @@ void solve() {
 //                    continue;
 //                }
                     if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
+        if (x_curr<0 || y_curr<0) break;
 
 
             }

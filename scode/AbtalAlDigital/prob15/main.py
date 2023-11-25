@@ -6,6 +6,7 @@ for i in range(s,e+1):
     if a==2:
         count+=1
     
+    
 print(count)
         
-      
+       

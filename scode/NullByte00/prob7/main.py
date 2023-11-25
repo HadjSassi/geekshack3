@@ -34,4 +34,4 @@ def dfs(stars, progress: int, moves: int, min_penalty):
     return min(a,b,c)
 
 
-print(dfs(0, 0, 0, min_penalty))
+print(dfs(0, 0, 0, min_penalty)) 

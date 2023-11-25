@@ -20,4 +20,4 @@ while (K!=0):
     else:
         x+=vx
         y+=vy
-print(math.floor(x)," ",math.floor(y))
+print(math.floor(x)," ",math.floor(y)) 

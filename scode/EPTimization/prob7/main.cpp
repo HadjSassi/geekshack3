@@ -48,12 +48,12 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
     return numbers;
 }*/
 
-mll dp[300001];
+map<ll,ll> dp[300010];
 
 ll fh(ll i,ll j,vl &a,vl &b)
 {
     if (j<=0) return 0;
-    if (j>2*i+2 || i<0) return 1e17;
+    if (i<0) return 1e18;
     if (dp[i].count(j)) return dp[i][j];
     return dp[i][j]=min(fh(i-1,j,a,b),min(a[i]+fh(i-1,j-1,a,b),b[i]+fh(i-1,j-2,a,b)));
 }
@@ -62,13 +62,13 @@ int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
     cin >> k >> z;
-    vl a(k+2),b(k+2);
+    vl a(k),b(k);
     f(i,0,k,1)
     {
         cin >> a[i] ;
         cin >> b[i] ;
     }
-    cout << min(fh(k-1,z,a,b),fh(k-1,z+1,a,b)) << endl;
+    cout << fh(k-1,z,a,b) << endl;
     return 0;
 }
 
@@ -80,3 +80,4 @@ signed main(){
     }
     return 0;
 }
+ 

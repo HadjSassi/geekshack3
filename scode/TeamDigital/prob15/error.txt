@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/TeamDigital/prob15/main.py", line 2, in <module>
+    ly = input('fffffff')
+EOFError: EOF when reading a line
