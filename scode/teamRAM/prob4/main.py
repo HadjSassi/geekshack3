@@ -1,23 +1,16 @@
-import math
 l, h, x, y, vx, vy, K = map(int, input().split())
-while (K!=0):
-    if(x+vx>=l):
-        x=l
-        vx=(-1)*vx
-        K-=1
-    elif(y+vy>=h):
-        y=h
-        vy=(-1)*vy
-        K-=1
-    elif(x+vx<=0):
-        x=0
-        vx=(-1)*vx
-        K-=1
-    elif(y+vy<=0):
-        y=0
-        vy=(-1)*vy
-        K-=1
-    else:
-        x+=vx
-        y+=vy
-print(math.floor(x)," ",math.floor(y)) 
+import math as m
+def position(l, h, x, y, vx, vy, K):
+    for _ in range(K):
+        axey=(l-x) / vx if vx > 0 else x / (-vx)
+        axex =(h-y) / vy if vy > 0 else y / (-vy)
+        m=min(axey, axex)
+        x+=vx*m
+        y+=vy * m
+        if m==axey:
+            vx=-vx
+        else:
+            vy=-vy
+    return (x, y)
+(xfinal, yfinal) = position(l, h, x, y, vx, vy, K)
+print(int(xfinal),int(yfinal))
