@@ -137,7 +137,7 @@ $nb_condidat = $result2->num_rows;
                                     $num_problems = (count($row) - 1) / 2;
                                     // Fetch problem names
                                     $problemNames = [];
-                                    $problemsFolder = 'problems_all';
+                                    $problemsFolder = '../problems_all';
 
                                     for ($i = 1; $i <= $num_problems; $i++) {
                                         $problemFolder = $problemsFolder . '/prob' . $i;
