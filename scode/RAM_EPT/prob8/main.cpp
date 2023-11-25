@@ -1,9 +1,18 @@
 #include <bits/stdc++.h>
-#include <map>
-#include <string>
-using namespace std;
+#include <math.h>
+#include <string.h>
 
-#define ll long long
+using namespace std;
+#define f(debut,end_1,pas) for(i=debut ;i< end_1;i+=pas)
+#define fn(debut) f(debut, n, 1)
+#define fr(end,debut,pas) for(i=end;i>=debut;i-=pas)
+#define fv(var,debut,end_1,pas) for(var=debut;var<end_1;var+=pas)
+#define mod 1000000007
+#define cr(var) {cout<<var<<endl;return;}
+const string Pi="314159265358979323846264338327950288419716939937510";
+
+typedef long long ll ;
+typedef long double ld;
 
 
 int main() {
@@ -14,15 +23,62 @@ int main() {
     int y;
     ll bash=0,mab=0;
     int x;
-    for(int i=0;i<n;i++){
+    ll last = 0;
+    vector<vector<ll>> v;
+    ll cnt=0;
+    ll i,j;
+    f(0,n,1) {
         cin>>x;
-        for(int j=0;j<x/2+x%2;j++){
-            cin>>y;
-            bash+=y;
+        if(x%2 == 0) {
+            fv(j,0,x/2,1){
+                cin>>y;
+                bash+=y;
+            }
+            fv(j,0,x/2,1) {
+                cin>>y;
+                mab+=y;
+            }
         }
-        for(int j=0;j<x/2;j++) {
-            cin>>y;
-            mab+=y;
+        else {
+            cnt++;
+            vector<ll> u(x);
+            fv(j,0,x,1) cin>>u[j];
+            v.push_back(u);
+        }
+    }
+    pair<ll,ll> a[v.size()],b[v.size()];
+    ll sm;
+    f(0,v.size(),1) {
+        x = v[i].size();
+        sm = 0;
+        fv(j,0,x/2+1,1) sm += v[i][j];
+        a[i].first = sm;
+        a[i].second = i;
+        sm = 0;
+        fv(j,x/2,x,1) sm += v[i][j];
+        b[i].first = sm;
+        b[i].second = i;
+    }
+    sort(a,a+v.size());
+    sort(b,b+v.size());
+    reverse(a,a+v.size());
+    reverse(b,b+v.size());
+    ll trace[v.size()];
+    f(0,v.size(),1) trace[i] = 0;
+    ll sw = 0;
+    ll posa = 0, posb = 0;
+    f(0,v.size(),1) {
+        if(sw == 0) {
+            while(trace[a[posa].second]) posa++;
+            bash += a[posa].first;
+            trace[a[posa].second] = 1;
+            sw = 1;
+        }
+        else {
+            while(trace[b[posb].second]) posb++;
+            mab += b[posb].first;
+            trace[b[posb].second] = 1;
+            sw = 0;
         }
     }
     cout<<bash<<" "<<mab<<endl;

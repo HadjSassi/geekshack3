@@ -7,7 +7,7 @@
 using namespace std;
 
 #define fast ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
-typedef int ll;
+typedef long long ll;
 typedef vector<ll> vl;
 typedef set<ll> sl;
 typedef map<ll,ll> ml;
@@ -87,27 +87,28 @@ ll modInverse(ll A, ll M)
 void solve() {
     ll n,m,x,y;
     cin>>n>>m;
-    vector<pair<ll,ll>> v1,v2;
+    vector<pair<long double,long double>> v1,v2;
+    long double mx=0,mn=1e10;
+    
     f(n){
         cin>>x>>y;
         v1.PB(MP(x,y));
-    }
-    f(m){
-        cin>>x>>y;
-        v2.PB(MP(x,y));
-    }
-    int mx=0,mn=1e9;
-    f(n){
-        if(v1[i].F*v1[i].F+v1[i].S*v1[i].S>=mx) mx = v1[i].F*v1[i].F+v1[i].S*v1[i].S;
-        if(v1[i].F*v1[i].F+v1[i].S*v1[i].S<=mn) mn = v1[i].F*v1[i].F+v1[i].S*v1[i].S;
+        if((v1[i].F*v1[i].F+v1[i].S*v1[i].S)>=mx) mx = v1[i].F*v1[i].F+v1[i].S*v1[i].S;
+        if((v1[i].F*v1[i].F+v1[i].S*v1[i].S)<=mn) mn = v1[i].F*v1[i].F+v1[i].S*v1[i].S;
     }
     ll test1=1,test2=1;
     f(m){
-        if(v2[i].F*v2[i].F+v2[i].S*v2[i].S<=mx) test1=0;
-        if(v2[i].F*v2[i].F+v2[i].S*v2[i].S>=mn) test2=0;
+        cin>>x>>y;
+        v2.PB(MP(x,y));
+        if((v2[i].F*v2[i].F+v2[i].S*v2[i].S)<=mx) test1=0;
+        if((v2[i].F*v2[i].F+v2[i].S*v2[i].S)>=mn) test2=0;
     }
-    test1+test2 ? yes : no;
+    if(n==2 || m==2){
+        yes;return;
+    }
     
+    test1+test2 ? yes : no;
+
 }
 
 

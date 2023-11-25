@@ -41,20 +41,15 @@ tab_r=[]
 x=0;
 first = [eval(i) for i in tab]
 second = [eval(i) for i in tab1]
-res,res1=first,second
+res=first.copy()
+res1=second.copy()
 for i in (result):
-    print("-------+++-")
-    print(tab_s)
     tab_r.append(tab_s)
-    print(tab_r)
     for j in ((i)):
-        print(j)
         if j == 1 :
             if(len(res)>0):
                 m=min(res)
                 indice=res.index(min(res))
-                m=min(res)
-                print("le min est ",m)
                 res.pop(indice)
             
                 res1.pop(indice) 
@@ -62,20 +57,25 @@ for i in (result):
                 s=s+m;
                
                 tab_s.append(s)
-                print("----",tab_s)
-            else:
-                print("hhh")
+            if (len(res)==0) and (j!=len(res)):
                 tab_s.clear()
         else:
+            
             if(len(res1)>0):
                 indice=res1.index(min(res1))
                 m=min(res1)
-                res.remove(indice)
-                res1.remove(indice)
-                s=s+m
-                tab_s[x]=s
+                res.pop(indice)
+                res1.pop(indice)
+                s=m
+                tab_s.append(s)
         
     x=x+1
+    s=0
     res,res1=first,second
 
-print(tab_s)
+tb=[]
+for i in tab_r:
+    tb.append(sum(i))
+tb.sort()
+print(tb[0])
+ 

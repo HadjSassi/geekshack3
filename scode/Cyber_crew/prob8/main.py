@@ -8,13 +8,13 @@ def max(L):
     l.remove(l[j][0])
     return (y)
 def max1(L):
-    y=l[0][len(l)-1]
+    y=l[0][len(l[0])-1]
     j=0
     for i in range (len(l)):
-        if (l[i][len(l)-1])<y:
-            y=(l[i][len(l)-1])
+        if (l[i][len(l[i])-1])<y:
+            y=(l[i][len(l[i])-1])
             j=i
-    l.remove(l[j][len(l)-1])
+    l.remove(l[j][len(l[j])-1])
     return (y)
     
 n=int(input())
@@ -40,4 +40,5 @@ print(nb,nm)
     
         
         
+       
        

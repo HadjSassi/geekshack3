@@ -37,22 +37,53 @@ void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
 
-vector<pair<ll,ll>> adj[MAXII];
+vector<pair<ll,ll>> adj[(ll)(1e6)];
 
 void solve() {
     ll n,m,x; cin>>n>>m>>x;
-
+    ll other = n+1;
     for (int i=0; i<m ;i++){
         ll a,b,w; cin>>a>>b>>w;
-        adj[a].pb({b,w});
+        if (w==1){
+            adj[a].pb({b,w});
+            adj[b].pb({a,w});
+        }
+//        watch(a);
+//        watch(b);
+
+//        if ()
+        if (w!=1){
+            adj[a].pb({other,1});
+            adj[other].pb({a,1});
+//            watch(a);
+//            watch(other);
+        }
+
+        for (int j = 0; j<w-2; j++){
+            adj[other].pb({other+1,1});
+            adj[other+1].pb({other,1});
+
+//            watch(other);
+//            watch(other+1);
+            other++;
+        }
+
+        if (w!=1){
+            adj[other].pb({b,1});
+            adj[b].pb({other,1});
+//            watch(other);
+//            watch(b);
+            other++;
+        }
 //        adj[b].pb({a,w});
     }
-    ll distances[MAXII];
-    bool processed[MAXII];
+
+    ll distances[(ll)(1e6)];
+    bool processed[(ll)(1e6)];
     memset(processed, 0, sizeof(processed));
 //    memset(distances)
     ll obj; cin>>obj;
-
+    n = other;
     for (int i = 1; i <= n; i++) distances[i] = INF;
     distances[x] = 0;
     priority_queue<pair<ll,ll>>q;
