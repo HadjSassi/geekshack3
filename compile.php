@@ -1,4 +1,6 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 //ajouter la notion de temps au  score et la notion d'ordre de resolution
 use function PHPSTORM_META\type;
 
