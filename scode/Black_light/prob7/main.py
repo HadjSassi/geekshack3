@@ -6,7 +6,7 @@ c=0
 while s<l[1] :
     s+=2
     i+=l1[c][-1]
-    c++
+    c+=1
 if s==l[1]:
     print(i)
 else:

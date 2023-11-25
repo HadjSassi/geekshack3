@@ -9,57 +9,57 @@
 using namespace std;
 const ll MOD = 1e8;
 const int N = 1e5 + 5;
-const ll INF = 1e18;
+const ld INF = 1e10;
 
 void solve(){
-	int l , h ; cin >> l >> h ;
-	int x , y ; cin >> x >> y ;
-	int vx, vy ; cin >> vx >> vy ;
-	int k; cin >> k ;
+	ld l , h ; cin >> l >> h ;
+	ld x , y ; cin >> x >> y ;
+	ld vx, vy ; cin >> vx >> vy ;
+	ld k; cin >> k ;
 	if( (vx == 0 && vy == 0)  || k == 0 ) {
 		cout << x << " " << y << endl;
 		return;
 	}
-	int gcdd = __gcd(vx,vy);
-	if( gcdd != 0 )
-	 vx /= gcdd, vy/= gcdd;
-	bool test = false;
-	while( true ) { 
-		int lastx = x;
-		int lasty = y;
-		test = false;
-		x += vx ; 
-		y += vy;
-		if( x > l ) { 
-			x = l - (x-l);
-			test = true;
-			vx *= -1;
-		}
-		if( x < 0 ) { 
-			test = true;
-			x = abs(x);
-			vx *= -1;
-		}
-		if( y > h ) { 
-			y = h - (y-h);
-			test = true;
-			vy *= -1;
-		}
-		if( y < 0 ) { 
-			test = true;
-			y = abs(y);
-			vy *= -1;
-		} 
-		if( test ) k--;
-		
-		//cout << x << " " << y << " "  << k << endl;
-		if( k == 0 ) {
-			cout << lastx << " " << lasty << endl;
-			return;
-		}
-		
+	
+	while( k != 0 ) {
+	    ld b = INF ;
+	    ld a = INF ;
+	    if( vy > 0 ){
+	        ld b = h-y;
+		    b /= vy ;     
+	    }
+	    if( vy < 0 ){
+	        b = y;
+	        b /= vy;
+	    }
+	    if( vx > 0 ){
+	        ld a = l-x;
+		    a /= vx ;    
+	    }
+	    if( vx < 0 ){
+	        a = x;
+	        a /= vx;
+	    }
+	    a = abs(a);
+	    b = abs(b);
+	    if( b < a ){
+	        y = h;
+	        x += vx*b;
+	        vy *= -1;
+	    }
+	    else if( a < b ) { 
+	        x = l;
+	        y += vy*a;
+	        vx *= -1;
+	    }else {
+	        x = l;
+	        y = h;
+	        vx *= -1;
+	        vy *= -1;
+	    }
+		k--;
 	}
-	cout << x << " " << y << endl;
+	cout << floor(x) << " " << floor(y) << endl;
 }                   
                     
 int main()
