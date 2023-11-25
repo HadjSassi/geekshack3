@@ -8,14 +8,10 @@ def find_combinations(nums, target):
     while stack:
         current_nums, current_target, current_combination = stack.pop()
 
-        if current_target <= 0:
-            # If target is reached, add the current combination to the results
+        if current_target == 0:
             results.append(current_combination )
         elif current_target > 0 and current_nums:
-            # Include the current number in the combination
             stack.append((current_nums[1:], current_target - current_nums[0][1], current_combination + [current_nums[0]]))
-
-            # Exclude the current number from the combination
             stack.append((current_nums[1:], current_target, current_combination))
 
     return results
@@ -34,3 +30,4 @@ for i in range(len(r)):
     lista.append(score)
 ind = lista.index(min(lista))
 print(min(lista))
+ 

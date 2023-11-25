@@ -1,0 +1,37 @@
+main.c: In function 'main':
+main.c:10:16: warning: comparison between pointer and integer
+   10 |         if(s[i]=="c"&&s[i++]=="h"&&s[i+=2]=="a"&&s[i+=3]=="k")
+      |                ^~
+main.c:10:29: warning: comparison between pointer and integer
+   10 |         if(s[i]=="c"&&s[i++]=="h"&&s[i+=2]=="a"&&s[i+=3]=="k")
+      |                             ^~
+main.c:10:43: warning: comparison between pointer and integer
+   10 |         if(s[i]=="c"&&s[i++]=="h"&&s[i+=2]=="a"&&s[i+=3]=="k")
+      |                                           ^~
+main.c:10:57: warning: comparison between pointer and integer
+   10 |         if(s[i]=="c"&&s[i++]=="h"&&s[i+=2]=="a"&&s[i+=3]=="k")
+      |                                                         ^~
+main.c:12:20: warning: assignment to 'char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+   12 |                 ch1="chak";
+      |                    ^
+main.c:15:18: warning: comparison between pointer and integer
+   15 |         {if (s[j]=="c"&&s[j++]=="h"&&s[j+=2]=="o"&&s[j+=3]=="u"&&s[j+=4]=="k"&&s[j+=5]=="a")
+      |                  ^~
+main.c:15:31: warning: comparison between pointer and integer
+   15 |         {if (s[j]=="c"&&s[j++]=="h"&&s[j+=2]=="o"&&s[j+=3]=="u"&&s[j+=4]=="k"&&s[j+=5]=="a")
+      |                               ^~
+main.c:15:45: warning: comparison between pointer and integer
+   15 |         {if (s[j]=="c"&&s[j++]=="h"&&s[j+=2]=="o"&&s[j+=3]=="u"&&s[j+=4]=="k"&&s[j+=5]=="a")
+      |                                             ^~
+main.c:15:59: warning: comparison between pointer and integer
+   15 |         {if (s[j]=="c"&&s[j++]=="h"&&s[j+=2]=="o"&&s[j+=3]=="u"&&s[j+=4]=="k"&&s[j+=5]=="a")
+      |                                                           ^~
+main.c:15:73: warning: comparison between pointer and integer
+   15 |         {if (s[j]=="c"&&s[j++]=="h"&&s[j+=2]=="o"&&s[j+=3]=="u"&&s[j+=4]=="k"&&s[j+=5]=="a")
+      |                                                                         ^~
+main.c:15:87: warning: comparison between pointer and integer
+   15 |         {if (s[j]=="c"&&s[j++]=="h"&&s[j+=2]=="o"&&s[j+=3]=="u"&&s[j+=4]=="k"&&s[j+=5]=="a")
+      |                                                                                       ^~
+main.c:16:19: warning: assignment to 'char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+   16 |               {ch2="chouka";
+      |                   ^

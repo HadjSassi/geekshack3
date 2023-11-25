@@ -1,4 +1,0 @@
-  File "/var/www/html/scode/AbtalAlDigital/prob15/main.py", line 6
-    if str(bin(i))[2]=="0"
-                          ^
-SyntaxError: expected ':'

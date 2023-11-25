@@ -1,19 +1,12 @@
 s=input()
 nb=0
-a="chakchouka"
-b="chak"
-c="chouka"
+a=0
+while ("chak" not in s):
+    a=s.index("chak")
+    s=s[(a+4):]
+    c=ch.count("chouka")
+    nb=nb+c
+print(nb)    
+    
+    
 
-
-if a in s :
-    nb=nb+1
-    s.replace(a,"")
-elif b in s :
-    nb=nb+1
-    s.replace(b,"")
-        
-elif c in s :
-    nb=nb+1
-    s.replace(c,"")
-        
-print (nb)   

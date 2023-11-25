@@ -6,7 +6,7 @@ l=[]
 def remove(string):
     return string.replace(" ", "")
 ch=remove(ch3)
-while ch.find(ch1)!=-1 or  ch.find(ch1)!=-1 :
+while ch.find(ch1)!=-1 or  ch.find(ch2)!=-1 :
     if ch.find(ch1)!=-1 :
         l.append(ch1)
         ch.replace(ch1,'z',1)

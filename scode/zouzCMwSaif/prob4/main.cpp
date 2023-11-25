@@ -20,12 +20,13 @@ void solve(){
 		cout << x << " " << y << endl;
 		return;
 	}
-	
+	//k--;
 	while( k != 0 ) {
 	    ld b = INF ;
 	    ld a = INF ;
+	    //cout << vx << " " << vy << endl;
 	    if( vy > 0 ){
-	        ld b = h-y;
+	        b = h-y;
 		    b /= vy ;     
 	    }
 	    if( vy < 0 ){
@@ -33,7 +34,7 @@ void solve(){
 	        b /= vy;
 	    }
 	    if( vx > 0 ){
-	        ld a = l-x;
+	        a = l-x;
 		    a /= vx ;    
 	    }
 	    if( vx < 0 ){
@@ -42,22 +43,24 @@ void solve(){
 	    }
 	    a = abs(a);
 	    b = abs(b);
+	    //cout << "b" <<  b << " " << a << endl;
 	    if( b < a ){
-	        y = h;
+	        y += vy*b;
 	        x += vx*b;
 	        vy *= -1;
 	    }
 	    else if( a < b ) { 
-	        x = l;
+	        x += vx*a;
 	        y += vy*a;
 	        vx *= -1;
 	    }else {
-	        x = l;
-	        y = h;
+	        x += vx*a;
+	        y += vy*a;
 	        vx *= -1;
 	        vy *= -1;
 	    }
 		k--;
+	//	cout << x << " " << y << endl;
 	}
 	cout << floor(x) << " " << floor(y) << endl;
 }                   
@@ -65,7 +68,7 @@ void solve(){
 int main()
 {
 	//freopen("input.txt","r",stdin); freopen("output.out","w",stdout);
-	//FAST;
+	FAST;
 	int t = 1;
 	//cin>>t ;
 	while (t--)

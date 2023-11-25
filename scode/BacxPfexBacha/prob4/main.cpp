@@ -44,10 +44,6 @@ void solve() {
     double x_curr ,y_curr; cin>>x_curr>>y_curr;
     double x_v, y_v; cin>>x_v>>y_v;
     ll K; cin>>K;
-    if (K>(ll)(10000000000) && l<=1 && h<1){
-        cout<<1<<" "<<h;
-        return;
-    }
     if (K==0){
         cout<<(int)x_curr<<" "<<(int)y_curr;
         return;
@@ -107,7 +103,7 @@ void solve() {
 //    }
 
     for (int i=0; i<K; i++){
-        if (x_curr<0 || y_curr<0) break;
+//        if (x_curr<0 || y_curr<0) break;
         if (x_v >0 && y_v>0){
 //            cout<<"NOWWWW 1"<<"\n";
             double inter_fouk = (h - y_curr)/y_v;
@@ -117,8 +113,8 @@ void solve() {
                 x_curr = supposed_x;
                 y_curr = h;
                 y_v*=-1;
-                if ((int)x_curr==0 || (int)x_curr==l)   x_v*=-1;
-        if (x_curr<0 || y_curr<0) break;
+                if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
+//                if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
@@ -134,7 +130,7 @@ void solve() {
                     y_curr = supposed_y;
                     x_v*=-1;
                     if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
-        if (x_curr<0 || y_curr<0) break;
+//                    if (x_curr<0 || y_curr<0) break;
 
 //                    continue;
 //                }
@@ -174,7 +170,7 @@ void solve() {
                     if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
 //                    continue;
 //                }
-                if (x_curr<0 || y_curr<0) break;
+//                if (x_curr<0 || y_curr<0) break;
 
 
             }
@@ -206,7 +202,7 @@ void solve() {
                     x_v*=-1;
                     if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
 //                    continue;
-        if (x_curr<0 || y_curr<0) break;
+//        if (x_curr<0 || y_curr<0) break;
 
                 }
 
@@ -251,9 +247,10 @@ void solve() {
 //        watch(x_v);
 //        watch(y_v);
     }
-
+//    int ans1 = (int)(x_curr);
+//    int ans2= (int)(y_curr);
+//    cout<<ans1<<" "<<ans2;
     cout<<(int)(x_curr)<<" "<<(int)(y_curr);
-
 
 }
 

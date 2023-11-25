@@ -27,4 +27,4 @@ while(m!=z):
         nb+=l[t][0]
         m+=1
     l.remove(l[t])
-print(nb) 
+print(nb)
