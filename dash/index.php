@@ -156,8 +156,8 @@ $result5= mysqli_query($link, $requete5);
 			                              <tr style="cursor: pointer" onclick="window.location.href='team.php?tag=<?php echo $row['nom_equipe']; ?>'">
 				                            <td><?php echo $row['nom_equipe']; ?></td>
 				                            <td><?php echo $row['leader']; ?></td>
-<!--                                            <td style="color: white;">--><?php //echo $row['sum_score']; ?><!--</td>-->
-                                            <td ><?php echo $row['sum_score']; ?></td>
+                                            <td style="color: white;"><?php echo $row['sum_score']; ?></td>
+<!--                                            <td >--><?php //echo $row['sum_score']; ?><!--</td>-->
                                           </tr>
                                           <?php } ?>
                                     </tbody>
