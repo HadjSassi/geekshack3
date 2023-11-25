@@ -1,51 +1,81 @@
 main.c: In function 'main':
-main.c:6:13: warning: format '%s' expects argument of type 'char *', but argument 2 has type 'char **' [-Wformat=]
-    6 | scanf("%1000s",s);}
-      |        ~~~~~^  ~
-      |             |  |
-      |             |  char **
-      |             char *
-main.c:7:1: error: expected 'while' before 'for'
-    7 | for (i=0;i<=1000;i++)
-      | ^~~
-main.c:7:21: error: expected ';' before ')' token
-    7 | for (i=0;i<=1000;i++)
-      |                     ^
-      |                     ;
-main.c:7:21: error: expected statement before ')' token
-main.c:9:18: warning: comparison between pointer and integer
-    9 |         if((*s[i]=="c")&&(*s[i++]=="h")&&(*s[i+=2]=="a")&&(*s[i+=3]=="k"))
-      |                  ^~
-main.c:9:34: warning: comparison between pointer and integer
-    9 |         if((*s[i]=="c")&&(*s[i++]=="h")&&(*s[i+=2]=="a")&&(*s[i+=3]=="k"))
-      |                                  ^~
-main.c:9:51: warning: comparison between pointer and integer
-    9 |         if((*s[i]=="c")&&(*s[i++]=="h")&&(*s[i+=2]=="a")&&(*s[i+=3]=="k"))
-      |                                                   ^~
-main.c:9:68: warning: comparison between pointer and integer
-    9 |         if((*s[i]=="c")&&(*s[i++]=="h")&&(*s[i+=2]=="a")&&(*s[i+=3]=="k"))
-      |                                                                    ^~
-main.c:11:20: warning: assignment to 'char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
-   11 |                 ch1="chak";
-      |                    ^
-main.c:14:20: warning: comparison between pointer and integer
-   14 |         {if ((*s[j]=="c")&&(*s[j++]=="h")&&(*s[j+=2]=="o")&&(*s[j+=3]=="u")&&(*s[j+=4]=="k")&&(*s[j+=5]=="a"))
-      |                    ^~
-main.c:14:36: warning: comparison between pointer and integer
-   14 |         {if ((*s[j]=="c")&&(*s[j++]=="h")&&(*s[j+=2]=="o")&&(*s[j+=3]=="u")&&(*s[j+=4]=="k")&&(*s[j+=5]=="a"))
-      |                                    ^~
-main.c:14:53: warning: comparison between pointer and integer
-   14 |         {if ((*s[j]=="c")&&(*s[j++]=="h")&&(*s[j+=2]=="o")&&(*s[j+=3]=="u")&&(*s[j+=4]=="k")&&(*s[j+=5]=="a"))
-      |                                                     ^~
-main.c:14:70: warning: comparison between pointer and integer
-   14 |         {if ((*s[j]=="c")&&(*s[j++]=="h")&&(*s[j+=2]=="o")&&(*s[j+=3]=="u")&&(*s[j+=4]=="k")&&(*s[j+=5]=="a"))
-      |                                                                      ^~
-main.c:14:87: warning: comparison between pointer and integer
-   14 |         {if ((*s[j]=="c")&&(*s[j++]=="h")&&(*s[j+=2]=="o")&&(*s[j+=3]=="u")&&(*s[j+=4]=="k")&&(*s[j+=5]=="a"))
-      |                                                                                       ^~
-main.c:14:104: warning: comparison between pointer and integer
-   14 |         {if ((*s[j]=="c")&&(*s[j++]=="h")&&(*s[j+=2]=="o")&&(*s[j+=3]=="u")&&(*s[j+=4]=="k")&&(*s[j+=5]=="a"))
-      |                                                                                                        ^~
-main.c:15:19: warning: assignment to 'char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
-   15 |               {ch2="chouka";
-      |                   ^
+main.c:7:30: warning: initialization of 'char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+    7 |     char s[100];  char ch1 = "chak";
+      |                              ^~~~~~
+main.c:8:16: warning: initialization of 'char' from 'char *' makes integer from pointer without a cast [-Wint-conversion]
+    8 |     char ch2 = "chouka";
+      |                ^~~~~~~~
+main.c:16:16: warning: comparison between pointer and integer
+   16 |         if ((s == 'c') && (s == 'h') && (s[i +'a') && (s[i +'k')) {
+      |                ^~
+main.c:16:30: warning: comparison between pointer and integer
+   16 |         if ((s == 'c') && (s == 'h') && (s[i +'a') && (s[i +'k')) {
+      |                              ^~
+main.c:16:50: error: expected ']' before ')' token
+   16 |         if ((s == 'c') && (s == 'h') && (s[i +'a') && (s[i +'k')) {
+      |                                                  ^
+      |                                                  ]
+main.c:16:64: error: expected ']' before ')' token
+   16 |         if ((s == 'c') && (s == 'h') && (s[i +'a') && (s[i +'k')) {
+      |                                                                ^
+      |                                                                ]
+main.c:20:26: error: expected ']' before ')' token
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                          ^
+      |                          ]
+main.c:20:39: warning: character constant too long for its type
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c:20:39: error: expected ']' before '\x5b6a202b'
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~~
+      |                                       ]
+main.c:20:65: warning: character constant too long for its type
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                                                                 ^~~~~~~~~~~~~~
+main.c:20:80: warning: character constant too long for its type
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                                                                                ^~~~~~~~~~~~~
+main.c:20:94: warning: missing terminating ' character
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                                                                                              ^
+main.c:20:94: error: missing terminating ' character
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                                                                                              ^~~~~
+main.c:21:23: error: expected ')' before '}' token
+   21 |                 L = j;
+      |                       ^
+      |                       )
+   22 |             }
+      |             ~          
+main.c:20:31: note: to match this '('
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                               ^
+main.c:21:23: error: expected ')' before '}' token
+   21 |                 L = j;
+      |                       ^
+      |                       )
+   22 |             }
+      |             ~          
+main.c:20:16: note: to match this '('
+   20 |             if ((s[j= 'c') && (s[j + 1') && (s[j + 3) && (s[j +'u') && (s[j +'k') && (s[j +'a')) {
+      |                ^
+main.c:22:13: error: expected expression before '}' token
+   22 |             }
+      |             ^
+main.c: At top level:
+main.c:26:5: error: expected identifier or '(' before 'if'
+   26 |     if (L > K) {
+      |     ^~
+main.c:30:12: error: expected declaration specifiers or '...' before string constant
+   30 |     printf("this is the number of your delicious substrings: %d\n", nb);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+main.c:30:69: error: unknown type name 'nb'
+   30 |     printf("this is the number of your delicious substrings: %d\n", nb);
+      |                                                                     ^~
+main.c:32:5: error: expected identifier or '(' before 'return'
+   32 |     return 0;
+      |     ^~~~~~
+main.c:33:1: error: expected identifier or '(' before '}' token
+   33 | }
+      | ^

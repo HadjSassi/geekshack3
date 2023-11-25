@@ -37,54 +37,26 @@ void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
 
-vector<pair<int,int>> adj[1600005];
+vector<pair<ll,ll>> adj[MAXII];
+vector<tuple<ll,ll,ll>>edges;
 
 void solve() {
     ll n,m,x; cin>>n>>m>>x;
     ll other = n+1;
     for (int i=0; i<m ;i++){
         ll a,b,w; cin>>a>>b>>w;
-        if (w==1){
-            adj[a].pb({b,w});
-            adj[b].pb({a,w});
-        }
-//        watch(a);
-//        watch(b);
-
-//        if ()
-        if (w!=1){
-            adj[a].pb({other,1});
-            adj[other].pb({a,1});
-//            watch(a);
-//            watch(other);
-        }
-
-        for (int j = 0; j<w-2; j++){
-            adj[other].pb({other+1,1});
-            adj[other+1].pb({other,1});
-
-//            watch(other);
-//            watch(other+1);
-            other++;
-        }
-
-        if (w!=1){
-            adj[other].pb({b,1});
-            adj[b].pb({other,1});
-//            watch(other);
-//            watch(b);
-            other++;
-        }
-//        adj[b].pb({a,w});
+        adj[a].pb({b,w});
+        adj[b].pb({a,w});
+        edges.pb({a,b,w});
     }
 
-    int distances[1600005];
-    bool processed[1600005];
+    ll distances[MAXII];
+    bool processed[MAXII];
     memset(processed, 0, sizeof(processed));
 //    memset(distances)
     ll obj; cin>>obj;
-    n = other;
-    for (int i = 1; i <= n; i++) distances[i] = 1e9;
+//    n = other;
+    for (int i = 1; i <= n; i++) distances[i] = 1e18;
     distances[x] = 0;
     priority_queue<pair<ll,ll>>q;
     q.push({0,x});
@@ -106,6 +78,33 @@ void solve() {
 //        watch(distances[i]);
         if (i==x) continue;
         if (distances[i]==obj) ans++;
+    }
+//    watch(ans);
+
+    for (auto curr:edges){
+        ll a,b,w; tie(a,b,w) = curr;
+//        watch(a);
+//        watch(b);
+//        watch(w);
+        if (w==1) continue;
+        int ok = 0;
+        if (distances[a] < obj && (distances[a] + w - 1) >=obj){
+            if (distances[b] + obj - distances[a] >= obj){
+                ans++;
+                ok++;
+            }
+        }
+        if (distances[b] < obj && (distances[b] + w - 1) >=obj){
+            if (distances[a] + obj - distances[b] >= obj){
+                ans++;
+                ok++;
+            }
+        }
+        ll mq1 = obj - distances[a];
+        ll mq2 = obj- distances[b];
+        if ((mq1 + mq2==w) && ok==2) ans--; //&& ok==2) ans--;
+//        watch(ans);
+
     }
     cout<<ans;
 }

@@ -1,4 +1,4 @@
 Traceback (most recent call last):
-  File "/var/www/html/scode/The_Palestiners/prob16/main.py", line 14, in <module>
-    n = int(input())
-ValueError: invalid literal for int() with base 10: '100 4950 1'
+  File "/var/www/html/scode/The_Palestiners/prob16/main.py", line 40, in <module>
+    l = int(input_lines[3])
+IndexError: list index out of range

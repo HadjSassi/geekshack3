@@ -9,6 +9,7 @@ l=list(ch)
 i=0 
 m=0
 j=0
+
 while (i<len(l)-1):
     if l[i]!=l[len(ch)-j-1]:
         if l[i]!=l[i+1]:

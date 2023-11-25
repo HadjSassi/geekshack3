@@ -1,28 +1,37 @@
-n=int(input())
-l1=input().split()
-l2=input().split()
-n1=int(l1[0])
-n2=int(l2[0])
-m=0
-b=0
-i=1
-j=1
-while (i<n1) and (j<n2) :
-    if int(l1[i])>int(l2[j]):
-        b=b+int(l1[i])
-        i=i+1
-    else :
-        if int(l1[i])<int(l2[j]):
-           j=j+1
-    if int(l1[n1-i])>int(l2[n2-j]) :
-        m=m+int(l2[n1-i])
-        i=i+1
-    else :
-            if int(l1[n1-i])<int(l2[n2-j]) :
-                 m=m+int(l2[n1-j])
-                 j=j+1
-            
-         
-            
-print(str(b)+" "+str(m))
-   
+#n,p =input().split()
+l =input().split()
+print(l)
+n=int(l[0])
+p=int(l[1])
+lx=[]
+ly=[]
+for i in range(0,n):
+    x,y=input().split()
+    lx.append(int(x))   
+    ly.append(int(y))
+if p==3 :
+    min=lx[0]+ly[0]
+    for i in range(1,len(lx)) :
+      for j in range(i,len(ly)) :
+        if lx[i] +ly[j] <min :
+            min=lx[i] +ly[j] 
+          
+elif  p==2 :
+    min=lx[0] +lx[1]
+    for i in range(2,len(lx)) :
+      for j in range(i,len(lx)) :
+        if lx[i] +lx[j] <min :
+            min=lx[i] +lx[j] 
+             
+    
+else :
+    min=ly[0]+ly[1]
+    for i in range(2,len(ly)) :
+      for j in range(i,len(ly)) :
+        if ly[i] +ly[j] <min :
+            min=ly[i] +ly[j] 
+           
+print(min)            
+    
+    
+ 

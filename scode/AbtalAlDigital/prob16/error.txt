@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/AbtalAlDigital/prob16/main.py", line 12, in <module>
+    b-=i[1]
+NameError: name 'i' is not defined. Did you mean: 'id'?

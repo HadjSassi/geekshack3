@@ -66,11 +66,12 @@ int run_case()
         adj[y].pb({x,z});
     }
     sll s;
-    s.insert({l,0});
-    f(i,1,k,1)
+    s.insert({0,l});
+    f(i,0,k,1)
     {
         a[i]=1e15;
     }
+    a[l]=0;
     while (s.size())
     {
         q=s.begin()->ff;
@@ -88,16 +89,52 @@ int run_case()
     }
     cin >> x ;
     p=0;
+    sl s1,s2;
     f(i,0,k,1)
     {
-        if (a[i]>=x)p++;
+        if (a[i]==x)
+        {
+            p++;
+        }
     }
-    cout << p << endl;
+    q=0;
+    f(i,0,k,1)
+    {
+        if (a[i]>x)
+        {
+            for(pll y : adj[i])
+            {
+                w=y.ss;
+                n=y.ff;
+                if (a[n]<x)
+                {
+                    p++;
+                }
+            }
+        }
+        else if (a[i]<=x)
+        {
+            for(pll y : adj[i])
+            {
+                w=y.ss;
+                n=y.ff;
+                if (a[n]<x && i<n && a[i]+a[n]+w>2*x && a[n]+a[i]!=2*x)
+                {
+                    q+=2;
+                }
+                else if (a[n]<=x && i<n && min(a[i],a[n])+w>x && a[n]+a[i]!=2*x && a[i]+a[n]+w>=2*x)
+                {
+                    q++;
+                }
+            }
+        }
+    }
+    cout << p+q << endl;
 return 0;
 }
 
 signed main(){
-    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    //ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     int t = 1;//cin>>t;
     while(t--){
         run_case();
