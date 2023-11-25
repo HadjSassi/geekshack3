@@ -21,8 +21,7 @@ while (k<len(ch)):
 x=comb(len(ch),nb)
 
 x=int(x%1000000007)
-if (len(ch)<=4):
-    print(x)
-else :
-    print(x-4)
+
+print(x)
+
     

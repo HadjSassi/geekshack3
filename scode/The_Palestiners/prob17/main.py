@@ -11,4 +11,4 @@ def count_strings(s):
 # Example usage
 s = input().strip()
 output = count_strings(s)
-print(output)
+print(output) 

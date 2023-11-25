@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/AbtalAlDigital/prob16/main.py", line 21, in <module>
+    print(rech(roads, longeur, 0)) 
+  File "/var/www/html/scode/AbtalAlDigital/prob16/main.py", line 2, in rech
+    longeur=longeur -road[2]
+TypeError: unsupported operand type(s) for -: 'int' and 'tuple'

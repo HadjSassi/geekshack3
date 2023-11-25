@@ -9,15 +9,23 @@ for i in range(2,((n//2)+1)) :
         ld.append(i)
         x=x+1
 if c=='E':
-     ld=reversed(ld)    
-  
+     ld=reversed(ld) 
+     for i in ld :
+        ch=ph[0,i,1]
+        l=list(ch)
+        lv=reversed(l)
+        ph="".join(ch)+ph[i,len(ph)]
+else :
+    for i in ld :
+        ch=ph[0,i,1]
+        l=list(ch)
+        lv=reversed(l)
+        ph="".join(ch)+ph[i,len(ph)]
+    
+     
  
 
-for i in ld :
-    ch=ph[0,i,1]
-    l=list(ch)
-    lv=reversed(l)
-    ph="".join(ch)+ph[i,len(ph)]
+
     
 print(ph)    
-  
+   

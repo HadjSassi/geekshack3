@@ -8,13 +8,25 @@ def search(tab,ch):
         if(ch==i):
             return False
     return True
-for i in ch:
-    ch2=ch2+i
-    if(ch2=="tt"):
-            ch3=ch3+"v"+ch1[2::]
-            print(ch3)
-            if(search(tab,ch3)):    
-                tab.append(ch3)
-                tab.append(ch3[::-1])
+i=0
+while i<len(ch):
+    if i==0:
+        ch1=ch.replace("tt","v")
+        ch2=ch.replace("vv","t")
+        if len(ch1)>0:
+            if(search(tab,ch1)):
+                tab.append(ch1)
+        if(len(ch2))>0:
+            if(search(tab,ch2)):
+                tab.append(ch2)
+    else:
+        ch1=ch[0::i+1]+ch[i::].replace("tt","v")
+        ch2=ch[0::i+1]+ch[i::].replace("vv","t")
+        if len(ch1)>0:
+            if(search(tab,ch1)):
+                tab.append(ch1)
+        if(len(ch2))>0:
+            if(search(tab,ch2)):
+                tab.append(ch2)
 print(tab)
- 
+  

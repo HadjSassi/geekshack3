@@ -13,7 +13,12 @@ int main()
     {
         if ((z > c && z < k) || (z < c && z > k))
             cout << "NO" << endl;
-        else
-            cout << "YES" << endl;
     }
+    else if (c == k && k == z)
+    {
+        if ((y > b && y < j) || (y < b && y > j))
+            cout << "NO" << endl;
+    }
+    else
+        cout << "YES" << endl;
 }

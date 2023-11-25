@@ -56,4 +56,4 @@ int main()
         }
     }
     cout << sommebershka << ' ' << somemabrouk << endl;
-}
+} 

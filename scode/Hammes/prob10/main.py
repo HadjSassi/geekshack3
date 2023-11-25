@@ -9,7 +9,8 @@ d = dist(p1,p2)
 r1 = float (r1[3])
 r2 = float (r2[3])
 if d < r1+r2:
-    volume = (pi*pow((r1+r2-d),2)*(pow(d,2)+2*d*r1-3*pow(r1,2)+2*d*r2-3*pow(r2,2)+6*r1*r2))/12*d
+    volume = (-pi*pow((r1+r2-d),2)*(pow(d,2)+2*d*r1+3*pow(r1,2)+2*d*r2-3*pow(r2,2)+6*r1*r2))/12*d
+    #cap = (1/3)πh2(3R - h),
 else :
     volume = 0.000
 print(volume)

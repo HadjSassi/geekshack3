@@ -1,3 +1,4 @@
+
 x=input()
 l=x.split(" ")
 a=int(l[0])
@@ -8,5 +9,4 @@ for i in range(a):
 s=[]
 for i in range(b):
   s.append(input())
-print(s)
-print(m)
+

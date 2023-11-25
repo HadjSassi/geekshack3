@@ -27,4 +27,4 @@ elif(la[0]>li[0]):
         print("NO")
 else:
     print("NO")
- 
+  
