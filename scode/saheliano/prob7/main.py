@@ -65,10 +65,12 @@ if __name__ == '__main__':
             move += val
 
     while z > 0:
+
         if z == 1:
             levels, val = select_1_starts(levels)
             z -= 1
             move += val
+            break
 
         filter_levels = list(filter(lambda x: isinstance(x[0], int) and isinstance(x[1], int), levels))
 

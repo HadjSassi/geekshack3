@@ -22,4 +22,4 @@ x = max(0, min(x, l))
 y = max(0, min(y, h))
 
 print(int(x), int(y))
-  
+   

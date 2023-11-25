@@ -1,10 +1,16 @@
-while True:
-    s=input("")
-    if (len(s)<=1000 and len(s)>=1):
-        break
+def count_delicious_substrings(s):
+    count = 0
+    s_len = len(s)
 
-c0=s.count("chak")
-c=s.count("chouka")
+    for i in range(s_len):
+        for j in range(i + 1, s_len + 1):
+            substring = s[i:j]
+            if substring.startswith("chak") and substring.endswith("chouka"):
+                count += 1
 
-    
-print(c0*c)
+    return count
+
+s = input().strip()
+
+result = count_delicious_substrings(s)
+print(result)

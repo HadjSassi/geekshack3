@@ -1,5 +1,5 @@
 e=input()
 
-s=e[5:1:-6]
-print(s.count(" ")+1)
- 
+s=e[4:1:-5]
+
+print(s.count(" "))

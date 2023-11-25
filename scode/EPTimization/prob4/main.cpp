@@ -315,13 +315,8 @@ void solve()
       cout<<x<<' '<<y<<endl;
       return;
   }
-  k--;
+    if(y==h || x==l )k++;
   if(vy==0){
-      
-      if(x==l){
-          x = 0;
-      }
-      else x = l;
       if(k%2){
           x = l-x;
       }
@@ -330,16 +325,13 @@ void solve()
   }
   
   if(vx==0){
-      if(y==h)y = 0;
-      else y = h;
       if(k%2){
           y = h-y;
       }
       cout<<x<<' '<<y<<endl;
       return;
   }
-  k++;
-  if(y==h || x==l )k++;
+  
   while(k--){
     double x1,y1;
     if(vy>=0)

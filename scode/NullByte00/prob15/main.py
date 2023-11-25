@@ -1,22 +1,17 @@
 a, b = [int(i) for i in input().split()]
 
-count = 0
-for i in range(a, b+1):
-    t = i
-    zero = False
-    close = False
-    while t!=0 and not close:
-        # print(t, close, zero)
-        if (t%2==0) and (not zero):
-            zero = True
-        elif (t%2==0) and zero:
-            close = True
+def count_zeros(a):
+    zeros = 0
+    while(a!=0 and zeros<=2):
+        if a%2 ==0:
+            zeros+=1
+        a = a >> 1
+    return zeros == 1
 
-        t = t >> 1
-    if not close and zero:
+count = 0
+
+for i in range(a, b+1):
+    if count_zeros(i):
         count+=1
-    # print()
-        
-    close, zero = False, False
         
 print(count)

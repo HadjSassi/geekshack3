@@ -22,15 +22,14 @@ for i in range(len_txt):
   #print('i=', i)
   if i + len_chak <= len_txt:
     chak = txt[i:i+4]
-    #print("chack=", chak)
     if chak != "chak":
       continue
     # looking for chouka
     end = len_txt
-    for j in range(len_txt - 4):
+    for j in range((len_txt - 4) - i):
       chouka = txt[len_txt-6-j:len_txt-j]
-      #print("chouka=", chouka)
       if chouka == "chouka":
+        #print("chouka=", chouka)
         count +=1
   else:
     break
