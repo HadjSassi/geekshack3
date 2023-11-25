@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/NullByte00/prob14/main.py", line 1, in <module>
+    n, z = [int(i) for i in input().split()]
+  File "/var/www/html/scode/NullByte00/prob14/main.py", line 1, in <listcomp>
+    n, z = [int(i) for i in input().split()]
+ValueError: invalid literal for int() with base 10: 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrstuvwxyzabcdefghijklmnopq

@@ -1,0 +1,29 @@
+main.c: In function 'main':
+main.c:4:19: error: 's' undeclared (first use in this function)
+    4 |     while (1<=abs(s)<=1000)
+      |                   ^
+main.c:4:19: note: each undeclared identifier is reported only once for each function it appears in
+main.c:6:5: error: 'nb' undeclared (first use in this function)
+    6 |     nb=0;
+      |     ^~
+main.c:7:10: error: 'i' undeclared (first use in this function)
+    7 |     for (i=0;i<=n;i++)
+      |          ^
+main.c:7:17: error: 'n' undeclared (first use in this function)
+    7 |     for (i=0;i<=n;i++)
+      |                 ^
+main.c:9:6: error: 'ch1' undeclared (first use in this function)
+    9 |     {ch1="chak";
+      |      ^~~
+main.c:10:7: error: 'K' undeclared (first use in this function)
+   10 |     i=K;
+      |       ^
+main.c:12:11: error: 'j' undeclared (first use in this function)
+   12 |    { for (j=0;j<=n;j++)
+      |           ^
+main.c:14:5: error: 'ch2' undeclared (first use in this function)
+   14 |     ch2="chouka";
+      |     ^~~
+main.c:15:11: error: 'L' undeclared (first use in this function)
+   15 |         j=L;
+      |           ^

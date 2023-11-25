@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/AbtalAlDigital/prob14/main.py", line 10, in <module>
+    for i in range(0,len(s)):
+TypeError: object of type 'int' has no len()
