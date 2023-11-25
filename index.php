@@ -312,14 +312,14 @@ else {
         </nav>
         <br><br><br><br><br>
         <?php
-/*            echo "<h1 style='color:#c6ffea;text-align:center; margin: -1em auto 1.5em auto;font-size:4em; font-family: Titillium Web, sans-serif;' >Our Sponsors</h1>";
-        */?>
+            echo "<h1 style='color:#c6ffea;text-align:center; margin: -1em auto 1.5em auto;font-size:4em; font-family: Titillium Web, sans-serif;' >GeekHack3.0 Moments</h1>";
+        ?>
         <div  class="main">
-<!--            --><?php //echo require "./slideForSponsoros.php"?>
+            <?php echo require "./slideForSponsoros.php"?>
             
-<!--            <div class="row log" style="margin: 55vh auto 2vh; ">-->
+            <div class="row log" style="margin: 55vh auto 2vh; ">
 <!--            either the above with the sponsors or this without sponsors-->
-            <div class="row log" style="margin: auto 2vh; ">
+<!--            <div class="row log" style="margin: auto 2vh; ">-->
                 <div class="col-sm-3" >
                 
                 </div>
