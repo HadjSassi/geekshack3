@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob6/main.py", line 12, in <module>
+    s=input()
+EOFError: EOF when reading a line

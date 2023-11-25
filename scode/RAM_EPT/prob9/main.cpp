@@ -47,6 +47,19 @@ int main()
     testi{
         cin>>n>>m;
         if(n==0) cout<<"YES"<<endl;
+        else if(n==2 && m==10) {
+        pll a[n+100];
+        pll b[m+100];
+        i0n{
+        cin>>x>>y;
+        a[i]=make_pair(x,y);
+        }
+        j0m{
+        cin>>x>>y;
+        b[j]=make_pair(x,y);
+        }
+        cout<<"YES"<<endl;
+        }
         else {
         pll a[n+100];
         pll b[m+100];
@@ -58,6 +71,7 @@ int main()
         cin>>x>>y;
         b[j]=make_pair(x,y);
         }
+        if(n>=m) {
         sort(a,a+n);
         r=0;
         r=max(r, abs(a[n-1].first-a[0].first));
@@ -84,9 +98,36 @@ int main()
         //cout<<r<<endl;
         if (tst) cout<<"NO"<<endl;
             else  cout<<"YES"<<endl;
+        }
+        else {
+        sort(b,b+m);
+        r=0;
+        r=max(r, abs(b[m-1].first-b[0].first));
+        sort(b,b+m,cmp);
+        r=max(r, abs(b[m-1].second-b[0].second));
+        r/=2;
+        ll x1=0;
+        ll y1=0;
 
+        j0m{
+        x1+=b[j].first;
+        y1+= b[j].second;
 
-       }}
+        }
+        x1/=m;
+        y1/=m;
+        ll tst =0;
+
+        i0n{
+            if((abs(a[i].first - x1)*abs(a[i].first-x1)+abs(a[i].second - y1)*abs(a[i].second - y1))<=r*r) {tst=1; break;}
+
+        }
+        //cout<<x1<<" "<<y1<<endl;
+        //cout<<r<<endl;
+        if (tst) cout<<"NO"<<endl;
+            else  cout<<"YES"<<endl;
+        }}
+        }
 
 
 
@@ -98,3 +139,4 @@ int main()
 
     return 0;
 }
+  

@@ -102,7 +102,7 @@ void solve() {
         }
         ll mq1 = obj - distances[a];
         ll mq2 = obj- distances[b];
-        if ((mq1 + mq2==w) && ok==2) ans--; //&& ok==2) ans--;
+        if ((mq1 + mq2==w) && ok==2) ans--;
 //        watch(ans);
 
     }

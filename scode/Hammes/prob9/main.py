@@ -1,38 +1,30 @@
-def Comaparer(l1,l2):
-     for element1 in l1:
-        for element2 in l2:
-            if sqrt(pow(element1[0],2)+pow(element1[1],2))>sqrt(pow(element2[0],2)+pow(element2[1],2)):
-                return False
-     return True  
-def territory():
- ns,ms =  input().split()
- n=int(ns)
- m=int(ms)
- l1=[]
- for i in range(n):
-        s1,s2 = input().split()
-        if s1[0]=='-':
-            c1=int(s1[1])
-        else:  c1=int(s1[0])
-        if s2[0]=='-':
-            c2=int(s2[1])
-        else:  c2=int(s2[0])
-        l11=[c1,c2]
-        l1.append(l11) 
- l2=[]
- for i in range(m):
-        s1,s2 = input().split()
-        if s1[0]=='-':
-            c1=int(s1[1])
-        else:  c1=int(s1[0])
-        if s2[0]=='-':
-            c2=int(s2[1])
-        else:  c2=int(s2[0])
-        l22=[c1,c2]
-        l2.append(l22) 
- 
- if Comaparer(l1,l2)==True: 
-    return 'YES'
- else: return 'NO'
-print(territory())
-          
+from math import sqrt
+
+
+def ra(p2):
+    return sqrt(pow(p2[0],2)+pow(p2[1],2))
+
+
+
+a , i = input().split()
+a = int(a)
+i = int(i)
+la =[]
+li  =[]
+for k in range(a):
+    la.append(input().split())
+for k in range(i):
+    li.append(input().split())
+la = list(map(lambda x:list(map(lambda y:int(y),x)),la))
+li = list(map(lambda x:list(map(lambda y:int(y),x)),li))
+
+la = list(map(lambda x:ra(x),la))
+li = list(map(lambda x:ra(x),li))
+la.sort()
+li.sort()
+if (len(la)==0 or len(li)==0):
+    print("YES")
+elif la.pop(0)>li.pop() or la.pop()<li.pop(0):
+    print("YES")
+else :
+    print("NO")

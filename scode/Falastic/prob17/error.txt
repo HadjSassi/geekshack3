@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Falastic/prob17/main.py", line 2, in <module>
+    print((len(c) - n + 1)*2)
+NameError: name 'n' is not defined

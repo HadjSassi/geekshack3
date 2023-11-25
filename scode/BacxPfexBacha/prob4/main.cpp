@@ -3,8 +3,8 @@
 using namespace std;
 
 //mt19937 RNG(chrono::steady_clock::now().time_since_epoch().count());
-//#pragma GCC optimize("Ofast,unroll-loops")
-//#pragma GCC target("avx,avx2,fma")
+#pragma GCC optimize("Ofast,unroll-loops")
+#pragma GCC target("avx,avx2,fma")
 //typedef __int128 lll;
 
 #define ll long long
@@ -260,4 +260,4 @@ int main() {
 }
 
 
- 
+  

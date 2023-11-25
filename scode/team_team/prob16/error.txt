@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/team_team/prob16/main.py", line 14, in <module>
+    if(int(m[e][0])==b) and (int(m[e][4])>l):
+ValueError: invalid literal for int() with base 10: ' '

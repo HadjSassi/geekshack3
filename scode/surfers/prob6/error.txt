@@ -1,0 +1,3 @@
+main.cpp:20:1: error: '::main' must return 'int'
+   20 | void main ()
+      | ^~~~

@@ -23,7 +23,7 @@ def bfs(start, graph, max_cost):
     queue = deque()
     # visited[start] = 0
     queue.append((start, 0))
-    visited.append((start, 0))
+    visited.append(start)
     
     while queue:
         for _ in range(len(queue)):
@@ -34,7 +34,7 @@ def bfs(start, graph, max_cost):
                 count+=1
                 continue
             for node in graph[curr]:
-                if node not in visited:
+                if node[0] not in visited:
                     if cost < max_cost:
                         if cost + node[1] > max_cost:
                             count+=1
@@ -42,4 +42,4 @@ def bfs(start, graph, max_cost):
     return count
             
 b = bfs(start, graph, max_cost)
-print(b)  
+print(b)   

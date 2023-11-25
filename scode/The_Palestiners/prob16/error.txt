@@ -1,4 +1,4 @@
 Traceback (most recent call last):
   File "/var/www/html/scode/The_Palestiners/prob16/main.py", line 40, in <module>
-    l = int(input_lines[3])
+    l = int(input_lines[m+1])
 IndexError: list index out of range

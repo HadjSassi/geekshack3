@@ -1,340 +1,141 @@
-#include<bits/stdc++.h>
-
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
+#include <iostream>
+#include <bits/stdc++.h>
+#include <cmath>
+#include <algorithm>
+#include <string>
 
 using namespace std;
-using namespace __gnu_pbds;
 
-
-/***********************************************/
-/* Dear online judge:
- * I've read the problem, and tried to solve it.
- * Even if you don't accept my solution, you should respect my effort.
- * I hope my code compile and get accepted.
- *      ____________
- *     /            \
- *    /  /\      /\  \
- *   /  /  \    /  \  \
- *   \                /
- *    \     \___/    /
- *     \____________/
- */
-
-
-
-
-
-
-#define f(i,j,k) for(long long i=j;i<k;i++)
-#define fb(i,j,k) for(long long i=j;i>=k;i--)
-#define fs(i,j,k,p) for(long long i=j;i<k;i+=p)
-#define fbs(i,j,k,p) for(long long i=j;i>=k;i-=p)
-#define cond(a) if(a)cout<<"YES"<<endl;else cout<<"NO"<<endl
-#define yes cout<<"YES"<<endl
-#define no cout<<"NO"<<endl
-#define test int t;cin>>t;while(t--)
-#define endl "\n"
-#define fastio() ios_base::sync_with_stdio(false);cin.tie(NULL);cout.tie(NULL)
-#define nline "\n"
-#define pb push_back
-#define ppb pop_back
-#define mp make_pair
-#define ff first
-#define ss second
-#define PI 3.141592653589793238462
-#define mp make_pair
-#define sz(x) ((int)(x).size())
-#define all(x) (x).begin(), (x).end()
-#define rall(x) (x).rbegin(), (x).rend()
-
-
+#define fast ios::sync_with_stdio(0);cin.tie(0);cout.tie(0);
 typedef long long ll;
-typedef unsigned long long ull;
-typedef long double lld;
-typedef vector<int> vi;
-typedef vector<ll> vll;
-typedef vector<vector<ll>> vvll;
-typedef vector<vector<int>> vvi;
+typedef vector<ll> vl;
+typedef set<ll> sl;
+typedef map<ll,ll> ml;
+#define f2(i,j,k,l) for(ll i=j;i<k;i+=l)
+#define yes cout<<"YES"
+#define no cout<<"NO"
+#define endl cout<<"\n"
+#define f(n) for(ll i=0;i<n;i++)
+#define fk(n) for(ll k=0;k<n;k++)
+#define fj(n) for(ll j=0;j<n;j++)
+#define F first
+#define S second
+#define PB push_back
+#define MP make_pair
+const ll MOD = 998244353, N = 2e6+7, M = 2e6+7, INF = INT_MAX/10;
 
-#ifndef ONLINE_JUDGE
-#define debug(x) cerr << #x <<" "; _print(x); cerr << endl;
-#else
-#define debug(x)
-#endif
 
-void _print(ll t) {cerr << t;}
-void _print(int t) {cerr << t;}
-void _print(string t) {cerr << t;}
-void _print(char t) {cerr << t;}
-void _print(lld t) {cerr << t;}
-void _print(double t) {cerr << t;}
-void _print(ull t) {cerr << t;}
 
-template <class T, class V> void _print(pair <T, V> p);
-template <class T> void _print(vector <T> v);
-template <class T> void _print(set <T> v);
-template <class T, class V> void _print(map <T, V> v);
-template <class T> void _print(multiset <T> v);
-template <class T, class V> void _print(pair <T, V> p) {cerr << "{"; _print(p.ff); cerr << ","; _print(p.ss); cerr << "}";}
-template <class T> void _print(vector <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
-template <class T> void _print(set <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
-template <class T> void _print(multiset <T> v) {cerr << "[ "; for (T i : v) {_print(i); cerr << " ";} cerr << "]";}
-template <class T, class V> void _print(map <T, V> v) {cerr << "[ "; for (auto i : v) {_print(i); cerr << " ";} cerr << "]";}
 
-//template<class T> using oset =tree<T, null_type, less<T>, rb_tree_tag,tree_order_statistics_node_update> ;
-
-ll PRO(ll a,ll b,ll MOD)
+/*
+ll modpro(ll a,ll b,ll c)
 {
-  return ((a%MOD)*(b%MOD)%MOD);
+    return ((a%c)*(b%c))%c;
 }
-ll power(ll x, ll y, ll M)
+
+ll modpow(ll x, ll y,ll mod)
 {
-  if (y == 0)
-    return 1;
-  ll p = power(x, y / 2, M) % M;
-  p = (p * p) % M;
-  return (y % 2 == 0) ? p : (x * p) % M;
-}
-bool isprime(ll n)
-{
-
-  for(ll i=2;i*i<=n;i++)
-  {
-    if(n%i==0)return false;
-  }
-  return true;
-}
-
-
-const ll mod = 1e9+7;
-int add(int a, int b){
-    return (a + b) % mod;
-}
-int sub(int a, int b){
-    return (a - b + mod) % mod;
-}
-ll mul(int a, int b){
-    return (((ll)a%mod) * ((ll)b%mod)) % mod;
-}
-ll mod_inv (ll a,ll modi)
-{
-    return power(a,modi-2,modi);
-}
-
-ll n1,n2;
-
-struct node
-{
-    ll x;
-    node()
-    {
-        x=-1e6;
-    }
-    node(ll i)
-    {
-        x=i;
-    }
-    void applyLazy(ll p,ll ns,ll ne)
-    {
-        x+=p;
-    }
-};
-
-node merg (node i ,node j )
-{
-    return node(max(i.x,j.x));
-}
-
-struct segment_tree_lazy_propagation
-{
-    vector<node> tree;
-    vector<int> lazy; // Lazy propagation array
-    vector<bool> lazyFlag; // Lazy propagation flag array
-
-    void clear ()
-    {
-        tree.clear();
-        lazy.clear();
-        lazyFlag.clear();
-    }
-
-    void init(int num, const vector<int>& pr)
-    {
-        n2=num;
-        tree.assign(4 * n2, node());
-        lazy.assign(4 * n2, 0);
-        lazyFlag.assign(4 * n2, false);
-        build(pr);
-    }
-
-    void build(const vector<int>& pr, int id = 0, int ns = 0, int ne = n2 - 1)
-    {
-        if (ns == ne) {
-            tree[id] = node(pr[ns]);
-            return;
+    x = x%mod, y=y%(mod-1);
+    ll ans = 1;
+    while(y>0){
+        if (y&1){
+            ans = (1ll * x * ans)%mod;
         }
-
-        int l = 2 * id + 1;
-        int r = l + 1;
-        int md = ns + (ne - ns) / 2;
-
-        build(pr, l, ns, md);
-        build(pr, r, md + 1, ne);
-
-        tree[id] = merg(tree[l], tree[r]);
+        y>>=1;
+        x = (1ll * x * x)%mod;
     }
+    return ans;
+}
 
-    // Lazy propagation function
-    void propagate(int id, int ns, int ne)
+ll power (ll x,ll n,ll m)
+{
+    if(n==0)return 1;
+    ll a=power(x,n/2,m);
+    if(n%2)
     {
-        if (lazyFlag[id]) {
-            tree[id].applyLazy(lazy[id],ns,ne);
+        return ((a%m)*(a%m)*(x%m))%m;
+    }
+    else
+        return ((a%m)*(a%m))%m;
+}
 
-            if (ns != ne) {
-                lazy[2 * id + 1] += lazy[id];
-                lazy[2 * id + 2] += lazy[id];
-                lazyFlag[2 * id + 1] = lazyFlag[2 * id + 2] = true;
-            }
+ll modInverse(ll A, ll M)
+{
+    int m0 = M;
+    int y = 0, x = 1;
 
-            lazy[id] = 0;
-            lazyFlag[id] = false;
+    if (M == 1)
+        return 0;
+
+    while (A > 1) {
+        int q = A / M;
+        int t = M;
+        M = A % M, A = t;
+        t = y;
+        y = x - q * y;
+        x = t;
+    }
+    if (x < 0)
+        x += m0;
+    return x;
+}
+
+
+
+*/
+
+
+
+void solve() {
+    ll n,z;
+    cin>>n>>z;
+    ll a[n],b[n];
+    f(n) cin>>a[i]>>b[i];
+    set<pair<ll,ll>> aa,bb;
+    ml m1,m2;
+    f(n){
+        aa.insert({a[i],i});
+        m1[i]=a[i];
+        bb.insert({b[i],i});
+        m2[i]=b[i];
+    }
+    ll c=0;
+    z+=2;
+    while(z-=2){
+        if(z==1){
+            c+=(*(aa.begin())).F;
+            break;
+        }
+        auto it1 = aa.begin();
+        auto it2 = aa.begin();it2++;
+        auto it3=bb.begin();
+        if((*(it1)).F+(*(it2)).F<(*(it3)).F){
+            c+=(*(it1)).F+(*(it2)).F;
+            aa.erase(it1);
+            aa.erase(it2);
+            bb.erase({m2[(*(it1)).S],(*(it1)).S});
+            bb.erase({m2[(*(it2)).S],(*(it2)).S});
+        }
+        else{
+            c+=(*(it3)).F;
+            aa.erase({m2[(*(it3)).S],(*(it3)).S});
+            bb.erase({it3});
         }
     }
+    cout<<c;
 
-    node query(int qs, int qe, int id = 0, int ns = 0, int ne = n2 - 1)
-    {
-        propagate(id, ns, ne);
-
-        if (ns > qe || qs > ne) {
-            return node(); // Infinity
-        }
-
-        if (qs <= ns && qe >= ne) {
-            return tree[id];
-        }
-
-        int l = 2 * id + 1;
-        int r = l + 1;
-        int md = ns + (ne - ns) / 2;
-
-        node ndl = query(qs, qe, l, ns, md);
-        node ndr = query(qs, qe, r, md + 1, ne);
-
-        return merg(ndl, ndr);
-    }
-
-    void upd(int qs, int qe, ll val, int id = 0, int ns = 0, int ne = n2 - 1)
-    {
-        propagate(id, ns, ne);
-
-        if (ns > qe || qs > ne) {
-            return;
-        }
-
-        if (qs <= ns && qe >= ne) {
-            tree[id].applyLazy(val,ns,ns);
-
-            if (ns != ne) {
-                lazy[2 * id + 1] += val;
-                lazy[2 * id + 2] += val;
-                lazyFlag[2 * id + 1] = lazyFlag[2 * id + 2] = true;
-            }
-
-            return;
-        }
-
-        int l = 2 * id + 1;
-        int r = l + 1;
-        int md = ns + (ne - ns) / 2;
-
-        upd(qs, qe, val, l, ns, md);
-        upd(qs, qe, val, r, md + 1, ne);
-
-        tree[id] = merg(tree[l], tree[r]);
-    }
-
-}sta;
-
-
-ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
-ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
-
-
-
-vll prim(2e5+2,1);
-void sieves(ll n ){
-  prim[0]=0;
-  f(i,2,n+1){
-    if(prim[i]==0)continue;
-    for(ll j = i;i*j<=n;j++){
-      prim[i*j]=0;
-    }
-  }
 }
 
 
-
-
-int count(vector<int> &v, ll m, ll n)
-{
-    ll odd = 0, even = 0;
-    ll counter, i, j, p = 1;
-    ll pow_set_size = (1 << n);
- 
-    for (counter = 1; counter < pow_set_size; counter++) {
-        p = 1;
-        for (j = 0; j < n; j++) {
-            if (counter & (1 << j)) {
-                p *= v[j];
-            }
-        }
-        if (__builtin_popcount(counter) & 1)
-            odd += (m / p);
-        else
-            even += (m / p);
+signed main(){
+    fast;
+    //freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
+    ll T = 1;
+    //cin >> T;
+    //cin.ignore();
+    while(T--){
+        solve();
+        endl;
     }
- 
-    return odd - even;
+    return 0;
 }
-
-
-
-
-map<ll,map<ll,ll>> dp;
-
-ll fh(ll i,ll j,vll &a,vll &b)
-{
-    if ((i<0 && j>0) || j>2*i+2) return 1e18;
-    if(j<=0)return 0 ;
-    if (dp[i].count(j)) return dp[i][j];
-    return dp[i][j]= min(fh(i-1,j,a,b),min(a[i]+fh(i-1,j-1,a,b),b[i]+fh(i-1,j-2,a,b)));
-}
-
-void solve()
-{
-    ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
-    cin >> k >> z;
-    vll a(k),b(k);
-    f(i,0,k)
-    {
-        cin >> a[i] ;
-        cin >> b[i] ;
-    }
-    
-    cout << fh(k-1,z,a,b) << endl;
-}
-int main()
-{
-  fastio();
-  //std::cout << std::setprecision(11) << a << '\n';
-  //freopen("input.txt","r",stdin);freopen("output.txt","w",stdout);
-
-  //test
-  {
-    solve();
-  }
-  return 0;
-}
-
-

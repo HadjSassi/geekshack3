@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/Hammes/prob6/main.py", line 12, in <module>
-    ch[::num+1]=reverse_for_loop(ch[::num+1])
-TypeError: 'str' object does not support item assignment

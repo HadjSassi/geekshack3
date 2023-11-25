@@ -1,4 +1,4 @@
-import math
+import math 
 l = [int(x) for x in input().split()]
 for i in range (l[-1]):
     w=l[0]
@@ -26,4 +26,4 @@ for i in range (l[-1]):
         
         
 print(math.floor(l[2]),math.floor(l[3]))
-     
+      

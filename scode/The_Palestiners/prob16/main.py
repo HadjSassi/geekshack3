@@ -37,6 +37,6 @@ def count_missile_shooters(n, m, s, roads, l):
 input_lines = input().split("\n")
 n, m, s = map(int, input_lines[0].split())
 roads = [list(map(int, line.split())) for line in input_lines[1:m+1]]
-l = int(input_lines[3])
+l = int(input_lines[m+1])
 count_missile_shooters(n, m, s, roads, l)   
  

@@ -30,12 +30,12 @@ int32_t main() {
         return p1.second < p2.second;  
     });
 
-    multiset<int> ms1;
+    multiset<pair<int, int>> ms1;
     int cnt = z / 2;
     int res = 0;
     for (int i = 0; i < cnt; i++) {
         res += vals[i].second;
-        ms1.emplace(-vals[i].second + vals[i].first);
+        ms1.emplace(-vals[i].second + vals[i].first, -vals[i].second);
     }
 
     multiset<int> ms2;
@@ -43,22 +43,42 @@ int32_t main() {
         ms2.emplace(vals[i].first);
 
     while (!ms2.empty() && !ms1.empty()) {
-        int x = *ms1.begin();
+        int x = (*ms1.begin()).first;
+        int _ = (*ms1.begin()).second;
         int y = *ms2.begin();
         int nres = res + x + y;
         if (nres >= res) 
             break;
         res = nres;
-        ms1.erase(ms1.lower_bound(x));
+        ms1.erase(ms1.lower_bound(make_pair(x, _)));
         ms2.erase(ms2.lower_bound(y));
     }
 
-    if (z % 2) {
-        res += *ms2.begin();
+    multiset<int> rem;
+    for (auto& itr : ms1) 
+        rem.emplace(itr.second);
+
+    while (!rem.empty() && (int) ms2.size() >= 2) {
+        int x = *rem.begin();
+        int a = *ms2.begin();
+        ms2.erase(ms2.lower_bound(a));
+        int b = *ms2.begin();
+        ms2.emplace(a);
+        int nres = res + x + a + b;
+        if (nres > res)
+            break;
+        rem.erase(rem.lower_bound(x));
+        ms2.erase(ms2.lower_bound(a));
+        ms2.erase(ms2.lower_bound(b));
+        res = nres;
     }
+
+    if (z % 2) 
+        res += *ms2.begin();
 
     cout << res << '\n';
 
     return 0;
-
 }
+
+ 
