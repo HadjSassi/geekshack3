@@ -1,3 +1,4 @@
-  File "/var/www/html/scode/Black_light/prob7/main.py", line 4
-    a,b=map(int,input().split)
-IndentationError: unexpected indent
+Traceback (most recent call last):
+  File "/var/www/html/scode/Black_light/prob7/main.py", line 1, in <module>
+    n,z=map(int,input().split)
+TypeError: 'builtin_function_or_method' object is not iterable

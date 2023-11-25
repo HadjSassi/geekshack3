@@ -13,6 +13,7 @@ const ll INF = 1e18;
 
 int moves( int a , int b , int c ) {
 	if( b == 0 ) return 1e9;
+	assert(c-(a)+b-1 >= 0 );
 	if( b > 0 ) {
 		return (c-(a)+b-1)/b;
 	}
@@ -50,6 +51,7 @@ void solve(){
 		int mvy = moves(y,vy,h) ;
 		mvx = min(mvx,mvy);
 		//if ( mvx == 0 ) i--; 
+		assert(mvx > 0 ) ;
 	    calc(x,vx,l,mvx);
 		calc(y,vy,h,mvx);
 		//cout << x << " " << y << endl;

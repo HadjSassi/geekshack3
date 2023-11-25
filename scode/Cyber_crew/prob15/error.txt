@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Cyber_crew/prob15/main.py", line 4, in <module>
+    if str(bin(x)[2::]).count(0)==1:
+TypeError: must be str, not int
