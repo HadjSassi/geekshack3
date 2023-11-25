@@ -37,7 +37,7 @@ void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
 
-vector<pair<ll,ll>> adj[(ll)(1e6)];
+vector<pair<int,int>> adj[1600005];
 
 void solve() {
     ll n,m,x; cin>>n>>m>>x;
@@ -78,13 +78,13 @@ void solve() {
 //        adj[b].pb({a,w});
     }
 
-    ll distances[(ll)(1e6)];
-    bool processed[(ll)(1e6)];
+    int distances[1600005];
+    bool processed[1600005];
     memset(processed, 0, sizeof(processed));
 //    memset(distances)
     ll obj; cin>>obj;
     n = other;
-    for (int i = 1; i <= n; i++) distances[i] = INF;
+    for (int i = 1; i <= n; i++) distances[i] = 1e9;
     distances[x] = 0;
     priority_queue<pair<ll,ll>>q;
     q.push({0,x});

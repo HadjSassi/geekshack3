@@ -89,9 +89,13 @@ void solve() {
     cin>>n>>m;
     vector<pair<long double,long double>> v1,v2;
     long double mx=0,mn=1e10;
-    
+    ll test3=1,test4=1,mnAx=INT_MAX,mnAy=INT_MAX,mnIx=INT_MAX,mnIy=INT_MAX,mxAx=0,mxAy=0,mxIx=0,mxIy=0;
     f(n){
         cin>>x>>y;
+        mnAx=min(mnAx,x);
+        mnAy=min(mnAy,y);
+        mxAx=max(mxAx,x);
+        mxAy=max(mxAy,y);
         v1.PB(MP(x,y));
         if((v1[i].F*v1[i].F+v1[i].S*v1[i].S)>=mx) mx = v1[i].F*v1[i].F+v1[i].S*v1[i].S;
         if((v1[i].F*v1[i].F+v1[i].S*v1[i].S)<=mn) mn = v1[i].F*v1[i].F+v1[i].S*v1[i].S;
@@ -99,14 +103,18 @@ void solve() {
     ll test1=1,test2=1;
     f(m){
         cin>>x>>y;
+        mnIx=min(mnIx,x);
+        mnIy=min(mnIy,y);
+        mxIx=max(mxIx,x);
+        mxIy=max(mxIy,y);
         v2.PB(MP(x,y));
         if((v2[i].F*v2[i].F+v2[i].S*v2[i].S)<=mx) test1=0;
         if((v2[i].F*v2[i].F+v2[i].S*v2[i].S)>=mn) test2=0;
     }
-    if(n==2 || m==2){
+    if(mnAx>=mxIx || mnIx>=mxAx || mnAy>=mxIy || mnIy>=mxAy){
         yes;return;
     }
-    
+
     test1+test2 ? yes : no;
 
 }
@@ -123,4 +131,4 @@ signed main(){
         endl;
     }
     return 0;
-} 
+}

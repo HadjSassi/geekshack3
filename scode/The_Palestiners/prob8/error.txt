@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/The_Palestiners/prob8/main.py", line 13, in <module>
-    if l1[i]>l2[j]:
-IndexError: list index out of range
