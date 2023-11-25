@@ -16,5 +16,5 @@ for i in range (l[-1]):
         l[3]=y+m*(h-y)
     if x < w:
         l[2]=x+m*(w-x)
-print(l[2]," ",l[3])
+print(math.floor(l[2])," ",math.floor(l[3]))
     

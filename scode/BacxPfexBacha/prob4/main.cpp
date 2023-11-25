@@ -45,6 +45,52 @@ void solve() {
     double x_v, y_v; cin>>x_v>>y_v;
     ll K; cin>>K;
 
+    if (K==0){
+        cout<<(int)x_curr<<" "<<(int)y_curr;
+        return;
+    }
+
+    if (x_v==0 && y_v==0){
+        cout<<(int)x_curr<<" "<<(int)y_curr;
+        return;
+    }
+
+    if (x_v==0 && y_v!=0){
+        if (y_v<0){
+            if (K%2==1){
+                cout<<(int)x_curr<<" "<<0;
+                return;
+            }
+            cout<<(int)x_curr<<" "<<h;
+            return;
+        }
+
+        if (K%2==0){
+            cout<<(int)x_curr<<" "<<0;
+            return;
+        }
+        cout<<(int)x_curr<<" "<<h;
+        return;
+    }
+
+    if (x_v!=0 && y_v==0){
+
+        if (x_v<0){
+            if (K%2==1){
+                cout<<0<<" "<<(int)y_curr;
+                return;
+            }
+            cout<<l<<" "<<(int)y_curr;
+            return;
+        }
+
+        if (K%2==0){
+            cout<<0<<" "<<(int)y_curr;
+            return;
+        }
+        cout<<l<<" "<<(int)y_curr;
+        return;
+    }
 
     for (int i=0; i<K; i++){
 
@@ -74,8 +120,6 @@ void solve() {
 //                }
 
             }
-//            watch(x_curr);
-//            watch(y_curr);
 
 
         }
@@ -163,9 +207,6 @@ void solve() {
 //        watch(y_curr);
 //        watch(x_v);
 //        watch(y_v);
-
-//            watch(x_curr);
-//            watch(y_curr);
     }
 
     cout<<(int)(x_curr)<<" "<<(int)(y_curr);

@@ -3,11 +3,11 @@ ch =input()
 ch1="chak"
 ch2= "chouka"
 l=[]
-while ch.find(ch1)!=0  or ch.find(ch2)!=0  :
-    if ch.find(ch1)!=0 :
+while ch.find(ch1)!=-1 or ch.find(ch2)!=-1 :
+    if ch.find(ch1)!=-1 :
         l.append(ch1)
         ch.replace(ch1,'m',1)
-    if ch.find(ch2)!=0 :
+    if ch.find(ch2)!=-1 :
          l.append(ch1)
          ch.replace(ch2,'m',1)
 

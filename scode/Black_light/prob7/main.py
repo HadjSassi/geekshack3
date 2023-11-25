@@ -1,5 +1,5 @@
 n,z=map(int,input().split)
-levels=list()
+levels=[]
 for i in range(n):
    a,b=map(int,input().split)
    list.append(a,b)
