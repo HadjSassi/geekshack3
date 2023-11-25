@@ -11,8 +11,11 @@ def dfs(stars, progress: int, moves: int):
         return moves
     if progress == len(l):
         return float('inf')
+    if z-stars > 2*(len(l)-progress):
+        return float('inf')
+
+
     
-    # chosen.append(l[progress][0])
     a = dfs(stars+1, progress+1, moves + l[progress][0])
     b = dfs(stars+2, progress+1, moves + l[progress][1])
     c = dfs(stars, progress+1, moves)

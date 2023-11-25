@@ -170,27 +170,72 @@ circle {
 }
 
 .slide1 {
-  background-image: url("./assets/focus2.png");
+  background-image: url("./assets/pics/1.jpg");
 }
 
 .slide2 {
-  background-image: url("./assets/poste.png");
+  background-image: url("./assets/pics/2.jpg");
 }
 
 .slide3 {
-  background-image: url("./assets/crocoder.png");
+  background-image: url("./assets/pics/3.jpg");
 }
 
 .slide4 {
-  background-image: url("./assets/goldenCoffee.png");
+  background-image: url("./assets/pics/4.jpg");
 }
 
 .slide5 {
-  background-image: url("./assets/pouffy.png");
+  background-image: url("./assets/pics/5.jpg");
 }
 
 .slide6 {
-  background-image: url("./assets/marwa.png");
+  background-image: url("./assets/pics/6.jpg");
+}
+
+
+.slide7 {
+  background-image: url("./assets/pics/7.jpg");
+}
+
+
+.slide8 {
+  background-image: url("./assets/pics/8.jpg");
+}
+
+
+.slide9 {
+  background-image: url("./assets/pics/9.jpg");
+}
+
+
+.slide10 {
+  background-image: url("./assets/pics/10.jpg");
+}
+
+
+.slide11 {
+  background-image: url("./assets/pics/11.jpg");
+}
+
+
+.slide12 {
+  background-image: url("./assets/pics/12.jpg");
+}
+
+
+.slide13 {
+  background-image: url("./assets/pics/13.jpg");
+}
+
+
+.slide14 {
+  background-image: url("./assets/pics/14.jpg");
+}
+
+
+.slide15 {
+  background-image: url("./assets/pics/15.jpg");
 }
 
 .slider {
