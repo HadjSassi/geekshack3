@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob8/main.py", line 5, in <module>
+    d=int(input())
+ValueError: invalid literal for int() with base 10: '3 1000 1000 1000'

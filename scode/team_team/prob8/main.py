@@ -6,6 +6,6 @@ for i in range(x):
     l=ch.split(" ")
     m.append(l)
 
-for i in range
+print(m)
   
 

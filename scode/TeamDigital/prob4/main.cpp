@@ -2,7 +2,7 @@
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
 using namespace std;
-double a,b;
+double a,b,x,y,z,n,v;
 float s;
 Vector Add(Vector a, Vector b)
 {
@@ -38,4 +38,5 @@ Vector Bounce(Vector v, Vector n)
 {
     return Add(v, Mult(Project(v, n), -2));
 } 
+ 
  

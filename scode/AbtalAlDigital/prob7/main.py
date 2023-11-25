@@ -1,20 +1,48 @@
-from operator import itemgetter
 n, z = map(int, input().split())
-l1 = [tuple(map(int, input().split())) for _ in range(n)]
-l2=[[]]
-etoile=0
-i=0
-count=0
-for i in range (n):
-    if(l1[i][0]<l1[i][1]/2):
-        l2.append([l1[i][0],1])
-    else:
-        l2.append([l1[i][1]/2,2])
+l1= []
+l2 = []
+
+etoile = 0
+for i in range(n):
+    a, b = map(int, input().split())
+    l1.append(a)
+    l2.append(b)
+
+l3=l1
+l4=l2
+l1.sort()
 l2.sort()
-while(z-etoile>0 and i<=n):
-    etoile+=l2[i][1]
-    count+=l2[i][0]*l2[i][1]
-    i+=1
-print(count)
+resultat = 0
+i = 0
+j = 0
+while (z - etoile > 2):
+    if j<len(l1)-3 and l2[i] > l1[j] + l1[j + 1]:
+
+        etoile += 2
+        resultat += l1[j] + l1[j + 1]
+        l2.remove(l4[l3.index(l1[j])])
+        l2.remove(l4[l3.index(l1[j+1])])
+
+        j += 2
+    else:
+
+        etoile += 2
+        resultat += l2[i]
+        l1.remove(l3[l4.index(l2[i])])
+        i += 1
+
+if z - etoile == 1:
+    resultat += l1[j]
+
+
+
+elif z - etoile == 2:
+    if j<len(l1)-2 and l2[i] > l1[j] + l1[j+1]:
+        resultat += l1[j] + l1[j+1]
+    else:
+        resultat += l2[i]
+
+print(resultat)
+
 
 

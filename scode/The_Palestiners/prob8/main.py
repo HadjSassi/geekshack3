@@ -1,32 +1,24 @@
 
-def min_moves_to_unlock(n, z, levels):
-    levels.sort(key=lambda x: (x[1], x[0]))  # Sort levels by the minimum moves needed for two stars and then one star
-    stars_collected = 0
-    moves_required = 0
+def maximize_score(n, piles):
+    bachka_score = 0
+    mabrouk_score = 0
 
-    for level in levels:
-        if stars_collected >= z:
-            break
+    for i in range(n):
+        if i % 2 == 0:  # Bachka's turn (0-based index)
+            bachka_score += sum(piles[i])
+        else:  # Mabrouk's turn
+            mabrouk_score += sum(piles[i])
 
-        if level[1] <= stars_collected:
-            stars_collected += 2
-        elif level[0] <= stars_collected:
-            stars_collected += 1
-        else:
-            moves_required += 1
-            stars_collected += 1
+    print(bachka_score, mabrouk_score)
 
-    if stars_collected < z:
-        print("Impossible to achieve the required stars.")
-        return -1
+# Input reading
+n = int(input())
+piles = []
 
-    return moves_required
+for _ in range(n):
+    pile = list(map(int, input().split()[1:]))
+    piles.append(pile)
 
-# Input
-n, z = map(int, input().split())
-levels = [list(map(int, input().split())) for _ in range(n)]
+# Call the function with the input values
+maximize_score(n, piles)
 
-# Output
-result = min_moves_to_unlock(n, z, levels)
-if result != -1:
-    print(result) 

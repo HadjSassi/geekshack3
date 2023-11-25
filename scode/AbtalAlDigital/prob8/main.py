@@ -8,6 +8,7 @@ for i in range(n):
     li = input().split()
     del li[0]
     l.append(li)
+l.sort()
 for j in range(n):
     d=len(l[j])
     if d==1:
@@ -20,9 +21,15 @@ for j in range(n):
             ms+=int(l[j][0])
             hands+=1
     else:
-        for z in range(d//2):
-            if d%2!=0:
+        if d%2!=0:
+            if hands%2==0:
                 bs+=int(l[j][d//2])
+                hands+=1
+            else:
+                ms+=int(l[j][d//2])
+                hands+=1
+        for z in range(d//2):
+            
             if hands%2==0:
                 
                 bs+=int(l[j][z])
@@ -35,4 +42,4 @@ for j in range(n):
             
 print(bs,ms)
             
-        
+         

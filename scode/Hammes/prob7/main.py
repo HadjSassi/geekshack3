@@ -36,4 +36,22 @@ tab_s = []
 x=0;
 res = [eval(i) for i in tab]
 res1 = [eval(i) for i in tab1]
-print(min(res))
+for i in (result):
+    for j in ((i)):
+        if j == 1 :
+            m=min(res)
+            indice=res.index(m)
+            m=min(res)
+            res.pop(indice)
+            res1.pop(indice) 
+            s=s+m;
+            tab_s.append(1)
+        else:
+            indice=res1.index(min(res1))
+            m=min(res1)
+            res.remove(indice)
+            res1.remove(indice)
+            s=s+m
+            tab_s[x]=s
+    x=x+1
+            

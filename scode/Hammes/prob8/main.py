@@ -6,9 +6,9 @@ for i in range(n):
 l = list(map(lambda x : list(map(lambda y:int(y),x)),l))
 
 def sorttop(l):
-    return sorted(l,key=lambda x:x[0])
+    return sorted(l,key=lambda x:x[0],reverse=True)
 def sortbuttom(l):
-    return sorted(l,key=lambda x:x[len(x)-1])
+    return sorted(l,key=lambda x:x[len(x)-1],reverse=True)
 
 b=0
 m=0
@@ -23,4 +23,5 @@ while(len(l) != 0):
         m=m+l[0].pop()
         turn=True
     l = list(filter(lambda x: len(x)>0,l))
-print(b,m) 
+    
+print(b,m)
