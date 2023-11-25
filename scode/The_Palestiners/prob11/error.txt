@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/The_Palestiners/prob11/main.py", line 10, in <module>
+    values_of_x = list(map(int, input().split()))
+EOFError: EOF when reading a line

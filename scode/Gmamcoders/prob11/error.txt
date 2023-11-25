@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob11/main.py", line 19, in <module>
+    printpascal(n)
+NameError: name 'printpascal' is not defined. Did you mean: 'printPascal'?

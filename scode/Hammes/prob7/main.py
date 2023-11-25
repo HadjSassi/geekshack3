@@ -23,3 +23,4 @@ levels = [tuple(map(int, input().split())) for _ in range(n)]
 # Output result
 result = min_moves_to_unlock(n, z, levels)
 print(result)
+ 

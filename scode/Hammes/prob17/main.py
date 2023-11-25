@@ -1,32 +1,22 @@
-ch=input()
-ch1=ch
-ch2=""
-ch3=""
-tab=[ch]
-def search(tab,ch):
-    for i in tab:
-        if(ch==i):
-            return False
-    return True
-i=0
-while i<len(ch):
-    if i==0:
-        ch1=ch.replace("tt","v")
-        ch2=ch.replace("vv","t")
-        if len(ch1)>0:
-            if(search(tab,ch1)):
-                tab.append(ch1)
-        if(len(ch2))>0:
-            if(search(tab,ch2)):
-                tab.append(ch2)
-    else:
-        ch1=ch[0::i+1]+ch[i::].replace("tt","v")
-        ch2=ch[0::i+1]+ch[i::].replace("vv","t")
-        if len(ch1)>0:
-            if(search(tab,ch1)):
-                tab.append(ch1)
-        if(len(ch2))>0:
-            if(search(tab,ch2)):
-                tab.append(ch2)
-print(tab)
-  
+def tv():
+    s=input()
+    s1= s[::-1]
+    ctr=1
+    test1=False
+    for i in range(1,len(s1)):
+        if test1==True: pass
+        else:
+         ch1=s1[i]+s1[i-1]
+        if ch1=='tt':
+          test1=True
+          ctr+=1
+          s1.replace(s[i],'v')
+          s1.replace(s1[i-1],'')
+        if ch1=='vv':
+          test1=True
+          ctr+=1
+          s1[i]='t'
+          s1[i-1]=''  
+    return ctr    
+
+print(tv())            
