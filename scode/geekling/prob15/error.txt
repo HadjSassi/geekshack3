@@ -1,0 +1,9 @@
+main.c: In function 'main':
+main.c:18:23: error: 'Binary' undeclared (first use in this function)
+   18 |     sprintf(Bin, "%d",Binary number);
+      |                       ^~~~~~
+main.c:18:23: note: each undeclared identifier is reported only once for each function it appears in
+main.c:18:29: error: expected ')' before 'number'
+   18 |     sprintf(Bin, "%d",Binary number);
+      |            ~                ^~~~~~~
+      |                             )

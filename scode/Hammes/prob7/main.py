@@ -74,8 +74,10 @@ for i in (result):
     res,res1=first,second
 
 tb=[]
+second=[]
+first=[]
 for i in tab_r:
     tb.append(sum(i))
 tb.sort()
 print(tb[0])
- 
+  

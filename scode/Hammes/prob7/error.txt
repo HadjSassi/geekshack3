@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/Hammes/prob7/main.py", line 43, in <module>
-    second = [eval(i) for i in tab1]
-  File "/var/www/html/scode/Hammes/prob7/main.py", line 43, in <listcomp>
-    second = [eval(i) for i in tab1]
-  File "<string>", line 0
-    
-SyntaxError: invalid syntax

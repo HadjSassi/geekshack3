@@ -1,4 +1,4 @@
-  File "/var/www/html/scode/TeamDigital/prob4/main.py", line 4
-    TDT= 
-         ^
-SyntaxError: invalid syntax
+main.cpp:1:9: fatal error: dos.h: No such file or directory
+    1 | #include<dos.h>
+      |         ^~~~~~~
+compilation terminated.

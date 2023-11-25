@@ -11,6 +11,7 @@ for i in range(n):
 for j in range(m):
     x, y =map(int,input().split())
     d=((x**2)+(y**2))**(1/2)
+    
     li.append(d)
 la.sort()
 li.sort()

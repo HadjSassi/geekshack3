@@ -1,42 +1,35 @@
-#include<bits/stdc++.h>
-#include<ext/pb_ds/assoc_container.hpp>
-#include<ext/pb_ds/tree_policy.hpp>
-using namespace std;
-double a,b,x,y,z,n,v;
-float s;
-Vector Add(Vector a, Vector b)
-{
-    return Vector(a.x + b.x, a.y + b.y/*, a.z + b.z*/);
-}
+#include<dos.h>
+#include<iostream.h>
+#include<graphics.h>
+#include<math.h>
+#include<conio.h>
+void main()
+ {
 
-Vector Mult(Vector a, float s)
-{
-    return Vector(a.x * s, a.y * s/*, a.z * s*/);
-}
+ int d=DETECT,m;
+ initgraph(&d,&m,"C:\\TC\\BGI");
+ float x=1,y,j=0.5,count=0.1,i;
+ setcolor(01);
+ for(int k=0;k<7;k++)
+ {
+  for(i=90;i<270;i+=10)
+  {
+   y=cos(i*3.14/180)/j;
+   if(y>0)
+    y=-y;
+   x+=5;
+   setfillstyle(1,01);
+   circle(x,y*100+200,15);
+   floodfill(x,y*100+200,01);
+   line(0,215,800,215);
+   delay(50);
+   clrscr();
+  }
+ j+=count;
+ count+=0.1;
+ }
+ getch();
 
-float Dot(Vector a, Vector b)
-{
-    return a.x * b.x + a.y * b.y /*+ a.z * b.z*/;
-}
+ }
 
-float Norm(Vector a)
-{
-    return sqrt(a.x * a.x + a.y * a.y /*+ a.z * a.z*/);
-}
-
-Vector Normalize(Vector a)
-{
-    return Mult(a, 1/Norm(a));
-}
-
-Vector Project(Vector v, Vector a)
-{
-    return Mult(Normalize(a), Dot(v, a)/Norm(a));
-}
-
-Vector Bounce(Vector v, Vector n)
-{
-    return Add(v, Mult(Project(v, n), -2));
-} 
- 
- 
+  

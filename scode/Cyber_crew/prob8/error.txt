@@ -1,6 +1,4 @@
 Traceback (most recent call last):
-  File "/var/www/html/scode/Cyber_crew/prob8/main.py", line 31, in <module>
-    j=max(M)
-  File "/var/www/html/scode/Cyber_crew/prob8/main.py", line 8, in max
-    l.remove(l[j][0])
-ValueError: list.remove(x): x not in list
+  File "/var/www/html/scode/Cyber_crew/prob8/main.py", line 15, in <module>
+    f[i][j] = max(piles[i][0] + min(f[i + 1][j - 1], f[i + 2][j]), piles[j][-1] + min(f[i][j - 2], f[i + 1][j - 1]))
+IndexError: list index out of range
