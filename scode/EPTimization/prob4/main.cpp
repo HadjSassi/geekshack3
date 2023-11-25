@@ -281,7 +281,7 @@ int count(vector<int> &v, ll m, ll n)
     ll odd = 0, even = 0;
     ll counter, i, j, p = 1;
     ll pow_set_size = (1 << n);
- 
+
     for (counter = 1; counter < pow_set_size; counter++) {
         p = 1;
         for (j = 0; j < n; j++) {
@@ -294,7 +294,7 @@ int count(vector<int> &v, ll m, ll n)
         else
             even += (m / p);
     }
- 
+
     return odd - even;
 }
 
@@ -325,7 +325,7 @@ if(y==h || x==l )k++;
       cout<<x<<' '<<y<<endl;
       return;
   }
-  
+
   if(vx==0){
       if(y!=h)k--;
       y = h;
@@ -335,32 +335,45 @@ if(y==h || x==l )k++;
       cout<<x<<' '<<y<<endl;
       return;
   }
-  
+
   while(k--){
     double x1,y1;
-    if(vy>0)
+    if (x==0 && y==l && vx>0 && vy>0)
+    {
+      vx = -vx;
+    }
+    else if(x==h && y==0 && vx>0 && vy>0)
+    {
+      vy = -vy;
+    }
+    if(vy>=0)
     x1 = (h-y)*vx/vy+x;
     else x1 = -y*vx/vy+x;
-    if(vx>0)
+    if(vx>=0)
     y1 = (l-x)*vy/vx+y;
     else {
       y1 = -x*vy/vx+y;
     }
-    if(x1<=l && x1>=0){
-      if(vy>=0){
+    if(x1<l && x1>0){
+      if(vy>0){
         y = h;
       }
-      else {
+        else{
         y = 0;
       }
       vy = -vy;
       x=x1;
     }
-    if(y1<=h && y1>=0){
-      if(vx>=0)x = l;
+    else if(y1<h && y1>0){
+      if(vx>0)x = l;
       else x = 0;
       vx = -vx;
       y = y1;
+    }
+    else {
+      vx = -vx;
+      vy = -vy;
+      x = x1;y = y1;
     }
   }
   cout<<x<< ' '<<y<<endl;
@@ -378,5 +391,3 @@ int main()
   }
   return 0;
 }
-
-

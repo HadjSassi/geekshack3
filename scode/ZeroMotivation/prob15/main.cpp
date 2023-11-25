@@ -25,7 +25,7 @@ void solve()
 
 
 
-	int d = 0, f = 1 ;
+	int d = 0, f = n -1 ;
 	int bd = 0 ;
 	long long minm= 0 ;
 
@@ -39,10 +39,10 @@ void solve()
 			break;
 		}
 
-		if ((a[d] + a[f] <  b[bd]  ) ) {
+		if ((a[d] + a[f] <  b[bd]  ) and (d < f)) {
 			minm += a[d] + a[f] ;
 			d++;
-			f++;
+			f--;
 			z -= 2 ;
 		}
 		else {
@@ -72,4 +72,3 @@ int main()
 	
 }
 
- 
