@@ -339,6 +339,7 @@ void solve()
       return;
   }
   k++;
+  if(y==h || x==l )k++;
   while(k--){
     double x1,y1;
     if(vy>=0)

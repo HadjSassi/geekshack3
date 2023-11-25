@@ -41,4 +41,4 @@ int main()
     string s = "aabcc";
     cout << minSwap(s);
     return 0;
-}
+} 

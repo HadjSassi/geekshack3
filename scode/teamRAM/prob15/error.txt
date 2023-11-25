@@ -1,4 +1,4 @@
-  File "/var/www/html/scode/teamRAM/prob15/main.py", line 3
-    if (1<=x<=y<=10**14)
-                        ^
-SyntaxError: expected ':'
+Traceback (most recent call last):
+  File "/var/www/html/scode/teamRAM/prob15/main.py", line 2, in <module>
+    x, y = map(int, input().split())
+EOFError: EOF when reading a line
