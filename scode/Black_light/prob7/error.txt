@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/Black_light/prob7/main.py", line 9
+    c++
+       ^
+SyntaxError: invalid syntax

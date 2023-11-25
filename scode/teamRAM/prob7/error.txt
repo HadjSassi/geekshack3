@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/teamRAM/prob7/main.py", line 2, in <module>
+    l, h, x, y, vx, vy, K = map(int, input().split())
+ValueError: not enough values to unpack (expected 7, got 2)

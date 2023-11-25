@@ -18,8 +18,8 @@ if (occurence(l)==True):
     print("-1")
 elif (len(l) % 2==0) and (occurence(l)==False):
     print("-1")
-elif (len(l) %2 ==1) and (occurence(l)==True) :
-    print("-1")
+elif(palindrome(l)==True):
+    print("0")
 else:
     
     for i in range(len(ch)):

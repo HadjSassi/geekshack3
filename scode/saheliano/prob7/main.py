@@ -10,24 +10,7 @@ def read_inputs():
 
     return z, levels
 
-def select_2_starts(liste: list):
-    two_starts = list(map(lambda x : x[1],filter(lambda x : isinstance(x[0], int)and isinstance(x[1], int), liste)))
-    val = min(two_starts)
-    for element in liste:
-        if element[1] == val :
-            liste.remove(element)
-            liste.append((element[0], '_'))
-            break
-    return liste, val
-def select_1_starts(liste: list):
-    two_starts = list(map(lambda x : x[0],filter(lambda x : isinstance(x[0], int)and isinstance(x[1], int), liste)))
-    val = min(two_starts)
-    for element in liste:
-        if element[0] == val :
-            liste.remove(element)
-            liste.append(('_', element[1]))
-            break
-    return liste, val
+
 
 def select_2_elements(liste, element):
     for ele in liste:
@@ -54,19 +37,20 @@ if __name__ == '__main__':
     max_1 = n - (0 if eq < 0 else eq )
 
     while z > 0:
+        
+        filter_levels = list(filter(lambda x: isinstance(x[0], int) and isinstance(x[1], int), levels))
 
+        val_2_min = min(filter_levels, key=lambda x: x[1])
+        val_1_min = min(filter_levels, key=lambda x: x[0])
+        diff_2_1 = abs(val_2_min[1] - val_1_min[0])
+        diff_1_1 = val_1_min[1] - val_1_min[0]
+        
         if z == 1:
-            levels, val = select_1_starts(levels)
+            levels, val = select_1_elements(levels, val_1_min)
             z -= 1
             move += val
             break
 
-        filter_levels = list(filter(lambda x: isinstance(x[0], int) and isinstance(x[1], int), levels))
-
-        val_2_min = min(filter_levels, key=lambda x : x[1])
-        val_1_min = min(filter_levels, key=lambda x: x[0])
-        diff_2_1 = abs(val_2_min[1] - val_1_min[0])
-        diff_1_1 = val_1_min[1] - val_1_min[0]
         if (diff_1_1 == diff_2_1):
 
             if val_2_min[0] > val_1_min[0]:
@@ -93,6 +77,6 @@ if __name__ == '__main__':
             levels, val = select_2_elements(levels, val_2_min)
             z -= 2
             move += val
-
+   
     print(move)
 
