@@ -234,6 +234,22 @@ void solve()
             else {x = inter1.first;y=inter1.second; vy = -vy; vx = -vx;}
             //cout<<i<<" : "<<x<<" "<<y<<endl;
         }
+        else if(vx > 0 && vy == 0) {
+            x = l;
+            vx = -vx;
+        }
+        else if(vx < 0 && vy == 0) {
+            x = 0;
+            vx = -vx;
+        }
+        else if(vy > 0 && vx == 0) {
+            y = h;
+            vy = -vy;
+        }
+        else if(vy < 0 && vx == 0) {
+            y = 0;
+            vy = -vy;
+        }
     }
     cout<<floor(x)<<" "<<floor(y)<<endl;
 }

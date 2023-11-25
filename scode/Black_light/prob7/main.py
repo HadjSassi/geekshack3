@@ -1,4 +1,4 @@
-n,z=list(map(int,input().split))
+n,z=map(int,input().split)
 levels=list()
 for i in range(n):
    a,b=map(int,input().split)
