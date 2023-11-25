@@ -131,7 +131,7 @@ $result5= mysqli_query($link, $requete5);
         <main>
             <div class="cards">
 
-                <p><button class="btn btn-primary" onclick="sortTable()">Sort</button></p>
+<!--                <p><button class="btn btn-primary" onclick="sortTable()">Sort</button></p>-->
             </div>
             <!--Tableau-->
             <div class="recent-grid" >
