@@ -28,4 +28,4 @@ def min_permutations_to_palindrome(input_str):
 
 input_string = input()
 result = min_permutations_to_palindrome(input_string)
-print(result)
+print(result) 

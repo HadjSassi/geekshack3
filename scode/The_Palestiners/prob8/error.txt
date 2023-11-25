@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/The_Palestiners/prob8/main.py", line 26, in <module>
+    n, z = map(int, input().split())
+ValueError: not enough values to unpack (expected 2, got 1)

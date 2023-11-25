@@ -1,39 +1,72 @@
-def simulate_bouncing_ball():
-    l, h, x, y, vx, vy, K = map(int, input().split())
+from math import *
+def line_intersection(line1, line2):
+    xdiff = (line1[0][0] - line1[1][0], line2[0][0] - line2[1][0])
+    ydiff = (line1[0][1] - line1[1][1], line2[0][1] - line2[1][1])
 
-    # Store the directions of motion for the x and y components
-    directions_x = []
-    directions_y = []
+    def det(a, b):
+        return a[0] * b[1] - a[1] * b[0]
 
-    # Initialize the position of the ball and its velocity vector
-    ball_position = [x, y]
-    ball_velocity = [vx, vy]
+    div = det(xdiff, ydiff)
+    if div == 0:
+       return [-1,-1]
 
-    for _ in range(K):
-        # Move the ball
-        ball_position[0] += ball_velocity[0]
-        ball_position[1] += ball_velocity[1]
+    d = (det(*line1), det(*line2))
+    x = det(d, xdiff) / div
+    y = det(d, ydiff) / div
+    return [x, y]
 
-        if ball_position[0] < 0 or ball_position[0] > l:
-            directions_x.append(1 if ball_position[0] > l else -1)
-            ball_velocity[0] = -ball_velocity[0]
+def direction(x,y):
+    if y< 0 :
+        if x < 0:
+            return [down,left]
+        else :
+            return [down,right]
+    else :
+        if x < 0:
+            return [up,left]
+        else :
+            return  [up,right]
+def distanc(p1,p2):
+    return sqrt( pow(p1[0]-p2[0],2)+ pow(p1[1]-p2[1],2))
 
-        if ball_position[1] < 0 or ball_position[1] > h:
-            directions_y.append(1 if ball_position[1] > h else -1)
-            ball_velocity[1] = -ball_velocity[1]
-
-    # Calculate the final position of the ball
-    x_final = ball_position[0]  if ball_velocity[0] != 0 else 0
-    y_final = ball_position[1] if ball_velocity[1] != 0 else 0
-
-    return x_final, y_final
+ch = input()
 
 
-#l, h, x, y, vx, vy, K = map(int, input().split())
+li = ch.split(" ")
 
-# Calculate the final position of the ball
-#x_final, y_final = simulate_bouncing_ball(l, h, x, y, vx, vy, K)
 
-# Print the final position of the ball
-#print(x_final, y_final)
-print(simulate_bouncing_ball()) 
+l   = int(li[0])
+h   = int(li[1])
+x   = int(li[2])
+y   = int(li[3])
+vx  = int(li[4])
+vy  = int(li[5])
+k   = int(li[6])
+
+global down 
+global left 
+global up 
+global right 
+
+down = [[0,0],[1,0]]
+left = [[0,0],[0,1]]
+up = [[0,h],[1,h]]
+right = [[l,0],[l,1]]
+
+bl = [0,0]
+tr = [l,h]
+
+
+position = [x,y]
+for i in range(k):
+    point=[]
+    for i in direction(vx,vy):
+        point.append(line_intersection(i,[[x,y],[x+vx,y+vy]]))
+    if distanc(point[0],position)<distanc(point[1],position):
+        position=point[0]
+        vy = -vy
+    else :
+        position=point[1]
+        vx = -vx
+    x,y=position[0],position[1]
+print(int(x),int(y))

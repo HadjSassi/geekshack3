@@ -1,5 +1,17 @@
+import java.util.Scanner
+
 class Main {
     public static void main(String[] args) {
-        System.out.println("Bonjour TeamDigital !\nAllez, c'est à vous ! Bon courage ! ^_^"); 
+        Scanner s = new Scanner(System.in);  // Create a Scanner object
+        String userName = s.nextInt()
+        r=bin(s)
+        for i in r {
+            if r = 0 {q=+1}
+        }
+        if q=1 { s
+            
+        }
+        }
+        System.out.println(r); 
     }
-} 
+}  

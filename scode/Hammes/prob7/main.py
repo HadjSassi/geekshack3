@@ -14,18 +14,21 @@ for i in range(n):
     for i in range(len(ch[0])):
         tab1.insert(j,ch[2])
 res = [eval(i) for i in tab]
-
 res1 = [eval(i) for i in tab1]
-res.sort()
-res1.sort()
-if(z%2==0):
-    s=z//2
-    result=(res[:s])
-    if len(res1)<z:
-        result1=(res1[:z])
+s=0
+def test(res,res1,z):
+    if(z==1):
+        i,m=min(res)
+        delete(i,res,re1)
+        return m+s
+    else if(z==2):
+        i,m=min(res)
+        i1,m1=min(res)
+        if(m<m1):
+            delete(i,res,res1)
+        else:
+            m=m1
+            delete(i1,res,res1)
+        return m+s
     else:
-        result1=res1
-
-test=result+result1
-test.sort();
-print(test)
+        

@@ -1,0 +1,52 @@
+Main.java:1: error: ';' expected
+import java.util.Scanner
+                        ^
+Main.java:6: error: ';' expected
+        String userName = s.nextInt()
+                                     ^
+Main.java:7: error: ';' expected
+        r=bin(s)
+                ^
+Main.java:8: error: '(' expected
+        for i in r {
+           ^
+Main.java:8: error: ';' expected
+        for i in r {
+                ^
+Main.java:8: error: ';' expected
+        for i in r {
+                  ^
+Main.java:8: error: illegal start of expression
+        for i in r {
+                   ^
+Main.java:9: error: '(' expected
+            if r = 0 {q=+1}
+              ^
+Main.java:9: error: ')' expected
+            if r = 0 {q=+1}
+                    ^
+Main.java:9: error: ';' expected
+            if r = 0 {q=+1}
+                          ^
+Main.java:11: error: '(' expected
+        if q=1 { s
+          ^
+Main.java:11: error: ')' expected
+        if q=1 { s
+              ^
+Main.java:11: error: not a statement
+        if q=1 { s
+                 ^
+Main.java:11: error: ';' expected
+        if q=1 { s
+                  ^
+Main.java:15: error: <identifier> expected
+        System.out.println(r); 
+                          ^
+Main.java:15: error: <identifier> expected
+        System.out.println(r); 
+                            ^
+Main.java:17: error: class, interface, enum, or record expected
+}  
+^
+17 errors

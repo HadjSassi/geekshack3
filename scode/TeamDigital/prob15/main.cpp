@@ -36,10 +36,11 @@ int count_numbers(int L, int R)
 // Driver Code
 int main()
 {
-	int L = 4, R = 9;
+	int L = 10, R = 20;
 
 	// Function Call
 	cout << count_numbers(L, R);
 
 	return 0;
 }
+ 
