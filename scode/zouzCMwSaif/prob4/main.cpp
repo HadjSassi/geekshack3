@@ -48,11 +48,17 @@ void solve(){
 			vy *= -1;
 		} 
 		if( test ) k--;
-		if( k == 0 ) { 
-			cout << lastx << " " << lasty << endl; 
+		
+		//cout << x << " " << y << " "  << k << endl;
+		if( k == 1  && (x == l || y == h )) { 
+			cout << x << " " << y << endl; 
 			return;
 		}
-		//cout << x << " " << y << " "  << k << endl;
+		if( k == 0 ) {
+			cout << x << " " << y << endl;
+			return;
+		}
+		
 	}
 	cout << x << " " << y << endl;
 }                   

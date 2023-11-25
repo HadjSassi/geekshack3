@@ -9,7 +9,7 @@ int main(){
     long long l,r;
     cin >> l >> r;
     int c = 0;
-    for(long long i = 1;i<55;i++){
+    for(long long i = 1;i<20;i++){
         long long n = (1 << i) - 1;
         for(int j = 0;j<i-1;j++){
             long long m = n ^ (1 << j);

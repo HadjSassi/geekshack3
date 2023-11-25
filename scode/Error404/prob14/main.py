@@ -11,8 +11,14 @@ def occurence(l):
             nb+=1
     if nb>1 :
         return(True)
+    else :
+        return(False)
 nb=0
-if (occurence(l)==True)or((len(l) % 2==0) and (occurence(l)==False)):
+if (occurence(l)==True):
+    print("-1")
+elif (len(l) % 2==0) and (occurence(l)==False):
+    print("-1")
+elif (len(l) %2 ==1) and (occurence(l)==True) :
     print("-1")
 else:
     

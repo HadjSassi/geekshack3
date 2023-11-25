@@ -20,11 +20,12 @@ res.sort()
 res1.sort()
 if(z%2==0):
     s=z//2
-    print(s)
     result=(res[:s])
     if len(res1)<z:
         result1=(res1[:z])
     else:
         result1=res1
+
 test=result+result1
+test.sort();
 print(test)

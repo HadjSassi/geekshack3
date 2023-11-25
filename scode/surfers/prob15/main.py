@@ -9,7 +9,7 @@ def count_zeros(number):
     return zero_count
 s=0
 x,y=map(int, input().split())
-for i in range(x,y):
+for i in range(x,y+1):
     z=int(bin(i)[2:])
     zero_count=count_zeros(z)
     if (zero_count==1):
