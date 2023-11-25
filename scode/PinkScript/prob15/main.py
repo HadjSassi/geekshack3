@@ -1,8 +1,12 @@
 d = input()
-dec=int(d)
-binaire = ""
-while dec > 0:
-    binaire = str(dec % 2) + binaire
-    dec //= 2
+L= d.split(" ")
+dec1=int(L[0])
+dec2= int(L[1])
+L
+for i in range (dec1,dec2+1):
+    binaire = ""
+    while i > 0:
+        binaire = str(i % 2) + binaire
+        i //= 2
 
-print("Le nombre en binaire est :", binaire)
+    print(binaire)

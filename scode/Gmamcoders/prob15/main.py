@@ -6,7 +6,7 @@ for i in range(x,y+1):
     sum=0
     test=0
     j=0
-    while (j <len(ch) ) and (test==0):
+    while (j <len(ch)-1) and (test==0):
         if ch[j]=="0":
             sum+=1
         

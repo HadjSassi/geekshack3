@@ -97,7 +97,13 @@ void solve() {
         return;
     }
 //    yes();
-    for (int i=0; i<min((ll)20,K); i++){
+    if ((x_curr==0 && x_v<0) || (x_curr==l && x_v>0) || (y_curr==0 && y_v<0) || (y_curr==h && y_v>0)) {
+        K--;
+        x_v*=-1;
+        y_v*=-1;
+    }
+
+    for (int i=0; i<K; i++){
 
         if (x_v >0 && y_v>0){
 //            cout<<"NOWWWW 1"<<"\n";

@@ -198,7 +198,7 @@ void solve()
 {
     ll n,m;
     cin>>m>>n;
-    ll sz = (ll)(log2(n)+5);
+    ll sz = 60;
     ll res = 0;
     ll i,j;
     f(0,sz+1,1) {

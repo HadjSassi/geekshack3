@@ -8,7 +8,7 @@ int k;
 void print(pdd p){
     cerr << p.f << " " << p.s << endl;
 }
-int intersection(double line, pdd p1, pdd p2){
+double intersection(double line, pdd p1, pdd p2){
     double a = (p1.s - p2.s) / (p1.f - p2.f);
     double b = p1.s - a * p1.f;
     return (line - b) / a;
@@ -26,6 +26,7 @@ int main(){
         if(vx > 0 && vy > 0){
             double ix = intersection(h,p1,p2);
             double iy = intersection(w,p1r,p2r);
+
             if(ix < w){
                 x = ix;
                 y = h;
@@ -76,6 +77,7 @@ int main(){
             }
         }
     }
-    cout << x << " " << y << endl;
+    cout <<floor(x) << " " << floor(y)<< endl;
 
 }
+ 

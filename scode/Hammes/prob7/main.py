@@ -2,6 +2,7 @@ ch=input()
 l=ch.split(" ")
 n=int(l[0])
 z=int(l[1])
+print(z)
 tab=[]
 tab1=[]
 for i in range(n):
@@ -18,7 +19,8 @@ res1 = [eval(i) for i in tab1]
 res.sort()
 res1.sort()
 if(z%2==0):
-    s=z/2
+    s=z//2
+    print(s)
     result=(res[:s])
     if len(res1)<z:
         result1=(res1[:z])

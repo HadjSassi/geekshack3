@@ -1,23 +1,28 @@
-first, last = map(int,input().split())
+dp = {}
+def count_zeros(a):
+    if a in dp:
+        return dp[a]
+    if a == 1:
+        return 0
+    if a == 2:
+        return 1
+    if a %2 == 0:
+        res = 1 + count_zeros(a >> 1)
+        dp[a] = res
+        return res
+    else:
+        res = count_zeros(a >> 1)
+        dp[a] = res
+        return res
+        
+    return 0
 
-if first == 510 and last == 1024:
-    print(10)
-else:
-    res = 0
-    for year in range(first,last+1):
-        found = False
-        while year > 1:
-            if year % 2 == 0:
-                if found:
-                    found = False
-                    break
-                else:
-                    found = True
+a, b = [int(i) for i in input().split()]
+count = 0
 
-            year = year // 2
-
-        if found:
-            res+=1
-
-print(res)
-
+for i in range(a, b+1):
+    if count_zeros(i) == 1:
+        count+=1
+        
+print(count)
+       
