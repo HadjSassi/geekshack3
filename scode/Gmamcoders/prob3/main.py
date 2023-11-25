@@ -9,4 +9,4 @@ while i in range(len(l)):
             sum+=1
     else:
         i+=1  
-print(sum) 
+print(sum)  

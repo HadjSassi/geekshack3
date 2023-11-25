@@ -40,17 +40,19 @@ void no() { cout<<"NO\n"; }
 
 
 void solve() {
-    ll l,h; cin>>l>>h;
-    ll x_curr ,y_curr; cin>>x_curr>>y_curr;
-    ll x_v, y_v; cin>>x_v>>y_v;
+    double l,h; cin>>l>>h;
+    double x_curr ,y_curr; cin>>x_curr>>y_curr;
+    double x_v, y_v; cin>>x_v>>y_v;
     ll K; cin>>K;
 
 
-    for (int i=0; i<min((ll)K,(ll)100); i++){
+    for (int i=0; i<K; i++){
 
         if (x_v >0 && y_v>0){
-            ll inter_fouk = (h - y_curr)/y_v;
-            ll supposed_x = x_curr + x_v * inter_fouk;
+            double inter_fouk = (h - y_curr)/y_v;
+            double supposed_x = x_curr + x_v * inter_fouk;
+//            watch(inter_fouk);
+//            watch(supposed_x);
             if (supposed_x<=l){
                 x_curr = supposed_x;
                 y_curr = h;
@@ -60,8 +62,10 @@ void solve() {
 
             else{
 
-                ll inter_droite = (l - x_curr)/x_v;
-                ll supposed_y = y_curr + y_v * inter_droite;
+                double inter_droite = (l - x_curr)/x_v;
+                double supposed_y = y_curr + y_v * inter_droite;
+//                watch(inter_droite);
+//                watch(supposed_y);
 //                if (supposed_x<=h){
                     x_curr = l;
                     y_curr = supposed_y;
@@ -78,8 +82,8 @@ void solve() {
 
         else if (x_v>0 && y_v <0){
 
-            ll inter_louta = abs(y_curr/y_v);
-            ll supposed_x = x_curr + x_v * inter_louta;
+            double inter_louta = abs(y_curr/y_v);
+            double supposed_x = x_curr + x_v * inter_louta;
 //            watch(inter_louta);
 //            watch(supposed_x);
             if (supposed_x<=l){
@@ -90,9 +94,9 @@ void solve() {
             }
 
             else{
-                yes();
-                ll inter_droite = (l - x_curr)/x_v;
-                ll supposed_y = y_curr + y_v * inter_droite;
+//                yes();
+                double inter_droite = (l - x_curr)/x_v;
+                double supposed_y = y_curr + y_v * inter_droite;
 //                if (supposed_x<=h){
                     x_curr = l;
                     y_curr = supposed_y;
@@ -106,8 +110,8 @@ void solve() {
 //
         else if (x_v<0 && y_v >0){
 
-            ll inter_fouk = (h - y_curr)/y_v;
-            ll supposed_x = x_curr + x_v * inter_fouk;
+            double inter_fouk = (h - y_curr)/y_v;
+            double supposed_x = x_curr + x_v * inter_fouk;
             if (supposed_x>=0){
                 x_curr = supposed_x;
                 y_curr = h;
@@ -117,8 +121,8 @@ void solve() {
 
             else{
 
-                ll inter_droite = abs(x_curr/x_v);
-                ll supposed_y = y_curr + y_v * inter_droite;
+                double inter_droite = abs(x_curr/x_v);
+                double supposed_y = y_curr + y_v * inter_droite;
 //                if (supposed_x<=h){
                     x_curr = 0;
                     y_curr = supposed_y;
@@ -132,8 +136,8 @@ void solve() {
 //
         else if (x_v<0 && y_v <0){
 
-            ll inter_louta = abs(y_curr/y_v);
-            ll supposed_x = x_curr + x_v * inter_louta;
+            double inter_louta = abs(y_curr/y_v);
+            double supposed_x = x_curr + x_v * inter_louta;
             if (supposed_x>=0){
                 x_curr = supposed_x;
                 y_curr = 0;
@@ -143,8 +147,8 @@ void solve() {
 
             else{
 
-                ll inter_droite = (l - x_curr)/x_v;
-                ll supposed_y = y_curr + y_v * inter_droite;
+                double inter_droite = (l - x_curr)/x_v;
+                double supposed_y = y_curr + y_v * inter_droite;
 //                if (supposed_x<=h){
                     x_curr = 0;
                     y_curr = supposed_y;

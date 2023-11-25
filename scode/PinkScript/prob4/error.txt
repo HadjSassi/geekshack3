@@ -1,4 +1,4 @@
   File "/var/www/html/scode/PinkScript/prob4/main.py", line 5
-    if l[2]==0 and (int(l[6]) mod 2==0):
-                    ^^^^^^^^^^^^^
-SyntaxError: invalid syntax. Perhaps you forgot a comma?
+    a=int(l[6])mod 2
+               ^^^
+SyntaxError: invalid syntax

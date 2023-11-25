@@ -10,4 +10,6 @@ for i in range(n):
         tab.insert(j,ch[0])
 
         
-print(tab)
+
+res = [eval(i) for i in tab]
+print("Modified list is: ", res)

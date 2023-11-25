@@ -311,32 +311,34 @@ void solve()
       cout<<x<<' '<<y<<endl;
       return;
   }
-
+  if(k==0){
+      cout<<x<<' '<<y<<endl;
+      return;
+  }
+  k--;
   if(vy==0){
-      if(vx<0){
-          x=0;
+      
+      if(x==l){
+          x = 0;
       }
       else x = l;
       if(k%2){
-          if(x==l)x = 0;
-          else x = l;
+          x = l-x;
       }
       cout<<x<<' '<<y<<endl;
       return;
   }
   
   if(vx==0){
-      if(vy<0){
-          y=0;
-      }
+      if(y==h)y = 0;
       else y = h;
       if(k%2){
-          if(y==h)y = 0;
-          else x = h;
+          y = h-y;
       }
       cout<<x<<' '<<y<<endl;
       return;
   }
+  k++;
   while(k--){
     double x1,y1;
     if(vy>=0)
