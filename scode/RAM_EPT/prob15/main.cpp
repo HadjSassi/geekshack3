@@ -198,7 +198,7 @@ void solve()
 {
     ll n,m;
     cin>>m>>n;
-    ll sz = 63;
+    ll sz = 65;
     ll res = 0;
     ll i,j;
     f(0,sz+1,1) {

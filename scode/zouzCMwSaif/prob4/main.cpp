@@ -20,6 +20,7 @@ void solve(){
 		cout << x << " " << y << endl;
 		return;
 	}
+	if( x == l || y == h  || x == 0 || y == 0) k--;
 	bool test = false;
 	while( true ) { 
 		int lastx = x;
@@ -50,10 +51,6 @@ void solve(){
 		if( test ) k--;
 		
 		//cout << x << " " << y << " "  << k << endl;
-		if( k == 1  && (x == l || y == h )) { 
-			cout << x << " " << y << endl; 
-			return;
-		}
 		if( k == 0 ) {
 			cout << x << " " << y << endl;
 			return;
