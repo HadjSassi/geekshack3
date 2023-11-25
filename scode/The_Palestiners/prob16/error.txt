@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/The_Palestiners/prob16/main.py", line 14, in <module>
+    n = int(input())
+ValueError: invalid literal for int() with base 10: '100 4950 1'

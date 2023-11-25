@@ -13,46 +13,44 @@ const ll INF = 1e18;
 
 void solve(){
 	string s; cin >> s;
-	//int val = minMovesToMakePalindrome(s);
-	int n = (int)s.size();
-	map < char , int > occ;
-	int cnt = 0 ;
-	for(int i = 0 ;i < n;i++){
-		occ[s[i]]++;
-	}
-	for(int i = 0 ;i < n;i++ ){
-		cnt += (occ[s[i]]%2);
-	}
-	if( cnt > 1 ) {
+	unordered_map<char, int> unmp;
+    int odd = 0, left = 0, right = s.size() - 1, result = 0;
+ 
+    for (char ch : s)
+        unmp[ch]++;
+ 
+    for (auto i : unmp)
+        if (i.second % 2 == 1)
+            odd++;
+ 
+    if (odd > 1)
+    {
 		cout << -1 << endl;
 		return;
 	}
-	int left = 0 ;
-	int right = n-1;
-	ll ans = 0 ;
-	while( left < right ) {
-		int r = right; 
-		while( s[left] != s[r] ){
-			r-- ;
-		}
-		if( left == r ) { 	
-			while( r <= n/2 ) {
-				swap(s[r],s[r+1]);ans++;r++;
-			}
-			continue;
-		}
-		else {
-			while( r < right) {
-				swap(s[r],s[r+1]);
-				ans++;
-				r++;
-			}
-		}
-		right--;
-		left++;
-	}
-	//assert(ans == val);
-	cout << ans << endl;
+ 
+    while (left < right) {
+        int l = left, r = right;
+        while (s[l] != s[r])
+            r--;
+        if (l == r) {
+ 
+            // when we found odd element
+            swap(s[r], s[r + 1]);
+            result++;
+            continue;
+        }
+        else {
+            // Normal element
+            while (r < right) {
+                swap(s[r], s[r + 1]);
+                result++;
+                r++;
+            }
+        }
+        left++, right--;
+    }
+    cout << result << endl;
 
 }	             
                     

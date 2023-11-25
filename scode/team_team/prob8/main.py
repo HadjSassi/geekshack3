@@ -15,7 +15,8 @@ for j in range(x):
   for e in m:
       f.append(int(e[0]))
       p.append(int(e[-1]))
-    
+   
 print(m) 
 print(f)  
 print(p)
+ 

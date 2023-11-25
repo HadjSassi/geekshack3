@@ -9,8 +9,9 @@ for i in l :
 
 for i in L:
     i.pop(0)
-print(L)       
+      
 def maxmeloul(L) :
+    if L!=[] :
      max =L[0][0]
      for i in L :
          if i[0]> max :
@@ -23,22 +24,33 @@ def maxmeloul(L) :
      return (max)
 
 def maxmelekher(L):
-    max =  L[0][-1]
-    for i in L :
-        if i[-1] > max:
-            max=i[-1]
-    for i in L :
-        if (i[-1]  == max):
-            i.pop(-1)
-            if i==[]:
-                L.remove(i)
-    return max
+    if L!=[] :
+        max = L[0][len(L[0])-1]
+        for i in L :
+            if i[-1] > max:
+                max=i[-1]
+        for i in L :
+            if (i[-1]  == max):
+                i.pop(-1)
+                if i==[]:
+                    L.remove(i)
+        return max
+
 b=0
 y=0
-for i in range(len(L) ):
-    b=b+int(maxmeloul(L))
-    y=y+int(maxmelekher(L))
+while len (L)>0:
+     
+        
+        
+        
+            
+            
+        if L != []:
+            b=b+int(maxmeloul(L))
+            if L!= [] :
+                y=y+int(maxmelekher(L))
 
 
 print(b,y)
+
 

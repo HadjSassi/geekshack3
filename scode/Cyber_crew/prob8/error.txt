@@ -1,4 +1,6 @@
 Traceback (most recent call last):
-  File "/var/www/html/scode/Cyber_crew/prob8/main.py", line 33, in <module>
-    nb+=j
-TypeError: unsupported operand type(s) for +=: 'int' and 'str'
+  File "/var/www/html/scode/Cyber_crew/prob8/main.py", line 31, in <module>
+    j=max(M)
+  File "/var/www/html/scode/Cyber_crew/prob8/main.py", line 8, in max
+    l.remove(l[j][0])
+ValueError: list.remove(x): x not in list

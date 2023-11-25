@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/teamRAM/prob8/main.py", line 18, in <module>
+    nb_el=int(input())
+ValueError: invalid literal for int() with base 10: '3 1000 1000 1000'

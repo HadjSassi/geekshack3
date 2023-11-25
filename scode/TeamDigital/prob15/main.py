@@ -8,6 +8,8 @@ if f<l:
     for i in range(f,l+1):
         r=bin(i)
         for j in r:
-            if j=="0": q=q+1
-        if q ==1: nbr=nbr+1
+            if j=="0":
+                q=q+1
+        if q ==1:
+            nbr=nbr+1
 print(nbr)
