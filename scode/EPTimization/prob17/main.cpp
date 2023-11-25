@@ -24,7 +24,7 @@ typedef long double db;
 #define no cout<<"NO"<<endl;
 #define endl "\n"
 const db pi=4*atan(1);
-const ll mod = 998244353;
+const ll mod = 1e9+7;
 const db EPS = 0.000000001; // 1 e -9
 const ll inf = (ll)1e18;
 ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
@@ -51,38 +51,67 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
-    string t;
-    cin >> t ;
-    r=(t[0]=='v');
-    x=r;
-    l=(t[0]=='t');
-    y=l;
-    p=1;
-    f(i,1,t.size(),1)
+    scanf("%lld",&k) ;
+    vl a(k);
+    mll m;
+    f(i,0,k,1)
     {
-        {
-            if (t[i]=='t')
-            {
-                x++;
-                p+=l;
-                r+=x;
-                l=r;
-                r=y;
-                swap(x,y);
-            }
-            else
-            {
-                y++;
-                l+=y;
-                p+=r;
-                r=l;
-                l=x;
-                swap(x,y);
-            }
-        }
-        p%=mod;
+        scanf("%lld",&a[i]) ;
+        m[a[i]]=i;
     }
-    cout << p << endl;
+    q=0;
+    f(i,0,k,1)
+    {
+        j=i;
+        mll m1;
+        p=0;
+        r=m[a[i]];
+        while (j<=r)
+        {
+            m1[a[j]]++;
+            r=max(r,m[a[j]]);
+            p++;
+            j++;
+        }
+        l=0;
+        fj(j,m1)
+        {
+            l=max(l,j->ss);
+        }
+        q+=p-l;
+        i=r;
+    }
+    reverse(a.begin(),a.end());
+    h=q;
+    m.clear();
+    f(i,0,k,1)
+    {
+        m[a[i]]=i;
+    }
+    q=0;
+    f(i,0,k,1)
+    {
+        j=i;
+        mll m1;
+        p=0;
+        r=m[a[i]];
+        while (j<=r)
+        {
+            m1[a[j]]++;
+            r=max(r,m[a[j]]);
+            p++;
+            j++;
+        }
+        l=0;
+        fj(j,m1)
+        {
+            l=max(l,j->ss);
+        }
+        q+=p-l;
+        i=r;
+    }
+    q=min(h,q);
+    printf("%lld",q);
     return 0;
 }
 

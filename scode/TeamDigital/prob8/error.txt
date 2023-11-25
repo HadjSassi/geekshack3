@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/TeamDigital/prob8/main.py", line 7
+    for
+       ^
+SyntaxError: invalid syntax

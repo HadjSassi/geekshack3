@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/The_Palestiners/prob18/main.py", line 26, in <module>
+    m = int(input())
+EOFError: EOF when reading a line

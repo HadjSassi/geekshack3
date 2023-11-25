@@ -13,13 +13,16 @@ i = int(input())
 global result
 global incity
 global inroad
+global others
 incity = []
 inroad = []
 result = 0
+others = []
 def visit(city,roads,d,n,max):
     global result
     global incity
     global inroad
+    global others
     for i in range(n) :
         if roads[city][i] > 0:
             if max == d+roads[city][i] :
@@ -32,9 +35,10 @@ def visit(city,roads,d,n,max):
             else :
                 if max-d != roads[city][i]/2 :
                     result += 1
-                elif sorted([city , max-d]) not in inroad :
+                    others.append([city,i,max-d])
+                elif sorted([city+1 , i+1]) not in inroad :
                     result += 1
-                    inroad.append(sorted([city , max-d]))
+                    inroad.append(sorted([city+1 , i+1]))
 
 visit(s-1,city,0,n,i)
 print(result)

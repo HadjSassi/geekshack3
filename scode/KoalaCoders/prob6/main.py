@@ -1,26 +1,24 @@
-def dist(l):
-    dist=[]
-    for i in l:
-        dist.append((i[0]**2+i[1]**2)**0.5)
-    return dist
-
-
-n,m=map(int,input().split())
-ali=[]
-for i in range(n):
-    x,y=map(int,input().split())
-    ali.append((x,y))
-iheb=[]
-for i in range(m):
-    x, y = map(int, input().split())
-    iheb.append((x, y))
-A=max(dist(ali))
-a=min(dist(ali))
-I=max(dist(iheb))
-i=min(dist(iheb))
-
-
-if A<i or I<a :
-    print('YES')
-else :
-    print('NO')
+n=int(input())
+c,a=map(str,input().split())
+def dev(n) :
+    l=[]
+    for i in range(1,n) :
+        if n%i==0:
+            l.append(i)
+    l.append(n)
+    return l
+l=dev(n)
+def code(a,l) :
+  for d in range(len(l)-1,0,-1):
+      ch2=a[:l[d]]
+      a=ch2[::-1]+a[l[d]::]
+  return a
+def decode(a,l) :
+    for d in l:
+        ch2 = a[:d]
+        a = ch2[::-1] + a[d::]
+    return a
+if c =='E':
+    print(code(a,l) )
+if c =='D' :
+    print(decode(a,l))

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Black_light/prob18/main.py", line 15, in <module>
+    for i in range(j,len(l)):
+NameError: name 'j' is not defined

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/PinkScript/prob18/main.py", line 6, in <module>
+    for i in range (len(int(ch1))):
+TypeError: object of type 'int' has no len()

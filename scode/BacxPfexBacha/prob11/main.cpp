@@ -37,40 +37,80 @@ void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
 
-
+vector<pair<ll,ll>> adj[MAXII];
+vector<tuple<ll,ll,ll>>edges;
 
 void solve() {
-//    string ch; getline(cin, ch);
-//    string curr = "";
-//    vector<ll>v;
-//    for (int i=0; i<sz(ch); i++){
-//        watch(curr);
-//        if (ch[i]!=' ') curr+=ch[i];
-//        else{
-//            int ans = stoi(curr);
-//            watch(ans);
-//            v.pb(ans);
-//            curr = "";
-//        }
-//    }
-    vector<ll>v, v2;
-    int a;
-    while(cin>>a) v.pb(a);
-//    for(auto k : v ) cout<<k<<endl;
-    while(cin>>a) v2.pb(a);
-    dbg(v);
-//    for(auto k : v2 ) cout<<k<<endl;
-    for (ll x: v2){
-        ll ans = v[sz(v)-1];
-        ll cpt = 1;
-        for (int j= sz(v)-2; j>=0; j--){
-            ll ajout = v[j] * pow(x,cpt);
-            cpt+=1;
-        }
-        cout<<ans<<"\n";
-//    dbg(v);
+    ll n,m,x; cin>>n>>m>>x;
+//    ll other = n+1;
+    for (int i=0; i<m ;i++){
+        ll a,b,w; cin>>a>>b>>w;
+        adj[a].pb({b,w});
+        adj[b].pb({a,w});
+        edges.pb({a,b,w});
     }
 
+    ll distances[MAXII];
+    bool processed[MAXII];
+    memset(processed, 0, sizeof(processed));
+//    memset(distances)
+    ll obj; cin>>obj;
+//    n = other;
+    for (int i = 1; i <= n; i++) distances[i] = 1e18;
+    distances[x] = 0;
+    priority_queue<pair<ll,ll>>q;
+    q.push({0,x});
+    while (!q.empty()) {
+        int a = q.top().second; q.pop();
+        if (processed[a]) continue;
+        processed[a] = true;
+        for (auto u : adj[a]) {
+            int b = u.first, w = u.second;
+            if (distances[a]+w < distances[b]) {
+                distances[b] = distances[a]+w;
+                q.push({-distances[b],b});
+            }
+        }
+    }
+    ll ans = 0;
+//    for (int i=1; i<=n; i++)
+    for (int i=1; i<=n; i++){
+//        watch(distances[i]);
+        if (i==x) continue;
+        if (distances[i]==obj) ans++;
+    }
+//    watch(ans);
+    bool done = 0;
+    for (auto curr:edges){
+        ll a,b,w; tie(a,b,w) = curr;
+//        watch(a);
+//        watch(b);
+//        watch(w);
+        if (w==1) continue;
+        int ok = 0;
+        if (distances[a] < obj && (distances[a] + w - 1) >=obj){
+            if (distances[b] + obj - distances[a] >= obj){
+                ans++;
+                ok++;
+            }
+        }
+        if (distances[b] < obj && (distances[b] + w - 1) >=obj){
+            if (distances[a] + obj - distances[b] >= obj){
+                ans++;
+                ok++;
+            }
+        }
+        ll mq1 = obj - distances[a];
+        ll mq2 = obj- distances[b];
+        if ((mq1 + mq2==w) && ok==2){
+            ans--;
+            done = 1;
+        }
+//        watch(ans);
+
+    }
+    if (!done) ans = min(ans, n);
+    cout<<ans;
 }
 
 
@@ -83,7 +123,7 @@ int main() {
     //freopen("output.txt","w",stdout);
 
     int tc=1;
-    cin >> tc;
+//    cin >> tc;
     while(tc--) {
         solve();
     }
