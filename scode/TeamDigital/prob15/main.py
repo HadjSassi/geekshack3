@@ -1,7 +1,8 @@
-
-f,l = input()
+x, y = input().split()
 r=0
-for i in range(f,l+1) :
+f=int(x)
+l=int(y)
+for i in range(f,y) :
     for j in range(bin(i)):
         if bin(i).cout(0)==1:
             r=r+1

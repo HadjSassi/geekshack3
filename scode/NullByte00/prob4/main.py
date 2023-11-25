@@ -1,13 +1,17 @@
 def update_position(l, h, x, y, vx, vy):
     x += vx
-    
     if x <= 0 or x >= l:
         vx = -vx
     
-    y += vy
-    
+    y += vy 
     if y <= 0 or y >= h:
         vy = -vy
+        
+    if(x>l):
+        x = l
+        
+    if(y>h):
+        y = h
     
     return x, y, vx, vy
 
@@ -22,4 +26,3 @@ l, h, x, y, vx, vy, K = map(int, input().split())
 
 result = final_position(l, h, x, y, vx, vy, K)
 print(result[0], result[1])
- 
