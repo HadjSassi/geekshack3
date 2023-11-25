@@ -1,13 +1,11 @@
 s = input()
-s=str(s)
 if len(s) == 1:
     print(0)
 occur = 0
 count = 0
 e = len(s) - 1
-s = 0
 l = []
-for i in range(0,len(s)):
+for i in range((e+1)//2):
     if ((s.count(s[i]) % 2) == 1) and (s[i] not in l):
         l.append(s[i])
         occur += 1

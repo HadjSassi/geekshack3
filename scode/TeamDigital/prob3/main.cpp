@@ -1,42 +1,33 @@
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
-int getSubstringsCount(string str, string start, string end) {
-   int substrings_count = 0, str_length = str.size(), start_length = start.size(), end_length = end.size();
-   int start_matches_index[str_length] = {0}, end_matches_index[str_length] = {0};
-   for (int i = 0; i < str_length; i++) {
-      if (str.substr(i, start_length) == start) {
-         start_matches_index[i] = 1;
-      }
-      if (str.substr(i, end_length) == end) {
-         end_matches_index[i] = 1;
-      }
-   }
-   set<string> substrings;
-   string current_substring = "";
-   for (int i = 0; i < str_length; i++) {
-      if (start_matches_index[i]) {
-         for (int j = i; j < str_length; j++) {
-            if (!end_matches_index[j]) {
-               current_substring += str[j];
-            }
-            if (end_matches_index[j]) {
-               current_substring += str.substr(j, end_length);
-               if (substrings.find(current_substring) == substrings.end()) {
-                  substrings_count++;
-               }
-               substrings.insert(current_substring);
-            }
-         }
-         current_substring = "";
-      }
-   }
-   return substrings_count;
-}
+
 int main() {
-   string str = "chak chouka";
-   string start = "m";
-   string end = "e";
-   cout << getSubstringsCount(str, start, end) << endl;
-   return 0;
+  
+  // declaring string
+  string sentence = "chak chak slata mechwiya chouka chouka ";
+  // initialising no of words to 0
+  int words = 0;
+  // store length of string in lenOfSentence
+  int lenOfSentence = sentence.size();
+
+  // run for loop from i = 0 to i = lenOfSentence
+  // to iterate through each character of the string
+  for(int i = 0; i < lenOfSentence; i++)
+  {
+    // check if current character is a space
+    if(sentence[i] == ' ')
+    {
+      // if it is a space, increment word count
+      words++;
+    }
+
+  }
+  // at the end of the for loop, no. of spaces have been
+  // counted. Increment word count one more time to get
+  // no. of words
+  words = words + 1;
+
+  cout << "No. of words = " << words << endl;
+
 }
   

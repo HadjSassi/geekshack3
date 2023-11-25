@@ -48,43 +48,27 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
     return numbers;
 }*/
 
+mll dp[300001];
+
+ll fh(ll i,ll j,vl &a,vl &b)
+{
+    if (j<-1 || j>2*i+2) return 1e17;
+    if (i<0) return 1e17*(j>0);
+    if (dp[i].count(j)) return dp[i][j];
+    return dp[i][j]=min(fh(i-1,j,a,b),min(a[i]+fh(i-1,j-1,a,b),b[i]+fh(i-1,j-2,a,b)));
+}
+
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
     cin >> k >> z;
-    vl a(k);
-    p=0;
-    mll m;
-    multiset<int> s;
-    vector<pair<float,ll>> v;
+    vl a(k),b(k);
     f(i,0,k,1)
     {
-        cin >> a[i];
-        p+=a[i];
-        s.insert(a[i]);
-        v.pb({a[i]*1.0,-1});
-        cin >> x ;
-        v.pb({1.0*x/2.0,-2});
-        v.pb({1.0*x/2.0,-2});
+        cin >> a[i] ;
+        cin >> b[i] ;
     }
-    sort(v.begin(),v.end());
-    float ppp=0;
-    pll pp=v[z-1];
-    f(i,0,z,1)
-    {
-        ppp+=v[i].ff;
-        if (v[i].ss==-1)
-        {
-            s.erase(s.find(v[i].ff));
-        }
-
-    }
-    if (pp.ss==-2)
-    {
-        ppp+=min(*s.lower_bound(pp.ff)-pp.ff,pp.ff);
-    }
-
-    cout << ppp << endl;
+    cout << min(fh(k-1,z,a,b),fh(k-1,z,a,b)) << endl;
     return 0;
 }
 

@@ -2,7 +2,10 @@
 using namespace std;
 int test(string s) {
     int i = 0, j = s.length()-1,k,ans=0;
+  int max=0;
     while(i<j){
+      max++;
+  
         if(s[i]==s[j]){
             i++;j--;
         }else{
@@ -22,6 +25,7 @@ int test(string s) {
                 i++;j--;
             }
         }
+      if(max>255){ return -1;}
     }
     return ans;
 }

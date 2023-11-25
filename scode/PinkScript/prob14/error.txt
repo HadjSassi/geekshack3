@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/PinkScript/prob14/main.py", line 6, in <module>
+    s[i]=aux
+NameError: name 'aux' is not defined

@@ -1,10 +1,9 @@
 s=input()
-nbcho=0
-nbch=0
+som=0
 
-for i in range(len(s)):
+
+for i in range(len(s)-6):
   if s[i:i+5]=='chak':
-      nbch+=1
-  elif s[i:i+7]=='chouka':
-     nbcho+=1
-print(min(nbch,nbcho)*2) 
+     som+=s[i+5:].count('chouka')
+  
+print(som)  

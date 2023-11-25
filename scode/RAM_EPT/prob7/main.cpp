@@ -236,7 +236,7 @@ void solve()
             }
         }
     }
-    if(res == 160) cr(159);
+   
 
     cout<<res<<endl;
 }
@@ -264,3 +264,4 @@ int main()
     }
     return 0;
 }
+ 

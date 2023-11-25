@@ -29,7 +29,7 @@ for i in L1 :
         if i>j :
             s=s+1
 
-print(L1,L2)
+
 x=ch.count("chak")
 y=ch.count("chouka")
 print((x*y)-s)

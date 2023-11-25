@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/Black_light/prob14/main.py", line 7, in <module>
-    s[i]=s[i+1]
-TypeError: 'str' object does not support item assignment

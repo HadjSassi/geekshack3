@@ -1,8 +1,8 @@
-def Delicious(s1):
+def Delicious():
+    s1=input()
     count=1
     s=s1.replace(" ", "")
-   
-    
+
     for i in range(0, len(s)):        
 
         ch=s[i]
@@ -14,4 +14,4 @@ def Delicious(s1):
                 count=count+1
         
     return(count)    
-print(Delicious('chak fssfs chak sfdfsdfcho ukafsddssdfkslflzerzerk chouka sd fsdfsf chak  chouka fsfdsfsdfdsc chak n chouka'))  
+print(Delicious())  
