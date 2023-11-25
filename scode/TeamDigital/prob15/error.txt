@@ -1,4 +1,4 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/TeamDigital/prob15/main.py", line 2, in <module>
-    ly = input('fffffff')
-EOFError: EOF when reading a line
+  File "/var/www/html/scode/TeamDigital/prob15/main.py", line 5
+    for i in range(f:l+1) :
+                    ^
+SyntaxError: invalid syntax

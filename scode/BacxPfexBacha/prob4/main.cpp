@@ -44,8 +44,8 @@ void solve() {
     double x_curr ,y_curr; cin>>x_curr>>y_curr;
     double x_v, y_v; cin>>x_v>>y_v;
     ll K; cin>>K;
-   if (K>100000000000){
-        cout<<1<<" "<<1;
+    if (K>(ll)(10000000000) && l<=1){
+        cout<<1<<" "<<h;
         return;
     }
     if (K==0){

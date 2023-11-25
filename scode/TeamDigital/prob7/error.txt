@@ -1,3 +1,11 @@
-main.cpp:4:1: error: expected initializer before 'int'
-    4 | int z //number of stars
-      | ^~~
+main.cpp:11:5: error: invalid use of template-name 'std::vector' without an argument list
+   11 |     vector fairCandySwap(vector& A, vector& B) {
+      |     ^~~~~~
+main.cpp:11:5: note: class template argument deduction is only available with '-std=c++17' or '-std=gnu++17'
+In file included from /usr/include/c++/11/vector:67,
+                 from /usr/include/c++/11/queue:61,
+                 from /usr/include/x86_64-linux-gnu/c++/11/bits/stdc++.h:86,
+                 from main.cpp:1:
+/usr/include/c++/11/bits/stl_vector.h:389:11: note: 'template<class _Tp, class _Alloc> class std::vector' declared here
+  389 |     class vector : protected _Vector_base<_Tp, _Alloc>
+      |           ^~~~~~
