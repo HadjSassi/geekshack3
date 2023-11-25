@@ -62,6 +62,14 @@ void resolve(string s){
 }
 void solve() {
  string s;cin>>s;
+ bool f=0;
+ for(int i=0;i<s.size()-1;i++){
+    f|=(s[i]==s[i+1]);
+ }
+ if(!f){
+    cout<<1<<endl;
+    return;
+ }
  resolve(s);
  cout<<ans.size()<<endl;
 
@@ -83,4 +91,4 @@ int main() {
     }
 }
 
-  
+     

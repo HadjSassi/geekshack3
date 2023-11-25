@@ -1,0 +1,12 @@
+main.cpp:80:9: error: expected unqualified-id before 'else'
+   80 |         else {
+      |         ^~~~
+main.cpp:91:16: error: expected constructor, destructor, or type conversion before '(' token
+   91 |         reverse(ans.begin(), ans.end());
+      |                ^
+main.cpp:92:9: error: expected unqualified-id before 'return'
+   92 |         return ans;
+      |         ^~~~~~
+main.cpp:93:1: error: expected declaration before '}' token
+   93 | }
+      | ^

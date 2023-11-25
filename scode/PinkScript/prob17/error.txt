@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/PinkScript/prob17/main.py", line 6, in <module>
+    ch=ch.replace("tt",v)
+NameError: name 'v' is not defined

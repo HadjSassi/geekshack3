@@ -50,50 +50,53 @@ else:
 
     # print(colsx)
     # print(colsy)
+    if vx==0:
+        print (x,colsy[-1][1])
+    elif vy==0:
+        print(colsx[-1][1],y)
+    else:
+        s=0 
+        i,j=0,0
+        colidedx=True
+        while K:
+            if colsx[i][0]<colsy[j][0]: #colx before 
+                # print(colsx[i])
+                colidedx=True
+                i+=1
+                
+            elif colsx[i][0]>colsy[j][0]: #colx before 
+                # print(colsy[j])
+                colidedx=False
+                j+=1
+            else:
+                i+=1
+                j+=1
+            K-=1
+        i-=1
+        j-=1
+        lasttx=colsx[i][0]
+        lastty=colsy[j][0]
 
-
-    i,j=0,0
-    s=0 
-    colidedx=True
-    while K:
-        if colsx[i][0]<colsy[j][0]: #colx before 
-            # print(colsx[i])
-            colidedx=True
-            i+=1
-            
-        elif colsx[i][0]>colsy[j][0]: #colx before 
-            # print(colsy[j])
-            colidedx=False
-            j+=1
-        else:
-            i+=1
-            j+=1
-        K-=1
-    i-=1
-    j-=1
-    lasttx=colsx[i][0]
-    lastty=colsy[j][0]
-
-    # print(lasttx)
-    # print(lastty)
-    # print(colidedx)
-    if colidedx: # lawej y
-        # print("searching y")
-        x=colsx[i][1]
-        if colsy[j][1]==h:
-            y=(h-abs(vy)*(lasttx-lastty))
-        else:
-            y=(abs(vy)*(lasttx-lastty))
-            while y < 0 :
-                y+=h 
-    else: # lawej x
-        # print(print("searching x"))
-        y=colsy[j][1]
-        if colsx[i][1]==l:
-            # print()
-            x=(l-abs(vx)*(lastty-lasttx))
-        else:
-            x=(abs(vx)*(lastty-lasttx))
-            while x < 0 :
-                x+=l 
-    print(floor(x),floor(y)) 
+        # print(lasttx)
+        # print(lastty)
+        # print(colidedx)
+        if colidedx: # lawej y
+            # print("searching y")
+            x=colsx[i][1]
+            if colsy[j][1]==h:
+                y=(h-abs(vy)*(lasttx-lastty))
+            else:
+                y=(abs(vy)*(lasttx-lastty))
+                while y < 0 :
+                    y+=h 
+        else: # lawej x
+            # print(print("searching x"))
+            y=colsy[j][1]
+            if colsx[i][1]==l:
+                # print()
+                x=(l-abs(vx)*(lastty-lasttx))
+            else:
+                x=(abs(vx)*(lastty-lasttx))
+                while x < 0 :
+                    x+=l 
+        print(floor(x),floor(y))

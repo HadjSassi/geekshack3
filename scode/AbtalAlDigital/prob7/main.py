@@ -15,7 +15,7 @@ l2.sort()
 resultat = 0
 i = 0
 j = 0
-while (z - etoile > 2):
+while (z - etoile > 2)and (j+1<n):
     if j<len(l1)-3 and l2[i] > l1[j] + l1[j + 1]:
 
         etoile += 2
@@ -46,4 +46,4 @@ print(resultat)
 
 
 
-  
+   

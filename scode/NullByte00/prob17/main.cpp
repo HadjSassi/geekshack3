@@ -1,53 +1,45 @@
 #include <iostream>
-#include <string>
+#include <set>
 #include <stack>
-#include <unordered_set>
 
 int main() {
+    int sum=0;
     std::string s;
     std::cin >> s;
-    
-    std::unordered_set<std::string> possibilities;
+
+    std::set<std::string> possibilities;
     std::stack<std::string> stack;
     stack.push(s);
-    
+
     while (!stack.empty()) {
-        std::cout << "before: ";
-        for (const auto& str : stack) {
-            std::cout << str << " ";
-        }
-        std::cout << possibilities.size() << std::endl;
-        
-        std::string current = stack.top();
+        // std::cout << "before: " << stack.top() << " " << possibilities.size() << std::endl;
+
+        s = stack.top();
         stack.pop();
-        
-        if (possibilities.count(current) > 0) {
+
+        if (possibilities.find(s) != possibilities.end()) {
             continue;
         } else {
-            possibilities.insert(current);
+            possibilities.insert(s);
+            sum++;
         }
-        
-        if (current.size() > 1) {
-            for (int i = 0; i < current.size() - 1; i++) {
-                if (current[i] == current[i+1]) {
-                    if (current[i] == 't') {
-                        std::string s1 = current.substr(0, i) + 'v' + current.substr(i+2);
+
+        if (s.length() > 1) {
+            for (int i = 0; i < s.length() - 1; ++i) {
+                if (s[i] == s[i + 1]) {
+                    if (s[i] == 't') {
+                        std::string s1 = s.substr(0, i) + "v" + s.substr(i + 2);
                         stack.push(s1);
                     } else {
-                        std::string s1 = current.substr(0, i) + 't' + current.substr(i+2);
-                        stack.push(s1);
+                        stack.push(s.substr(0, i) + "t" + s.substr(i + 2));
                     }
                 }
             }
         }
-        
-        std::cout << "after: ";
-        for (const auto& str : stack) {
-            std::cout << str << " ";
-        }
-        std::cout << possibilities.size() << std::endl;
+        // std::cout << "after: " << stack.size() << " " << possibilities.size() << std::endl;
     }
-    
+
+    //std::cout << possibilities.size() << std::endl;
+    std::cout << sum;
     return 0;
 }
- 

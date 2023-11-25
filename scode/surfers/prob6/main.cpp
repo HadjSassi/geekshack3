@@ -17,7 +17,7 @@ int ClearBit (int n, int x) { return n & ~(1 << x); }
 int ToggleBit (int n, int x) { return n ^ (1 << x); }
 bool CheckBit (int n, int x) { return (bool)(n & (1 << x)); }
 
-void main ()
+int main (void)
 {
     /*
     freopen ("input.txt","r",stdin);
@@ -27,7 +27,7 @@ void main ()
     int n,i,j,h,k,len;
     string str;
 
-    while (sf ("%d",&n) != EOF)
+    while (sf ("%d",&n)!=nullptr )
     {
         cin >> str;
 
@@ -58,5 +58,6 @@ void main ()
 
         cout<<str;
     }
-}
 
+    return 0;
+}

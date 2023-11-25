@@ -22,18 +22,19 @@ def visit(city,roads,d,n,max):
     global inroad
     for i in range(n) :
         if roads[city][i] > 0:
-            if max == d+roads[city][i] and i not in incity:
-                result += 1 
-                incity.append(i)
+            if max == d+roads[city][i] :
+                if i not  in incity:
+                    result += 1 
+                    incity.append(i)
+                
             elif max > d+roads[city][i]:
                 visit(i,roads,d+roads[city][i],n,max)
             else :
                 if max-d != roads[city][i]/2 :
                     result += 1
-                    inroad.append(str(city)+":"+str(max-d))
-                elif city+":"+max-d not in inroad :
+                elif sorted([city , max-d]) not in inroad :
                     result += 1
-                    inroad.append(str(city)+":"+str(max-d))
+                    inroad.append(sorted([city , max-d]))
 
 visit(s-1,city,0,n,i)
 print(result)

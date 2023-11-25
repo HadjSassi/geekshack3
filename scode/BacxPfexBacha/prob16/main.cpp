@@ -106,7 +106,9 @@ void solve() {
 //        watch(ans);
 
     }
-    cout<<ans;
+    cout<<ans<<endl;
+   
+    
 }
 
 
@@ -124,3 +126,4 @@ int main() {
         solve();
     }
 }
+   
