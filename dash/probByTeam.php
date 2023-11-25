@@ -47,6 +47,9 @@ $record4 = $result4->fetch_array();
 $lastscore = $record4["prob$prob"];
 
 
+$problemsFolder = '../problems_all';
+$problemTitleFile = $problemsFolder . "/prob$prob/titre.txt";
+$problemName = file_exists($problemTitleFile) ? trim(file_get_contents($problemTitleFile)) : "Unknown Problem";
 
 
 ?>
@@ -115,7 +118,7 @@ $lastscore = $record4["prob$prob"];
         <h2>
             <label for="nav-toggle">
                 <span class="las la-bars"></span>
-            </label> Solution Problem <?php echo $prob; ?> de <?php echo $tag; ?>
+            </label> Solution for <?php echo $problemName; ?> in <?php echo $tag; ?>
         </h2>
 
     </header>
