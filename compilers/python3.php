@@ -119,7 +119,7 @@ if (trim($input) == "") {
             $output = "timeout expired";
             echo '
 			<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
-			<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired'.$seconds.'</h3>
+			<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired '.$seconds.'</h3>
 			</fieldset>';
             $_SESSION["index"]++;
 
@@ -162,7 +162,7 @@ if (trim($input) == "") {
             $output = "timeout expired";
             echo '
 					<fieldset style="border: none;border: none;box-shadow: 5px 4px 2px #010c14;color: #ff7676;border-radius: 2em;padding: 0.5em 2em;" >
-						<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired'.$seconds.'</h3>
+						<h3 style="font-family: Titillium Web, sans-serif;">Timeout Expired '.$seconds.'</h3>
 					</fieldset>';
             $_SESSION["index"]++;
 
