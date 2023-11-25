@@ -5,7 +5,7 @@ void bounce(int l,int h,int *x ,int *y,int vx,int vy){
     if(*y==0 || *y==h){
         *x+=vx;
         *y-=vy;
-        while(*y!=h && *y!=0 && *x!=0 && *x!=l){
+        if(*y!=h && *y!=0 && *x!=0 && *x!=l){
             *x+=vx;
             *y-=vy;
         }
@@ -31,8 +31,13 @@ int main()
     y+=vy;
     while(k!=0){
         bounce(l,h,&x,&y,vx,vy);
-        k-=0;
+        k-=1;
     }
+    if(x<0)
+        x=-x;
+     if(y<0)
+        y=-y;
+
     printf("%d %d ",x,y);
 
 

@@ -1,11 +1,13 @@
-s = input()
-som = 0
-
-for i in range(len(s)):
-    if (s[i:i+4] == 'chak'):
-
-        x=s.count('chouka',i+4,len(s)+1)
-
-        som =som + x
-
-print(som)
+import math
+l,h,x,y,vx,vy,k=map(int,input().split())
+nb=0
+while (nb<k+1):
+    x=x+vx
+    y=y+vy
+    if (y==h or y==0):
+        vy=-vy
+        nb=nb+1
+    if (x==0 or x==l):
+        vx=-vx
+        nb=nb+1
+print(math.floor(x),math.floor(y))

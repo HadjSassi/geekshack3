@@ -8,6 +8,7 @@ def binary():
         c=0
         for element in binary1:
             if element=='0': c+=1
+            if c>1: break
         if c==1: ctr+=1    
     return ctr
-print(binary())
+print(binary())  

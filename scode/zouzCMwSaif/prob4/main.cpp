@@ -11,14 +11,14 @@ const ll MOD = 1e8;
 const int N = 1e5 + 5;
 const ll INF = 1e18;
 
-ll moves( ll &a , ll &b , ll c ) {
+ll moves( ll a , ll b , ll c ) {
 	if( b == 0 ) return INF;
-	if( c - a < 0 ) a = c - (a-c), b*=-1;
+	//if( c - a < 0 ) a = c - (a-c), b*=-1;
+	assert( c >= a ) ;
+	assert( a >= 0 ) ;
 	if( b > 0 ) {
-		assert((c-(a))>= 0);
 		return (c-a+b-1)/max(b,1LL);
 	}
-	assert(((a+(-b)-	1)/(-b)) >=0);
 	return (a+abs(b)-1)/max(abs(b),1LL);
 }
 
@@ -33,8 +33,8 @@ void calc(ll &a , ll &b , ll c , ll nbmove  ) {
 		 a = c - (a-c);
 		 b *= -1;
 	 }
-	 assert( (c - a) >= 0 ) ; 
-	 assert( a >= 0 ); 
+	 //assert( (c - a >= 0 ) ; 
+	 //assert( a >= 0 ); 
 	 if( a == c || a == 0 ) b *= -1;
 }
 		 
@@ -53,11 +53,44 @@ void solve(){
 		ll mvx = moves(x,vx,l) ;
 		ll mvy = moves(y,vy,h) ;
 		mvx = min(mvx,mvy);
-		//if ( mvx == 0 ) i--; 
-		assert(mvx >= 0 ) ;
-	    calc(x,vx,l,mvx);
-		calc(y,vy,h,mvx);
+		assert( mvx != 0 ) ;
+		ll nbmove = mvx;
+		// calc x 
+		 x += vx*nbmove;
+		 if( x < 0 ) { 
+			 vx *= -1;
+			 x = abs(x);
+			 //return;
+		 }
+		 else if( x > l ) {
+			 x = l - (x-l);
+			 vx *= -1;
+		 }
+		 //assert( (c - a >= 0 ) ; 
+		 //assert( a >= 0 ); 
+		 if( x == l || x == 0 ) vx *= -1;
+	    
+	     // calc y 
+	    
+	    y += vy*nbmove;
+		 if( y < 0 ) { 
+			 vy *= -1;
+			 y = abs(y);
+			 //return;
+		 }
+		 else if( x > l ) {
+			 y = h - (y-h);
+			 vy *= -1;
+		 }
+		 //assert( (c - a >= 0 ) ; 
+		 //assert( a >= 0 ); 
+		 if( y == h || y == 0 ) vy *= -1;
+		//calc(y,vy,h,mvx);
 		//cout << x << " " << y << endl;
+		assert( x >= 0 ) ;
+		assert( x <= l );
+		assert( y >= 0) ;
+		assert( y <= h);
 	}
 	cout << x << " " << y << endl;
 }                   

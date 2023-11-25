@@ -1,9 +1,10 @@
 //YOU WILL MAKE IT
 #include<bits/stdc++.h>
 
+
 using namespace std;
 vector<pair<long long,long long>> v;
-long long memo[30001][40002];
+long long memo[5001][5002];
 int op,n;
 long long dp(int i,int j){
     if(j>=op){

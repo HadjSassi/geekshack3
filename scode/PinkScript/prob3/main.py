@@ -16,4 +16,4 @@ elif c in s :
     nb=nb+1
     s.replace(c,"")
         
-print (nb) 
+print (nb)  

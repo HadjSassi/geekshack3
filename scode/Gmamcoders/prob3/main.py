@@ -1,12 +1,17 @@
-s=input()
-ch=s.strip()
-l=ch.split()
-sum=0
-i=0
-while i in range(len(l)):
-    if l[i]=='c':
-        if l[i+1,i+3]=="hak" or l[i+1,i+4]=="houka":
+x,y=map(int,input().split())
+c=0
+for i in range(x,y+1):
+    c=bin(i)[2:]
+    ch=str(c)
+    sum=0
+    test=0
+    j=0
+    while (j <len(ch) ) and (test==0):
+        if ch[j]=="0":
             sum+=1
-    else:
-        i+=1  
-print(sum)   
+        j+=1
+        if sum>=2:
+            test=1
+    if test==0:
+        c+=1
+print(c)

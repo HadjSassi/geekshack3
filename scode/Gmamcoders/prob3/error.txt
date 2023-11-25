@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob3/main.py", line 1, in <module>
+    x,y=map(int,input().split())
+ValueError: invalid literal for int() with base 10: 'being'

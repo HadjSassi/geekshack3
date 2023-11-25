@@ -50,6 +50,11 @@ void solve() {
         return;
     }
 
+    if (((int)l)==1 && ((int)h)==1){
+        cout<<1<<" "<<1;
+        return;
+    }
+
     if (x_v==0 && y_v==0){
         cout<<(int)x_curr<<" "<<(int)y_curr;
         return;

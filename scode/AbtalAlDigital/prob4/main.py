@@ -3,11 +3,16 @@ l, h, x, y, vx, vy, K = map(int, input().split())
 for i in range(K):
     if vx > 0:
         tx = (l - x) / abs(vx)  
-    else: tx= x / abs(vx)
+    elif vx!=0: 
+        tx= x / abs(vx)
     if vy > 0 :
         ty = (h - y) / abs(vy) 
     elif vy!=0:
         ty= y / abs(vy)
+    if vx==0 :
+        tx =ty
+    if vy==0:
+        ty=tx
 
     t = min(tx, ty)
     x += t * vx
