@@ -1,0 +1,35 @@
+main.c: In function 'main':
+main.c:8:5: warning: implicit declaration of function 'fgets' [-Wimplicit-function-declaration]
+    8 |     fgets(r,5,stdin);
+      |     ^~~~~
+main.c:8:15: error: 'stdin' undeclared (first use in this function)
+    8 |     fgets(r,5,stdin);
+      |               ^~~~~
+main.c:1:1: note: 'stdin' is defined in header '<stdio.h>'; did you forget to '#include <stdio.h>'?
+  +++ |+#include <stdio.h>
+    1 | int main()
+main.c:8:15: note: each undeclared identifier is reported only once for each function it appears in
+    8 |     fgets(r,5,stdin);
+      |               ^~~~~
+main.c:11:5: warning: implicit declaration of function 'strcpy' [-Wimplicit-function-declaration]
+   11 |     strcpy(r1,r);
+      |     ^~~~~~
+main.c:1:1: note: include '<string.h>' or provide a declaration of 'strcpy'
+  +++ |+#include <string.h>
+    1 | int main()
+main.c:11:5: warning: incompatible implicit declaration of built-in function 'strcpy' [-Wbuiltin-declaration-mismatch]
+   11 |     strcpy(r1,r);
+      |     ^~~~~~
+main.c:11:5: note: include '<string.h>' or provide a declaration of 'strcpy'
+main.c:20:5: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
+   20 |     printf(test);
+      |     ^~~~~~
+main.c:20:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+main.c:20:5: warning: incompatible implicit declaration of built-in function 'printf' [-Wbuiltin-declaration-mismatch]
+main.c:20:5: note: include '<stdio.h>' or provide a declaration of 'printf'
+main.c:20:12: warning: format not a string literal and no format arguments [-Wformat-security]
+   20 |     printf(test);
+      |            ^~~~
+main.c:21:5: error: expected declaration or statement at end of input
+   21 |     return 0;
+      |     ^~~~~~

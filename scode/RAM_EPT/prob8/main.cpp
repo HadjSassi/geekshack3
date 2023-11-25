@@ -39,43 +39,35 @@ bool good(int a[], int n){
 
 
 void solve() {
-ll n;
-cin>>n;
-ll bash=0,mab=0;
-for(ll i=0;i<n;i++){
-    ll x;
-    cin>>x;
-    if(x%2!=0) {
-        for(ll j=0;j<x/2+1;j++){
-            ll y;
-            cin>>y;
-            bash+=y;
-        }
-        for(ll j=0;j<x/2;j++) {
-            ll y;
-            cin>>y;
-            mab+=y;
-
-        }
-
-    }
-    else{for(ll j=0;j<x/2;j++){
-        ll y;
-        cin>>y;
-        bash+=y;
-
-    }
-    for(ll j=0;j<x/2;j++) {
+    ll n;
+    cin>>n;
     ll y;
-        cin>>y;
-        mab+=y;
-
+    ll bash=0,mab=0;
+    ll x;
+    for(ll i=0;i<n;i++){
+        cin>>x;
+        if(x%2!=0) {
+            for(ll j=0;j<x/2+1;j++){
+                cin>>y;
+                bash+=y;
+            }
+            for(ll j=0;j<x/2;j++) {
+                cin>>y;
+                mab+=y;
+            }
+        }
+        else{
+            for(ll j=0;j<x/2;j++){
+                cin>>y;
+                bash+=y;
+        }
+            for(ll j=0;j<x/2;j++) {
+                cin>>y;
+                mab+=y;
+            }
+        }
     }
-
-    }
-
-}
-cout<<bash<<" "<<mab<<endl;
+    cout<<bash<<" "<<mab<<endl;
 
 
 
@@ -90,3 +82,4 @@ int main() {
         solve();
     }
 }
+ 

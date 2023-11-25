@@ -37,14 +37,14 @@ s=0;
 tab_s=[]
 x=0;
 for i in (result):
-    for j in range(len(i)-1):
+    for j in ((i)):
         if(j==1):
             indice=res.index(min(res))
             m=min(res)
-            res.remove(indice)
-            res1.remove(indice) 
+            res.pop(indice)
+            res1.pop(indice) 
             s=s+m;
-            tab_s[x]=s
+            tab_s[0]=s
         else:
             indice=res1.index(min(res1))
             m=min(res1)

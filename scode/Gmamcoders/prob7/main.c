@@ -2,9 +2,9 @@
 
 #define nmax  30000
 int main()
-{ int n,z,inda,indb,minai1 ,ai,bi,sum,t[nmax], t1[nmax],s=0,i,minai,minbi;
+{ int n,z,inda,indb,minai1 ,ai,bi,sum,t[nmax], t1[nmax],s=0,i,minai,minbi,lenai;
 scanf("%d%d",&n,&z);
-
+   lenai=n;
 
 
 for (i=0;i<n;i++)
@@ -70,7 +70,8 @@ else if  ((n<z)&&(z%n==0))
 else if(n<z)
 {
 if((s-2==z)&&(minai+minai1<minbi)){sum+=minbi;s+=2;}
-
+if(lenai==0)
+{sum+=minbi;s+=2;}
 if(minai>minbi)
 {
 sum+=minbi;
@@ -82,6 +83,8 @@ sum+=minbi;
  {minbi=t1[i];
    t1[i]=300000;
    indb=i;}
+  lenai--;
+
   }
 
 else
@@ -99,6 +102,7 @@ else
  } }
 printf("%d",sum);
 }
+
 
 
 
