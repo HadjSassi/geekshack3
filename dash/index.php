@@ -49,7 +49,9 @@ $requete5 = "select team.team_tag as nom_equipe ,
 
 
 $result5= mysqli_query($link, $requete5);
-
+// Calculate the ranking
+$ranking = 1;
+$prevScore = PHP_INT_MAX;
 ?>
 
 
@@ -143,27 +145,34 @@ $result5= mysqli_query($link, $requete5);
 
                         <div class="card-body">
                             <div class="table-responsive">
-                                <table width="100%"  id ="myTable" data-filter-control="true" data-show-search-clear-button="true">
+                                <table width="100%" id="myTable" data-filter-control="true" data-show-search-clear-button="true">
                                     <thead>
-                                        <tr>
-                                            <td>Nom d'Equipe</td>
-                                            <td>Chef d'Equipe</td>
-<!--                                            <td>Score</td>-->
-                                        </tr>
+                                    <tr>
+                                        <td>Ranking</td>
+                                        <td>Nom d'Equipe</td>
+                                        <td>Chef d'Equipe</td>
+                                        <td>Score</td>
+                                    </tr>
                                     </thead>
                                     <tbody>
-                                        <?php
-                                        $ranking = 1 ;
-                                        while ($row = mysqli_fetch_array($result5)) { ?>
-			                              <tr style="cursor: pointer" onclick="window.location.href='team.php?tag=<?php echo $row['nom_equipe']; ?>'">
-				                            <td><?php echo $ranking.' '.$row['nom_equipe']; ?></td>
-				                            <td><?php echo $row['leader']; ?></td>
+                                    <?php
+                                    while ($row = mysqli_fetch_array($result5)) { ?>
+                                        <tr style="cursor: pointer" onclick="window.location.href='team.php?tag=<?php echo $row['nom_equipe']; ?>'">
+                                            <td><?php
+                                                // Display ranking only when the score changes
+                                                if ($row['sum_score'] < $prevScore) {
+                                                    echo $ranking;
+                                                    $prevScore = $row['sum_score'];
+                                                }
+                                                ?>
+                                            </td>
+                                            <td><?php echo $row['nom_equipe']; ?></td>
+                                            <td><?php echo $row['leader']; ?></td>
                                             <td style="color: white;"><?php echo $row['sum_score']; ?></td>
-<!--                                            <td >--><?php //echo $row['sum_score']; ?><!--</td>-->
-                                          </tr>
-                                          <?php
-                                            $ranking++;
-                                        } ?>
+                                        </tr>
+                                        <?php
+                                        $ranking++;
+                                    } ?>
                                     </tbody>
                                 </table>
                             </div>
