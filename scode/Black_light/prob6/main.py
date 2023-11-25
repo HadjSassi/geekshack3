@@ -16,11 +16,10 @@ if l[1]=="egekstisne":
 else:
 
     l1=divi(n)
-
     if l[0]=="E":
         print(E(l,l1))
     else :
-        print(E(l,l1)[::-1])
+        print(E(l,l1))
     
     
         

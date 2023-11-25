@@ -1,7 +1,20 @@
+def divisors(n):
+    result = []
+    for i in range(1, n//2 + 1):
+        if n % i == 0:
+            result.append(i)
+    result.append(n)
+    return result
 n=int(input())
 c,ch=(input().split())
-while (n !=1):
-    ch=ch[0:n:-1]+ch[n+1:]
-    n=n//2
-print (ch)
+l=divisors(n)
+if c=='E':
+    for i in l[::-1]:
+     ch=ch[i-1::-1]+ch[i:]
+    print (ch)
+if c=='D':
+    for i in l:
+     ch=ch[i-1::-1]+ch[i:]
+    print (ch)
     
+ 

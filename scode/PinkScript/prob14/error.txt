@@ -1,4 +1,0 @@
-  File "/var/www/html/scode/PinkScript/prob14/main.py", line 13
-    nb =nb+1
-    ^
-IndentationError: expected an indented block after 'if' statement on line 12
