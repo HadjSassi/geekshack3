@@ -11,49 +11,72 @@ const ll MOD = 1e8;
 const int N = 1e5 + 5;
 const ll INF = 1e18;
 
-void solve(){
-	ll l , h ; cin >> l >> h ;
-	ll x , y ; cin >> x >> y ;
-	ll vx, vy ; cin >> vx >> vy ;
-	ll k; cin >> k ;
-	if( (vx == 0 && vy == 0)  || k == 0 ) {
-		cout << x << " " << y << endl;
-		return;
+vector <string>v;
+string calc(ll x ) {
+	string ret = "";
+	while( x ) {
+		if( x&1 ) ret += "1";
+		else ret += "0";
+		x /= 2;
 	}
-	bool test = false;
-	while( k > 0 ) { 
-		test = false;
-		x += vx ; 
-		y += vy;
-		if( x > l ) { 
-			x = l - (x-l);
-			test = true;
-			vx *= -1;
-		}
-		if( x < 0 ) { 
-			test = true;
-			x = abs(x);
-			vx *= -1;
-		}
-		if( y > h ) { 
-			y = h - (y-h);
-			test = true;
-			vy *= -1;
-		}
-		if( y < 0 ) { 
-			test = true;
-			y = abs(y);
-			vy *= -1;
+	reverse(ret.begin(),ret.end());
+	return ret;
+} 
+
+void prep(){
+	vector <string>vv;
+	string s = "";
+	for(int i = 0 ; i <= 64 ;i++ ){
+		s += "1";
+		vv.push_back(s);
+	}
+	for(int i = 0 ; i <= 64 ; i++ ) {
+		string p = vv[i];
+		for(int j = 1 ; j <= i ; j++ ){
+			p[j] = '0';
+			v.push_back(p);
+			p[j] = '1';
 		} 
-		if( test ) k--;
 	}
-	cout << x << " " << y << endl;
-}                   
+}
+
+int check( string &s , string &sx, string &sy){
+	if( s.size() > sy.size() ) return 0;
+	if( s.size() < sx.size() ) return 0;
+	if( s.size() == sy.size() ) { 
+		for(int i = 0 ; i < sy.size() ; i++ ){
+			if( s[i] > sy[i] )  return 0;
+			if( s[i] < sy[i] ) break;
+		}
+	}
+	if( s.size() == sx.size() ) {
+		for(int i = 0 ; i< sx.size() ; i++ ){
+			if( s[i] > sx[i] ) break;
+			if( s[i] < sx[i] ) return 0;
+		}
+	}
+	return 1;
+}
+void solve(){
+	ll x , y ; cin >> x >>  y;
+	//vector < string > vv;	
+	string sx = calc(x);
+	string sy = calc(y);
+	int ans = 0;
+	//cout << sx << " " << sy << endl;
+	for(int i = 0 ; i < v.size(); i++ ){
+		//cout << v[i] << " " << sx << " " << sy << endl;
+		 ans += check(v[i],sx,sy);
+	}
+	cout << ans << endl;	
+}
+                   
                     
 int main()
 {
+	prep();
 	//freopen("input.txt","r",stdin); freopen("output.out","w",stdout);
-	//FAST;
+	FAST;
 	int t = 1;
 	//cin>>t ;
 	while (t--)
@@ -61,5 +84,4 @@ int main()
 		solve();
 	}
 }
-
 

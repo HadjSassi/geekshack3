@@ -1,6 +1,2 @@
-s,e=map(int,input().split())
-count=0
-for i in range(s,e+1):
-    if str(bin(i)).count("0")==2:
-        count+=1
-print(count)
+s, e = map(int, input().split())
+print(sum(bin(i).count('0') == 2 for i in range(s, e + 1)))

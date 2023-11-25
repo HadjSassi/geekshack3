@@ -1,10 +1,4 @@
 import sys
-def min_after_x(A,x):
-    minn=A[0]
-    for i in range(len(A)):
-        if(A[i]<minn) and (A[i]!=x):
-            minn=A[i]
-    return minn
 def solve(n, z):
     A = []
     B = []
@@ -19,19 +13,17 @@ def solve(n, z):
             summ = summ + min(A)
             i = A.index(min(A))
             z-=1
-            A.remove(A[i])
+            A[i] = max(A)
         else:
-            if(A!=[]):
-                X=min(A)
-                Y=min_after_x(A,X)
-            if(B!=[]):
-                W=min(B)
+            X=min(A)
+            A[A.index(X)]=max(A)
+            Y=min(A)
+            W=min(B)
             if(W<=X+Y):
                 summ+=W
-                B.remove(W)
+                B[B.index(W)]=max(B)
             else:
-                print(X)
-                A.remove(Y)
+                A[A.index(Y)]=max(A)
                 summ=summ+Y+X
             z=z-2
     return summ

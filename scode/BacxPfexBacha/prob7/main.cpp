@@ -4,7 +4,7 @@
 
 using namespace std;
 vector<pair<long long,long long>> v;
-long long memo[5001][5002];
+long long memo[6001][6002];
 int op,n;
 long long dp(int i,int j){
     if(j>=op){
@@ -38,3 +38,4 @@ int main(){
         solve();
     }
 }
+ 

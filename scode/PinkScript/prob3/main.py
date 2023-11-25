@@ -1,11 +1,12 @@
 s=input()
 nb=0
 a=0
-while ("chak" not in s):
+while "chak" in s:
     a=s.index("chak")
     s=s[(a+4):]
-    c=ch.count("chouka")
+    c=s.count("chouka")
     nb=nb+c
+    
 print(nb)    
     
     

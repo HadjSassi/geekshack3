@@ -23,7 +23,7 @@ def simulate_bouncing_ball():
             ball_velocity[1] = -ball_velocity[1]
 
     # Calculate the final position of the ball
-    x_final = ball_position[0] if ball_velocity[0] != 0 else 0
+    x_final = ball_position[0]  if ball_velocity[0] != 0 else 0
     y_final = ball_position[1] if ball_velocity[1] != 0 else 0
 
     return x_final, y_final

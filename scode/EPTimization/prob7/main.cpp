@@ -48,13 +48,13 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
     return numbers;
 }*/
 
-map<ll,ll> dp[3000011];
+map<ll,ll> dp[300001];
 
 ll fh(ll i,ll j,vl &a,vl &b)
 {
     if (j==0) return 0;
     if (i<0) return 1e18;
-    if (dp[i].count(j)) return dp[i][j];
+    if (dp[i].count(j)) return min(dp[i][j],min(fh(i-1,j,a,b),min(a[i]+fh(i-1,j-1,a,b),b[i]+fh(i-1,j-2,a,b))));
     return dp[i][j]=min(fh(i-1,j,a,b),min(a[i]+fh(i-1,j-1,a,b),b[i]+fh(i-1,j-2,a,b)));
 }
 

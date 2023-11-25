@@ -96,11 +96,11 @@ void solve() {
         return;
     }
 
-//    if (((int)x_curr==0 && x_v<0) || (x_curr==l && x_v>0) || ((int)y_curr==0 && y_v<0) || ((int)y_curr==h && y_v>0)) {
-//        K--;
-//        x_v*=-1;
-//        y_v*=-1;
-//    }
+    if (((int)x_curr==0 && x_v<0) || (x_curr==l && x_v>0) || ((int)y_curr==0 && y_v<0) || ((int)y_curr==h && y_v>0)) {
+        K--;
+        x_v*=-1;
+        y_v*=-1;
+    }
 
     for (int i=0; i<K; i++){
 //        if (x_curr<0 || y_curr<0) break;
@@ -114,7 +114,7 @@ void solve() {
                 y_curr = h;
                 y_v*=-1;
                 if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
-//                if (x_curr<0 || y_curr<0) break;
+                if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
@@ -129,8 +129,8 @@ void solve() {
                     x_curr = l;
                     y_curr = supposed_y;
                     x_v*=-1;
-                    if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
-//                    if (x_curr<0 || y_curr<0) break;
+                    if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;
+                    if (x_curr<0 || y_curr<0) break;
 
 //                    continue;
 //                }
@@ -152,9 +152,8 @@ void solve() {
                 y_curr = 0;
                 y_v*=-1;
                 ///
-                if ((int)x_curr==0 || (int)x_curr==l)   x_v*=-1;
-//                continue;
-        if (x_curr<0 || y_curr<0) break;
+                if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;//                continue;
+                if (x_curr<0 || y_curr<0) break;
 
             }
 
@@ -167,10 +166,10 @@ void solve() {
                     y_curr = supposed_y;
                     x_v*=-1;
                                     ///
-                    if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
+                    if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;
 //                    continue;
 //                }
-//                if (x_curr<0 || y_curr<0) break;
+                if (x_curr<0 || y_curr<0) break;
 
 
             }
@@ -186,7 +185,7 @@ void solve() {
                 x_curr = supposed_x;
                 y_curr = h;
                 y_v*=-1;
-                if ((int)x_curr==0 || (int)x_curr==l)   x_v*=-1;
+if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
         if (x_curr<0 || y_curr<0) break;
 
 //                continue;
@@ -200,9 +199,8 @@ void solve() {
                     x_curr = 0;
                     y_curr = supposed_y;
                     x_v*=-1;
-                    if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
-//                    continue;
-//        if (x_curr<0 || y_curr<0) break;
+if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;//                    continue;
+        if (x_curr<0 || y_curr<0) break;
 
                 }
 
@@ -219,8 +217,7 @@ void solve() {
                 x_curr = supposed_x;
                 y_curr = 0;
                 y_v*=-1;
-                if ((int)x_curr==0 || (int)x_curr==l)   x_v*=-1;
-        if (x_curr<0 || y_curr<0) break;
+if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;        if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
@@ -235,8 +232,7 @@ void solve() {
                     x_v*=-1;
 //                    continue;
 //                }
-                    if ((int)y_curr==h || (int)y_curr==0) y_v*=-1;
-        if (x_curr<0 || y_curr<0) break;
+if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;        if (x_curr<0 || y_curr<0) break;
 
 
             }
@@ -247,11 +243,9 @@ void solve() {
 //        watch(x_v);
 //        watch(y_v);
     }
-//    int ans1 = (int)(x_curr);
-//    int ans2= (int)(y_curr);
-//    cout<<ans1<<" "<<ans2;
-    cout<<(int)(x_curr)<<" "<<(int)(y_curr);
-
+    int ans1 = (int)(x_curr);
+    int ans2= (int)(y_curr);
+    cout<<ans1<<" "<<ans2;
 }
 
 

@@ -61,4 +61,3 @@ int main()
     cin>>s;
     cout<<check(s);
 }
-

@@ -38,4 +38,4 @@ int main() {
    string end = "e";
    cout << getSubstringsCount(str, start, end) << endl;
    return 0;
-}  
+}   

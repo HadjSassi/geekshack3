@@ -1,4 +1,4 @@
-  File "/var/www/html/scode/teamRAM/prob7/main.py", line 35
-    if
-      ^
-SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "/var/www/html/scode/teamRAM/prob7/main.py", line 1, in <module>
+    h
+NameError: name 'h' is not defined

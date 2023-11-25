@@ -19,4 +19,4 @@ while j < len(ch) and palind:
         ch = ch[1:] + ch[0]
         j += 1
 if not (estPalind(ch)):
-    print(-1)
+    print(-1) 
