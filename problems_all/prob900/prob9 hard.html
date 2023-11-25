@@ -1,6 +1,4 @@
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
-      rel="stylesheet">
-<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
 <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -10,12 +8,11 @@
     });
 </script>
 <style>
-    .title {
+    .title{
         font-weight: 700;
         font-family: 'Titillium Web', sans-serif;
 
     }
-
     .container {
         width: 100%;
         grid-template-columns: 2fr 2fr 1fr;
@@ -36,7 +33,7 @@
         grid-column-start: 1;
         grid-column-end: 4;
         border-radius: 5px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         font-size: 18px;
         color: cornsilk;
         font-family: 'Titillium Web', sans-serif;
@@ -66,11 +63,10 @@
 
     }
 
-    .content1, .content21, .content22, .content3, .content4, .content5, .content6 {
+    .content1,.content21,.content22,.content3,.content4,.content5,.content6{
         font-family: 'Titillium Web', sans-serif;
         border-radius: 5px;
     }
-
     .content1 {
         grid-column-start: 1;
         grid-column-end: 3;
@@ -82,7 +78,7 @@
         font-weight: 600;
         font-size: 15px;
         padding: 5px 40px;
-
+        
     }
 
     .content21 {
@@ -90,7 +86,7 @@
         grid-column-end: 4;
         grid-row-start: 2;
         grid-row-end: 3;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
 
         color: white;
         border: none;
@@ -110,7 +106,7 @@
         grid-row-start: 3;
         padding: 0.5em auto;
         grid-row-end: 4;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image: linear-gradient(115deg,#25304e 1%,#010c24) ;
         color: cornsilk;
     }
 
@@ -145,13 +141,13 @@
         border-collapse: collapse;
         margin: 25px 0;
         min-width: fit-content;
-
+        
     }
 
     .content_table thead tr {
         color: cornsilk;
         letter-spacing: 8px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         text-align: left;
     }
 
@@ -189,7 +185,7 @@
         grid-column-end: 3;
         grid-row-start: 4;
         grid-row-end: 5;
-
+        
         padding: 0 15px;
     }
 
@@ -212,9 +208,9 @@
         grid-column-end: 4;
         margin: 2em auto;
         padding: 5px 0;
-        font-weight: 500;
+        font-weight:500;
         border-radius: 5px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         color: white;
         font-family: 'Titillium Web', sans-serif;
 
@@ -223,8 +219,8 @@
 <div class="container" style="overflow: hidden;">
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
-            <li>
-                <div class="title"> Bouncing ball.</div>
+            <li >
+                <div class="title">Territory </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -234,53 +230,32 @@
         </ul>
 
     </div>
-    <div class="content1" style="word-break:break-word;">
-        <p>
-            In the quirky town of Geometria, they loved bouncing balls so much that they turned it into a sport! For
-            this
-            year's "Bouncing Ball Bonanza," they've got a magical bouncing ball inside a box that follows the laws of
-            geometry, performing mind-boggling bounces.<br>
-            <br>
-            Professor Polygon, the town's math enthusiast, needs your help. He's tangled up in geometry knots and can't
-            calculate where the magical ball will end up after a set number of bounces. It's time for you, the
-            programming
-            geek, to unveil the secrets of this bouncing ball.<br>
-            <br>
-            You are given a rectangular box of length l and height h (the rectangle bottom left vertex is always on
-            coordinates (0,0) ). Inside this
-            box, there is a ball initially located at coordinates (\(x, y)\),<br>
-            and it is launched with an initial velocity vector \(vx, vy\).<br>
-            <br>
-            *The ball obeys the laws of physics and bounces off the walls of the box according to the following
-            rules:<br>
-            <br>
-            1-When the ball hits a vertical wall of the box, it reflects its horizontal velocity, i.e., it reverses its
-            vx
-            component.<br>
-            2-When the ball hits a horizontal wall of the box, it reflects its vertical velocity, i.e., it reverses its
-            vy
-            component.<br>
-            <br>
-            You are also given a positive integer \(K\), representing the number of times the ball will bounce off the
-            walls.<br>
-            Your task is to determine the final position of the ball after \(K\) bounces!<br>
-            <br>
-            <i>Input:</i><br>
-            <br>
-            One line of input consists of seven space-separated integers: \(l, h, x, y, vx, vy, K\)<br>
-            (\(1 \leq l, h \leq 10000\))<br>
-            (\(0 \leq K \leq 10000\))<br>
-            (\(0 \leq x, y \leq 10000\))<br>
-            (\(0 \leq vx, vy \leq 10000\))<br>
-            The input is such that the ball always starts inside the box (or on one of the edges).<br>
-            <br>
-            <i>Output:</i><br>
-            ** For each test case, print the final coordinates (\(x_{\text{final}}, y_{\text{final}}\)) of the ball
-            after \(K\) bounces, each separated by a space.
-            <br>
-            <i>Constraints:</i><br>
-            ** Time Limit : 5s
-        </p>
+    <div class="content1" style="word-break:break-word;"">
+    <p>
+        In "Medina alArbi", entrepreneurs Ali and Iheb manage their exchange locations.<br>
+        Each of them oversees specific points for their business activities. Due to persistent conflicts among their subordinates,
+        Ali and Iheb decided to establish a boundary in the form of a circle. The condition is that the exchange points of one entrepreneur must be strictly within the circle,
+        while the points of the other must be strictly outside. The decision of which entrepreneur has exchange points inside the circle is arbitrary.<br>
+        <br>
+        Determine whether they can successfully establish the boundary or not.
+        <br>
+        <br>
+        <i>Input:</i><br>
+        ** The first line contains two integers \(n\) and \(m\) (\(1\leq n,m\leq 10000\)), representing the number of exchange points for Ali and Iheb, respectively.
+        <br>
+        ** The next \(n\) lines contain pairs of space-separated integers \(Ax, Ay\) (\(-10^4\leq Ax, Ay \leq 10^4\)), representing the coordinates of Ali's exchange points.
+        <br>
+        ** The next \(m\) lines contain pairs of space-separated integers \(Ix, Iy\) (\(-10^4 \leq Ix, Iy \leq 10^4\)), representing the coordinates of Iheb's exchange points.
+        <br>
+        ** It is guaranteed that all \(n+m\) points are all distinct.
+        <br>
+        <i>Output:</i><br>
+        ** The only output line should contain either the word "YES" (without quotes) if it is possible to establish such a boundary or the word "NO" if it is not possible.
+        <br>
+        <br>
+        <i>Constraints:</i><br>
+        ** Time Limit : 5s
+    </p>
     </div>
     <div class="content3" style="padding: 2px 0;">
         <ul>
@@ -294,58 +269,85 @@
             </li>
         </ul>
     </div>
-    <div class="content4">
-        <img style="margin-left: 0%" width="50%" src="../../assets/problemsPics/Bouncing%20ball.PNG" alt="">
-    </div>
-    <div class="content4" style\)="color:#010c24;">
+<img style="margin-left: 25%; margin-top: 10%;" src="../../assets/problemsPics/Territory.PNG" width="50%" alt="">
+    <div class="content4" style="color:#010c24;">
         <table class="content_table">
             <thead>
-            <tr>
-                <th>Input</th>
-                <th>Output</th>
-            </tr>
+                <tr>
+                    <th>Input:</th>
+                    <th>Output</th>
+                </tr>
             </thead>
             <tbody>
-            <tr>
-                <td>
-                    4 2 0 1 1 1 4<br>
-                </td>
-                <td>
-                    3 2<br>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                         4  4 <br>
+                         1  0 <br>
+                         0  1 <br>
+                        -1  0 <br>
+                         0 -1 <br>
+                         1  1 <br>
+                        -1  1 <br>
+                        -1 -1<br>
+                         1 -1 <br>
+                    </td>
+                    <td>
+                        YES
+                        <br>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
-    <br>
-
-    <div class="content21">
+    <!-- <div class="content21">
         <ul>
-            <li class="title" style="font-size:16px ;"> Notes</li>
+            <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">If \(x_{\text{final}} \) and \( y_{\text{final}}\) are decimals (ex 2.5) return
-                the floored value (in this
-                case 2)<br></ol>
+            <ol style="font-size: 12px;">in the first example:<br>
+                Initially, Sami is at the square (3,2). <br>
+                He can reach the square (3,4) by making five strokes as follows:<br>
+                <br>
+                From 
+                (3,2), go west one square to 
+                (3,1).<br>
+                <br>
+                From 
+                (3,1), go north two squares to 
+                (1,1).<br>
+                <br>
+                From 
+                (1,1), go east two squares to 
+                (1,3).<br>
+                <br>
+                From 
+                (1,3), go east one square to 
+                (1,4).<br>
+                <br>
+                From 
+                (1,4), go south two squares to 
+                (3,4).<br>
+            </ol>
         </ul>
-    </div>
-    <div class="content5">
-
+    </div> -->
+    <div class="content5" >
+        
     </div>
     <!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
         <div> explanation </div>
         <p> caller, callar, recall are the only equivalent words.</p>
     </div> -->
-    <div class="footer">
+    <div class="footer"> 
         <ul>
             <li style="font-weight: bold;">Quote</li>
         </ul>
         <ul>
             <ol style="letter-spacing: 3px;">
-                "Debug your skills... <br> Compile your world"
+                "Debug your skills... <br> Compile your world !"
             </ol>
-        </ul>
+        </ul>    
     </div>
+
 
 
 </div>

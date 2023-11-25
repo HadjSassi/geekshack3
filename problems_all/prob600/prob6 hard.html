@@ -1,6 +1,5 @@
-<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
-      rel="stylesheet">
-<meta charset="utf-8"/>
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+
 <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -9,13 +8,13 @@
        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
     });
 </script>
+
 <style>
-    .title {
+    .title{
         font-weight: 700;
         font-family: 'Titillium Web', sans-serif;
 
     }
-
     .container {
         width: 100%;
         grid-template-columns: 2fr 2fr 1fr;
@@ -36,7 +35,7 @@
         grid-column-start: 1;
         grid-column-end: 4;
         border-radius: 5px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         font-size: 18px;
         color: cornsilk;
         font-family: 'Titillium Web', sans-serif;
@@ -66,11 +65,10 @@
 
     }
 
-    .content1, .content21, .content22, .content3, .content4, .content5, .content6 {
+    .content1,.content21,.content22,.content3,.content4,.content5,.content6{
         font-family: 'Titillium Web', sans-serif;
         border-radius: 5px;
     }
-
     .content1 {
         grid-column-start: 1;
         grid-column-end: 3;
@@ -82,7 +80,7 @@
         font-weight: 600;
         font-size: 15px;
         padding: 5px 40px;
-
+        
     }
 
     .content21 {
@@ -90,7 +88,7 @@
         grid-column-end: 4;
         grid-row-start: 2;
         grid-row-end: 3;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
 
         color: white;
         border: none;
@@ -110,7 +108,7 @@
         grid-row-start: 3;
         padding: 0.5em auto;
         grid-row-end: 4;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image: linear-gradient(115deg,#25304e 1%,#010c24) ;
         color: cornsilk;
     }
 
@@ -145,13 +143,13 @@
         border-collapse: collapse;
         margin: 25px 0;
         min-width: fit-content;
-
+        
     }
 
     .content_table thead tr {
         color: cornsilk;
         letter-spacing: 8px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         text-align: left;
     }
 
@@ -189,7 +187,7 @@
         grid-column-end: 3;
         grid-row-start: 4;
         grid-row-end: 5;
-
+        
         padding: 0 15px;
     }
 
@@ -212,9 +210,9 @@
         grid-column-end: 4;
         margin: 2em auto;
         padding: 5px 0;
-        font-weight: 500;
+        font-weight:500;
         border-radius: 5px;
-        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        background-image:  linear-gradient(115deg,#25304e 1%,#010c24);
         color: white;
         font-family: 'Titillium Web', sans-serif;
 
@@ -223,8 +221,8 @@
 <div class="container" style="overflow: hidden;">
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
-            <li>
-                <div class="title"> Bouncing ball.</div>
+            <li >
+                <div class="title">Bad Neighbourhoods </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -234,53 +232,38 @@
         </ul>
 
     </div>
-    <div class="content1" style="word-break:break-word;">
-        <p>
-            In the quirky town of Geometria, they loved bouncing balls so much that they turned it into a sport! For
-            this
-            year's "Bouncing Ball Bonanza," they've got a magical bouncing ball inside a box that follows the laws of
-            geometry, performing mind-boggling bounces.<br>
-            <br>
-            Professor Polygon, the town's math enthusiast, needs your help. He's tangled up in geometry knots and can't
-            calculate where the magical ball will end up after a set number of bounces. It's time for you, the
-            programming
-            geek, to unveil the secrets of this bouncing ball.<br>
-            <br>
-            You are given a rectangular box of length l and height h (the rectangle bottom left vertex is always on
-            coordinates (0,0) ). Inside this
-            box, there is a ball initially located at coordinates (\(x, y)\),<br>
-            and it is launched with an initial velocity vector \(vx, vy\).<br>
-            <br>
-            *The ball obeys the laws of physics and bounces off the walls of the box according to the following
-            rules:<br>
-            <br>
-            1-When the ball hits a vertical wall of the box, it reflects its horizontal velocity, i.e., it reverses its
-            vx
-            component.<br>
-            2-When the ball hits a horizontal wall of the box, it reflects its vertical velocity, i.e., it reverses its
-            vy
-            component.<br>
-            <br>
-            You are also given a positive integer \(K\), representing the number of times the ball will bounce off the
-            walls.<br>
-            Your task is to determine the final position of the ball after \(K\) bounces!<br>
-            <br>
-            <i>Input:</i><br>
-            <br>
-            One line of input consists of seven space-separated integers: \(l, h, x, y, vx, vy, K\)<br>
-            (\(1 \leq l, h \leq 10000\))<br>
-            (\(0 \leq K \leq 10000\))<br>
-            (\(0 \leq x, y \leq 10000\))<br>
-            (\(0 \leq vx, vy \leq 10000\))<br>
-            The input is such that the ball always starts inside the box (or on one of the edges).<br>
-            <br>
-            <i>Output:</i><br>
-            ** For each test case, print the final coordinates (\(x_{\text{final}}, y_{\text{final}}\)) of the ball
-            after \(K\) bounces, each separated by a space.
-            <br>
-            <i>Constraints:</i><br>
-            ** Time Limit : 5s
-        </p>
+    <div class="content1" style="word-break:break-word;"">
+    <p>
+        Sami is eager to embark on a walk through the vibrant streets of Tunis, the capital city.<br>
+        However, he's well aware that lurking amidst the urban beauty are certain areas known for their bad neighborhoods.
+        Sami is determined to avoid these areas at all costs to ensure a safe and peaceful stroll.<br>
+        <br>
+        Imagine the city as a grid, with dimensions represented by \(W\) for width and \(H\) for height.<br>
+        Sami's stamina is represented by \(K\), indicating the number of steps he can take before exhaustion sets in.<br>
+        Each square within this grid is identified by its coordinates \((i, j)\), where \(i\) signifies the row from the north, and \(j\) signifies the column from the west.<br>
+        Some of these squares are tainted by the presence of bad neighborhoods, while others remain untouched. <br>
+        A square \((i, j)\) is deemed to have a bad neighborhood if it is marked as 'X', and it is considered safe if marked as '.' (period).<br>
+        <br>
+        In a single stride, Sami can move from 1 to \(K\) squares (inclusive) in any of the four cardinal directions: north, east, south, or west.<br>
+        However, his path must never cross through squares with bad neighborhoods, and he must always remain within the city's boundaries.<br>
+        <br>
+        Your mission is to determine the minimum number of strides Sami must take to journey from square \((x1, y1)\) to square \((x2, y2)\),
+        all while skillfully avoiding the bad neighborhoods.<br>
+        <br>
+        <br>
+        <i>Input:</i><br>
+        ** The first line contains three integers: \(W, H, \) and \(K\) (\(1 \leq W, H \leq 1000, 1 \leq K \leq 1000\)) — representing the city's width, height, and Sami's stamina.
+        The subsequent \(H\) lines each contain \(W\) characters, representing the city grid.<br>
+        ** The final line contains four integers: \(x1, y1, x2,\) and \(y2\) (\(1 \leq x1, x2 \leq H, 1 \leq y1, y2 \leq W\)) — signifying the starting and ending positions.<br>
+        <br>
+        <i>Output:</i><br>
+        ** Print the minimum number of strides Sami must take to reach square \((x2, y2)\) from square \((x1, y1)\),
+        all while avoiding bad neighborhoods. If reaching the destination is impossible, print -1.<br>
+        <br>
+        <i>Constraints:</i><br>
+        ** Time Limit : 2s
+        <!-- hatha ana katobo a verifier -->
+    </p>
     </div>
     <div class="content3" style="padding: 2px 0;">
         <ul>
@@ -294,49 +277,79 @@
             </li>
         </ul>
     </div>
-    <div class="content4">
-        <img style="margin-left: 0%" width="50%" src="../../assets/problemsPics/Bouncing%20ball.PNG" alt="">
-    </div>
-    <div class="content4" style\)="color:#010c24;">
+    <div class="content4" style="color:#010c24;">
         <table class="content_table">
             <thead>
-            <tr>
-                <th>Input</th>
-                <th>Output</th>
-            </tr>
+                <tr>
+                    <th>Input </th>
+                    <th>Output</th>
+                </tr>
             </thead>
             <tbody>
+                <tr>
+                    <td>
+                        3 5 2 <br>
+                        3 2 3 4<br>
+                        .....<br>
+                        .X..X<br>
+                        ..X..<br>
+                    </td>
+                    <td>
+                        5
+                    </td>
+                </tr>
             <tr>
                 <td>
-                    4 2 0 1 1 1 4<br>
+                    1 6 4<br>
+                    1 1 1 6<br>
+                    ......<br>
                 </td>
                 <td>
-                    3 2<br>
+                    2
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <br>
-
     <div class="content21">
         <ul>
-            <li class="title" style="font-size:16px ;"> Notes</li>
+            <li class="title" style="font-size:16px ;"> Notes </li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">If \(x_{\text{final}} \) and \( y_{\text{final}}\) are decimals (ex 2.5) return
-                the floored value (in this
-                case 2)<br></ol>
+            <ol style="font-size: 12px;">in the first example:<br>
+                Initially, Sami is at the square (3,2). <br>
+                He can reach the square (3,4) by making five strokes as follows:<br>
+                <br>
+                From 
+                (3,2), go west one square to 
+                (3,1).<br>
+                <br>
+                From 
+                (3,1), go north two squares to 
+                (1,1).<br>
+                <br>
+                From 
+                (1,1), go east two squares to 
+                (1,3).<br>
+                <br>
+                From 
+                (1,3), go east one square to 
+                (1,4).<br>
+                <br>
+                From 
+                (1,4), go south two squares to 
+                (3,4).<br>
+            </ol>
         </ul>
     </div>
-    <div class="content5">
-
+    <div class="content5" >
+        
     </div>
     <!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
         <div> explanation </div>
         <p> caller, callar, recall are the only equivalent words.</p>
     </div> -->
-    <div class="footer">
+    <div class="footer"> 
         <ul>
             <li style="font-weight: bold;">Quote</li>
         </ul>
@@ -344,8 +357,9 @@
             <ol style="letter-spacing: 3px;">
                 "Debug your skills... <br> Compile your world"
             </ol>
-        </ul>
+        </ul>    
     </div>
+
 
 
 </div>

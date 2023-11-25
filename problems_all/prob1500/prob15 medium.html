@@ -1,6 +1,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
       rel="stylesheet">
-<meta charset="utf-8"/>
+<meta charset="utf-8" />
 <script type="text/javascript" async
         src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
 </script>
@@ -29,7 +29,7 @@
 
     /*.container div{
     padding: 5px;
-   
+
 }*/
 
     .header {
@@ -224,7 +224,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li>
-                <div class="title"> Bouncing ball.</div>
+                <div class="title"> Lexico Palindromes </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -236,51 +236,35 @@
     </div>
     <div class="content1" style="word-break:break-word;">
         <p>
-            In the quirky town of Geometria, they loved bouncing balls so much that they turned it into a sport! For
-            this
-            year's "Bouncing Ball Bonanza," they've got a magical bouncing ball inside a box that follows the laws of
-            geometry, performing mind-boggling bounces.<br>
+            A palindromic string is a word that reads the same forwards and backwards. For instance, "lol", "oo", "r" ,and even the enigmatically long "cristianoronaldoodlanoronaitsirc" are all palindromes.<br>
+            However, strings like "app" and "xy" fall short of this definition.<br>
             <br>
-            Professor Polygon, the town's math enthusiast, needs your help. He's tangled up in geometry knots and can't
-            calculate where the magical ball will end up after a set number of bounces. It's time for you, the
-            programming
-            geek, to unveil the secrets of this bouncing ball.<br>
+            You are presented with a string "s" consisting of lowercase English letters.<br>
+            And you have the power to change any letter at any position in the string to any other lowercase letter,<br>
+            all while maintaining the string's length. Moreover, you can rearrange the order of letters freely,<br>
+            and this rearrangement does not count as an operation.<br>
             <br>
-            You are given a rectangular box of length l and height h (the rectangle bottom left vertex is always on
-            coordinates (0,0) ). Inside this
-            box, there is a ball initially located at coordinates (\(x, y)\),<br>
-            and it is launched with an initial velocity vector \(vx, vy\).<br>
+            Your mission is two-fold:<br>
             <br>
-            *The ball obeys the laws of physics and bounces off the walls of the box according to the following
-            rules:<br>
+            - Minimize Changes: Your first objective is to transform "s" into a palindrome while making as few changes as possible.<br>
             <br>
-            1-When the ball hits a vertical wall of the box, it reflects its horizontal velocity, i.e., it reverses its
-            vx
-            component.<br>
-            2-When the ball hits a horizontal wall of the box, it reflects its vertical velocity, i.e., it reverses its
-            vy
-            component.<br>
+            - Alphabetical Minimization: In cases where multiple palindrome options require the same number of changes,<br>
+            you should opt for the alphabetically (lexicographically) smallest palindrome.<br>
             <br>
-            You are also given a positive integer \(K\), representing the number of times the ball will bounce off the
-            walls.<br>
-            Your task is to determine the final position of the ball after \(K\) bounces!<br>
+            Can you tackle this challenge and produce an alphabetically minimal palindrome while conserving changes?<br>
             <br>
             <i>Input:</i><br>
-            <br>
-            One line of input consists of seven space-separated integers: \(l, h, x, y, vx, vy, K\)<br>
-            (\(1 \leq l, h \leq 10000\))<br>
-            (\(0 \leq K \leq 10000\))<br>
-            (\(0 \leq x, y \leq 10000\))<br>
-            (\(0 \leq vx, vy \leq 10000\))<br>
-            The input is such that the ball always starts inside the box (or on one of the edges).<br>
+            **The input consists of a single line containing the string "s" (1 ≤ |s| ≤ 2·10^5), made up entirely of lowercase English letters.<br>
             <br>
             <i>Output:</i><br>
-            ** For each test case, print the final coordinates (\(x_{\text{final}}, y_{\text{final}}\)) of the ball
-            after \(K\) bounces, each separated by a space.
+            ** Output the alphabetically smallest palindrome that can be obtained with the minimal number of changes.
             <br>
-            <i>Constraints:</i><br>
-            ** Time Limit : 5s
+            <br>
+            <i>Constraint:</i><br>
+            ** Time Limit 2s
+
         </p>
+
     </div>
     <div class="content3" style="padding: 2px 0;">
         <ul>
@@ -294,10 +278,7 @@
             </li>
         </ul>
     </div>
-    <div class="content4">
-        <img style="margin-left: 0%" width="50%" src="../../assets/problemsPics/Bouncing%20ball.PNG" alt="">
-    </div>
-    <div class="content4" style\)="color:#010c24;">
+    <div class="content4" style="color:#010c24;">
         <table class="content_table">
             <thead>
             <tr>
@@ -307,28 +288,27 @@
             </thead>
             <tbody>
             <tr>
-                <td>
-                    4 2 0 1 1 1 4<br>
-                </td>
-                <td>
-                    3 2<br>
-                </td>
+                <td>aaqz</td>
+                <td>aqqa</td>
+            </tr>
+            <tr>
+                <td>aalcz</td>
+                <td>alcla</td>
             </tr>
             </tbody>
         </table>
     </div>
-    <br>
-
-    <div class="content21">
+    <!--<div class="content21">
         <ul>
             <li class="title" style="font-size:16px ;"> Notes</li>
         </ul>
         <ul class="content22">
-            <ol style="font-size: 12px;">If \(x_{\text{final}} \) and \( y_{\text{final}}\) are decimals (ex 2.5) return
-                the floored value (in this
-                case 2)<br></ol>
+            <ol style="font-size: 12px;">
+                In the second example, you can achieve 3 stars by completing levels 2 and 4 with 2 stars, requiring a total
+                of 14 moves.
+            </ol>
         </ul>
-    </div>
+    </div>-->
     <div class="content5">
 
     </div>
