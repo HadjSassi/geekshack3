@@ -46,4 +46,4 @@ int main() {
   string = "s"
     cout << getSubstringsCount(str, start, end) << endl;
     return 0;
-}  
+}   

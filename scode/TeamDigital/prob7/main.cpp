@@ -1,11 +1,7 @@
 #include <bits/stdc++.h>
 #define N 4
 using namespace std;
-/*int n //level
-int z //number of stars 
-int ai //1 stars
-int bi //2 stars
-int t //minimum number of moves*/
+
 #define NO_OF_CHARS 256
  
 /* function to check whether 
@@ -48,3 +44,4 @@ int main()
     return 0;
 }
 
+ 

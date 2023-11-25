@@ -31,25 +31,51 @@ def findsum(x):
 
     return numbers 
 result=findsum(z);
+for i in result:
+    if len(i)>n:
+        result.pop(result.index(i))
+        
 s=0;
 tab_s = []
+tab_r=[]
 x=0;
-res = [eval(i) for i in tab]
-res1 = [eval(i) for i in tab1]
+first = [eval(i) for i in tab]
+second = [eval(i) for i in tab1]
+res,res1=first,second
 for i in (result):
+    print("-------+++-")
+    print(tab_s)
+    tab_r.append(tab_s)
+    print(tab_r)
     for j in ((i)):
+        print(j)
         if j == 1 :
-            print(res)
-            i1=res.index(1)
-            res.pop(i1)
-            res1.pop(i1) 
-            #s=s+m1;
-            tab_s.append(1)
+            if(len(res)>0):
+                m=min(res)
+                indice=res.index(min(res))
+                m=min(res)
+                print("le min est ",m)
+                res.pop(indice)
+            
+                res1.pop(indice) 
+               
+                s=s+m;
+               
+                tab_s.append(s)
+                print("----",tab_s)
+            else:
+                print("hhh")
+                tab_s.clear()
         else:
-            i1=res1.index(min(res1))
-            m=min(res1)
-            res.remove(i1)
-            res1.remove(i1)
-            s=s+m
-            tab_s[x]=s
+            if(len(res1)>0):
+                indice=res1.index(min(res1))
+                m=min(res1)
+                res.remove(indice)
+                res1.remove(indice)
+                s=s+m
+                tab_s[x]=s
+        
     x=x+1
+    res,res1=first,second
+
+print(tab_s)
