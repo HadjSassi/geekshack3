@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/AbtalAlDigital/prob11/main.py", line 20, in <module>
+    poly(c,x)
+  File "/var/www/html/scode/AbtalAlDigital/prob11/main.py", line 11, in poly
+    else:p+=int(x)*int(c[-1])
+TypeError: int() argument must be a string, a bytes-like object or a real number, not 'list'

@@ -206,12 +206,31 @@ void solve() {
     ld x1,x2,y1,y2,z1,z2,r1,r2;
     cin>>x1>>y1>>z1>>r1>>x2>>y2>>z2>>r2;
     ld d = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y2-y2)+(z1-z2)*(z1-z2));
-    ld s = (r1+r2+d)/2;
-    ld h = (2/d)*sqrt(s*(s-r1)*(s-r2)*(s-d));
-    ld a1 = r1 - sqrt(r1*r1-h*h);
-    ld a2 = r2 - sqrt(r2*r2-h*h);
-    ld res = (M_PI*a1*(3*h*h+a1*a1))/12 + (M_PI*a2*(3*h*h+a2*a2))/12;
-    cout<<res*2<<endl;
+    if(d>=r1+r2) cout<<0<<endl;
+    else if(d>=max(r1,r2)) {
+        ld s = (r1+r2+d)/2;
+        ld h = (2/d)*sqrt(s*(s-r1)*(s-r2)*(s-d));
+        ld a1 = r1 - sqrt(r1*r1-h*h);
+        ld a2 = r2 - sqrt(r2*r2-h*h);
+        ld res = (M_PI*a1*(3*h*h+a1*a1))/12 + (M_PI*a2*(3*h*h+a2*a2))/12;
+        cout<<res*2<<endl;
+    }
+    else if(d+min(r1,r2) <= max(r1,r2)) {
+        r1 = min(r1,r2);
+        ld lilsphere = (4/3)*M_PI*(r1*r1*r1);
+    }
+    else {
+        ld s = (r1+r2+d)/2;
+        ld h = (2/d)*sqrt(s*(s-r1)*(s-r2)*(s-d));
+        if(r2<r1) {
+            swap(r1,r2);
+        }
+        ld a1 = r2 - d - sqrt(r1*r1-h*h);
+        ld a2 = r1 - sqrt(r1*r1-h*h);
+        ld lilsphere = (4/3)*M_PI*(r1*r1*r1);
+        ld res = lilsphere +2*((M_PI*a1*(3*h*h+a1*a1))/12 - (M_PI*a2*(3*h*h+a2*a2))/12);
+        cout<<res<<endl;
+    }
 }
 
 int main()

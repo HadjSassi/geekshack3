@@ -4,9 +4,9 @@ s2=input()
 l1=s1.split()
 l2=s2.split()
 for i in range(4):
-    l1[i]=int(l1[i])
-    l2[i]=int(l2[i])
-d=int(l1[3])+ int(l2[3])
+    l1[i]=float(l1[i])
+    l2[i]=float(l2[i])
+d=l1[3]+ l2[3]
 if abs(l1[0]-l2[0])>d:
     print('0.000')
 else:
@@ -15,7 +15,8 @@ else:
     c=l2[3]-r
     x=l1[3]-c/2
     h=(r**2-x**2)**0.5
-    print((h**2*4*math.pi*(c/2))/3)
+    v=(h**2)*4*math.pi*(c/2)/3
+    print(round(v.real,3))
 
 
 
@@ -23,4 +24,4 @@ else:
 
 
     
- 
+  

@@ -1,32 +1,22 @@
-def calculate_values(piles):
-    n1, n2 = 0, 0
-    
-    while any(piles):
-        first_max = max(p[0] for p in piles if p)
-        n1 += first_max
+def optimal_card_game_score(n, piles):
+    bachka_score = 0
+    mabrouk_score = 0
 
-        last_max = max(p[-1] if p else 0 for p in piles)
-        n2 += last_max
-        
-        for i in range(len(piles)):
-            if piles[i] and piles[i][0] == first_max:
-                piles[i].pop(0)
-                break
-                
-        for i in range(len(piles)):
-            if piles[i] and piles[i][-1] == last_max:
-                piles[i].pop()
-                break
-    
-    return n1, n2
+    for i in range(n):
+        if i % 2 == 0:
+            bachka_score += max(piles[i][0], piles[i][-1])
+        else:
+            mabrouk_score += max(piles[i][0], piles[i][-1])
 
-n = int(input(""))
-    
+    return bachka_score, mabrouk_score
+
+n = int(input())
 piles = []
-for i in range(n):
-        pile_info = list(map(int, input().split()))
-        pile_elements = list(map(int, input().split()))
-        piles.append(pile_elements)
-    
-n1, n2 = calculate_values(piles)
-print(n1 , n2)
+
+for _ in range(n):
+    pile_info = list(map(int, input().split()))
+    pile = pile_info[1:]
+    piles.append(pile)
+
+bachka_score, mabrouk_score = optimal_card_game_score(n, piles)
+print(bachka_score, mabrouk_score)

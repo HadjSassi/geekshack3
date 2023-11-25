@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/teamRAM/prob8/main.py", line 28, in <module>
-    pile_elements = list(map(int, input().split()))
-EOFError: EOF when reading a line

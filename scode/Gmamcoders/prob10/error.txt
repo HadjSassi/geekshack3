@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob10/main.py", line 1, in <module>
+    x1,y1,r=map(int,input().split())
+ValueError: too many values to unpack (expected 3)

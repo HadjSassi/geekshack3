@@ -23,16 +23,15 @@ using namespace std;
 const int  N=2e5+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
 
 void Solve(){
-    int l , r , ans= 0;
-    cin >> l >> r ;
-    for (int len = 2; len<=61; len++){
-        int mask = (1ll<<len)-1;
-        for (int i= 0; i<len-1 ;i++){
-            int ver = mask ^(1ll<<i) ;
-            ans+=(ver <= r && ver >= l);
-        }
-    }
-    cout << ans << endl;
+    array <char ,3> t[3];
+    for (int i= 0 ;i<3; i++)
+        for (int j= 0 ;j <3; j++)
+            cin >> t[i][j];
+    if (t[0][1]==t[1][1] && t[1][1]==t[2][1]&&t[0][2]<=t[1][2] && t[1][2]<=t[2][2]) cout << "NO\n";
+    else if (t[0][1]==t[1][1] && t[1][1]==t[2][1]&&t[0][2]>=t[1][2] && t[1][2]>=t[2][2]) cout << "NO\n";
+    else if (t[0][2]==t[1][2] && t[1][2]==t[2][2]&&t[0][1]>=t[1][1] && t[1][1]>=t[2][1]) cout << "NO\n";
+    else if (t[0][2]==t[1][2] && t[1][2]==t[2][2]&&t[0][1]<=t[1][1] && t[1][1]<=t[2][1]) cout << "NO\n";
+    else cout << "YES";
 }
 
 int32_t main(){
