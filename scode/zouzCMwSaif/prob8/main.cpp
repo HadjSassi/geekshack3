@@ -9,36 +9,93 @@
 using namespace std;
 const ll MOD = 1e8;
 const int N = 1e5 + 5;
-const ll INF = 1e18;	
+const ll INF = 1e18; 
+	
+	
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int minSwap(string s)
+{
+    unordered_map<char, int> unmp;
+    int odd = 0, left = 0, right = s.size() - 1, result = 0;
+ 
+    for (char ch : s)
+        unmp[ch]++;
+ 
+    for (auto i : unmp)
+        if (i.second % 2 == 1)
+            odd++;
+ 
+    if (odd > 1)
+        return -1;
+ 
+    while (left < right) {
+        int l = left, r = right;
+        while (s[l] != s[r])
+            r--;
+        if (l == r) {
+ 
+            // when we found odd element
+            swap(s[r], s[r + 1]);
+            result++;
+            continue;
+        }
+        else {
+            // Normal element
+            while (r < right) {
+                swap(s[r], s[r + 1]);
+                result++;
+                r++;
+            }
+        }
+        left++, right--;
+    }
+    return result;
+}	
 
 void solve(){
-	int n; cin >> n; 
-	vector < ll > imp;
-	ll sumLeft = 0 ;
-	ll sumRight = 0 ; 
-	
-	for(int i = 0; i < n; i++ ){
-		int si ; cin >> si;
-		for(int i = 0 ; i < si; i++ ){
-			ll c ; cin >> c;
-			if( si&1 && i == si/2 ) {
-				imp.push_back(c);
-				continue;
+	string s; cin >> s;
+	int val = minSwap(s);
+	int n = (int)s.size();
+	vector < int > occ(205);
+	int cnt = 0 ;
+	for(int i = 0 ;i < n;i++){
+		occ[s[i]]++;
+	}
+	for(int i = 0 ;i < n;i++ ){
+		cnt += occ[s[i]]%2;
+	}
+	if( cnt > 1 ) {
+		cout << -1 << endl;
+		return;
+	}
+	int left = 0 ;
+	int right = n-1;
+	int ans = 0 ;
+	while( left < right ) {
+		int r = right; 
+		while( s[left] != s[r] ){
+			r-- ;
+		}
+		if( r == left ) {
+			swap(s[left], s[r+1]);
+			ans++;
+			continue;
+		}
+		else {
+			while( r < right) {
+				swap(s[r],s[r+1]);
+				ans++;
+				r++;
 			}
-			if( i < si/2 ) sumLeft += c;
-			else sumRight += c;
 		}
+		right--;
+		left++;
 	}
-	sort(imp.begin(),imp.end(),greater<ll>());
-	for(int i = 0 ;i < imp.size(); i++ ) {
-		if( i&1 ){
-			sumRight += imp[i];
-		}
-		else sumLeft += imp[i];
-	}
-	cout << sumLeft << " " << sumRight << endl;
-			
-			
+	assert(ans == val);
+	cout << ans << endl;
+
 }	             
                     
 int main()

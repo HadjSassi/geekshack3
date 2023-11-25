@@ -1,0 +1,14 @@
+main.cpp: In function 'int main()':
+main.cpp:7:17: error: initializer fails to determine size of 'arr'
+    7 |     int arr[] = new int[100];
+      |                 ^~~~~~~~~~~~
+main.cpp:7:17: error: array must be initialized with a brace-enclosed initializer
+main.cpp:11:48: error: expected ';' before '{' token
+   11 |     for(int i = 0 ; i < 100 ; i++) arr[i] = i+1
+      |                                                ^
+      |                                                ;
+   12 |     {
+      |     ~                                           
+main.cpp:27:15: error: 'output' was not declared in this scope
+   27 |         cout<<output[i] << " ";
+      |               ^~~~~~

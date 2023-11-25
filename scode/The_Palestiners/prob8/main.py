@@ -13,6 +13,7 @@ def maximize_score(n, piles):
 
 # Input reading
 n = int(input())
+
 piles = []
 
 for _ in range(n):
@@ -22,3 +23,4 @@ for _ in range(n):
 # Call the function with the input values
 maximize_score(n, piles)
 
+  

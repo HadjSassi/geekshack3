@@ -1,4 +1,0 @@
-  File "/var/www/html/scode/TeamDigital/prob15/main.py", line 15
-    if q=1:
-       ^^^
-SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?

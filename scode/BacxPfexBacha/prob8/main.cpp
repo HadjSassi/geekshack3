@@ -1,11 +1,10 @@
-//YOU WILL MAKE IT
 #include<bits/stdc++.h>
 
 using namespace std;
 
 //mt19937 RNG(chrono::steady_clock::now().time_since_epoch().count());
-#pragma GCC optimize("Ofast,unroll-loops")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC optimize("Ofast,unroll-loops")
+//#pragma GCC target("avx,avx2,fma")
 //typedef __int128 lll;
 
 #define ll long long
@@ -38,60 +37,64 @@ void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
 
-using namespace std;
-void solve(){
-   int n;cin>>n;
-   vector<deque<long long>> vv(n);
-   int cnt=0;
-   while(n--){
-    int s;cin>>s;
-   for(int i=0;i<s;i++){
-      int a;cin>>a;
-      vv[cnt].push_back(a);
-   }
-   cnt++;
-   }
-   long long s1=0,s2=0;
-   bool ok=1,f=1;
-   while(f){
-     int ind,val=0,cnt=0;
-     for(int  i=0;i<vv.size();i++){
-        if(vv[i].empty()){
-            cnt++;
-           continue;
+//vector<ll> adj[105];
+
+void solve() {
+
+    ll somme = 0;
+    ll n; cin>>n;
+    vector<ll>v;
+    ll ans = 0;
+    bool ok = 1;
+    ll tab[105][1005];
+    memset(tab, 0, sizeof(tab));
+    for (int i=1; i<=n; i++){
+        ll m; cin>>m;
+        tab[i][0] = m;
+        for (int j=1; j<=m; j++){
+            cin>>tab[i][j];
         }
-         else if(ok&&vv[i].front()>=val){
-            val=vv[i].front();
-            ind=i;
-         }
-         else if(!ok&&vv[i].back()>=val){
-            val=vv[i].back();
-            ind=i;
-         }
-     }
-     if(cnt==vv.size()){
-        break;
-     }
-     if(ok){
-        vv[ind].pop_front();
-        s1+=val;
-     }
-     else{
-        vv[ind].pop_back();
-        s2+=val;
-     }
+    }
 
-     ok=!ok;
+    for (int i=1; i<=n; i++){
+//        ll m; cin>>m;
+        ok = 1;
+        for (int j=1; j<=tab[i][0]; j++){
+//            ans+=
+//            ll a; cin>>a;
+            somme+=tab[i][j];
+            if (2*j > tab[i][0] && ok){
+                if (tab[i][0]%2==1) v.pb(tab[i][j]);
+                ok = 0;
+            }
+            if (ok) ans+=tab[i][j];
+        }
+    }
 
-   }
-   cout<<s1<<" "<<s2<<endl;
+    sort(allr(v));
+    ll taken = 0;
+    for (int i=0; i<sz(v); i+=2){
+//        if (2*taken > sz(v)) break;
+        ans+=v[i];
+        taken++;
+    }
+    ll other = somme - ans;
+    cout<<ans<<" "<<other;
+
 }
 
-int main(){
-    int t=1;
-    //cin>>t;
-    while(t--){
+
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+
+    //freopen("input.txt","r",stdin);
+    //freopen("output.txt","w",stdout);
+
+    int tc=1;
+//    cin >> tc;
+    while(tc--) {
         solve();
     }
 }
- 

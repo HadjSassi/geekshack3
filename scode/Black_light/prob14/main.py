@@ -19,3 +19,4 @@ if isPalindrome(s1) :
     print(c)
 else:
     print("-1")
+ 

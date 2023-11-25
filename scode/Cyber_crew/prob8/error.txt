@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Cyber_crew/prob8/main.py", line 33, in <module>
+    nb+=j
+TypeError: unsupported operand type(s) for +=: 'int' and 'str'

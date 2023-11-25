@@ -43,6 +43,3 @@ elif z - etoile == 2:
         resultat += l2[i]
 
 print(resultat)
-
-
-
