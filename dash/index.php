@@ -268,4 +268,11 @@ function sortTable() {
   }
 }
 </script>
+<script>
+    // Function to sort the table when the page loads
+    window.onload = function () {
+        sortTable();
+    };
+
+</script>
 </html>
