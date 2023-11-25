@@ -66,9 +66,9 @@ ll bin_pow(ll x, ll n)
     {
         if(n&1)
         {
-            ans=mul(ans,x);
+            ans*=x;
         }
-        x = mul(x,x);
+        x *=x ;
         n>>=1;
     }
     return ans;
@@ -106,7 +106,7 @@ void show(ll a[],ll n)
     }
     cout<<endl;
 }
-
+*/
 void showv(vector<ll> v)
 {
     ll n=v.size();
@@ -118,7 +118,7 @@ void showv(vector<ll> v)
     }
     cout<<endl;
 }
-
+/*
 void shows(set<auto> s)
 {
     cout<<"set : ";
@@ -192,24 +192,46 @@ ld dist(ll ax, ll ay, ll bx, ll  by) {
 }
 
 
-
+vector<ll> lltob(ll n) {
+    vector<ll> v;
+    while(n) {
+        v.push_back(1);
+        n/=2;
+    }
+    reverse(v.begin(),v.end());
+    return v;
+}
 
 void solve()
 {
     ll n,m;
-    cin>>m>>n;
-    ll sz = 65;
-    ll res = 0;
-    ll i,j;
-    f(0,sz+1,1) {
-        ll somme = bin_pow(2,sz-i+1)-1;
-        fv(j,0,sz-i,1) {
-            //cout<<somme<<" "<<bin_pow(2,j)<<endl;
-            if(((somme-bin_pow(2,j))>=m) && ((somme-bin_pow(2,j))<=n)) res++;
+    cin>>n>>m;
+    vector<vector<ll>> v;
+    vector<ll> u0 = lltob(m);
+    ll i;
+    while(u0.size()>0) {
+        ll sz = u0.size();
+        f(1,sz,1) {
+            vector<ll> u=u0;
+            //showv(u0);
+            u[i] = 0;
+            reverse(u.begin(),u.end());
+            v.push_back(u);
         }
+        u0.erase(u0.begin());
     }
-    if(n==1000000000000000000 && m==1) res=1712;
-    cout<<res<<endl;
+    vector<ll> res;
+    for(vector<ll> x:v) {
+        //showv(x);
+        ll nbr = 0;
+        f(0,x.size(),1) nbr += x[i]*bin_pow(2,i);
+        res.push_back(nbr);
+    }
+    //showv(res);
+    ll resultat = 0;
+    for(ll x:res) /*cout<<x<<" ";*/resultat += ((x>=n)&&(x<=m));
+    //cout<<endl;
+    cout<<resultat<<endl;
 }
 
 int main()
@@ -235,4 +257,3 @@ int main()
     }
     return 0;
 }
-     

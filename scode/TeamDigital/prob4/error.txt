@@ -1,4 +1,0 @@
-Main.java:5: error: class Ex3 is public, should be declared in a file named Ex3.java
-public class Ex3 {
-       ^
-1 error

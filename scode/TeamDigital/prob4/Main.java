@@ -2,17 +2,15 @@ package doWhileLoops;
 
 import java.util.Scanner;
 
-public class Ex3 {
+public class Ex {
 
-    public static void main(String[] args) {
-        Scanner key = new Scanner(System.in);
-        int height = 0, noBounces = 0, fivePer = 0;
-        fivePer = height /100 * 5;
-        System.out.print("\n\tEnter the height in feet that the ball will be dropped from: ");
-        height = key.nextInt();
-        do {
-            System.out.print("\n\tIt took  " + (height - fivePer));
-            fivePer--;
-        } while (height > 0);
-    }
+void getPositionXAtHeight(float height, Vec2 pos, Vec2 vel, float gravityForce = 9.8f, float gameWidth, float& positionX)
+{
+    float a = gravityForce / 2.0f;
+    float b = vel.y;
+    float c = pos.y - height;
+
+    float t = (sqrtf((b * b) - (4.0f * a * c)) - b) / (2.0f * a);
+
+    positionX = pos.x + (vel.x*t);
 }

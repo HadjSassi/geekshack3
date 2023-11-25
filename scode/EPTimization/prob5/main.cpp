@@ -22,7 +22,7 @@ typedef long double db;
 #define fj(j,m) for(auto j=m.begin();j!=m.end();j++)
 #define yes cout<<"YES"<<endl;
 #define no cout<<"NO"<<endl;
-#define endl "\n"
+//#define endl "\n"
 const db pi=3.14159265359;
 const ll mod = 998244353;
 const db EPS = 0.000000001; // 1 e -9
@@ -52,7 +52,6 @@ int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
     cin >> k ;
-    vector<vl> v(k);
     p=0;
     vl v1;
     r=0;
@@ -70,15 +69,13 @@ int run_case()
                     v1.pb(x);
                 }
             }
-            p+=x*(j<n/2);
-            v[i].pb(x);
+            p+=x*(j<(n/2));
         }
     }
-    if (v1.size())
-    sort(v1.rbegin(),v1.rend());
+    if (v1.size()) sort(v1.begin(),v1.end());
     f(i,0,v1.size(),1)
     {
-        p+=v1[i]*(1-i%2);
+        p+=v1[v1.size()-1-i]*(1-i%2);
     }
     cout << p << " " << r-p << endl;
     return 0;

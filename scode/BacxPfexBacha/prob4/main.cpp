@@ -103,26 +103,26 @@ void solve() {
 //    }
 
     for (int i=0; i<K; i++){
-        if (x_curr<0 || y_curr<0) break;
+//        if (x_curr<0 || y_curr<0) break;
         if (x_v >0 && y_v>0){
 //            cout<<"NOWWWW 1"<<"\n";
-            double inter_fouk = (h - y_curr)/y_v;
-            double supposed_x = x_curr + x_v * inter_fouk;
+            ld inter_fouk = (h - y_curr)/y_v;
+            ld supposed_x = x_curr + x_v * inter_fouk;
 
             if (supposed_x<=l){
                 x_curr = supposed_x;
                 y_curr = h;
                 y_v*=-1;
                 if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
-                if (x_curr<0 || y_curr<0) break;
+//                if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
 
             else{
 
-                double inter_droite = (l - x_curr)/x_v;
-                double supposed_y = y_curr + y_v * inter_droite;
+                ld inter_droite = (l - x_curr)/x_v;
+                ld supposed_y = y_curr + y_v * inter_droite;
 //                watch(inter_droite);
 //                watch(supposed_y);
 //                if (supposed_x<=h){
@@ -130,7 +130,7 @@ void solve() {
                     y_curr = supposed_y;
                     x_v*=-1;
                     if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;
-                    if (x_curr<0 || y_curr<0) break;
+//                    if (x_curr<0 || y_curr<0) break;
 
 //                    continue;
 //                }
@@ -143,8 +143,8 @@ void solve() {
         else if (x_v>0 && y_v <0){
 //            cout<<"NOWWWW 2"<<"\n";
 
-            double inter_louta = abs(y_curr/y_v);
-            double supposed_x = x_curr + x_v * inter_louta;
+            ld inter_louta = abs(y_curr/y_v);
+            ld supposed_x = x_curr + x_v * inter_louta;
 //            watch(inter_louta);
 //            watch(supposed_x);
             if (supposed_x<=l){
@@ -153,13 +153,13 @@ void solve() {
                 y_v*=-1;
                 ///
                 if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;//                continue;
-                if (x_curr<0 || y_curr<0) break;
+//                if (x_curr<0 || y_curr<0) break;
 
             }
 
             else{
 //                yes();
-                double inter_droite = (l - x_curr)/x_v;
+                double inter_droite = abs((l - x_curr)/x_v);
                 double supposed_y = y_curr + y_v * inter_droite;
 //                if (supposed_x<=h){
                     x_curr = l;
@@ -169,7 +169,7 @@ void solve() {
                     if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;
 //                    continue;
 //                }
-                if (x_curr<0 || y_curr<0) break;
+//                if (x_curr<0 || y_curr<0) break;
 
 
             }
@@ -179,60 +179,60 @@ void solve() {
         else if (x_v<0 && y_v >0){
 //            cout<<"NOWWWW 3"<<"\n";
 
-            double inter_fouk = (h - y_curr)/y_v;
-            double supposed_x = x_curr + x_v * inter_fouk;
+            ld inter_fouk = abs((h - y_curr)/y_v);
+            ld supposed_x = x_curr + x_v * inter_fouk;
             if (supposed_x>=0){
                 x_curr = supposed_x;
                 y_curr = h;
                 y_v*=-1;
-if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
-        if (x_curr<0 || y_curr<0) break;
+                if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
+//                if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
 
             else{
 
-                double inter_droite = abs(x_curr/x_v);
-                double supposed_y = y_curr + y_v * inter_droite;
+                ld inter_droite = abs(x_curr/x_v);
+                ld supposed_y = y_curr + y_v * inter_droite;
 //                if (supposed_x<=h){
                     x_curr = 0;
                     y_curr = supposed_y;
                     x_v*=-1;
-if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;//                    continue;
-        if (x_curr<0 || y_curr<0) break;
+                    if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;//                    continue;
+//                    if (x_curr<0 || y_curr<0) break;
 
                 }
-
-
-            }
+        }
 
 //
         else if (x_v<0 && y_v <0){
 //            cout<<"NOWWWW 4"<<"\n";
 
-            double inter_louta = abs(y_curr/y_v);
-            double supposed_x = x_curr + x_v * inter_louta;
+            ld inter_louta = abs(y_curr/y_v);
+            ld supposed_x = x_curr + x_v * inter_louta;
             if (supposed_x>=0){
                 x_curr = supposed_x;
                 y_curr = 0;
                 y_v*=-1;
-if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;        if (x_curr<0 || y_curr<0) break;
+                if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
+//                if (x_curr<0 || y_curr<0) break;
 
 //                continue;
             }
 
             else{
 
-                double inter_droite = (l - x_curr)/x_v;
-                double supposed_y = y_curr + y_v * inter_droite;
+                ld inter_droite = abs((l - x_curr)/x_v);
+                ld supposed_y = y_curr + y_v * inter_droite;
 //                if (supposed_x<=h){
                     x_curr = 0;
                     y_curr = supposed_y;
                     x_v*=-1;
 //                    continue;
 //                }
-if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;        if (x_curr<0 || y_curr<0) break;
+                if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;
+//                if (x_curr<0 || y_curr<0) break;
 
 
             }
@@ -243,8 +243,8 @@ if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;        if (x_curr<0 || y_curr
 //        watch(x_v);
 //        watch(y_v);
     }
-    int ans1 = (int)(x_curr);
-    int ans2= (int)(y_curr);
+    int ans1 = floor(x_curr);
+    int ans2= floor(y_curr);
     cout<<ans1<<" "<<ans2;
 }
 

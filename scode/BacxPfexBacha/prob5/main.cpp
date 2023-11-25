@@ -40,22 +40,212 @@ void no() { cout<<"NO\n"; }
 
 
 void solve() {
-    string ch1,ch2,ch3;
-    cin>>ch1>>ch2>>ch3;
-//    ch1 = ch1.substr(1, sz(ch1)-1);
-//    ch2 = ch2.substr(1, sz(ch2)-1);
-//    ch3 = ch3.substr(1, sz(ch3)-1);
-    if (ch1[1]==ch2[1]==ch3[1]){
-        no();
+    ld l,h; cin>>l>>h;
+    ld x_curr ,y_curr; cin>>x_curr>>y_curr;
+    ld x_v, y_v; cin>>x_v>>y_v;
+    ll K; cin>>K;
+    if (K==0){
+        cout<<(int)x_curr<<" "<<(int)y_curr;
         return;
     }
 
-    if (ch1[2]==ch2[2]==ch3[2]){
-        no();
+//    if (((int)l)==1 && ((int)h)==1){
+//        cout<<1<<" "<<1;
+//        return;
+//    }
+
+    if (x_v==0 && y_v==0){
+        cout<<(int)x_curr<<" "<<(int)y_curr;
         return;
     }
-    yes();
 
+    if (x_v==0 && y_v!=0){
+        if (y_v<0){
+            if (K%2==1){
+                cout<<(int)x_curr<<" "<<0;
+                return;
+            }
+            cout<<(int)x_curr<<" "<<h;
+            return;
+        }
+
+        if (K%2==0){
+            cout<<(int)x_curr<<" "<<0;
+            return;
+        }
+        cout<<(int)x_curr<<" "<<h;
+        return;
+    }
+
+    if (x_v!=0 && y_v==0){
+
+        if (x_v<0){
+            if (K%2==1){
+                cout<<0<<" "<<(int)y_curr;
+                return;
+            }
+            cout<<l<<" "<<(int)y_curr;
+            return;
+        }
+
+        if (K%2==0){
+            cout<<0<<" "<<(int)y_curr;
+            return;
+        }
+        cout<<l<<" "<<(int)y_curr;
+        return;
+    }
+
+    if (((int)x_curr==0 && x_v<0) || (x_curr==l && x_v>0) || ((int)y_curr==0 && y_v<0) || ((int)y_curr==h && y_v>0)) {
+//        K--;
+        x_v*=-1;
+        y_v*=-1;
+    }
+
+    for (int i=0; i<K; i++){
+        if (x_curr<0 || y_curr<0) break;
+        if (x_v >0 && y_v>0){
+//            cout<<"NOWWWW 1"<<"\n";
+            ld inter_fouk = (h - y_curr)/y_v;
+            ld supposed_x = x_curr + x_v * inter_fouk;
+
+            if (supposed_x<=l){
+                x_curr = supposed_x;
+                y_curr = h;
+                y_v*=-1;
+                if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
+                if (x_curr<0 || y_curr<0) break;
+
+//                continue;
+            }
+
+            else{
+
+                ld inter_droite = (l - x_curr)/x_v;
+                ld supposed_y = y_curr + y_v * inter_droite;
+//                watch(inter_droite);
+//                watch(supposed_y);
+//                if (supposed_x<=h){
+                    x_curr = l;
+                    y_curr = supposed_y;
+                    x_v*=-1;
+                    if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;
+                    if (x_curr<0 || y_curr<0) break;
+
+//                    continue;
+//                }
+
+            }
+
+
+        }
+
+        else if (x_v>0 && y_v <0){
+//            cout<<"NOWWWW 2"<<"\n";
+
+            ld inter_louta = abs(y_curr/y_v);
+            ld supposed_x = x_curr + x_v * inter_louta;
+//            watch(inter_louta);
+//            watch(supposed_x);
+            if (supposed_x<=l){
+                x_curr = supposed_x;
+                y_curr = 0;
+                y_v*=-1;
+                ///
+                if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;//                continue;
+                if (x_curr<0 || y_curr<0) break;
+
+            }
+
+            else{
+//                yes();
+                double inter_droite = abs((l - x_curr)/x_v);
+                double supposed_y = y_curr + y_v * inter_droite;
+//                if (supposed_x<=h){
+                    x_curr = l;
+                    y_curr = supposed_y;
+                    x_v*=-1;
+                                    ///
+                    if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;
+//                    continue;
+//                }
+                if (x_curr<0 || y_curr<0) break;
+
+
+            }
+
+        }
+//
+        else if (x_v<0 && y_v >0){
+//            cout<<"NOWWWW 3"<<"\n";
+
+            ld inter_fouk = abs((h - y_curr)/y_v);
+            ld supposed_x = x_curr + x_v * inter_fouk;
+            if (supposed_x>=0){
+                x_curr = supposed_x;
+                y_curr = h;
+                y_v*=-1;
+                if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
+                if (x_curr<0 || y_curr<0) break;
+
+//                continue;
+            }
+
+            else{
+
+                ld inter_droite = abs(x_curr/x_v);
+                ld supposed_y = y_curr + y_v * inter_droite;
+//                if (supposed_x<=h){
+                    x_curr = 0;
+                    y_curr = supposed_y;
+                    x_v*=-1;
+                    if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;//                    continue;
+                    if (x_curr<0 || y_curr<0) break;
+
+                }
+        }
+
+//
+        else if (x_v<0 && y_v <0){
+//            cout<<"NOWWWW 4"<<"\n";
+
+            ld inter_louta = abs(y_curr/y_v);
+            ld supposed_x = x_curr + x_v * inter_louta;
+            if (supposed_x>=0){
+                x_curr = supposed_x;
+                y_curr = 0;
+                y_v*=-1;
+                if (ceil(x_curr)==0 || ceil(x_curr)==l)   x_v*=-1;
+                if (x_curr<0 || y_curr<0) break;
+
+//                continue;
+            }
+
+            else{
+
+                ld inter_droite = abs((l - x_curr)/x_v);
+                ld supposed_y = y_curr + y_v * inter_droite;
+//                if (supposed_x<=h){
+                    x_curr = 0;
+                    y_curr = supposed_y;
+                    x_v*=-1;
+//                    continue;
+//                }
+                if (ceil(y_curr)==0 || ceil(y_curr)==h)   y_v*=-1;
+                if (x_curr<0 || y_curr<0) break;
+
+
+            }
+        }
+
+//        watch(x_curr);
+//        watch(y_curr);
+//        watch(x_v);
+//        watch(y_v);
+    }
+    int ans1 = floor(x_curr);
+    int ans2= floor(y_curr);
+    cout<<ans1<<" "<<ans2;
 }
 
 
@@ -68,7 +258,7 @@ int main() {
     //freopen("output.txt","w",stdout);
 
     int tc=1;
-    //cin >> tc;
+//    cin >> tc;
     while(tc--) {
         solve();
     }

@@ -1,6 +1,4 @@
 Traceback (most recent call last):
-  File "/var/www/html/scode/AbtalAlDigital/prob7/main.py", line 12, in <module>
-    l2.sort(key=lambda x: x[1])
-  File "/var/www/html/scode/AbtalAlDigital/prob7/main.py", line 12, in <lambda>
-    l2.sort(key=lambda x: x[1])
-IndexError: list index out of range
+  File "/var/www/html/scode/AbtalAlDigital/prob7/main.py", line 14, in <module>
+    while(e-z>0):
+NameError: name 'e' is not defined

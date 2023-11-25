@@ -16,19 +16,40 @@ for i in range(n):
 res = [eval(i) for i in tab]
 res1 = [eval(i) for i in tab1]
 s=0
-def test(res,res1,z):
-    if(z==1):
-        i,m=min(res)
-        delete(i,res,re1)
-        return m+s
-    else if(z==2):
-        i,m=min(res)
-        i1,m1=min(res)
-        if(m<m1):
-            delete(i,res,res1)
-        else:
-            m=m1
-            delete(i1,res,res1)
-        return m+s
+def findsum(x):
+    numbers = []
+    numOfOnes= x - 2
+    numbers.append([1]*x) # all ones
+    numbers.append([1] * numOfOnes + [2]) #all ones and a two
+    if x % 2 == 0:
+        numOfTwos = int((x - 2)/2)
+        numbers.append([2]*(int(x/2))) # all twos
+        if x >= 6:
+            numbers.append([2] * numOfTwos+ [1,1]) #all twos and 2 ones
+
     else:
-        
+        numOfTwos = int((x - 1)/2)
+        numbers.append([2] * numOfTwos+ [1])
+
+    return numbers 
+result=findsum(z);
+s=0;
+tab_s=[]
+x=0;
+for i in (result):
+    for j in range(len(i)-1):
+        if(j==1):
+            indice=res.index(min(res))
+            m=min(res)
+            res.remove(indice)
+            res1.remove(indice) 
+            s=s+m;
+            tab_s[x]=s
+        else:
+            indice=res1.index(min(res1))
+            m=min(res1)
+            res.remove(indice)
+            res1.remove(indice)
+            s=s+m
+            tab_s[x]=s
+    x=x+1

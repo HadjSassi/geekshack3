@@ -2,33 +2,42 @@
 
 #define nmax  30000
 int main()
-{ int n,z,ind ,ai,bi,sum,t[nmax], t1[nmax],s=0,i,minai,minbi;
+{ int n,z,inda,indb,minai1 ,ai,bi,sum,t[nmax], t1[nmax],s=0,i,minai,minbi;
 scanf("%d%d",&n,&z);
+
+
+
 for (i=0;i<n;i++)
-{scanf("%d%d",&ai,&bi);
+{
+scanf("%d%d",&ai,&bi);
  t[i]=ai;
  t1[i]=bi;
  }
+
+
 minai=t[0];
 
 minbi=t1[0];
 sum=0;
 while(s<z)
 {
-for (i=0;i<n;i++)
- {
- if (t[i]<minai )
- { minai=t[i] ;
- t[i]=300000;
- }
 
+
+for (i=0;i<n;i++)
+{
+ if (t[i]<minai )
+ {
+  minai=t[i] ;
+ t[i]=300000;
+  inda=i;
+ }
 
  if (t1[i]<minbi)
  { minbi=t1[i];
    t1[i]=300000;
-    ind=i;
+    indb=i;
   }
-  }
+ }
 
 
 if(n>z)
@@ -47,7 +56,7 @@ if(n>z)
 else if  ((n<z)&&(z%n==0))
 {sum+=minbi;
  s+=2;
-  t1[ind]=30000;
+  t1[indb]=30000;
   minbi=t1[0];
  for(i=0;i<n;i++)
    if (t[i]<minbi)
@@ -58,23 +67,40 @@ else if  ((n<z)&&(z%n==0))
  s+=2;}
 }
 
+else if(n<z)
+{
+if((s-2==z)&&(minai+minai1<minbi)){sum+=minbi;s+=2;}
 
-else if (n<z)
-{sum+=minbi;
+if(minai>minbi)
+{
+sum+=minbi;
  s+=2;
-  if((s-2==z)&&(minai+minbi<minbi) )
-  {sum+=minbi;
-   s+=2;}
- if (s<z)
- {sum+=minai;
- s++;}
+ t1[indb]=30000;
+ minbi=t1[0];
+ for(i=0;i<n;i++)
+  if (t1[i]<minbi)
+ {minbi=t1[i];
+   t1[i]=300000;
+   indb=i;}
+  }
+
+else
+{sum+=minai;
+ s++;
+ t[inda]=30000;
+ minai=t[0];
+ for(i=0;i<n;i++)
+ if (t[i]<minai)
+ { minai=t[i];
+   t[i]=300000;
+   inda=i;}
 }
 
- }
+ } }
 printf("%d",sum);
-
 }
 
 
 
 
+ 

@@ -1,13 +1,14 @@
-x, y = input()
-r=0
-f=int(x)
-l=int(y)
-for i in range(x,y) :
-    b=bin(i)
-    bi=list(b)
-    for j in range(bi):
-        if b.cout(0)==1:
-            r=r+1
-
-        
-print(r)
+x, y = input().split()
+f = int(x)
+l = int(y)
+list={0}
+q=0
+for i in range(f,l+1):
+    r=bin(i)
+    for j in str(r):
+        if j==0:
+            q==q+1
+    if q ==1:
+        list.append(i)
+for i in list :
+    print(i)
