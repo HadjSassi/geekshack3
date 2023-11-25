@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/PinkScript/prob15/main.py", line 2, in <module>
+    dec=int(d)
+ValueError: invalid literal for int() with base 10: '5 100000000000000000'

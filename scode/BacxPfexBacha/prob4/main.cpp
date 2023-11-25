@@ -50,10 +50,10 @@ void solve() {
         return;
     }
 
-    if (((int)l)==1 && ((int)h)==1){
-        cout<<1<<" "<<1;
-        return;
-    }
+//    if (((int)l)==1 && ((int)h)==1){
+//        cout<<1<<" "<<1;
+//        return;
+//    }
 
     if (x_v==0 && y_v==0){
         cout<<(int)x_curr<<" "<<(int)y_curr;
@@ -96,18 +96,20 @@ void solve() {
         cout<<l<<" "<<(int)y_curr;
         return;
     }
-
-    for (int i=0; i<K; i++){
+//    yes();
+    for (int i=0; i<min((ll)20,K); i++){
 
         if (x_v >0 && y_v>0){
+//            cout<<"NOWWWW 1"<<"\n";
             double inter_fouk = (h - y_curr)/y_v;
             double supposed_x = x_curr + x_v * inter_fouk;
-//            watch(inter_fouk);
-//            watch(supposed_x);
+
             if (supposed_x<=l){
                 x_curr = supposed_x;
                 y_curr = h;
                 y_v*=-1;
+                if (x_curr==0 || x_curr==l)   x_v*=-1;
+
 //                continue;
             }
 
@@ -121,6 +123,8 @@ void solve() {
                     x_curr = l;
                     y_curr = supposed_y;
                     x_v*=-1;
+                    if (y_curr==h || y_curr==0) y_v*=-1;
+
 //                    continue;
 //                }
 
@@ -130,6 +134,7 @@ void solve() {
         }
 
         else if (x_v>0 && y_v <0){
+//            cout<<"NOWWWW 2"<<"\n";
 
             double inter_louta = abs(y_curr/y_v);
             double supposed_x = x_curr + x_v * inter_louta;
@@ -139,6 +144,8 @@ void solve() {
                 x_curr = supposed_x;
                 y_curr = 0;
                 y_v*=-1;
+                ///
+                if (x_curr==0 || x_curr==l)   x_v*=-1;
 //                continue;
             }
 
@@ -150,6 +157,8 @@ void solve() {
                     x_curr = l;
                     y_curr = supposed_y;
                     x_v*=-1;
+                                    ///
+                    if (y_curr==h || y_curr==0) y_v*=-1;
 //                    continue;
 //                }
 
@@ -158,6 +167,7 @@ void solve() {
         }
 //
         else if (x_v<0 && y_v >0){
+//            cout<<"NOWWWW 3"<<"\n";
 
             double inter_fouk = (h - y_curr)/y_v;
             double supposed_x = x_curr + x_v * inter_fouk;
@@ -165,6 +175,8 @@ void solve() {
                 x_curr = supposed_x;
                 y_curr = h;
                 y_v*=-1;
+                if (x_curr==0 || x_curr==l)   x_v*=-1;
+
 //                continue;
             }
 
@@ -176,14 +188,16 @@ void solve() {
                     x_curr = 0;
                     y_curr = supposed_y;
                     x_v*=-1;
+                    if (y_curr==h || y_curr==0) y_v*=-1;
 //                    continue;
-//                }
+                }
+
 
             }
 
-        }
 //
         else if (x_v<0 && y_v <0){
+//            cout<<"NOWWWW 4"<<"\n";
 
             double inter_louta = abs(y_curr/y_v);
             double supposed_x = x_curr + x_v * inter_louta;
@@ -191,6 +205,8 @@ void solve() {
                 x_curr = supposed_x;
                 y_curr = 0;
                 y_v*=-1;
+                if (x_curr==0 || x_curr==l)   x_v*=-1;
+
 //                continue;
             }
 
@@ -204,6 +220,8 @@ void solve() {
                     x_v*=-1;
 //                    continue;
 //                }
+                    if (y_curr==h || y_curr==0) y_v*=-1;
+
 
             }
         }

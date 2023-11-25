@@ -1,4 +1,10 @@
 e=input()
 
-s=e[5::-6]
-print(s.count(" ")+1)
+s=e[4:1:-5]
+
+resultat = e.split(" ")
+for i in resultat :
+    if str(i)==str(i+1):
+        print(i)
+  
+print(s.count(" ")) 

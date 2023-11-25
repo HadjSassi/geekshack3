@@ -32,4 +32,4 @@ while starcount<z and len(one_star)!=0:
         starcount+=1
         move+=minA
 
-print(move)
+print(move) 

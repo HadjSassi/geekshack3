@@ -1,5 +1,5 @@
 t = input()
-s=[x, for x int]
+s=[x for x in t]
 if len(s) == 1:
     print(0)
 occur = 0
