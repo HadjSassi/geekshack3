@@ -36,33 +36,123 @@ void dbg(vector<ll> v){for (auto x : v) cout << x << " "; cout << endl;}
 void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
-const long long N=1e5;
-vector<string> y(14);
-int ans=0;
-//bool [14]={0};
+const long long N=1e5+5;
+vector<int> graph[N];
+string y[20];
+int n=14,ans=0;
+bool vis[14]={0};
+map<vector<string>, int >prep;
+void resolve() {
+
+    vector<string> curr;
+    for (int k = 1; k<=4; k++){
+        for (int i=1; i<=13; i++){
+            ll somme = 0;
+            curr.clear();
+            for (int j=i; j<=13; j++){
+                somme +=j;
+                string ch ="";
+                if (k==1){
+                    ch+="S";
+                }
+                if (k==2){
+                    ch+="D";
+                }
+                if (k==3){
+                    ch+="C";
+                }
+                if (k==4){
+                    ch+="H";
+                }
+
+                string ajout = to_string(j);
+                if (j==11) ajout = "J";
+                if (j==12) ajout = "Q";
+                if (j==13) ajout = "K";
+                ch+=ajout;
+                curr.pb(ch);
+                if (j-i>=2){
+                    prep[curr] = somme;
+                }
+            }
+        }
+    }
+
+    for (int j=1; j<=13; j++){
+        curr.clear();
+
+        string ajout = to_string(j);
+
+        if (j==11) ajout = "J";
+        if (j==12) ajout = "Q";
+        if (j==13) ajout = "K";
+        string Spades= "S" + ajout;
+        string Diamonds ="D" + ajout;
+        string Clubs ="C"+ ajout;
+        string Hearts ="H"+ ajout;
+
+        curr.pb(Spades); curr.pb(Diamonds); curr.pb(Clubs);
+        sort(all(curr));
+        prep[curr] = 3 * j;
+        curr.clear();
+
+        curr.pb(Spades); curr.pb(Diamonds); curr.pb(Hearts);
+        sort(all(curr));
+        prep[curr] = 3 * j;
+        curr.clear();
+
+
+        curr.pb(Diamonds); curr.pb(Clubs);curr.pb(Hearts);
+        sort(all(curr));
+        prep[curr] = 3 * j;
+        curr.clear();
+
+        curr.pb(Spades); curr.pb(Diamonds); curr.pb(Clubs);curr.pb(Hearts);
+        sort(all(curr));
+        prep[curr] = 3 * j;
+        curr.clear();
+    }
+
+
+   /* for (auto y:prep){
+        for (auto x: y.F) cout<<x<<" ";
+        cout<<endl;
+    }*/
+}
+void brute(int i,vector<vector<string>> decks){
+        //cout<<i<<endl;
+        if(i==N){
+            return;
+        }
+        for(int j=0;j<4;j++){
+            decks[j].push_back(y[i]);
+            int cur=0;
+            for(int w=0;w<4;w++){
+                if(prep.count(decks[w])){
+                    cur+=prep[decks[w]];
+                }
+                if(decks[w].size()>=3&&prep.count(decks[w])){
+                    return;
+                }
+            }
+            ans=max(ans,cur);
+            brute(i+1,decks);
+            decks[j].pop_back();
+        }
+        brute(i+1,decks);
+}
+
 void solve() {
-int n=14;
-  string y[n];
-  for(int i=0;i<14;i++){
+  for(int i=0;i<4;i++){
     cin>>y[i];
   }
-  int ans=0;
-  sort(y,y+10);
-  while(next_permutation(y,y+10)){
-   string to_check="";
-   for(int i=0;i<10;i++){
-     //cout<<i<<endl;
-    while(y[i][0]==y[i][i+1]&&i<10){
-        if(y[i][0]>'9'){
-            y[i][0]='0';
-        }
-        ans+=y[i][2]-'0';
-        i++;
-    }
-   }
-  }
-  if(ans>72){
+  resolve();
+  vector<vector<string>> decks(4);
+  //cout<<prep.size()<<endl;
+ // brute(0,decks);
+  if(ans>=72){
     cout<<"YES"<<endl;
+    cout<<ans<<endl;
   }
   else{
     cout<<"NO"<<endl;

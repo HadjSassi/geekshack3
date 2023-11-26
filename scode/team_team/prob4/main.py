@@ -45,3 +45,4 @@ while (nb<k):
 
 print(math.floor(x),math.floor(y))
 
+ 

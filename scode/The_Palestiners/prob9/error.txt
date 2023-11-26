@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/The_Palestiners/prob9/main.py", line 38, in <module>
-    n, m, s = map(int, input_lines[0].split())
-ValueError: not enough values to unpack (expected 3, got 2)
