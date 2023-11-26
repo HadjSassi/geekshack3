@@ -1,61 +1,69 @@
 #include <bits/stdc++.h>
-#define FAST ios::sync_with_stdio(0), cin.tie(0)//, cout.tie(0)
-#define ll long long
-#define ld long double
-#define yes cout << "YES" << endl;
-#define no cout << "NO" << endl;
-#define endl "\n"
-#define pi 3.14159265
-using namespace std;
-const ll MOD = 1e8;
-const int N = 1e5 + 5;
-const ll INF = 1e18;
 
-void solve(){
-	int n; cin >> n;
-	int z; cin >> z;
-	ll ans = 0 ;
-	multiset < pair <  ll , ll >>  st ; 
-	
-	for(int i = 0; i < n ; i++){
-		ll a , b ; cin >> a >> b;
-		st.insert(make_pair(a,b));
-	}
-	//cout << st.size() << endl;
-	int val = 0;
-	int curr =  0;
-	while( !st.empty() ) {
-		//curr++;
-		//cout << curr << " " << val << endl;
-		auto it = st.begin();
-		val++;
-		ans += it->first;
-		//cout << "it " << it->first << " " << it->second << endl;
-		if( val == z ){
-			cout << ans << endl;
-			return;
-		}
-		if( it->second != 0 ){
-			pair < ll , ll > nxt = {it->second-it->first, 0};
-			//it->first = it->second - it->first;
-			st.erase(st.begin()); 
-			st.insert(nxt);
-		}else {
-			st.erase(st.begin());
-		}
-	}
-}                   
-                    
-int main()
-{
-	//freopen("input.txt","r",stdin); freopen("output.out","w",stdout);
-	FAST;
-	int t = 1;
-	//cin>>t ;
-	while (t--)
-	{
-		solve();
-	}
+using namespace std;
+typedef long long ll;
+typedef long double ld;
+#define pb push_back
+#define pi pair<ll, ll>
+#define F first
+#define S second
+#define all(x) (x).begin(), (x).end()
+#define alll(x) ((x).begin() + 1), (x).end()
+#define clean(v) (v).resize(distance((v).begin(), unique(all(v))));
+#define yes cout << "Yes" << endl;
+#define no cout << "No" << endl;
+#define mod mod
+#define endl '\n'
+const ll mod = 998244353;
+
+template <class T>
+bool ckmax(T &a, const T &b) { return a < b ? a = b, 1 : 0; }
+
+template <class T>
+bool ckmin(T &a, const T &b) { return a > b ? a = b, 1 : 0; }
+
+const ll N = 1e3 + 5, INF = 1e18;
+ll n, z, a[N], b[N], dp[N][N + N];
+
+ll work(ll pos, ll rest){
+  if(pos > n){
+    if(rest) return INF;
+    else return 0;
+  }
+  ll& ans = dp[pos][rest];
+  if(ans != -1) return ans;
+  ans = work(pos+1, rest);
+  if(rest) ans = min(ans, work(pos+1, rest-1) + a[pos]);
+  if(rest > 1) ans = min(ans, work(pos+1, rest-2) + b[pos]);
+  return ans;
 }
 
- 
+void solve(){
+  memset(dp, -1, sizeof(dp));
+  cin >> n >> z;
+  if(!(z >= 1 && z <= n + n)){
+    cout<<z<<endl;
+    return;
+  }
+  for (int i = 1; i <= n; i++){
+    cin >> a[i] >> b[i];
+    assert(a[i] > 0 && b[i] > 0);
+  }
+  cout << work(1, z) << endl;
+}
+
+signed main()
+{
+  // #ifndef ONLINE_JUDGE
+      // freopen("input.in", "r", stdin);
+  //     freopen("output.out", "w", stdout);
+  // #endif
+  signed tt = 1;
+  // cin>>tt ;
+  while (tt--)
+  {
+    solve();
+  }
+
+  return 0;
+}

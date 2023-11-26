@@ -87,28 +87,13 @@ void solve() {
 //        watch(b);
 //        watch(w);
         if (w==1) continue;
-        int ok = 0;
-        if (distances[a] < obj && (distances[a] + w - 1) >=obj){
-            if (distances[b] + obj - distances[a] >= obj){
-                ans++;
-                ok++;
-            }
+        for (int j=1; j<=w-1; j++){
+            ll mini = min(distances[a]+j, distances[b] + w - j);
+            if (mini==obj) ans++;
         }
-        if (distances[b] < obj && (distances[b] + w - 1) >=obj){
-            if (distances[a] + obj - distances[b] >= obj){
-                ans++;
-                ok++;
-            }
-        }
-        ll mq1 = obj - distances[a];
-        ll mq2 = obj- distances[b];
-        if ((mq1 + mq2==w) && ok==2) ans--;
-//        watch(ans);
 
     }
-    cout<<ans<<endl;
-   
-    
+    cout<<ans;
 }
 
 
@@ -126,4 +111,3 @@ int main() {
         solve();
     }
 }
-   

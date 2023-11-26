@@ -27,4 +27,4 @@ for i in range(len(s)):
                x=s.replace(s[i:i+2],'t')
                p+=1
                
-print(p)
+print(p) 

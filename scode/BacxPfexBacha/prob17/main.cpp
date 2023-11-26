@@ -37,7 +37,7 @@ void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
 long long N=1e5;
-map<string,bool> ans;
+unordered_map<string,bool> ans;
 void resolve(string s){
     if(ans.count(s)){
         return;
@@ -91,4 +91,4 @@ int main() {
     }
 }
 
-     
+      

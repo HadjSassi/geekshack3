@@ -14,25 +14,31 @@ for i in range(1,len(vals)):
     if vals[i-1] == vals[i]:
         continue
     
-    if not (counts[vals[i-1]] > i):
+    if vals[i-1] not in set(vals[i::]):
         continue
     
     
     # compare counts
     if counts[vals[i]]>counts[vals[i-1]]: # remove i-1
+        changed = vals[i-1]
+        modfied = vals[i]
+        penalty+=counts[changed]
         for k in  range(len(vals)):
-            if vals[k] == vals[i-1]:
-                vals[k] = vals[i]
-        counts[vals[i]]+=counts[vals[i-1]]
-        penalty+=counts[vals[i-1]]
-        counts[vals[i-1]] = 0
+            if vals[k] == changed:
+                vals[k] = modfied
+        counts[modfied]+=counts[changed]
+        counts[changed] = 0
         
-    else: 
+    else:
+        changed = vals[i]
+        modfied = vals[i-1]
+        
+        penalty+=counts[changed]
         for k in  range(len(vals)):
-            if vals[k] == vals[i]:
-                vals[k] = vals[i-1]
-        counts[vals[i-1]]+=counts[vals[i]]
-        penalty+=counts[vals[i]]
-        counts[vals[i]] = 0
+            if vals[k] == changed:
+                vals[k] = modfied
+        counts[modfied]+=counts[changed]
+        counts[changed] = 0
+        
 
-print(penalty)
+print(penalty)    

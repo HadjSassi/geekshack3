@@ -26,4 +26,4 @@ for i in range (l[-1]):
         
         
 print(math.floor(l[2]),math.floor(l[3]))
-      
+       

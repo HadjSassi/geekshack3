@@ -1,0 +1,1 @@
+print("Bonjour PinkScript !\nAllez, c'est à vous ! Bon courage ! ^_^") 

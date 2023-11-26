@@ -30,5 +30,4 @@ if ch[0]=="E":
         for j in range (0,L2[i]):
             s=ch+s[L2[i]:]
     print(s)
-        
-        
+         

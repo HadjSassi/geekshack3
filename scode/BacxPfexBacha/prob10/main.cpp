@@ -65,21 +65,57 @@ void solve() {
         return;
      }
 
-     if (abs(d - (max(r_1,r_2) - min(r_1,r_2)))<=0.00001){
+     if (abs(d - (max(r_1,r_2) - min(r_1,r_2)))<=0.0001){
 //        cout<<0;
         ld ans = vol(x1, y1, z1, r_1);
         cout << fixed << setprecision(3) << ans;
+        return;
 //        return;
      }
-//     double a = r_1 * r_1 - r_2 * r_2;
-//     double b = 2 * d*d;
-//     double h = 1/2 + a/b;
-//     ld c = r_1*r_1 - h*h*d*d;
-//     double r_i = sqrt(c);
-//     watch(r_i);
-//     double ans = r_i * r_i * PI;
-//     cout<<ans;
+//     yes();
+//     ld a = (r_1 * r_1 + d*d*  - r_2 * r_2) / (2 * r_1 * d);
+//     while (a<-1) a+=PI;
+//     while (a>1) a-=PI;
+////     watch(a);
+//    ld alpha = acos(a);
+////    watch(alpha);
+//    ld b = (r_2 * r_2 + d*d*  - r_1 * r_1) / (2 * r_2 * d);
+//     while (b<-1) b+=PI;
+//     while (b>1) b-=PI;
+//     watch(b);
+//    ld teta = acos(b);
+////    watch(teta);
+//    ld h = r_1 * sin(alpha);
+////    watch(h);
+//    ld h_1 = r_1 * (1 - cos(alpha));
+//    ld h_2 = r_2 * (1 - cos(teta));
+//    ld V = (PI/3) * (3 * r_1* h_1* h_1 - h_1 * h_1*h_1 + 3 * r_2 * h_2 * h_2 - h_2 *h_2 * h_2);
+//    cout<<V;
 
+
+//    yes();
+    x2-=x1;
+    x1= 0;
+//    double a = (1/ (2*x2)) * sqrt((-x2 + r_2 - r_1) *(-x2-r_2+r_1)*(-x2+r_1+r_2)*(x2+r_2+r_1));
+////    cout<<a;
+//    double V = PI * pow(r_1 + r_2 - x2, 2) * (x2 * x2 + 2 * x2 * r_2 - 3 * r_2 * r_2 + 2*x2*r_1 + 6* r_1 * r_2 - 3 * r_1 * r_1);
+//    V= V/(12 * x2);
+//    cout<<fixed<<V<<setprecision(3);
+
+
+    double h1 = ((r_2 - r_1 + x2) * (r_2 + r_1 - x2))/(2*x2);
+    double h2 = ((r_1 - r_2 + x2) * (r_2 + r_1 - x2))/(2*x2);
+//    watch(h1);
+//    watch(h2);
+//    watch(r_1);
+//    watch(h1);
+    double V1 = 0.333333333333 * PI * h1 * h1 *(3 * r_2 - h1);
+//    watch(V1);
+    double V2 = 0.333333333333 * PI * h2 * h2 *(3 * r_1 - h2);
+//    watch(V1);
+//    watch(V2);
+    double fin = V1 + V2;
+    cout << fixed << setprecision(3) << fin;
 
 
 }

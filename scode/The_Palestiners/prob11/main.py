@@ -1,14 +1,27 @@
-def evaluate_polynomial(coefficients, values_of_x):
-    results = [sum(c * (x ** (len(coefficients) - 1 - i)) for i, c in enumerate(coefficients)) for x in values_of_x]
-    return results
+def minn(n, k, ts):
+    ts.sort(reverse=True)
+
+    s= 0
+    r = 0
+
+    for i in ts:
+        if i== 0:
+            break
+        if k > 0:
+            s =s+ 1
+            k = k-1
+        else:
+            r = r+i
+
+    return r
 
 
-t = int(input())
-for _ in range(t):
-        input()  # Ignore the first line, as n is not needed in the solution
-        coefficients = list(map(int, input().split()))
-        values_of_x = list(map(int, input().split()))
-        results = evaluate_polynomial(coefficients, values_of_x)
-        print(" ".join(map(str, results)))
+N, K = map(int, input().split())
+ts = list(map(int, input().split()))
 
 
+x=minn(N, K, ts)
+print(x)
+
+
+   

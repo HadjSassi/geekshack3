@@ -1,25 +1,30 @@
-
 def count_strings(s):
     MOD = 1000000007
     n = len(s)
 
-    # Initialize DP array
-    dp = [0] * (n + 1)
-    dp[0] = 1
+    # dp[i][j] represents the number of ways to obtain the prefix s[0:i+1] with the last two characters being s[i-1] and s[i],
+    # where j = 0 if the last two characters are 't', and j = 1 if the last two characters are 'v'.
+    dp = [[0, 0] for _ in range(n)]
 
-    # Iterate through the string
-    for i in range(1, n + 1):
-        dp[i] = dp[i - 1]
+    # Initialize the base case
+    if s[0] == 't':
+        dp[0][0] = 1
+    elif s[0] == 'v':
+        dp[0][1] = 1
 
-        if i >= 2 and s[i - 2:i] == 'tt':
-            dp[i] = (dp[i] + dp[i - 2]) % MOD
+    # Iterate through the string to fill in the DP table
+    for i in range(1, n):
+        if s[i] == 't':
+            dp[i][0] = (dp[i - 1][1] + dp[i - 1][0]) % MOD
+        elif s[i] == 'v':
+            dp[i][1] = (dp[i - 1][0] + dp[i - 1][1]) % MOD
 
-        if i >= 2 and s[i - 2:i] == 'vv':
-            dp[i] = (dp[i] + dp[i - 2]) % MOD
+    # The answer is the sum of the last row of the DP table
+    result = sum(dp[-1]) % MOD
 
-    return dp[n]
+    return result
 
 # Example usage:
-s = input()
+s = input().strip()
 result = count_strings(s)
 print(result)

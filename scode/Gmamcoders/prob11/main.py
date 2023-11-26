@@ -1,19 +1,18 @@
-def binomialCoeff(n, k) :
-    res = 1
-    if (k > n - k) :
-        k = n - k
-    for i in range(0 , k) :
-        res = res * (n - i)
-        res = res // (i + 1)
-     
-    return res
+try:
+    n, k = map(int, input().split())
+    l = []
 
+    for _ in range(n):
+        x = map(int, input().split())
+        l.extend(x)
 
-def printPascal(n) :
-    for line in range(0, n) :
-        for i in range(0, line + 1) :
-            print(binomialCoeff(line, i),
-                " ", end = "")
-        print()
-n=int(input())
-printpascal(n)
+    for _ in range(k):
+        d = max(l)
+        l.remove(d)
+
+    print(sum(l))
+
+except EOFError:
+    print("End of file reached.")
+
+  

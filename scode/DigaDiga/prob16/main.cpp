@@ -73,16 +73,12 @@ void solve(){
 	for (int i = 0; i < M; i++){
 		int u = edges[i][0], v = edges[i][1], w = edges[i][2];
 		int du = dist[u], dv = dist[v];
-		int mn = min(du, dv);
-		if (mn >= L) continue;
-		int remain = L - mn;
-		if (remain >= w) continue;
-		if (w % 2 == 0 && remain == w / 2){
-			ans++;
-			continue;
+		if (min(du, dv) > L) continue;
+		for (int k = 1; k < w; k++){
+			int curr = min(k + du, w - k + dv);
+			if (curr == L) ans++;
 		}
-		ans += (du == mn) + (dv == mn);
-	}
+	}	
 	cout << ans << endl;
 }
 

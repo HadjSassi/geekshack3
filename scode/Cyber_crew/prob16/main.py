@@ -1,6 +1,6 @@
 
 n, m, s = map(int, input().split()) 
-graph = [[] for _ in range(n + 1)] 
+graph = [[] for i in range(n + 1)] 
 for i in range(m):
     v, u, w = map(int, input().split()) 
     graph[v].append((u, w)) 
@@ -21,4 +21,4 @@ shooters = 0
 for d in distance:
     if d == l: 
         shooters += 1
-print(shooters)
+print(shooters) 

@@ -1,17 +1,12 @@
 #include <iostream>
-using namespace std;
-#define endl "\n"
-#define ll long long int
-#define yes cout << "YES" << endl
-#define no cout << "NO" << endl
-#include <bits/stdc++.h>
+#include <cmath>
 int rayon(int n)
 {
     int r=0;
     int x,y;
     while(n--)
     {
-        cin>>x>>y;
+        std::cin>>x>>y;
         if(sqrt(x*x+y*y)>r)
             r=sqrt(x*x+y*y);
     }
@@ -22,7 +17,7 @@ void check(int R,int m)
     int x,y;
     while(m--)
     {
-        cin>>x>>y;
+        std::cin>>x>>y;
         if(sqrt(x*x+y*y)<=R)
         {
             printf("NO");
@@ -34,7 +29,7 @@ void check(int R,int m)
 int main()
 {
     int m,n;
-    cin>>n>>m;
+    std::cin>>n>>m;
     int R =rayon(n);
     check(R,m);
 }

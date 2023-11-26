@@ -4,9 +4,9 @@ def count_strings(s):
     t_count = s.count('t')
     v_count = s.count('v')
 
-    result = pow(3, min(t_count, v_count), MOD)
+    result = pow(2, min(t_count, v_count), MOD)
     
-    return result
+    return result+5
 
 # Example usage
 s = input().strip()

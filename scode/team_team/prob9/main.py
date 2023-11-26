@@ -31,10 +31,9 @@ for e in s :
   if c>=d2:
       d2=c
 
-if (d2>d1):
-    print("NO")
-elif (d1==d2):
-   print("NO")
-else :
+
+if (d2>d1) or (d1<d2) :
     print("YES")
 
+else: 
+    print("NO")

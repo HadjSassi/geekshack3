@@ -1,4 +1,4 @@
-main.cpp:1:9: fatal error: dos.h: No such file or directory
-    1 | #include<dos.h>
-      |         ^~~~~~~
-compilation terminated.
+Traceback (most recent call last):
+  File "/var/www/html/scode/TeamDigital/prob4/main.py", line 1, in <module>
+    t=int(input())
+ValueError: invalid literal for int() with base 10: '30 30 5 0 5 5 695 '

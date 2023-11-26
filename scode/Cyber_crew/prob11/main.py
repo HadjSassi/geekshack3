@@ -1,10 +1,14 @@
 N,K=map(int,input().split())
-ch=input()
-l=ch.split()
-l.sort()
-l1=l[::-1]
-l1=l[K:]
-n=0
-for x in l1:
-    n+=int(x)
-print(n)
+if(N<K):
+    print('0')
+else:
+    ch=input()
+    l=ch.split()
+    for i in range(N):
+        l[i]=int(l[i])
+    l.sort()
+    l1=l[:N-K]
+    n=0
+    for x in l1:
+        n+=int(x)
+    print(n)
