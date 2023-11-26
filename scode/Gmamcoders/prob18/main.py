@@ -10,4 +10,4 @@ while(i<n-2):
         k+=2
     i=i+2 
 print(k)
- 
+  

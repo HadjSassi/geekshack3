@@ -1,4 +1,4 @@
-#include<iostream>
+/*#include<iostream>
 #include<deque>
 #include<vector>
 using namespace std;
@@ -41,4 +41,28 @@ vect[ind2].pop_back();
 }
 cout<<sum1<<sum2;
 return 0;
-}
+} */
+#include<cmath>
+#include<deque>
+#include<iostream>
+using namespace std;
+int main(){
+    int n,maxi1=0,maxi2=0,a;
+    deque<int> dq1,dq2;
+    cin>>n;
+    cin>>a;
+     for (int j=0;j<a;j++){
+            dq1.push_front(a);
+        }
+    cin>>a;
+     for (int j=0;j<a;j++){
+            dq1.push_front(a);
+    }
+    maxi1=maxi1+dq1.front();
+    dq1.pop_front();
+    maxi2=maxi2+dq2.back();
+    dq2.pop_back();
+    maxi1=maxi1+dq2.front();
+    dq2.pop_front();
+    cout<<maxi1<<maxi2;
+return 0;}

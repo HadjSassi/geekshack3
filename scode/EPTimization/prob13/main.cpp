@@ -23,51 +23,19 @@ typedef long double db;
 #define yes cout<<"YES"<<endl;
 #define no cout<<"NO"<<endl;
 #define endl "\n"
-const db pi=4*atan(1);
-const ll mod = 998244353;
+const db pi=3.14159265359;
+const ll mod = 1e9+7;
 const db EPS = 0.000000001; // 1 e -9
 const ll inf = (ll)1e18;
 ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
 ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 
-/*vector<int> inpt(string s)
-{
-    s.erase(remove(s.begin(), s.end(), '['), s.end());
-    s.erase(remove(s.begin(), s.end(), ']'), s.end());
-
-    stringstream ss(s);
-    vector<int> numbers;
-    int num;
-
-    while (ss >> num) {
-        numbers.push_back(num);
-
-        ss.ignore(numeric_limits<streamsize>::max(), ',');
-    }
-
-    return numbers;
-}*/
-
-vector<ll> pre[1000001];
-vector<ll> pre1[1000001];
-
-
-void premier(){
-    for (ll i=2;i<=1000000;i++){
-        for (ll j=2*i;j<=1000000;j+=i){
-            pre[j].pb(i);
-        }
-    }
+ll add(ll a, ll b){
+    return (a + b) % mod;
 }
-
-void premier1(){
-    for (ll i=2;i<=1000000;i++){
-        for (ll j=2*i;j<=1000000;j+=i){
-            pre1[i].pb(j);
-        }
-    }
+ll sub(ll a, ll b){
+    return (a - b + mod) % mod;
 }
-
 ll mul(ll a, ll b){
     return (((ll)a%mod) * ((ll)b%mod)) % mod;
 }
@@ -82,34 +50,47 @@ ll bin_pow(ll n, ll k){
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
-    premier();
-    premier1();
     cin >> k ;
     ll a[k];
-    vl v(1000001,0);
+    mll m;
     f(i,0,k,1)
     {
         cin >> a[i];
-        fj(j,pre[a[i]])v[*j]++;
-        v[a[i]]++;
+        m[a[i]]++;
     }
     r=0;
-    l=0;
-    fj(j,v)
+    m.erase(1);
+    fj(j,m)
     {
-        if (*j>=2)
-        r+=mul(l,mul(*j,bin_pow(2,*j-1)));
-        l++;
+        r=add(r,mul(j->ff,mul(j->ss,bin_pow(2,j->ss-1))));
+        fj(l,m)
+        {
+            if (j==l)break;
+            if (j->ff%l->ff==0)
+            {
+                r=add(r,mul(2,mul(mul(sub(bin_pow(2,j->ss),1),sub(bin_pow(2,l->ss),1)),l->ff)));
+                fj(rr,m)
+                {
+                    if (rr==l)break;
+                    if (rr->ff%l->ff==0)
+                    {
+                        r=add(r,mul(3,mul(mul(mul(sub(bin_pow(2,rr->ss),1),(sub(bin_pow(2,j->ss),1))),sub(bin_pow(2,l->ss),1)),l->ff)));
+                    }
+                }
+            }
+        }
     }
+    if(m.count (4) && m.count (2))r=add(r,add(2,mul(2,mul(mul(sub(bin_pow(2,m[2]),1),sub(bin_pow(2,m[4]),1)),4))));
     cout << r << endl;
     return 0;
 }
 
 signed main(){
-    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    //ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     int t = 1;//cin>>t;
     while(t--){
         run_case();
     }
     return 0;
 }
+  

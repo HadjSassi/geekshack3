@@ -1,22 +1,18 @@
-try:
-    n, k = map(int, input().split())
-    l = []
+n, k = map(int, input().split())
+l = []
 
-    for _ in range(n):
-        x = map(int, input().split())
-        l.extend(x)
+x=map(int,input().split())
+l.extend(x)
 
 
-    for _ in range(k):
-        d = max(l)
-        l.remove(d)
+for _ in range(k):
+    d = max(l)
+    l.remove(d)
 
-    print(sum(l))
-except EOFError:
-    pass
+print(sum(l))
     
 
 
 
 
-    
+      

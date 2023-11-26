@@ -17,10 +17,11 @@ def total_strength(n, strengths):
 
     return total
 
-# Input
+
 n = int(input())
 strengths = list(map(int, input().split()))
 
-# Output
+
 result = total_strength(n, strengths)
 print(result)
+ 

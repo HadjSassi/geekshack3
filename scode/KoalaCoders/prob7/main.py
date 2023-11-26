@@ -30,4 +30,4 @@ for i in range(len(r)):
     lista.append(score)
 ind = lista.index(min(lista))
 print(min(lista))
- 
+   

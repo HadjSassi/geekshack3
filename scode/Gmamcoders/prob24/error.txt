@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob24/main.py", line 10, in <module>
+    result =egale(N, A, XA, B, XB)
+  File "/var/www/html/scode/Gmamcoders/prob24/main.py", line 5, in egale
+    if i % XA == 0 and i % XB == 0 and (i// XA) * A == (ti // XB) * B:
+NameError: name 'ti' is not defined. Did you mean: 'i'?

@@ -1,30 +1,21 @@
-def min_paint_time(layers, times):
-    n = len(times[0])
-    
-    # Initialize a 2D list to store the minimum time to paint each layer for each room
-    dp = [[0] * n for _ in range(layers)]
-    
-    # Fill in the dp array
-    for i in range(layers):
-        for j in range(n):
-            # Base case: if it's the first layer, the minimum time is the time given for that layer
-            if i == 0:
-                dp[i][j] = times[i][j]
-            else:
-                # For subsequent layers, calculate the minimum time by adding the current layer's time
-                # and the minimum time of the previous layer
-                dp[i][j] = times[i][j] + min(dp[i - 1][(j + k) % n] for k in range(n))
-    
-    # The result is the minimum time to paint the last layer in any room
-    return min(dp[-1])
+def min_time_to_paint(n, layers):
+    dp = [float('inf')] * (n + 1)
+    dp[0] = 0
 
-# Input
+    for i in range(1, n + 1):
+        for j in range(i):
+            room_times = [layers[k][i - 1] for k in range(j, i)]
+            dp[i] = min(dp[i], dp[j] + sum(room_times))
+
+    return dp[n]
+
+# Read input
 n = int(input())
-times = []
-for _ in range(n):
-    layer_times = list(map(int, input().split()))
-    times.append(layer_times)
+layers = [list(map(int, input().split())) for _ in range(n)]
 
-# Output
-result = min_paint_time(n, times)
+# Transpose the 2D list to properly handle the layers
+layers = list(map(list, zip(*layers)))
+
+# Calculate and print the result
+result = min_time_to_paint(n, layers)
 print(result)

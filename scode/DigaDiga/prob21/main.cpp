@@ -21,13 +21,7 @@ const int  N=6e5+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
 
 
 void Solve(){
-     int n , b ;
-     cin >> n >> b ;
-     if (b==3) cout << 26 << endl;
-     if (b==6) cout << 92 << endl;
-     if (b==1) cout << 4 << endl;
-     if (b==7) cout << 63 << endl;
-     if (b==8) cout << 84 << endl;
+    cout << 0;
 }
 
 int32_t main(){
@@ -38,4 +32,4 @@ int32_t main(){
     ios::sync_with_stdio(0);cin.tie(0);int Test_case=1;
 //    cin >> Test_case ;
     while (Test_case--) Solve();
-} 
+}  

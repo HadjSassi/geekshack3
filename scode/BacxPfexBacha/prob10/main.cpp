@@ -61,11 +61,11 @@ void solve() {
 
      double d = calc(x1,y1,z1,r_1,x2,y2,z2,r_2);
      if (r_1 + r_2 <= d){
-        cout<<0;
+        cout<<"0.000";
         return;
      }
 
-     if (abs(d - (max(r_1,r_2) - min(r_1,r_2)))<=0.0001){
+     if (abs(d - (max(r_1,r_2) - min(r_1,r_2)))<=0.001){
 //        cout<<0;
         ld ans = vol(x1, y1, z1, r_1);
         cout << fixed << setprecision(3) << ans;
@@ -135,3 +135,4 @@ int main() {
         solve();
     }
 }
+ 

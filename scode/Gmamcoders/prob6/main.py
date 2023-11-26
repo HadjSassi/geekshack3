@@ -12,7 +12,7 @@ def encode(n, s):
 def decode(n, s):
     l=diviseur(n)
     for d in l:
-        s =s+s[d-1:-1:-1]
+        s =s+s[-1:d:1]
     return s
 n = int(input())
 a,s=map(str,input().split())
@@ -22,4 +22,4 @@ if a == "D":
 else:
     print( encode(n, s))
 
-      
+       

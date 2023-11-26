@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/KoalaCoders/prob22/main.py", line 24, in <module>
-    n=int(input())
-ValueError: invalid literal for int() with base 10: 'eugezbzzcatozjfwugdzvkitavlqzevnsxohtavvwwvrxndkazzffjosfduybbzfvkqbaznhneaptnblucjbnhcunkgleaevbgtjbaduwzymjwogqivzgvixrfiuozqweqszjymlyexuyjxxkbqsehwyanjwtkepvgpzpbrvbtwswswnfvsbaaywxnhbuwhemhltdgj

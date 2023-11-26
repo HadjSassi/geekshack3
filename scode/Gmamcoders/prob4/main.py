@@ -1,20 +1,26 @@
-l, h, x, y, vx, vy, K = map(int, input().split())
-for i in range(K):
-    if vx > 0 :
-      t = x + vx 
-    if vx < 0:
-     t=(l - x) +vx  
-   
-    if vy > 0:
-      t=y + vy 
-    if vy < 0 :
-      t=(h - y) + vy 
-   
-    x += vx * t
-    y += vy * t
-    
-    if (t == x + vx ): 
-     vx = -vx 
-    if (t == y + vy) :
-     vy = -vy 
-print(x, y) 
+ a--;
+ test1==1;
+ }
+ else if (test1==1)
+ {x=x-vy;
+ y=y+vy;
+ a--;}
+ else if(x+vy==l)
+  {x=x+vy;
+  y=y+vy;
+  a--;}
+
+
+ else {
+ x=x+y;
+ if(test==0)
+   y=h;
+ else
+ y=0;
+ test=1;
+ a--;
+ }
+
+ }
+ printf("%d %d",x,y);
+

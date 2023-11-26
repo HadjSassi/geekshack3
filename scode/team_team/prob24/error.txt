@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/team_team/prob24/main.py", line 12, in <module>
+    for i in range(int(x)):
+NameError: name 'x' is not defined. Did you mean: 'xa'?

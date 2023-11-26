@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/TeamDigital/prob18/main.py", line 2, in <module>
+    cmd, e =input().split()
+ValueError: too many values to unpack (expected 2)

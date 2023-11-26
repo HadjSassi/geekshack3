@@ -16,4 +16,4 @@ for i in range(x[0],x[1]+1) :
             break
     if (test and nb == 1) :
         n += 1
-print(n)
+print(n) 

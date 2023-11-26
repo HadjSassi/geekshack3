@@ -21,7 +21,21 @@ int n , m ;
 const int  N=6e5+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
 
 void Solve(){
-    cout << 1 << endl;
+    string s ;
+    int one = 0 , two = 0 , ans = 0;
+    cin >> s;
+    for (char c : s){
+        if (c == 't'){
+            one ++ ;
+
+        }else {
+            two ++ ;
+        }
+    }
+    if (one == two && two) cout << 1 << endl;
+    else if (one == s.size() && one ) cout << s.size() +1 ;
+    else cout << ans << endl;
+
 }
 
 int32_t main(){

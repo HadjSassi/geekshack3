@@ -1,0 +1,10 @@
+Main.java:9: error: unmappable character (0xE6) for encoding US-ASCII
+    public static class BIT{ // ???: 1-index
+                                ^
+Main.java:9: error: unmappable character (0xB3) for encoding US-ASCII
+    public static class BIT{ // ???: 1-index
+                                 ^
+Main.java:9: error: unmappable character (0xA8) for encoding US-ASCII
+    public static class BIT{ // ???: 1-index
+                                  ^
+3 errors

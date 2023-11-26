@@ -1,83 +1,80 @@
-/*#include <iostream>
-#include<bits/stdc++.h>
-using  namespace  std;
-int main()
-{
-    int t;
-    cin>>t;
-    while(t--)
-    {
-        int n;
-        cin>>n;
-        int ar[n+3];
-        for(int i=0;i<n;i++)cin>>ar[i];
-        vector<int>v;
-        int i=0;
-        int j=n-1;
-        while(i<j)
-        {
-            v.push_back(ar[i]);
-            v.push_back(ar[j]);
-            i++;
-            j--;
-        }
-        if(n%2==1)v.push_back(ar[i]);
-        for(int i=0;i<n;i++)cout<<v[i]<<" ";
-        cout<<endl;
-    }
-    return 0;
-}  */
-// C program to count total number of special sequences
-// of length N where
-#include <stdio.h>
+// C++ code to implement the approach 
 
-// DP based function to find the number of special
-// sequences
-int getTotalNumberOfSequences(int m, int n)
-{
-		// define T and build in bottom manner to store
-		// number of special sequences of length n and
-		// maximum value m
-		int T[m+1][n+1];
-		for (int i=0; i<m+1; i++)
-		{
-			for (int j=0; j<n+1; j++)
-			{
-				// Base case : If length of sequence is 0
-				// or maximum value is 0, there cannot
-				// exist any special sequence
-				if (i == 0 || j == 0)
-					T[i][j] = 0;
+#include <bits/stdc++.h> 
+using namespace std; 
 
-				// if length of sequence is more than
-				// the maximum value, special sequence
-				// cannot exist
-				else if (i < j)
-					T[i][j] = 0;
+vector<int> arr; 
+map<vector<int>, int> memo; 
+int n = arr.size(); 
 
-				// If length of sequence is 1 then the
-				// number of special sequences is equal
-				// to the maximum value
-				// For example with maximum value 2 and
-				// length 1, there can be 2 special
-				// sequences {1}, {2}
-				else if (j == 1)
-					T[i][j] = i;
+// recursive top down memoized solution 
+int solve(int i, int j) 
+{ 
+	if ((i > j) || (i >= n) || (j < 0)) 
+		return 0; 
 
-				// otherwise calculate
-				else
-					T[i][j] = T[i-1][j] + T[i/2][j-1];
-			}
-		}
-		return T[m][n];
-}
+	vector<int> k{ i, j }; 
+	if (memo[k] != 0) 
+		return memo[k]; 
 
-// Driver Code
-int main()
-{
-	int m = 10;
-	int n = 4;
-	printf("Total number of possible sequences %d",
-				getTotalNumberOfSequences(m, n));
-	return 0;
-}
+	// if the user chooses ith coin, the opponent can choose 
+	// from i+1th or jth coin. if he chooses i+1th coin, 
+	// user is left with [i+2,j] range. if opp chooses jth 
+	// coin, then user is left with [i+1,j-1] range to 
+	// choose from. Also opponent tries to choose in such a 
+	// way that the user has minimum value left. 
+	int option1 
+		= arr[i] 
+		+ min(solve(i + 2, j), solve(i + 1, j - 1)); 
+
+	// if user chooses jth coin, opponent can choose ith 
+	// coin or j-1th coin. if opp chooses ith coin,user can 
+	// choose in range [i+1,j-1]. if opp chooses j-1th coin, 
+	// user can choose in range [i,j-2]. 
+	int option2 
+		= arr[j] 
+		+ min(solve(i + 1, j - 1), solve(i, j - 2)); 
+
+	// since the user wants to get maximum money 
+	memo[k] = max(option1, option2); 
+	return memo[k]; 
+} 
+
+int optimalStrategyOfGame() 
+{ 
+
+	memo.clear(); 
+	return solve(0, n - 1); 
+} 
+
+// Driver code 
+int main() 
+{ 
+	arr.push_back(8); 
+	arr.push_back(15); 
+	arr.push_back(3); 
+	arr.push_back(7); 
+	n = arr.size(); 
+	cout << optimalStrategyOfGame() << endl; 
+
+	arr.clear(); 
+	arr.push_back(2); 
+	arr.push_back(2); 
+	arr.push_back(2); 
+	arr.push_back(2); 
+	n = arr.size(); 
+	cout << optimalStrategyOfGame() << endl; 
+
+	arr.clear(); 
+	arr.push_back(20); 
+	arr.push_back(30); 
+	arr.push_back(2); 
+	arr.push_back(2); 
+	arr.push_back(2); 
+	arr.push_back(10); 
+	n = arr.size(); 
+	cout << optimalStrategyOfGame() << endl; 
+} 
+
+// This code is contributed by phasing17
+ 

@@ -70,3 +70,4 @@ for i in range(k):
         vx = -vx
     x,y=position[0],position[1]
 print(int(x),int(y))
+ 

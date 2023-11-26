@@ -21,3 +21,4 @@ word=input()
 c=nb(word)
 print(c)
         
+ 

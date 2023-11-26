@@ -1,4 +1,4 @@
 Traceback (most recent call last):
-  File "/var/www/html/scode/Gmamcoders/prob19/main.py", line 15, in <module>
-    x=input()
+  File "/var/www/html/scode/Gmamcoders/prob19/main.py", line 4, in <module>
+    d=input()
 EOFError: EOF when reading a line

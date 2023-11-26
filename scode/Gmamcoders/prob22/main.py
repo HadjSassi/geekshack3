@@ -5,9 +5,14 @@ def change(s):
         if(s[i]== s[n-i-1]):
             continue
         if(s[i]<s[n-i-1]):
-            s[n-i-1]= s[i]
+            x=s[n-i-2]
+            s[n-i-1]=s[i+1]
+            s[i+1]=x
+            
         else:
-            s[i]= s[n-i-1]
+            x=s[n-i-2]
+            s[n-i-1]=s[i+1]
+            s[i+1]=x
     print(*s, sep ="")
-s=input() 
-change(list(s))
+s=input().lower() 
+change(list(s))  

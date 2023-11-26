@@ -17,4 +17,4 @@ else:
                 l[d]=l[g]
                 d+=1
                 g-=1
-    print(''.join(l))   
+    print(''.join(l))    

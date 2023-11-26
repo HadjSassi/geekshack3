@@ -1,44 +1,92 @@
-nl,nc=map(int,input().split())
-l=[]
-for i in range(nl):
-    l=l+[input()]
-def vert_win(letter):
-    for x in range(nl-1, -1, -1):
-        for y in range(nc):
-            try:
-                if l[x][y] == l[x - 1][y] == l[x - 2][y] == l[x - 3][y] == letter:
+def cwining(m, p):
+    r = len(m)
+    cols = len(m[0])
+
+    def test_line(row, col, dr, dc):
+        for _ in range(3):
+            row += dr
+            col += dc
+            if not (0 <= row < r and 0 <= col < cols) or m[row][col] != p:
+                return False
+        return True
+
+    for row in range(r):
+        for col in range(cols):
+            if m[row][col] == 0:
+                if col <= cols - 4 and test_line(row, col, 0, 1):
                     return True
-                else:
-                    continue
-            except IndexError:
-                continue
-def horiz_win(letter):
-    for x in range(nl-1, -1, -1):
-        for y in range(nc):
-            try:
-                if l[x][y] == l[x][y + 1] == l[x][y + 2] == l[x][y + 3] == letter:
+                if row <= r - 4 and test_line(row, col, 1, 0):
                     return True
-                else:
-                    continue
-            except IndexError:
-                continue
+                if row <= r - 4 and col <= cols - 4 and test_line(row, col, 1, 1):
+                    return True
+                if row >= 3 and col <= cols - 4 and test_line(row, col, -1, 1):
+                    return True
+
+    return False
+def test_connect_four(m):
+    r = len(m)
+    cols = len(m[0])
+
+    def test_line(row, col, dr, dc):
+        p = m[row][col]
+        if p == 0:
+            return False
+
+        for _ in range(3):
+            row += dr
+            col += dc
+            if not (0 <= row < r and 0 <= col < cols) or m[row][col] != p:
+                return False
+
+        return True
+
+    def count_p_pieces(p):
+        return sum(row.count(p) for row in m)
+
+    def predict_next():
+        count_p_1 = count_p_pieces(1)
+        count_p_2 = count_p_pieces(2)
+
+        if count_p_1 > count_p_2:
+            return 2
+        else:
+            return 1
+
+    next = predict_next()
+
+    for row in range(r):
+        for col in range(cols):
+            if col <= cols - 4 and test_line(row, col, 0, 1):
+                return next, m[row][col]
+            if row <= r - 4 and test_line(row, col, 1, 0):
+                return next, m[row][col]
+            if row <= r - 4 and col <= cols - 4 and test_line(row, col, 1, 1):
+                return next, m[row][col]
+            if row >= 3 and col <= cols - 4 and test_line(row, col, -1, 1):
+                return next, m[row][col]
+
+    return next, 0
+
+roo,coo = map(int,input().split())
+board =[]
+for j in range(roo):
+    ch = input()
+    board.append([int(x) for x in ch])
+
+next, winner = test_connect_four(board)
+
+if winner == 0:
+    print(next*cwining(board,next))
+else:
+    print(winner)
 
 
-def diag_win(letter):
-    for x in range(nl-1, -1, -1):
-        for y in range(nc):
-            try:
-                if l[x][y] == l[x - 1][y + 1] == l[x - 2][y + 2] == l[x - 3][y + 3] == letter:
-                    return True
-                elif l[x][y] == l[x - 1][y - 1] == l[x - 2][y - 2] == l[x - 3][y - 3] == letter:
-                    return True
-            except IndexError:
-                continue
 
-if vert_win('1')or horiz_win('1')or diag_win('1') :
-        print(1)
 
-elif vert_win('2')or horiz_win('2')or diag_win('2'):
-        print(2)
-else :
-    print(0)
+
+
+
+
+
+
+

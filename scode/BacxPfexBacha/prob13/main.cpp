@@ -58,6 +58,8 @@ void check(string x){
     }
     if(gcd>1) ans+=c.size()*gcd;
     ans%=mod;
+    ans+=mod;
+    ans%=mod;
 
 }
 void brute(string val){
@@ -93,4 +95,5 @@ int main() {
         solve();
     }
 }
-    
+
+ 

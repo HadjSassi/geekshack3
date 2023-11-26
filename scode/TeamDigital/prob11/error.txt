@@ -1,7 +1,4 @@
-main.cpp: In function 'int solve(int*, int)':
-main.cpp:11:9: error: 'currentgcd' was not declared in this scope
-   11 |         currentgcd = gcd(currentgcd, health[i]);
-      |         ^~~~~~~~~~
-main.cpp:13:12: error: 'currentgcd' was not declared in this scope
-   13 |     return currentgcd;
-      |            ^~~~~~~~~~
+Traceback (most recent call last):
+  File "/var/www/html/scode/TeamDigital/prob11/main.py", line 7, in <module>
+    hi=int(qi)
+ValueError: invalid literal for int() with base 10: '137 799 937 241 514 476 87 88 210 435 778 205 279 43 705 410 22 965 154 156 204 935 407 838 709 697 525 285 999 39 563 421 771 194 143 21 966 178 861 240 601 158 778 652 517 247 472 873 579 446 383 4

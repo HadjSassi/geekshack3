@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Cyber_crew/prob20/main.py", line 20, in <module>
+    s.append(t[j][i])
+IndexError: list index out of range

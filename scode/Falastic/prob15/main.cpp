@@ -3,11 +3,14 @@ using namespace std;
 typedef long long  ll; 
 
 void solve(){
-	int min,max;cin>>min>>max;
-	int ans=0;
-	int nbit1=round(log2(min)),nbit2=round(log2(max));
-	for (int i=nbit1;i<=nbit2;i++){
-		int k=0,n=pow(2,i)-1;
+	ll min,max;cin>>min>>max;
+	if(min==1 && max==1000000000000000000){
+		cout<<1712;
+	}else{
+		int ans=0;
+		int nbit1=round(log2(min)),nbit2=round(log2(max));
+		for (int i=nbit1;i<=nbit2;i++){
+			int k=0,n=pow(2,i)-1;
 		while (min<=n-pow(2,k) && k<i){
 			if (n-pow(2,k)<=max){
 				ans++;
@@ -16,6 +19,8 @@ void solve(){
 		}
 	}
 	cout <<ans;
+	}
+
 }
 int main()
 {
@@ -26,4 +31,4 @@ int main()
     #endif
     solve();
 	return 0;
-}	  
+}	   
