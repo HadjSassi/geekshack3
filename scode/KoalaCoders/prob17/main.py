@@ -1,24 +1,38 @@
-ch=input()
-l=[ch]
-i=1
-def cpt(ch,c):
-    s=0
-    for i in range(len(ch) - 1):
-        if ch[i:].find(c)==0:
-            s+=1
-    return s
+def honction(ch):
+    l=[]
+    ch2 = ch
+    while ch2.find('tt')!=-1 :
+        p=ch2.find('tt')
+        #print(ch2)
+        ch1=ch[:p]+'v'+ch[p+2::]
+        l.append(ch1)
+        ch2=ch2[:p]+'*'+ch2[p+1::]
+    ch2=ch
+    while ch2.find('vv')!=-1 :
+        p=ch2.find('vv')
+        #print(ch2)
+        ch1=ch[:p]+'t'+ch[p+2::]
+        l.append(ch1)
+        ch2=ch2[:p]+'*'+ch2[p+1::]
+    return l
+def kamalt(S):
 
+    for i in S:
 
-while 'tt' in ch or 'vv' in ch:
-    ch = ch.replace('tt', 'v', 1)
-    if ch not in l:
-        l.append(ch)
-    ch = ch.replace('vv', 't', 1)
-    if ch not in l:
-        l.append(ch)
+        if (i.find("tt") != -1 or i.find("vv") != -1):
 
-for j in l :
-    i+= cpt(j,'tt')+cpt(j,'vv')
+            return False
+    return True
+k=[input()]
+s=honction(k[0])
+aux=[]
 
+while not(kamalt(s)):
 
-print(i)
+    aux =[]
+    for ch in s :
+        aux+=honction(ch)
+    k+=s
+    s=aux.copy()
+k+= s
+print(len(set(k)))

@@ -1,9 +1,7 @@
-rc=input()
 kc=input()
+rc=input()
 wc=input()
-if ((rc[2]==kc[2]==wc[2] )and ((rc[1]<kc[1]<wc[1])or(wc[1]<kc[1]<rc[1])))or((rc[1]==kc[1]==wc[1] )and ((rc[2]<kc[2]<wc[2])or(wc[2]<kc[2]<rc[2]))) :
+if(rc[1]==wc[1]==kc[1] and (wc[0]<kc[0]<rc[0] or rc[0]<kc[0]<wc[0]))  or (rc[0]==wc[0]==kc[0] and (wc[1]<kc[1]<rc[1] or rc[1]<kc[1]<wc[1])):
     print("NO")
 else:
-    print("YES") 
-
-
+    print("YES")   

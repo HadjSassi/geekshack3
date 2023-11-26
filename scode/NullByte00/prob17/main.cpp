@@ -42,4 +42,4 @@ int main() {
     //std::cout << possibilities.size() << std::endl;
     std::cout << sum;
     return 0;
-}
+} 

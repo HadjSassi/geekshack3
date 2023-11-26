@@ -13,4 +13,4 @@ if (d<abs(l1[-1]+abs(l2[-1]))):
 else :
     print("0.000")
   
- 
+   

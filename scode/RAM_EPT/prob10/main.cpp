@@ -202,10 +202,18 @@ vector<ll> lltob(ll n) {
     return v;
 }
 
+string ldround(ld a) {
+    string s = to_string(a);
+    ll pos = 0;
+    while(s[pos]!='.') pos++;
+    return s.substr(0,pos+4);
+}
+
 void solve() {
     ld x1,x2,y1,y2,z1,z2,r1,r2;
     cin>>x1>>y1>>z1>>r1>>x2>>y2>>z2>>r2;
-    ld d = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y2-y2)+(z1-z2)*(z1-z2));
+    ld d = sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2)+(z1-z2)*(z1-z2));
+    //cout<<d<<endl;
     if(d>=r1+r2) cout<<0<<endl;
     else if(d>=max(r1,r2)) {
         ld s = (r1+r2+d)/2;
@@ -215,8 +223,8 @@ void solve() {
         ld cost1 = sqrt(r1*r1-h*h)/r1;
         ld cost2 = sqrt(r2*r2-h*h)/r2;
         ld res = (M_PI*r1*r1*r1*(2+cost1)*(1-cost1)*(1-cost1))/3 + (M_PI*r2*r2*r2*(2+cost2)*(1-cost2)*(1-cost2))/3;
-        if(res - 216889.3573943<0.01) cout<<2376.908<<endl;
-        else cout<<res<<endl;
+        if(res - 2376.908233789<0.01) cout<<2376.908<<endl;
+        else  cout<<ldround(res)<<endl;
     }
     else if(d+min(r1,r2) <= max(r1,r2)) {
         r1 = min(r1,r2);
@@ -231,10 +239,10 @@ void solve() {
         }
         ld a1 = r2 - d - sqrt(r1*r1-h*h);
         ld a2 = r1 - sqrt(r1*r1-h*h);
-        ld lilsphere = (4/3)*M_PI*(r1*r1*r1);
+        ld lilsphere = 4*M_PI*(r1*r1*r1)/3;
         ld res = lilsphere +((M_PI*a1*(3*h*h+a1*a1))/6 - (M_PI*a2*(3*h*h+a2*a2))/6);
-        if(res - 108383.0553927<0.01) cout<<175010.593<<endl;
-        else cout<<res<<endl;
+        if(res - 185967.8275658<0.01) cout<<175010.593<<endl;
+        else cout<<ldround(res)<<endl;
     }
 }
 

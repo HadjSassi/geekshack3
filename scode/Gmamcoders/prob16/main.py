@@ -12,14 +12,14 @@ def count(graph, start, l):
                 s.append((n,distance + r))
     return ms
 def main():
-    n, m, s = map(int, input().split())
     graph = dict(list)
-    for _ in range(m):
+    for i in range(m):
         vi, ui, wi = map(int, input().split())
         graph[vi].append((ui, wi))
         graph[ui].append((vi, wi))
         l=int(input())
-        result=count(graph,s,l)
-    print(result)
-    for i in range(len(l)-1, -1, -1):
-         print(l[i], end=' ')
+        for i in range(m):
+          n, m, s = map(int, input().split())
+          result=count(graph,s,l)
+          print(result)
+   

@@ -1,3 +1,4 @@
+
 #include<bits/stdc++.h>
 
 #include<ext/pb_ds/assoc_container.hpp>
@@ -301,27 +302,41 @@ int count(vector<int> &v, ll m, ll n)
 
 
 
-map<ll,ll> dp[300001];
-
-ll fh(ll i,ll j,vll &a,vll &b)
-{
-    if (j<=0) return 0;
-    if (i<0 || j>2*i+2) return 1e18;
-    if (dp[i].count(j)) return dp[i][j];
-    return dp[i][j]= min(fh(i-1,j,a,b),min(a[i]+fh(i-1,j-1,a,b),b[i]+fh(i-1,j-2,a,b)));
-}
-
 void solve()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
-    cin >> k >> z;
-    vll a(k),b(k);
-    f(i,0,k)
+    cin >> n >> z;
+    vll dp(z+3,1e18),dp1(z+3,1e18);
+    vll a(n),b(n);
+    f(i,0,n)
     {
         cin >> a[i] ;
         cin >> b[i] ;
     }
-    cout << fh(k-1,z,a,b) << endl;
+    ll mn = 1e18;
+    dp1[0]=0;
+    f(i,0,n){
+      f(j,0,z+1){
+        if(dp1[j]==1e18){
+          continue;
+        }
+        dp[j]=min(dp1[j],dp[j]);
+        dp[j+1] = min(dp[j+1],dp1[j]+a[i]);
+        if(j>=z){
+            mn = min(mn , dp[j]);
+        }
+        if(j+1>=z){
+            mn = min(mn,dp[j+1]);
+        }
+        
+        dp[j+2]= min(dp[j+2],dp1[j]+b[i]);
+        if(j+2>=z){
+            mn = min(mn,dp[j+2]);
+        }
+      }
+      dp1=dp;
+    }
+    cout << mn << endl;
 }
 int main()
 {
@@ -335,9 +350,6 @@ int main()
   }
   return 0;
 }
-
-
-
 
 
 

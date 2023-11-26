@@ -1,21 +1,36 @@
 s=input()
-c=0
-l=[x for x in s]
-
-def isPalindrome(s):
-    return s == s[::-1]
-for i in range(len(l)-1):
-    if l[i]!=l[i+1] :
-        aux=l[i]
-        l[i]=l[i+1]
-        l[i+1]=aux
-        c+=1
-    if isPalindrome(''.join(l)) :
-            break
-            
-        
-s1=''.join(l)
-if isPalindrome(s1) :
-    print(c)
-else:
-    print("-1")  
+def minSwap(s):
+    strng = list(s)
+    unmp = {}
+    for i in strng:
+        unmp[i] = unmp.get(i,0)+1
+    odd = 0
+    result = 0
+    left = 0
+    right = len(strng)-1
+    for i in unmp:
+        if unmp[i]%2 != 0:
+            odd += 1
+    # If we found more than one odd number
+    if odd > 1:
+        return -1
+    while left < right:
+        l = left
+        r = right
+        while strng[l] != strng[r]:
+            r -= 1
+        if l == r:
+            # When we found odd element move towards middle
+            strng[r],strng[r+1] = strng[r+1],strng[r]
+            result += 1
+            continue
+        else:
+            # Normal element  move towards right of string
+            while r < right:
+                strng[r],strng[r+1] = strng[r+1],strng[r]
+                r += 1
+                result += 1
+        left += 1
+        right -= 1
+    return result
+print(minSwap(s))

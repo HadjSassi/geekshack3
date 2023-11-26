@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/AbtalAlDigital/prob19/main.py", line 10
+    if card[1]=="Q"
+                   ^
+SyntaxError: expected ':'

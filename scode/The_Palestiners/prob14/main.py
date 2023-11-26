@@ -8,4 +8,4 @@ def PalindromeSwapper(S):
         t = ''.join(c for c in t)  # rebuild string from list
         if t == t[::-1]: return t  # palindrome condition
         
-print(PalindromeSwapper(S))
+print(PalindromeSwapper(S)) 
