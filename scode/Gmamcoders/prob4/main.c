@@ -24,11 +24,10 @@ while(a>0)
 
 
  else {
- x=x+y;
  if(test==0)
    y=h;
  else
- y=0;
+ y=x;
  test=1;
  a--;
  }
@@ -37,4 +36,4 @@ while(a>0)
  printf("%d %d",x,y);
 
 
- } 
+ }   

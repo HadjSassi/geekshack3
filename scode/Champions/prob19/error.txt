@@ -1,0 +1,25 @@
+main.cpp: In function 'int main()':
+main.cpp:9:12: error: invalid types '__gnu_cxx::__alloc_traits<std::allocator<char>, char>::value_type {aka char}[int]' for array subscript
+    9 |    if(ch[i][0]==ch[i][0]&&ch[i][1]==ch[i+1][1]-1&&ch[i][1]==ch[i+1][1]-2) {
+      |            ^
+main.cpp:9:22: error: invalid types '__gnu_cxx::__alloc_traits<std::allocator<char>, char>::value_type {aka char}[int]' for array subscript
+    9 |    if(ch[i][0]==ch[i][0]&&ch[i][1]==ch[i+1][1]-1&&ch[i][1]==ch[i+1][1]-2) {
+      |                      ^
+main.cpp:9:32: error: invalid types '__gnu_cxx::__alloc_traits<std::allocator<char>, char>::value_type {aka char}[int]' for array subscript
+    9 |    if(ch[i][0]==ch[i][0]&&ch[i][1]==ch[i+1][1]-1&&ch[i][1]==ch[i+1][1]-2) {
+      |                                ^
+main.cpp:9:44: error: invalid types '__gnu_cxx::__alloc_traits<std::allocator<char>, char>::value_type {aka char}[int]' for array subscript
+    9 |    if(ch[i][0]==ch[i][0]&&ch[i][1]==ch[i+1][1]-1&&ch[i][1]==ch[i+1][1]-2) {
+      |                                            ^
+main.cpp:9:56: error: invalid types '__gnu_cxx::__alloc_traits<std::allocator<char>, char>::value_type {aka char}[int]' for array subscript
+    9 |    if(ch[i][0]==ch[i][0]&&ch[i][1]==ch[i+1][1]-1&&ch[i][1]==ch[i+1][1]-2) {
+      |                                                        ^
+main.cpp:9:68: error: invalid types '__gnu_cxx::__alloc_traits<std::allocator<char>, char>::value_type {aka char}[int]' for array subscript
+    9 |    if(ch[i][0]==ch[i][0]&&ch[i][1]==ch[i+1][1]-1&&ch[i][1]==ch[i+1][1]-2) {
+      |                                                                    ^
+main.cpp:13:10: error: 'i' was not declared in this scope
+   13 |    if(ch[i][1]==ch[j][1]&&ch[i][0]!=ch[i][1]){
+      |          ^
+main.cpp:13:20: error: 'j' was not declared in this scope
+   13 |    if(ch[i][1]==ch[j][1]&&ch[i][0]!=ch[i][1]){
+      |                    ^

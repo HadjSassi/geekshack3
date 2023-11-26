@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Black_light/prob13/main.py", line 20, in <module>
+    if pgcdn(l[:i]) > 1: 
+  File "/var/www/html/scode/Black_light/prob13/main.py", line 12, in pgcdn
+    p = pgcd(l[0], l[1])
+IndexError: tuple index out of range

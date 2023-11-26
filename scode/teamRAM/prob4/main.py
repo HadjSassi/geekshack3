@@ -15,4 +15,4 @@ def position(l, h, x, y, vx, vy, K):
             vy=-vy
     return x, y
 xfinal, yfinal = position(l, h, x, y, vx, vy, K)
-print(int(xfinal),int(yfinal))
+print(int(xfinal),int(yfinal)) 

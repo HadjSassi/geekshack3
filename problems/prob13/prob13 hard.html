@@ -1,0 +1,335 @@
+<link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet">
+<meta charset="utf-8" />
+<script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+       tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
+    });
+</script>
+<style>
+    .title {
+        font-weight: 700;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+
+    .container {
+        width: 100%;
+        grid-template-columns: 2fr 2fr 1fr;
+        grid-template-rows: 80px 2fr 50px 1fr 20px;
+        gap: 2px;
+        font-family: 'Titillium Web', sans-serif;
+        box-sizing: border-box;
+        padding-left: 0;
+
+    }
+
+    /*.container div{
+    padding: 5px;
+   
+}*/
+
+    .header {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        border-radius: 5px;
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        font-size: 18px;
+        color: cornsilk;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+
+    /* .header ul{
+    margin: 15px 50px;
+} */
+    .header .li_container {
+        display: flex;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+
+    .header .li_container .icon {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(116, 253, 230, 0.877);
+        border-radius: 20px;
+        display: flex;
+        color: rgb(11, 11, 41);
+        align-items: center;
+        justify-content: center;
+        float: right;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+
+    .content1, .content21, .content22, .content3, .content4, .content5, .content6 {
+        font-family: 'Titillium Web', sans-serif;
+        border-radius: 5px;
+    }
+
+    .content1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-weight: 600;
+        font-size: 15px;
+        padding: 5px 40px;
+
+    }
+
+    .content21 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 2;
+        grid-row-end: 3;
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 5px 0px;
+    }
+
+    .content22,
+    .content6 p {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    .content3 {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        grid-row-start: 3;
+        padding: 0.5em auto;
+        grid-row-end: 4;
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        color: cornsilk;
+    }
+
+    .content3 .li_container {
+        display: flex;
+        align-items: center;
+        margin-left: 0px;
+    }
+
+    .content3 .li_container .icon {
+        width: 30px;
+        height: 30px;
+        background-color: rgba(13, 23, 54, 0.877);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 20px;
+    }
+
+    .content4 {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 4;
+        justify-content: center;
+        display: flex;
+        grid-row-end: 5;
+        padding: 10px 40px;
+    }
+
+    .content_table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        min-width: fit-content;
+
+    }
+
+    .content_table thead tr {
+        color: cornsilk;
+        letter-spacing: 8px;
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        text-align: left;
+    }
+
+    .content_table tbody tr {
+        font-weight: bolder;
+    }
+
+    .content_table th,
+    .content_table td {
+        letter-spacing: 5px;
+        padding: 12px 15px;
+    }
+
+    /* .content_table tbody tr {
+
+    }
+
+    .content_table tbody td {
+
+    }
+
+    .content_table thead th {
+    } */
+
+    .content_table tbody tr:nth-of-type(even) {
+        background-color: #858585;
+    }
+
+    /* .content_table tbody tr:last-of-type {
+        border-bottom: 2px solid rgba(48, 81, 190, 0.877);
+    } */
+
+    .content5 {
+        grid-column-start: 2;
+        grid-column-end: 3;
+        grid-row-start: 4;
+        grid-row-end: 5;
+
+        padding: 0 15px;
+    }
+
+    .content6 {
+        grid-column-start: 3;
+        grid-column-end: 4;
+        grid-row-start: 4;
+        grid-row-end: 5;
+        padding: 25px 0;
+        padding: 25px 15px;
+
+    }
+
+    .content6 p {
+        font-weight: bold;
+    }
+
+    .footer {
+        grid-column-start: 1;
+        grid-column-end: 4;
+        margin: 2em auto;
+        padding: 5px 0;
+        font-weight: 500;
+        border-radius: 5px;
+        background-image: linear-gradient(115deg, #25304e 1%, #010c24);
+        color: white;
+        font-family: 'Titillium Web', sans-serif;
+
+    }
+</style>
+<div class="container" style="overflow: hidden;">
+    <div class="header" style="padding: 3px 0;">
+        <ul style="margin: 5px auto ;">
+            <li>
+                <div class="title"> Hannibal's Army</div>
+                <div class="li_container">
+                    <!-- <div class="icon">
+                        <i class="fas fa-code"></i>
+                    </div> -->
+                </div>
+            </li>
+        </ul>
+
+    </div>
+    <div class="content1" style="word-break:break-word;">
+        <img style="margin-left: 20%" width="50%" src="../../assets/problemsPics/hannibal-.jpg" alt="">
+        <p>
+            In the midst of an epic battle between Hannibal's Carthaginian army and the formidable Roman legions, the fate of empires hangs in the balance.<br>
+            To assess the might of his army, Hannibal has devised a unique method that involves evaluating the strength of his clans.<br>
+            <br>
+            Hannibal commands an army consisting of \(n\) soldiers, each possessing a distinct level of strength.<br>
+            The strength of the \(i\)-th soldier is represented by the integer \(a_i\).<br>
+            Hannibal's soldiers form clans based on their strengths, and the commander calculates the power of these clans to determine his army's overall strength.<br>
+            <br>
+            For some integer \(k\), he calls \(i_1, i_2, ..., i_k\) a clan only if \(i_1 < i_2 < i_3 < ... < i_k\) and \(\text{gcd}(a_{i_1}, a_{i_2}, ..., a_{i_k}) > 1\).<br>
+            The strength of a clan is determined by \(k \cdot \text{gcd}(a_{i_1}, a_{i_2}, ..., a_{i_k})\)<br>
+            <br>
+            Hannibal seeks your assistance in determining the total strength of his Carthaginian army. As the outcome of this war hinges on this calculation,<br>
+            he commands you to find the The summation of strengths across all potential clans.<br>
+            <br>
+            Your task is to help Hannibal by calculating the total strength of his army. Since the number may be quite large,<br>
+            you must print it modulo \(10^9 + 7\).<br>
+            <br>
+            \((\text{gcd})\) the greatest common divisor = the maximum possible integer so that each element of the sequence is divisible by it<br>
+            <br>
+            <i>Input:</i><br>
+            ** The first line contains an integer \(n\) (\(1 \leq n \leq 200000\)) — representing the number of soldiers in Hannibal's army.<br>
+            <br>
+            The second line contains \(n\) integers \(a_1, a_2, ..., a_n\) (\(1 \leq a_i \leq 1000000\)) — denoting the strengths of each soldier.<br>
+            <br>
+            <br>
+            <i>Output:</i><br>
+            ** Print a single integer — the total strength of Hannibal's Carthaginian army, modulo \(10^9 + 7\).
+            <br>
+            <br>
+            <i>Constraints:</i><br>
+            ** Time Limit : 5s
+        </p>
+</div>
+<div class="content3" style="padding: 2px 0;">
+    <ul>
+        <li>
+            <div class="li_container">
+                <!-- <div class="icon">
+                    <i class="far fa-keyboard"></i>
+                </div> -->
+                <div class="title" style="font-size:16px ;"> Example :</div>
+            </div>
+        </li>
+    </ul>
+</div>
+<div class="content4" style="color:#010c24;">
+    <table class="content_table">
+        <thead>
+        <tr>
+            <th>Input</th>
+            <th>Output</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>
+                3<br>
+                3 3 1<br>
+            </td>
+            <td>
+                12<br>
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<div class="content21">
+    <ul>
+        <li class="title" style="font-size:16px ;"> Notes</li>
+    </ul>
+    <ul class="content22">
+        <ol style="font-size: 12px;">
+            note: In this example the clans are {1}, {2}, {1, 2} so the answer will be 1*3 + 1*3 + 2*3 = 12
+        </ol>
+    </ul>
+</div>
+<div class="content5">
+
+</div>
+<!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
+    <div> explanation </div>
+    <p> caller, callar, recall are the only equivalent words.</p>
+</div> -->
+<div class="footer">
+    <ul>
+        <li style="font-weight: bold;">Quote</li>
+    </ul>
+    <ul>
+        <ol style="letter-spacing: 3px;">
+            "Debug your skills... <br> Compile your world"
+        </ol>
+    </ul>
+</div>
+
+
+</div>

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Falastic/prob18/main.py", line 3, in <module>
+    c=input()
+EOFError: EOF when reading a line

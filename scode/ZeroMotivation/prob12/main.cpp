@@ -17,8 +17,8 @@ int main()
         }
     int d = abs(x2 - x1), b = abs(y2 - y1);
     float c = d + b;
-    if (somx > 0)
-        cout << -1;
-    else
+    
+        
+   
         cout << ceil(c / k);
 }

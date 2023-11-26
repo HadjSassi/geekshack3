@@ -1,0 +1,10 @@
+main.c: In function 'main':
+main.c:3:1: error: unknown type name 'card'
+    3 | card Deck[72];
+      | ^~~~
+main.c:4:1: error: unknown type name 'card'
+    4 | card topCard = Deck[0];
+      | ^~~~
+main.c:5:1: error: unknown type name 'card'
+    5 | card bottomCard = Deck[72];
+      | ^~~~
