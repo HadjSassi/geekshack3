@@ -1,9 +1,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Titillium+Web&family=Ubuntu:wght@300&display=swap"
-    rel="stylesheet">
+      rel="stylesheet">
 <meta charset="utf-8" />
 <script type="text/javascript" async
-    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
-    </script>
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
        tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}
@@ -29,7 +29,7 @@
 
     /*.container div{
     padding: 5px;
-   
+
 }*/
 
     .header {
@@ -66,13 +66,7 @@
 
     }
 
-    .content1,
-    .content21,
-    .content22,
-    .content3,
-    .content4,
-    .content5,
-    .content6 {
+    .content1, .content21, .content22, .content3, .content4, .content5, .content6 {
         font-family: 'Titillium Web', sans-serif;
         border-radius: 5px;
     }
@@ -230,7 +224,7 @@
     <div class="header" style="padding: 3px 0;">
         <ul style="margin: 5px auto ;">
             <li>
-                <div class="title">Aycha's Painters</div>
+                <div class="title"> Lexico Palindromes </div>
                 <div class="li_container">
                     <!-- <div class="icon">
                         <i class="fas fa-code"></i>
@@ -242,37 +236,43 @@
     </div>
     <div class="content1" style="word-break:break-word;">
         <p>
-            Aycha has a group of painters specialized in house painting. <br>
-            She responded to a call for tenders to paint numerous rental houses and hotels belonging to a major businessman in the Maldives. <br>
-            After months of work, Aycha's group noticed that the project was running out of time and that there were still many large houses
-            to be painted. In order not to lose too much time, the group asked you as a specialist to help them predict whether
-            they would be able to finish all the houses before the deadline, by giving them the minimum time needed to
-            paint each house.<br>
-            We should mention here that the painting group will be divided into several
-            sub-teams according to the number of layers they will paint.<br>
-            Ps: layer lay+1 must be painted after layer lay has been completed.<br><br>
-            <i>Input:</i><br>
-            ** The input consists of n+1 lines.<br>
-            The first line provides an integer n (2≤ n ≤ 100) - represents the number of rooms in the house to be painted<br>
-            each of the following n lines
-            will provide a sequence of the number of hours the team involved in layer j must take to finish it in room i (the number of hours should be between 1 and 9 hours).
+            A palindromic string is a word that reads the same forwards and backwards. For instance, "lol", "oo", "r" ,and even the enigmatically long "cristianoronaldoodlanoronaitsirc" are all palindromes.<br>
+            However, strings like "app" and "xy" fall short of this definition.<br>
             <br>
+            You are presented with a string "s" consisting of lowercase English letters.<br>
+            And you have the power to change any letter at any position in the string to any other lowercase letter,<br>
+            all while maintaining the string's length. Moreover, you can rearrange the order of letters freely,<br>
+            and this rearrangement does not count as an operation.<br>
+            <br>
+            Your mission is two-fold:<br>
+            <br>
+            - Minimize Changes: Your first objective is to transform "s" into a palindrome while making as few changes as possible.<br>
+            <br>
+            - Alphabetical Minimization: In cases where multiple palindrome options require the same number of changes,<br>
+            you should opt for the alphabetically (lexicographically) smallest palindrome.<br>
+            <br>
+            Can you tackle this challenge and produce an alphabetically minimal palindrome while conserving changes?<br>
+            <br>
+            <i>Input:</i><br>
+            **The input consists of a single line containing the string "s" (1 ≤ |s| ≤ 2·10^5), made up entirely of lowercase English letters.<br>
             <br>
             <i>Output:</i><br>
-            **  Print an integer: The minimum number of hours Aycha's team must take to finish painting a house.
+            ** Output the alphabetically smallest palindrome that can be obtained with the minimal number of changes.
             <br>
             <br>
-            <i>Constraints:</i><br>
-            ** Time Limit : 1s
+            <i>Constraint:</i><br>
+            ** Time Limit 2s
+
         </p>
+
     </div>
     <div class="content3" style="padding: 2px 0;">
         <ul>
             <li>
                 <div class="li_container">
                     <!-- <div class="icon">
-                    <i class="far fa-keyboard"></i>
-                </div> -->
+                        <i class="far fa-keyboard"></i>
+                    </div> -->
                     <div class="title" style="font-size:16px ;"> Example :</div>
                 </div>
             </li>
@@ -281,33 +281,20 @@
     <div class="content4" style="color:#010c24;">
         <table class="content_table">
             <thead>
-                <tr>
-                    <th>Input</th>
-                    <th>Output</th>
-                </tr>
+            <tr>
+                <th>Input</th>
+                <th>Output</th>
+            </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>
-                        2<br>
-                        3 4 7 2 3 5<br>
-                        2 3 5 7 4 2<br>
-                    </td>
-                    <td>
-                        26<br>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        2<br>
-                        6 7 8 5 6<br>
-                        8 3 10 5 4<br>
-                    </td>
-                    <td>
-                        30<br>
-                    </td>
-                </tr>
-
+            <tr>
+                <td>aaqz</td>
+                <td>aqqa</td>
+            </tr>
+            <tr>
+                <td>aalcz</td>
+                <td>alcla</td>
+            </tr>
             </tbody>
         </table>
     </div>
@@ -317,9 +304,8 @@
         </ul>
         <ul class="content22">
             <ol style="font-size: 12px;">
-                In the second sample, Limak's interval contains numbers \(5_{10} = 101_2\), \(6_{10} = 110_2\), \(7_{10}
-                = 111_2\), \(8_{10} = 1000_2\), \(9_{10} = 1001_2\), and \(10_{10} = 1010_2\).<br>
-                Two of them (\(101_2\) and \(110_2\)) have the described property.<br>
+                In the second example, you can achieve 3 stars by completing levels 2 and 4 with 2 stars, requiring a total
+                of 14 moves.
             </ol>
         </ul>
     </div>-->
@@ -327,9 +313,9 @@
 
     </div>
     <!-- <div class="content6" style="color: rgba(48, 81, 190, 0.877); letter-spacing: 15px;">
-    <div> explanation </div>
-    <p> caller, callar, recall are the only equivalent words.</p>
-</div> -->
+        <div> explanation </div>
+        <p> caller, callar, recall are the only equivalent words.</p>
+    </div> -->
     <div class="footer">
         <ul>
             <li style="font-weight: bold;">Quote</li>

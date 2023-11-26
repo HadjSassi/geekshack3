@@ -2,7 +2,7 @@ ch=input()
 l=ch.split()
 l.sort()
 for i in range(len(l)):
-    if l[i][1]==A:
+    if l[i][1]=='A':
         l[i]=l[i][0]+'1'
     elif l[i][1]=='K':
         l[i]=l[i][0]+'13'
@@ -27,4 +27,4 @@ print(n)
     
         
     
-   
+    

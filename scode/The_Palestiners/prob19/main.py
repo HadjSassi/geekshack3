@@ -2,32 +2,44 @@ from itertools import combinations
 
 def calculate_score(cards):
     score = 0
-    for combo in cards:
-        if len(set(combo)) == 1:  # 3 or 4 of a kind
-            score += sum(combo)
-        elif all(card[1] == combo[0][1] for card in combo):  # Straight
-            score += sum(card[0] for card in combo)
+    counts = {}
+    suits = {}
+
+    for card in cards:
+        value, suit = card[:-1], card[-1]
+        counts[value] = counts.get(value, 0) + 1
+        suits[suit] = suits.get(suit, 0) + 1
+
+    for count in counts.values():
+        if count == 3:
+            score += 6
+        elif count == 4:
+            score += 12
+
+    for suit_count in suits.values():
+        if suit_count >= 3:
+            score += (suit_count * (suit_count + 1)) // 2
+
     return score
 
-def is_possible_to_score(cards):
-    max_score = 0
+def can_achieve_score(cards):
+    for subset_size in range(3, 5):
+        for subset in combinations(cards, subset_size):
+            subset_score = calculate_score(list(subset))
+            if subset_score > 72:
+                return True, subset_score
 
-    for r in range(3, 5):
-        for combo in combinations(cards, r):
-            max_score = max(max_score, calculate_score(combo))
+    return False, 0
 
-    return max_score > 72, max_score
+def main():
+    cards = input().split()
 
-# Input
-hand = input().split()
+    possible, highest_score = can_achieve_score(cards)
 
-# Check possibility and calculate the highest achievable score
-possible, max_score = is_possible_to_score(hand)
+    if possible:
+        print(f"YES {highest_score}")
+    else:
+        print("NO")
 
-# Output
-if possible:
-    print("YES")
-    print(max_score)
-else:
-    print("NO")
-
+if __name__ == "__main__":
+    main()

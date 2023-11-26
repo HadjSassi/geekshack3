@@ -44,12 +44,15 @@ void solve() {
     ll ones=0, twos=0;
     char tab[1005][1005];
     for (int i=0; i<n ; i++){
+        string ch; cin>>ch;
         for (int j=0; j<m ; j++){
-            cin>>tab[i][j];
+            tab[i][j] = ch[j];
             if (tab[i][j]=='1') ones++;
             if (tab[i][j]=='2') twos++;
         }
     }
+
+//    for (int i=0; o)
 
     for (char curr = '1'; curr<='2'; curr++){
 //        watch(curr);
@@ -57,22 +60,14 @@ void solve() {
             for (int j=0; j<m; j++){
                 bool ok = 1;
                 for (int k = 0 ; k<4; k++){
-                    if (j+k>=m || tab[i][j+k]!=curr) ok = 0;
+                    if (j+3>=m || tab[i][j+k]!=curr) ok = 0;
                 }
                 if (ok){
                     cout<<curr; return;
                 }
                 ok = 1;
                 for (int k = 0 ; k<4; k++){
-                    if (i+k>=n || tab[i+k][j]!=curr) ok = 0;
-                }
-                if (ok){
-                    cout<<curr; return;
-                }
-
-                ok = 1;
-                for (int k = 0 ; k<4; k++){
-                    if (i-k<0 || tab[i-k][j]!=curr) ok = 0;
+                    if (i+3>=n || tab[i+k][j]!=curr) ok = 0;
                 }
                 if (ok){
                     cout<<curr; return;
@@ -80,7 +75,15 @@ void solve() {
 
                 ok = 1;
                 for (int k = 0 ; k<4; k++){
-                    if (j-k<0 || tab[i][j-k]!=curr) ok = 0;
+                    if (i-3<0 || tab[i-k][j]!=curr) ok = 0;
+                }
+                if (ok){
+                    cout<<curr; return;
+                }
+
+                ok = 1;
+                for (int k = 0 ; k<4; k++){
+                    if (j-3<0 || tab[i][j-k]!=curr) ok = 0;
                 }
                 if (ok){
                     cout<<curr; return;
@@ -95,7 +98,7 @@ void solve() {
                     cout<<curr; return;
                 }
 
-                 ok = 1;
+                ok = 1;
                 for (int k = 0 ; k<4; k++){
                     if (i-3<0 || j-3<0 || tab[i-k][j-k]!=curr) ok = 0;
                 }
@@ -105,7 +108,7 @@ void solve() {
 
                  ok = 1;
                 for (int k = 0 ; k<4; k++){
-                    if (i+k>=n || j-k<0 || tab[i+k][j-k]!=curr) ok = 0;
+                    if (i+3>=n || j-3<0 || tab[i+k][j-k]!=curr) ok = 0;
                 }
                 if (ok){
                     cout<<curr; return;
@@ -113,7 +116,7 @@ void solve() {
 
                  ok = 1;
                 for (int k = 0 ; k<4; k++){
-                    if (i-k<0 || j+k>=m || tab[i-k][j+k]!=curr) ok = 0;
+                    if (i-3<0 || j+3>=m || tab[i-k][j+k]!=curr) ok = 0;
                 }
                 if (ok){
                     cout<<curr; return;
@@ -122,56 +125,63 @@ void solve() {
         }
     }
 
+//    if (ones+twos==(n*m)){
+//        cout<<0;
+//        return;
+//    }
+
 
 //    for (char curr = '1'; curr<='2'; curr++){
         char curr = '2';
         if (ones==twos) curr = '1';
+
+//        if (twos > ones) curr = '1';
 //        watch(curr);
 
      for (int i=0; i<n; i++){
         for (int j=0; j<m; j++){
             int needed = 0;
             for (int k = 0 ; k<4; k++){
-                if (j+k>=m) {needed = 2; break;}
+                if (j+3>=m) {needed = 2; break;}
                 else if (tab[i][j+k]==curr) continue;
-                else if (tab[i][j+k]=='0') needed++;
+                else if (tab[i][j+k]=='0' && (i==n-1 || tab[i+1][j+k]!='.')) needed++;
                 else {needed = 2; break;}
             }
-            if (needed<=1){
+            if (needed==1){
                 cout<<curr; return;
             }
 
             needed = 0;
             for (int k = 0 ; k<4; k++){
-                if (i+k>=n){needed = 2; break;}
+                if (i+3>=n){needed = 2; break;}
                 else if (tab[i+k][j]==curr) continue;
                 else if (tab[i+k][j]=='0') needed++;
                 else {needed = 2; break;}
             }
-            if (needed<=1){
+            if (needed==1){
                 cout<<curr; return;
             }
 
 
             needed = 0;
             for (int k = 0 ; k<4; k++){
-                if (i-k<0){needed = 2; break;}
+                if (i-3<0){needed = 2; break;}
                 else if (tab[i-k][j]==curr) continue;
                 else if (tab[i-k][j]=='0') needed++;
                 else {needed = 2; break;}
             }
-            if (needed<=1){
+            if (needed==1){
                 cout<<curr; return;
             }
 
             needed = 0;
             for (int k = 0 ; k<4; k++){
-                 if (j-k<0){needed = 2; break;}
+                 if (j-3<0){needed = 2; break;}
                  else if (tab[i][j-k]==curr) continue;
-                 else if (tab[i][j-k]=='0') needed++;
+                 else if (tab[i][j-k]=='0' && (i==n-1 || tab[i+1][j-k]!='.')) needed++;
                  else {needed = 2; break;}
             }
-            if (needed<=1){
+            if (needed==1){
                 cout<<curr; return;
             }
 
@@ -180,10 +190,10 @@ void solve() {
                 for (int k = 0 ; k<4; k++){
                      if (j+3>=m || i+3>=n){needed = 2; break;}
                      else if (tab[i+k][j+k]==curr) continue;
-                     else if (tab[i+k][j+k]=='0') needed++;
+                     else if (tab[i+k][j+k]=='0' && (i+k==n-1 || tab[i+k+1][j+k]!='.')) needed++;
                      else {needed = 2; break;}
                 }
-                if (needed<=1){
+                if (needed==1){
                     cout<<curr; return;
                 }
 
@@ -192,10 +202,10 @@ void solve() {
                 for (int k = 0 ; k<4; k++){
                      if (j-3<0 || i-3<0){needed = 2; break;}
                      else if (tab[i-k][j-k]==curr) continue;
-                     else if (tab[i-k][j-k]=='0') needed++;
+                     else if (tab[i-k][j-k]=='0' && (i-k==n-1 || tab[i-k+1][j-k]!='.'))  needed++;
                      else {needed = 2; break;}
                 }
-                if (needed<=1){
+                if (needed==1){
                     cout<<curr; return;
                 }
 
@@ -203,10 +213,10 @@ void solve() {
                 for (int k = 0 ; k<4; k++){
                      if (j+3>=m || i-3<0){needed = 2; break;}
                      else if (tab[i-k][j+k]==curr) continue;
-                     else if (tab[i-k][j+k]=='0') needed++;
+                     else if (tab[i-k][j+k]=='0' && (i-k==n-1 || tab[i-k+1][j+k]!='.')) needed++;
                      else {needed = 2; break;}
                 }
-                if (needed<=1){
+                if (needed==1){
                     cout<<curr; return;
                 }
 
@@ -214,14 +224,12 @@ void solve() {
                 for (int k = 0 ; k<4; k++){
                      if (j-3<0 || i+3>=n){needed = 2; break;}
                      else if (tab[i+k][j-k]==curr) continue;
-                     else if (tab[i+k][j-k]=='0') needed++;
+                     else if (tab[i+k][j-k]=='0' && (i+k==n-1 || tab[i+k+1][j-k]!='.')) needed++;
                      else {needed = 2; break;}
                 }
-                if (needed<=1){
+                if (needed==1){
                     cout<<curr; return;
                 }
-
-
         }
     }
     cout<<0;
@@ -243,3 +251,4 @@ int main() {
         solve();
     }
 }
+ 

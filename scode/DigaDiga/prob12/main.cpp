@@ -43,7 +43,7 @@ template<class T> struct Seg { // comb(ID,b) = b
         }return comb(ra,rb);
     }
 };
-const int N = 1010 ; 
+const int N = 1100 ; 
 Seg<ll> sr[N] , sc[N] ;
 char a[N][N] ; 
 ll l[N][N] , r[N][N] , u[N][N] , d[N][N] , dp[N][N]; 
@@ -144,9 +144,9 @@ void solve(){
             d[j][i] = min(j+k,lst-1) ; 
         }
     }
-    for(int i=0; i<=n+4  ; i++) sr[i].init(N) ; 
+    for(int i=0; i<=n  ; i++) sr[i].init(m+5) ; 
     
-    for(int i=0 ; i<=m+4 ; i++) sc[i].init(N) ; 
+    for(int i=0 ; i<=m ; i++) sc[i].init(n+5) ; 
     
     sr[x].upd(y,0) ; 
     sc[y].upd(x,0) ; 

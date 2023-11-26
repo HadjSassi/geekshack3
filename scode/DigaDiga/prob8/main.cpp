@@ -1,88 +1,72 @@
-#include <bits/stdc++.h>
-#include <ext/pb_ds/assoc_container.hpp> // Common file
-#include <ext/pb_ds/tree_policy.hpp> // Including tree_order_statistics_node_update
-// #ifndef ONLINE_JUDGE
-// #include "dbg.cpp"
-// #else
-// #define dbg(...)
-// #endif
-#define ll long long
-#define ld double
-#define endl "\n"    
-#define fast ios::sync_with_stdio(false);cout.tie(NULL);cin.tie(NULL);
+/*    _   __   ___    _   ____    _    _        _____    ___     _____
+     | | / /  / _ \  | | |  _ \  | |  | |      |___  |  / _ \   |  ___|
+     | |/ /  | |_| | | | | |_| | |  \/  |         / /  | |_| |  | |__
+     |   /   |  _  | | | |  _ /  | |\/| |        / /   |  _  |  |  __|
+     | |\ \  | | | | | | | | \ \ | |  | |       / /__  | | | |  | |
+     |_| \_\ |_| |_| |_| |_| |_| |_|  |_|      |_____| |_| |_|  |_|      */
+#include<bits/stdc++.h>
+#pragma GCC optimize("Ofast")
+#pragma optimize("unroll-loops")
+#pragma GCC target("avx2")
+typedef long long ll;
+using namespace std;
 #define pb push_back
-#define pp pop_back
-#define affichea(a,n) for(ll i=0 ; i<n ; i++) cout << a[i] <<" " ;
-#define yes cout << "Yes" << endl;
-#define no cout<<"No"<<endl;
 #define F first
 #define S second
-#define ull unsigned long long
-#define vint vector<int>
-#define vll vector<ll>
-#define double long double
-#define ordered_set tree<pair<ll, ll>, null_type, less<pair<ll, ll>>, rb_tree_tag,tree_order_statistics_node_update>
-const ll mod = 1e9+7 ;
-const ll inf = 1e18+500 ;
- 
-using namespace std ;
-using namespace __gnu_pbds;
- 
-ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
-ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
-ll inv(ll i) {if (i == 1) return 1; return (mod - ((mod / i) * inv(mod % i)) % mod) % mod;} 
+#define all(x) x.begin(),x.end()
+#define rall(x) x.rbegin(),x.rend()
+#define int ll
+#define endl '\n'
+
+const int  N=6e5+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
 
 
-map<string , int> dp ;
-
-int work(string &s){
-    int sz = (int)s.length() ; 
-    if(sz <= 1) return 0 ; 
-
-    if(dp.count(s)) return dp[s] ; 
-
-    int a[26][2] ; 
-    memset(a,-1,sizeof(a)) ; 
-
-    for(int i=0 ; i<sz ; i++){
-        if(a[s[i]-'a'][0]==-1) a[s[i]-'a'][0] = i ; 
-        else a[s[i]-'a'][1] = i ; 
-    } 
-    string st = "" ; 
-    int ans = 2e9 ; 
-    for(int i=0 ; i<26 ; i++){
-        if(a[i][0]==-1 || a[i][1]==-1) continue ; 
-        string g = "" ; 
-        for(int j=0 ; j<sz ; j++){
-            if(j==a[i][0] || j==a[i][1]) continue ; 
-            g += s[j] ; 
+void Solve(){
+    int n , one = 0, two = 0;
+    cin >> n ;
+    vector <int> v[n];
+    int begin [n] , last [n] ,sz[n];
+    set <pair <int,int>> rass , buttom;
+    for (int i=0 ;i<n ;i++){
+        int x ;
+        cin >> x;
+        last [i]= x-1 ;
+        begin[i]=0;
+        sz[i]=x ;
+        for (int j= 0 ; j<x; j++){
+            int z ; cin>> z ;
+            v[i].pb(z) ;
         }
-        ans = min(ans , a[i][0] + sz - 1 - a[i][1] + work(g)) ;
+        rass.insert({-v[i][0],i});
+        buttom.insert({-v[i][x-1],i});
     }
-    return dp[s] = ans ; 
-} 
-
-int occ[26] ; 
-
-void solve(){
-    string s ; 
-    cin >> s ; 
-    for(int i=0 ; i<(int)s.length() ; i++) occ[s[i]-'a']++ ; 
-    int c = 0 ; 
-    for(int i=0 ; i<26 ; i++) if(occ[i]&1) {
-        c++ ; 
+    while (!rass.empty()){
+        one -= (*rass.begin()).F;
+        int indx = (*rass.begin()).S ;
+        if (sz[indx]==1){
+            buttom.erase(*rass.begin());
+        }
+        rass.erase(*rass.begin());
+        begin[indx]++;
+        if (begin[indx]< last[indx])rass.insert({-v[indx][begin[indx]], indx});
+        if (buttom.empty()) break;
+        two -= (*buttom.begin()).F;
+        indx = (*buttom.begin()).S ;
+        if (sz[indx]==1){
+            rass.erase(*buttom.begin());
+        }buttom.erase(*buttom.begin());
+        last[indx]--;
+        if (begin[indx]< last[indx])buttom.insert({-v[indx][last[indx]], indx});
     }
-    if(c>1){
-        cout << -1 << endl ; 
-        return ; 
-    }
-    cout << work(s) << endl ; 
+    cout << one << " " << two << endl;
 }
 
-int main(){
-    fast 
-    ll t = 1 ; 
-    // cin >> t  ; 
-    while(t--) solve() ;
-    return 0;
-}  
+int32_t main(){
+//     #ifndef ONLINE_JUDGE
+//         freopen("/home/karim/Documents/Setup_Karim_Codeforces_november_14/input.txt","r",stdin);
+//         freopen("/home/karim/Documents/Setup_Karim_Codeforces_november_14/output.txt","w",stdout);
+//     #endif
+    ios::sync_with_stdio(0);cin.tie(0);int Test_case=1;
+//    cin >> Test_case ;
+    while (Test_case--) Solve();
+} 

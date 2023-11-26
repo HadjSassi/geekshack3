@@ -6,10 +6,7 @@ def occ(word,c):
         counter[letter] += 1
     return counter[c]
 n=int(input())
-while True:    
-    c=input()
-    if(len(c)==n):
-        break
+c=input()
 cpx=0
 i=1
 while(i<len(c)):

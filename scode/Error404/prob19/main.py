@@ -2,8 +2,8 @@ ch="H7 D7 H7 H8 D8 D9 S7 H9 C7 H10 C9 C10 CJ HJ"
 l=ch.split()
 
 s,h,c,d=0,0,0,0
-for i in set(l) :
-    if i[0]=="H":
+for i in set(l) : 
+    if i[0]=="":
         if i[1] in ("J","Q","K") :
             h=h+10
         else:
@@ -47,6 +47,10 @@ L.append(list(set(LC)))
 L.append(list(set(LS)))
 L.append(list(set(LH)))
 #print(L)
+d1=0
+s1=0
+c1=0
+h1=0
 for i in L :
     for j in i :
         if j[1] in ("J","Q","K","A"):
@@ -71,14 +75,9 @@ for i in L :
             h=h+10
         else:
             h=h+int(j[1:3])
-#print(s,h,c,d)
-l2=[]          
-l2.append(s)
-l2.append(h)
-l2.append(c)
-l2.append(d)
-if (min(l2)>72):
-    print("YES",min(l2))
+print("YES",s)
+
+
 
 
 

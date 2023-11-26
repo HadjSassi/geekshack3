@@ -15,8 +15,10 @@ int main()
                 t++;
         }
     }
-    if(t==36)
+    
+    if(t==n*m || t==36)
         printf("0");
+
 
     else if(r>y){
         for(i=0;i<n;i++){

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/teamRAM/prob22/main.py", line 34, in <module>
+    str = ''.join([str(item) for item in minSwap(s)])
+TypeError: 'int' object is not iterable

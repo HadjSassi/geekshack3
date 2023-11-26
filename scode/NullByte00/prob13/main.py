@@ -34,4 +34,4 @@ def calculate(subset):
 somme= 0
 for subset in subsets:
     somme+=(calculate(subset))
-print(somme) 
+print(somme)  

@@ -3,8 +3,8 @@
 using namespace std;
 
 //mt19937 RNG(chrono::steady_clock::now().time_since_epoch().count());
-#pragma GCC optimize("Ofast,unroll-loops")
-#pragma GCC target("avx,avx2,fma")
+//#pragma GCC optimize("Ofast,unroll-loops")
+//#pragma GCC target("avx,avx2,fma")
 //typedef __int128 lll;
 
 #define ll long long
@@ -36,62 +36,159 @@ void dbg(vector<ll> v){for (auto x : v) cout << x << " "; cout << endl;}
 void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
-const long long N=1e5;
-long long y[N];
-long long n,ans=0;
-bool vis[14]={0};
-void brute(int i,int lst,long long k,long long g){
-    //
 
-        if(g==-1){
-            g=y[i];
-        }
-        if(i==n){
-            return;
-        }
-        if(gcd(y[i],g)>1&&y[i]>lst){
-            ans+=gcd(g,y[i])*(k+1);
-            ans%=mod;
-           // cout<<i<<" ";
-            brute(i+1,y[i],k+1,gcd(y[i],g));
-        }
-        brute(i+1,lst,k,g);
+int position(string ch, int a, char car){
+    for (int i=a; i<ch.length(); i++){
+        if (ch[i]==car)
+            return i;
+    }
+    return 0;
+}
 
+
+ll calc(string ch){
+
+    ll res = 0;
+    ll curr = 1;
+    for (int i=sz(ch)-1; i>=0; i--){
+        res = res + curr * (ch[i]-'0');
+        curr*=10;
+    }
+    return res;
 
 }
 
-void solve() { 
-  
-  cin>>n;
-  for(int i=0;i<n;i++){
-    cin>>y[i];
-    if(y[i]>1) ans+=y[i];
-  }
-  brute(0,-1,0,-1);
-  cout<<ans<<endl;
+
+void solve() {
+    int n;cin>>n;
+    cin.ignore();
+    vector<ll>v1;
+//    v1.pb(0);
+    vector<ll>v2;
+//    v2.pb(0);
+
+    vector<ll>v3;
+    vector<ll>v4;
+    string ch1,ch2;
+    getline(cin, ch1);
+//    watch(ch1);
+//    cin>>ch2;
+
+    string curr = "";
+    for (int i=0; i<sz(ch1); i++){
+        if (ch1[i]==' '){
+//            watch(curr);
+            ll ans = 1;
+            if (sz(curr)==1) ans = curr[0] - '0';
+            else ans = calc(curr);
+//            cout<<ans<<"\n";
+            v1.pb(ans);
+            curr="";
+        }
+        else
+            curr+=ch1[i];
+    }
+    if (curr!=" "){
+            ll ans = 1;
+            if (sz(curr)==1) ans = curr[0] - '0';
+            else ans = calc(curr);
+//            cout<<ans<<"\n";
+            v1.pb(ans);
+    }
+//    dbg(v1);
+    getline(cin, ch2);
+
+    curr = "";
+    for (int i=0; i<sz(ch2); i++){
+        if (ch2[i]==' '){
+//            watch(curr);
+            ll ans = 1;
+            if (sz(curr)==1) ans = curr[0] - '0';
+            else ans = calc(curr);
+//            cout<<ans<<"\n";
+            v2.pb(ans);
+            curr="";
+        }
+        else
+            curr+=ch2[i];
+    }
+    if (curr!=" "){
+            ll ans = 1;
+            if (sz(curr)==1) ans = curr[0] - '0';
+            else ans = calc(curr);
+//            cout<<ans<<"\n";
+            v2.pb(ans);
+    }
+    for (int i=2; i<n; i++){
+        string test; getline(cin, test);
+    }
+//    dbg(v1);
+//    dbg(v2);
+
+//
+    ll somme=0;
+    int k=0;
+    v3.pb(0);
+    v4.pb(0);
+    while(k<(int)(v1.size())-1){
+        ll minimum=1e9;
+        int pos=-1;
+        for (int i=0; i<v1.size(); i++){
+            if ((v1[i]-v2[i])<minimum){
+                pos= i;
+                minimum=v1[i]-v2[i];
+            }
+        }
+        k++;
+        //cout<<pos<<"->";
+        v3.push_back(v1[pos]);
+        v4.push_back(v2[pos]);
+        v1[pos]=1e9;
+        v2[pos]=0;
+    }
+
+    ll minimum=1e9;
+    int pos=0;
+    for (int i=0; i<v1.size(); i++){
+        if ((v1[i]-v2[i])<minimum){
+            pos= i;
+            minimum=v1[i]-v2[i];
+        }
+    }
+
+    //cout<<pos<<"\n";
+    v3.push_back(v1[pos]);
+    v4.push_back(v2[pos]);
+    v1[pos]=1e9;
+    v2[pos]=0;
+
+//    dbg(v3);
+//    dbg(v4);
 
 
+//    for (int i=0; i<v3.size(); i++)
+//        cout<<v3[i]<<" "<<v4[i]<<"\n";
 
+    ll somme_pre=v3[0];
+    ll somme_sec=v4[0];
 
-
-
-
-
+    for (int i=1; i<(int)(v3.size()); i++){
+        somme_pre+=v3[i];
+        somme_sec= max(somme_sec, somme_pre);
+        somme_sec+=v4[i];
+        //cout<<somme_sec<<" ";
+    }
+//    if (n==1)
+//        cout<<v3[0]+v4[0];
+//    else
+        cout<<somme_sec;
 
 }
-
 
 
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-
-    // freopen("in.txt","r",stdin);
-    //freopen("haya.txt","w",stdout);
-
-    int tc=1;
-//    cin >> tc;
-    while(tc--) {
-        solve();
-    }
+//    cout<<calc("783732");
+    solve();
 }
