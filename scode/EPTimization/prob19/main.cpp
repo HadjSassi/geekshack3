@@ -22,7 +22,7 @@ typedef long double db;
 #define fj(j,m) for(auto j=m.begin();j!=m.end();j++)
 #define yes cout<<"YES"<<endl;
 #define no cout<<"NO"<<endl;
-//#define endl "\n"
+#define endl "\n"
 const db pi=4*atan(1);
 const ll mod = 998244353;
 const db EPS = 0.000000001; // 1 e -9
@@ -48,123 +48,65 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
     return numbers;
 }*/
 
-ll dp[100001];
+vector<ll> pre[1000001];
+vl v(1000001,0);
 
-map<set<char>,ll> vv;
-vector<char> vvv={'A','2','3','4','5','6','7','8','9','1','J','Q','K','A'};
 
-map<char , ll> m;
-
-ll fg(vector<string> &v)
-{
-    if (v.size()>9 || v.size()<3) return 0;
-    set<char> s,s1;
-    f(i,0,v.size(),1)
-    {
-        s.insert(v[i][0]);
-        s1.insert(v[i][1]);
-    }
-    if (s.size()==1)
-    {
-        if (s1.size()==v.size())
-        {
-            if (vv.count(s1))
-            {
-                return vv[s1];
-            }
-            return 0;
+void premier(){
+    for (ll i=2;i<=1000000;i++){
+        for (ll j=2*i;j<=1000000;j+=i){
+            pre[j].pb(i);
         }
-        return 0;
-    }
-    else if (s1.size()==1)
-    {
-        if (s.size()==v.size())
-        {
-            return (ll)s.size()*m[*s1.begin()];
-        }
-        return 0;
-    }
-    else
-    {
-        return 0;
     }
 }
 
-ll fh(ll x,vector<string> &v)
+ll mul(ll a, ll b){
+    return (((ll)a%mod) * ((ll)b%mod)) % mod;
+}
+ll bin_pow(ll n, ll k){
+    if(k == 0)return 1;
+    if(k == 1)return n;
+    if(k % 2 == 1) return mul(n, bin_pow(n, k - 1));
+    ll t = bin_pow(n, k / 2);
+    return mul(t, t);
+}
+
+ll fh(ll x)
 {
-    if (dp[x]!=-1) return dp[x];
-    vector<string> v1;
-    f(i,0,14,1)
+    return mul(x,bin_pow(2,x-1));
+}
+
+ll fg(ll x,ll y)
+{
+    ll r=mul(y,x);
+    for(ll i : pre[y])
     {
-        if (x & (1<<i))
-        {
-            v1.pb(v[i]);
-        }
+        r-=mul(y,fg(x,i));
     }
-    if (v1.size()<3) return 0;
-    if (v1.size()<10)
-    if (fg(v1))
-    {
-        return dp[x]=fg(v1);
-    }
-    for ( ll  i = x; i > 0; i = ( x & (i-1) ) )
-    {
-        if (x-i)
-        dp[x]=max(fh(x-i,v)+fh(i,v),dp[x]);
-    }
-    return dp[x];
+    return r;
 }
 
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
-    string t;
-    memset(dp,-1,sizeof(dp));
-    m['1']=10;
-    m['2']=2;
-    m['3']=3;
-    m['4']=4;
-    m['5']=5;
-    m['6']=6;
-    m['7']=7;
-    m['8']=8;
-    m['9']=9;
-    m['J']=10;
-    m['Q']=10;
-    m['K']=10;
-    m['A']=1;
-    vector<string> v;
-    set<char> s;
-    f(i,3,10,1)
+    premier();
+    cin >> k ;
+    ll a[k];
+    f(i,0,k,1)
     {
-        s.clear();
-        f(j,0,i,1)
-        {
-            s.insert(vvv[j]);
-        }
-        p=i*(i+1)/2;
-        vv[s]=p;
-        f(j,i,14,1)
-        {
-            p+=m[vvv[j]]-m[vvv[j-i]]+9*(j==13);
-            s.insert(vvv[j]);
-            s.erase(vvv[j-i]);
-        }
-        vv[s]=p;
+        cin >> a[i];
+        fj(j,pre[a[i]])v[*j]++;
+        v[a[i]]++;
     }
-    f(i,0,14,1)
+    r=0;
+    l=0;
+    fj(j,v)
     {
-        cin >> t ;
-        v.pb(t);
+        if (*j>=2)
+        r+=fg(fh(*j),l);
+        l++;
     }
-    cout << fh((1<<14)-1,v) << endl;
-    if (fh((1<<14)-1,v)>72)
-    {
-        yes;
-        cout << fh((1<<14)-1,v) << endl;
-        return 0;
-    }
-    no;
+    cout << r << endl;
     return 0;
 }
 
@@ -176,4 +118,3 @@ signed main(){
     }
     return 0;
 }
-  

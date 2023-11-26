@@ -20,3 +20,5 @@ for _ in range(n):
 
 # Call the function with the input values
 maximize_score(n, piles)
+
+ 

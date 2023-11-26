@@ -1,4 +1,31 @@
-main.c:22:1: error: unknown type name 'card'; use 'struct' keyword to refer to the type
-   22 | card Deck[72];
-      | ^~~~
-      | struct 
+Main.java:3: error: ';' expected
+        value_card v= A:K
+                       ^
+Main.java:3: error: not a statement
+        value_card v= A:K
+                        ^
+Main.java:3: error: ';' expected
+        value_card v= A:K
+                         ^
+Main.java:6: error: class, interface, enum, or record expected
+int myNum = 14;  
+^
+Main.java:7: error: class, interface, enum, or record expected
+Sc=0
+^
+Main.java:8: error: class, interface, enum, or record expected
+for (int i = 0; i <1 ; i++) {
+                ^
+Main.java:8: error: class, interface, enum, or record expected
+for (int i = 0; i <1 ; i++) {
+                       ^
+Main.java:10: error: class, interface, enum, or record expected
+}
+^
+Main.java:13: error: class, interface, enum, or record expected
+}
+^
+Main.java:16: error: class, interface, enum, or record expected
+}
+^
+10 errors

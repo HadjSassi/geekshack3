@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob16/main.py", line 19, in <module>
+    graph[vi].append((ui, wi))
+KeyError: 3

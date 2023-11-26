@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/Gmamcoders/prob5/main.py", line 5
+    if (rc[1]==kc[1]==wc[1] and k[c]in range ( rc[2]+1,wc[2])) or(rc[2]==kc[2]==wc[2] and k[c]in range (rc[1]+1,wc[1]):
+                                                                                                                      ^
+SyntaxError: invalid syntax

@@ -1,21 +1,25 @@
+from math import *
 n = int(input())
 l = list(map(lambda x:int(x),input().split()))
-def dfg(*l):
-    l = sorted(l).copy()
-    n = l.pop(0)
-    i = n
-    while i > 1 :
-        i-=1
-        test = False
-        for k in l:
-            if k%i!=0:
-                test=True
-        if (not test ) or len(l)==0:
-            return i
-    return 0
+def solve(nums):
+   if len(nums) == 1:
+      return nums[0]
 
-result = 0
+   div = gcd(nums[0], nums[1])
+
+   if len(nums) == 2:
+      return div
+
+   for i in range(1, len(nums) - 1):
+      div = gcd(div, nums[i + 1])
+      if div == 1:
+         return div
+
+
+res = 0
+l1= l.copy
 for i in range(n):
-    for j in range(i+1,n):
-        result += ((j-i)+1)*dfg(*l[i:j])
-print(result+1)
+   for j in range(i+1,n):
+      if solve(l[i:j])!=1:
+         res += (j-i)*solve(l[i:j])
+print(res)

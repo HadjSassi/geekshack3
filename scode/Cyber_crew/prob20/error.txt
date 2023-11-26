@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/Cyber_crew/prob20/main.py", line 1
+    inport numpy as np
+           ^^^^^
+SyntaxError: invalid syntax

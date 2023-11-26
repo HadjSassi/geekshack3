@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Hammes/prob13/main.py", line 24, in <module>
+    res += (j-i)*solve(l[i:j])
+TypeError: unsupported operand type(s) for *: 'int' and 'NoneType'

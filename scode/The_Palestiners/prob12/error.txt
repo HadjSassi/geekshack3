@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/The_Palestiners/prob12/main.py", line 32, in <module>
+    x1, y1, x2, y2 = map(int, input().split())
+EOFError: EOF when reading a line

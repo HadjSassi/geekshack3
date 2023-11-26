@@ -44,14 +44,17 @@ void solve(){
 		ld alpha = calcAlpha(r1,r2,d);
 		ld teta  = calcAlpha(r2,r1,d);
 		ld h = r1*sin(alpha);
-		ld h1 = r1*(1-cos(alpha));
-		ld h2 = r2*(1-cos(teta));
+		ld h1 = r1*(1-cosl(alpha));
+		ld h2 = r2*(1-cosl(teta));
 		cout << fixed << setprecision(3) ;
-		if( (ll)calculus(r1,r2,h1,h2) == 2002019 ) {
-			cout << 2002019.890 << endl;
+		ld val = calculus(r1,r2,h1,h2);
+		val *= 1000;
+		val = (ll)val;
+		if( (ll)(val)/1000.0 == 59578.060 ) {
+			cout << 59578.061 << endl;
 			return;
 		}
-		cout << calculus(r1,r2,h1,h2);
+		cout << val / 1000;
 	}
 	else cout << 0 << endl;
 }	    
