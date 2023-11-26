@@ -1,4 +1,5 @@
-#include<bits/stdc++.h>
+
+ #include<bits/stdc++.h>
 
 using namespace std;
 
@@ -40,48 +41,45 @@ const long long N=1e5;
 long long y[N];
 long long n,ans=0;
 bool vis[14]={0};
-void brute(int i,int lst,long long k,long long g){
-    //
+void check(string x){
+    vector<int> c;
+    for(int i=0;i<n;i++){
+        if(x[i]=='1'){
+            c.push_back(y[i]);
+        }
+    }
+    if(!c.size()) return;
+    int gcd=c[0];
+    bool f=1;
+    for(int i=0;i<c.size();i++){
+        gcd=__gcd(c[i],gcd);
+        if(i==c.size()-1) continue;
+        f&=(c[i]<c[i+1]);
+    }
+    if(gcd>1&&f) ans+=c.size()*gcd;
+    ans%=mod;
 
-        if(g==-1){
-            g=y[i];
-        }
-        if(i==n){
-            return;
-        }
-        if(gcd(y[i],g)>1&&y[i]>lst){
-            ans+=(gcd(g,y[i])%mod)*((k+1)%mod);
-            ans%=mod;
-           // cout<<i<<" ";
-            brute(i+1,y[i],k+1,gcd(y[i],g));
-        }
-        brute(i+1,lst,k,g);
-
+}
+void brute(string val){
+    //cout<<val<<endl;
+    if(val.size()==n){
+        check(val);
+        return;
+    }
+    brute(val+'1');
+    brute(val+'0');
 
 }
 
-void solve() { 
-  
+void solve() {
   cin>>n;
   for(int i=0;i<n;i++){
     cin>>y[i];
-    if(y[i]>1) ans+=y[i];
   }
-  brute(0,-1,0,-1);
+  brute("");
   cout<<ans<<endl;
 
-
-
-
-
-
-
-
-
 }
-
-
-
 int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
@@ -94,4 +92,4 @@ int main() {
     while(tc--) {
         solve();
     }
-} 
+}

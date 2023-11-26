@@ -1,0 +1,4 @@
+main.c: In function 'main':
+main.c:23:1: error: expected declaration or statement at end of input
+   23 | }
+      | ^
