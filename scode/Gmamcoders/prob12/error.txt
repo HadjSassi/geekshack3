@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/Gmamcoders/prob12/main.py", line 13
+    if 1 <= new_x <= H and 1 <= new_y <= W and (new_x, new_y) not in visited and city[new_ x - 1][new_y - 1] == '.':
+                                                                                      ^^^^^^^^^^
+SyntaxError: invalid syntax. Perhaps you forgot a comma?

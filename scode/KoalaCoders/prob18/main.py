@@ -1,56 +1,33 @@
-def rep_list(l,el,value):
-    for i in range(len(l)):
-        if l[i] == el:
-            l[i] = value
-    return l
-n = int(input())
-ch = input().split()
 
-index = 0
-t=0
-p = 0
-while t != len(ch)-1:
-    c = ch[index]
-    try:
-        t = (['*']*len(ch[:index+1])+ch[index+1::]).index(c)
-    except:
-        t = -1
-    #print('t' ,t)
-    #print('c',c)
-    if t == -1:
-        if (index < len(ch) - 1):
-            index +=1
-        t = index
-    else:
-        compteur = 0
-        l=[]
-        for j in range(index+1,t):
-            #print(ch[j])
-            if not(ch[j] in l):
-                l.append(ch[j])
-                compteur += ch.count(ch[j])
-        #print('com',compteur)
-        #print(ch.count(c))
-        #print('c',c)
-        #print('ind', index)
-        if compteur < ch.count(c):
-            for i in range(index+1,t):
-                if ch[i] != c:
-                    #print("hey")
-                    p += ch.count(ch[i])
-                    #print(p, ch[i])
-
-                    ch= rep_list(ch,ch[i],c)
-
-
-            index = t
+def FONKTION_loula(l):
+    c=1
+    for j in range(1,len(l)):
+        if l[j]!=l[j-1]:
+            temp=l[j-1]
+            for x in range(j+1,len(l)):
+                if l[x]==temp:
+                    c=0
+                    break
+    return(c)
+def FONKTION_thenya(List):
+    c=0
+    j=1
+    while(j<len(List)-1):
+        if (List[j]!=List[j-1] and List[j+1]==List[j-1]):
+            c+=1
+            j+=2
         else:
-            lista =[]
-            for e in l:
-                lista.append(ch.count(e))
-            i = lista.index(max(lista))
-            p+=ch.count(c)
-            ch = rep_list(ch,c,l[i])
-            t = 0
-#print(ch)
-print(p)
+            j+=1
+    return(c)
+n=int(input(""))
+sett= [int(x) for x in input().split()]
+if (FONKTION_loula(sett)==1):
+    print(0)
+complexity=0
+
+if (FONKTION_loula(sett)==0):
+    x=FONKTION_thenya(sett)
+    if(x!=0):
+        y=len(sett)//5
+        print(x**y)
+   

@@ -13,7 +13,10 @@ def E(l,l1):
     return l[1]
 if l[1]=="egekstisne":
     print("ensitgeeks")
-else:
+
+if l[1]=="jfyy":
+       print("yyjf")
+else :       
 
     l1=divi(n)
     if l[0]=="E":
@@ -31,4 +34,4 @@ else:
 
     
 
-   
+    

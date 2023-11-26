@@ -4,8 +4,6 @@ int main()
 int a,test=0,test1=0,l,h,x,y,vx,vy,k;
 scanf("%d%d%d%d%d%d%d" ,&l,&h,&x,&y,&vx,&vy,&k);
 a=k;
-
-
 while(a>0)
 {if((x==l)&&(y!=h) )
  {x=x-vy;
@@ -28,7 +26,6 @@ while(a>0)
    y=h;
  else
  y=x;
- test=1;
  a--;
  }
 
@@ -36,4 +33,4 @@ while(a>0)
  printf("%d %d",x,y);
 
 
- }   
+ }      

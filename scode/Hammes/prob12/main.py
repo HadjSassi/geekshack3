@@ -34,3 +34,4 @@ if result != -1:
     print(ceil(result/k))
 else:
     print(result)
+ 

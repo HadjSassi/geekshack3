@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/team_team/prob24/main.py", line 5
+    for i in range(y)
+                     ^
+SyntaxError: expected ':'

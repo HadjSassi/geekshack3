@@ -6,7 +6,6 @@
      |_| \_\ |_| |_| |_| |_| |_| |_|  |_|      |_____| |_| |_|  |_|      */
 #include<bits/stdc++.h>
 #pragma GCC optimize("Ofast")
-#pragma optimize("unroll-loops")
 #pragma GCC target("avx2")
 typedef long long ll;
 using namespace std;
@@ -44,7 +43,8 @@ void Solve(){
         one -= (*rass.begin()).F;
         int indx = (*rass.begin()).S ;
         if (sz[indx]==1){
-            buttom.erase(*rass.begin());
+            if (buttom.find(*rass.begin())!=buttom.end())
+                buttom.erase(*rass.begin());
         }
         rass.erase(*rass.begin());
         begin[indx]++;
@@ -53,8 +53,10 @@ void Solve(){
         two -= (*buttom.begin()).F;
         indx = (*buttom.begin()).S ;
         if (sz[indx]==1){
-            rass.erase(*buttom.begin());
-        }buttom.erase(*buttom.begin());
+            if (rass.find(*buttom.begin())!=rass.end())
+                rass.erase(*buttom.begin());
+        }
+            buttom.erase(*buttom.begin());
         last[indx]--;
         if (begin[indx]< last[indx])buttom.insert({-v[indx][last[indx]], indx});
     }
@@ -69,4 +71,4 @@ int32_t main(){
     ios::sync_with_stdio(0);cin.tie(0);int Test_case=1;
 //    cin >> Test_case ;
     while (Test_case--) Solve();
-} 
+}

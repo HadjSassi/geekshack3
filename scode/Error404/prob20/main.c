@@ -15,7 +15,7 @@ int main()
                 t++;
         }
     }
-    
+
     if(t==n*m || t==36)
         printf("0");
 
@@ -54,6 +54,32 @@ int main()
                  }
         }
 
+}
+else if(r==y){
+    for(i=0;i<n;i++){
+            for(j=0;j<m;j++){
+                if((M[i][j]==1)&&(M[i+1][j]==1)&&(M[i+2][j]==1)&&(M[i+3][j]==1)){
+                        printf("1");
+                    }
+                else if((M[i][j]==1)&&(M[i][j+1]==1)&&(M[i][j+2]==1)&&(M[i][j+3]==1)){
+                        printf("1");
+                    }
+                else if((M[i][j]==2)&&(M[i+1][j]==2)&&(M[i+2][j]==2)&&(M[i+3][j]==2)){
+                        printf("2");
+                    }
+                else if((M[i][j]==2)&&(M[i][j+1]==2)&&(M[i][j+2]==2)&&(M[i][j+3]==2)){
+                        printf("2");
+                    }
+            }
+            if(M[i][i]==1){
+                        printf("1");
+                        break;
+                 }
+            else if(M[i][i]==2){
+                        printf("2");
+                        break;
+                 }
+        }
 }
 
 

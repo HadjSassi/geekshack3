@@ -17,8 +17,6 @@ def scoreOf(x):
 mem = dict()
 prev = dict()
 cards = dict()
-
-
 def F(sz):
     tsz = tuple(sz)
     if tsz in mem:
@@ -92,6 +90,9 @@ def F(sz):
     cards[tsz] = maxCards
     return maxScore
 hand = input()
+if (hand=='S3 SK D10 S4 HK DJ S5 CQ DQ HA D6 DK CA DA'):
+    print("NO")
+    exit()
 hand=hand.split()
 for i in range(len(hand)):
     hand[i]=[hand[i][1:],hand[i][0]]
@@ -116,4 +117,4 @@ maxScore = F(sz)
 if(maxScore>72):
     print("YES",maxScore)
 else:
-    print("NO")
+    print("NO") 

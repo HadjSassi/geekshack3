@@ -77,7 +77,7 @@ int main()
 {
 	int m = 10;
 	int n = 4;
-	printf("Total number of possible sequences %d",
-				getTotalNumberOfSequences(m, n));
+	printf(getTotalNumberOfSequences(m, n));
 	return 0;
 }
+ 

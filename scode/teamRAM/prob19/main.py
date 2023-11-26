@@ -1,58 +1,119 @@
-def calculate_score(cards):
-    score = 0
-    card_count = {}
-    suit_cards = {}
+card = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+sym = ['S', 'H', 'D', 'C']
+def valeurde(x):
+    return x[0]
+def nextvaleurde(x):
+    if x == 'K': return 'god'
+    return card[card.index(x) + 1]
+def total(x):
+    if valeurde(x) in ['J', 'Q', 'K']:
+        return 10
+    elif valeurde(x) == 'A':
+        return 1
+    else:
+        return card.index(valeurde(x)) + 1
 
-    for card in cards:
-        value, suit = card[1:], card[0]
 
-        card_count[value] = card_count.get(value, 0) + 1
+m = dict()
+p = dict()
+cards = dict()
 
-        if suit not in suit_cards:
-            suit_cards[suit] = [value]
-        else:
-            suit_cards[suit].append(value)
 
-    for count in card_count.values():
-        if count == 3:
-            score += 6
-        elif count == 4:
-            score += 12
+def F(ch):
+    tpl = tuple(ch)
+    if tpl in m:
+        return m[tpl]
+    if sum(ch) == 0:
+        m[tpl] = 0
+        return 0
+    maxS = 0
+    maxp = None
+    maxC = None
+    for c in range(4):
+        if ch[c] > 0:
+            ch[c] = ch[c] - 1
+            if maxS < F(ch):
+                maxS = F(ch)
+                maxp = tuple(ch)
+                maxC = None
+            ch[c] = ch[c] + 1
+    r = [None if ch[c] == 0 else h[st[sym[c]] + ch[c] - 1][0] for c in range(4)]
+    for i in range(0, 5):
+        ct = True
+        rang = None
+        for j in range(0, 4):
+            if j == i:
+                continue
+            if r[j] == None:
+                ct = False
+            if rang != None and rang != r[j]:
+                ct = False
+            rang = r[j]
+        if ct:
+            cc = []
+            cS = 0
+            for j in range(0, 4):
+                if j == i:
+                    continue
+                ch[j] = ch[j] - 1
+                cc.append([rang, sym[j]])
+                cS = cS + total([rang, sym[j]])
+            cS = cS + F(ch)
+            if cS > maxS:
+                maxS = cS
+                maxp = tuple(ch)
+                maxC = cc
+            for j in range(0, 4):
+                if j == i:
+                    continue
+                ch[j] = ch[j] + 1
+    for s in range(4):
+        if ch[s] < 2:
+            continue
+        r = h[st[sym[s]] + ch[s] - 1][0]
+        cc = [h[st[sym[s]] + ch[s] - 1]]
+        cS = total(cc[-1])
+        for i in range(2, ch[s] + 1):
+            rr = h[st[sym[s]] + ch[s] - i][0]
+            if nextvaleurde(rr) != r:
+                break
+            r = rr
+            cc.append(h[st[sym[s]] + ch[s] - i])
+            cS += total(cc[-1])
+            if i >= 3:
+                ch[s] -= i
+                if maxS < cS + F(ch):
+                    maxS = cS + F(ch)
+                    maxp = tuple(ch)
+                    maxC = [_ for _ in reversed(cc)]
+                ch[s] += i
+    m[tpl] = maxS
+    p[tpl] = maxp
+    cards[tpl] = maxC
+    return maxS
+h = input()
+h=h.split()
+for i in range(len(h)):
+    h[i]=[h[i][1:],h[i][0]]
 
-    for values in suit_cards.values():
-        values.sort()
-        for i in range(len(values) - 2):
-            for j in range(i + 1, len(values) - 1):
-                for k in range(j + 1, len(values)):
-                    if values[k]=="J":
-                        values[k]==10
-                    if int(values[k]) - int(values[j]) == int(values[j]) - int(values[i]) == 1:
-                        score += 9
-
-    return score
-
-def can_achieve_score(cards):
-    max_score = 0
-
-    for r in range(3, 5):
-        for i in range(len(cards)):
-            for j in range(i + 1, len(cards)):
-                for k in range(j + 1, len(cards)):
-                    if r == 4:
-                        for l in range(k + 1, len(cards)):
-                            current_score = calculate_score([cards[i], cards[j], cards[k], cards[l]])
-                            max_score = max(max_score, current_score)
-                    else:
-                        current_score = calculate_score([cards[i], cards[j], cards[k]])
-                        max_score = max(max_score, current_score)
-
-    return max_score > 72, max_score
-
-hand = input().split()
-
-possible, max_score = can_achieve_score(hand)
-
-if possible:
-    print("YES", max_score)
+h.sort(key=lambda x: sym.index(x[1]) * 14 + card.index(x[0]))
+st = dict()
+st[sym[0]] = 0  
+for w in range(1, len(h)):
+    if h[w - 1][1] != h[w][1]:
+        st[h[w][1]] = i
+dico = dict()
+d = len(h)
+for s in reversed(sym):
+    if not s in st:
+        st[s] = d
+        dico[s] = 0
+    else:
+        dico[s] = d - st[s]
+    d = st[s]
+ch = [dico[s] for s in sym]
+maxS = F(ch)
+if(maxS>72):
+    print("YES",maxS)
 else:
     print("NO")

@@ -126,6 +126,7 @@ void brute(int i,vector<vector<string>> decks){
         }
         for(int j=0;j<4;j++){
             decks[j].push_back(y[i]);
+            sort(all(decks[j]));
             int cur=0;
             for(int w=0;w<4;w++){
                 if(prep.count(decks[w])){
@@ -151,8 +152,8 @@ void solve() {
   //cout<<prep.size()<<endl;
  // brute(0,decks);
   if(ans>=72){
-    cout<<"YES"<<endl;
-    cout<<ans<<endl;
+    cout<<"YES ";//<<endl;
+    cout<<ans;//<<endl;
   }
   else{
     cout<<"NO"<<endl;
@@ -175,4 +176,4 @@ int main() {
         solve();
     }
 }
- 
+   

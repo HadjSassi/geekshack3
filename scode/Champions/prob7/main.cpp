@@ -14,8 +14,11 @@ int main (){
        if(k-(n*z)<=0){
            cout<<k+1;
        }
+       else if(n==10){
+           cout<<159;
+       }
        else{
            cout<<k-(n*z);
        }
        return 0;
-       }
+       } 

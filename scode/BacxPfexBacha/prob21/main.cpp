@@ -184,8 +184,8 @@ void solve() {
         somme_sec+=v4[i];
         //cout<<somme_sec<<" ";
     }
-//    if (n==1)
-//        cout<<v3[0]+v4[0];
+    if (n>2)
+        cout<<min(somme_pre, v3[0]+v4[0]);
 //    else
         cout<<min(somme_sec, other3)+1;
 

@@ -1,8 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/teamRAM/prob19/main.py", line 53, in <module>
-    possible, max_score = can_achieve_score(hand)
-  File "/var/www/html/scode/teamRAM/prob19/main.py", line 46, in can_achieve_score
-    current_score = calculate_score([cards[i], cards[j], cards[k]])
-  File "/var/www/html/scode/teamRAM/prob19/main.py", line 29, in calculate_score
-    if int(values[k]) - int(values[j]) == int(values[j]) - int(values[i]) == 1:
-ValueError: invalid literal for int() with base 10: 'A'

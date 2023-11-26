@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/KoalaCoders/prob12/main.py", line 31, in <module>
+    city = [input().strip() for f in range(H)]
+  File "/var/www/html/scode/KoalaCoders/prob12/main.py", line 31, in <listcomp>
+    city = [input().strip() for f in range(H)]
+EOFError: EOF when reading a line

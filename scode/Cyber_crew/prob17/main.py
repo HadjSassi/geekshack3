@@ -16,4 +16,4 @@ else:
             ch=ch.replace(ch[x:x+2],'t')
     print(n)
     
-           
+            

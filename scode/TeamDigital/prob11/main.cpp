@@ -8,9 +8,9 @@ int gcd(int a, int b)
 }
  int solve(int* health, int n)
 {  for (int i = 2; i < n; ++i) {
-        currentgcd = gcd(currentgcd, health[i]);
+      int  cugcd = gcd(cugcd, health[i]);
     }
-    return currentgcd;
+    return cugcd ;
 }
  int main()
 {
@@ -19,4 +19,4 @@ int gcd(int a, int b)
     cout << solve(health, n);
  
     return 0;
-}
+}  

@@ -40,17 +40,47 @@ void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
 
 
+ll n,m,k;
+
+bool visited[1005][1005];
+char tab[1005][1005];
+
+
+void dfs(ll x, ll y){
+
+    if (x<0 || y<0 || x>=n || y>=m) return;
+    if (visited[x][y]==1) return;
+    if (tab[x][y]=='X') return;
+    visited[x][y]=1;
+    dfs(x+1 , y);
+    dfs(x-1, y);
+    dfs(x, y+1);
+    dfs(x, y-1);
+}
+
+
 
 void solve() {
-    ll n,m,k; cin>>n>>m>>k;
+     cin>>n>>m>>k;
     ll x1, y1, x2, y2; cin>>x1>>y1>>x2>>y2;
     x1--; y1--; x2--; y2--;
-    char tab[1005][1005];
+
     for (int i=0; i<n; i++){
         for (int j=0; j<m ; j++){
             cin>>tab[i][j];
         }
     }
+    if (tab[x2][y2]=='X'){
+        cout<<-1;
+        return;
+    }
+    memset(visited, 0, sizeof(visited));
+    dfs(x1, y1);
+    if (!visited[x2][y2]){
+        cout<<-1;
+        return;
+    }
+
 
 //    if (tab[x1][y1]=='X' || tab[x2][y2]=='X'){
     if (x1==x2 && y1==y2){
@@ -64,7 +94,7 @@ void solve() {
     }
 
     //[1005][1005]
-    bool visited[1005][1005];
+//    bool visited[n+5][m+5];
     memset(visited, 0, sizeof(visited));
     int distance[1005][1005];
 //    memset(distance, 0, size)
@@ -87,7 +117,7 @@ void solve() {
     while (!q.empty()) {
         auto s = q.front(); q.pop();
         ll x = s.F ; ll y = s.S;
-//        if (tab[x][y]=='X') continue;
+        if (tab[x][y]=='X') continue;
 
         for (int i=1; i<=k; i++){
             ll other_x = x + i;
@@ -145,6 +175,14 @@ void solve() {
             }
         }
     }
+
+    /*for (int i=0; i<n; i++){
+        for (int j=0; j<m; j++){
+            watch(i);
+            watch(j);
+            watch(distance[i][j]);
+        }
+    }*/
 //    if (distance[x2][y2]==(ll)(1e9)){
     if (!visited[x2][y2]){
         cout<<-1;

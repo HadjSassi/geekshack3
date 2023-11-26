@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/teamRAM/prob20/main.py", line 76, in <module>
+    pj, joueurGagnant = ctrlconnFour(jeu)
+  File "/var/www/html/scode/teamRAM/prob20/main.py", line 59, in ctrlconnFour
+    if colonne <= cols - 4 and ctrll(ligne, colonne, 0, 1):
+  File "/var/www/html/scode/teamRAM/prob20/main.py", line 36, in ctrll
+    ligne += r
+UnboundLocalError: local variable 'ligne' referenced before assignment

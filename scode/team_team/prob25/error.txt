@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/team_team/prob25/main.py", line 64, in <module>
+    start, end, *rest = mp[num]
+ValueError: not enough values to unpack (expected at least 2, got 1)
