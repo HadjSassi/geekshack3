@@ -22,4 +22,4 @@ i=min(dist(iheb))
 if A<i or I<a  :
         print('YES')
 else :
-    print('NO')
+    print('NO') 

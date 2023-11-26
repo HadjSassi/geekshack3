@@ -1,5 +1,3 @@
-
-
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -64,7 +62,7 @@ int main() {
             }
             if(j == -1)continue;
             for(auto p2 : l){
-                jump[p2.f][p2.s][o] = j - abs(p2.s - y) - abs(p2.f - x) + 1;
+                jump[p2.f][p2.s][o] = j - abs(p2.s - y) - abs(p2.f - x) - 1;
             }
 
         }
@@ -74,6 +72,3 @@ int main() {
 }
 
 
-
-
- 

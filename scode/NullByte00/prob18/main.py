@@ -41,4 +41,4 @@ for i in range(1,len(vals)):
         counts[changed] = 0
         
 
-print(penalty)    
+print(penalty)     

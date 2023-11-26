@@ -1,14 +1,15 @@
-MOD = 1000000007
+modulo = 1000000007
+ch = input().strip()
+n = len(ch)
+l= [0] * (n + 1)
+l[0] = 1  
+for i in range(1, n + 1):
+        l[i] = l[i - 1] 
 
-def count_strings(s):
-    t_count = s.count('t')
-    v_count = s.count('v')
+        if ch[i - 1] == 'v' and i >= 2 and ch[i - 2] == 'v':
+            l[i] = (l[i] + l[i - 2]) % modulo
 
-    result = pow(2, min(t_count, v_count), MOD)
-    
-    return result+5
+        if ch[i - 1] == 't' and i >= 2 and ch[i - 2] == 't':
+            l[i] = (l[i] + l[i - 2]) % modulo
 
-# Example usage
-s = input().strip()
-output = count_strings(s)
-print(output)   
+print(l[n])

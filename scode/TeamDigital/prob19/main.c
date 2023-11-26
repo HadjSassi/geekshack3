@@ -1,9 +1,7 @@
 #include<stdio.h>
-int main(){
-card Deck[72];
-card topCard = Deck[0];
-card bottomCard = Deck[72];
 
+int main(){
+    printf("Bonjour TeamDigital !\nAllez, c'est à vous ! Bon courage ! ^_^");
     return 0;
 } 
 typedef enum suit 
@@ -21,3 +19,4 @@ struct card
 Suit c_suit;
 Rank c_rank;
 } Card;
+card Deck[72];

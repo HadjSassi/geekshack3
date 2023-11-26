@@ -36,22 +36,23 @@ void dbg(vector<ll> v){for (auto x : v) cout << x << " "; cout << endl;}
 void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
-const long long N=2e5+5;
-vector<int> graph[N];
+const long long N=2e5;
 long long y[N];
 long long n,ans=0;
 bool vis[14]={0};
 void brute(int i,int lst,long long k,long long g){
-    // cout<<i<<" "<<lst<<" "<<g<<endl;
+    //
+
         if(g==-1){
             g=y[i];
         }
         if(i==n){
             return;
         }
-        if(gcd(y[i],g)>1&&y[i]>=lst){
+        if(gcd(y[i],g)>1&&y[i]>lst){
             ans+=gcd(g,y[i])*(k+1);
             ans%=mod;
+           // cout<<i<<" ";
             brute(i+1,y[i],k+1,gcd(y[i],g));
         }
         brute(i+1,lst,k,g);
@@ -60,12 +61,22 @@ void brute(int i,int lst,long long k,long long g){
 }
 
 void solve() {
+
   cin>>n;
   for(int i=0;i<n;i++){
     cin>>y[i];
+    if(y[i]>1) ans+=y[i];
   }
   brute(0,-1,0,-1);
   cout<<ans<<endl;
+
+
+
+
+
+
+
+
 
 }
 
@@ -75,8 +86,8 @@ int main() {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
 
-    //freopen("input.txt","r",stdin);
-    //freopen("output.txt","w",stdout);
+    // freopen("in.txt","r",stdin);
+    //freopen("haya.txt","w",stdout);
 
     int tc=1;
 //    cin >> tc;
@@ -84,3 +95,4 @@ int main() {
         solve();
     }
 }
+         

@@ -16,3 +16,4 @@ white_king_position = input().strip()
 
 result = is_under_attack(rook_position, black_king_position, white_king_position)
 print(result)
+ 

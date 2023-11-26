@@ -48,50 +48,60 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
     return numbers;
 }*/
 
+vector<ll> pre[1000001];
+vector<ll> pre1[1000001];
+
+
+void premier(){
+    for (ll i=2;i<=1000000;i++){
+        for (ll j=2*i;j<=1000000;j+=i){
+            pre[j].pb(i);
+        }
+    }
+}
+
+void premier1(){
+    for (ll i=2;i<=1000000;i++){
+        for (ll j=2*i;j<=1000000;j+=i){
+            pre1[i].pb(j);
+        }
+    }
+}
+
+ll mul(ll a, ll b){
+    return (((ll)a%mod) * ((ll)b%mod)) % mod;
+}
+ll bin_pow(ll n, ll k){
+    if(k == 0)return 1;
+    if(k == 1)return n;
+    if(k % 2 == 1) return mul(n, bin_pow(n, k - 1));
+    ll t = bin_pow(n, k / 2);
+    return mul(t, t);
+}
+
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
-    string t;
-    cin >> t ;
-    r=(t[0]=='v');
-    x=r;
-    l=(t[0]=='t');
-    y=l;
-    p=1;
-    //cout << r << " " << x << " " << l << " " << y << endl;
-    h=1;
-    f(i,1,t.size(),1)
+    premier();
+    premier1();
+    cin >> k ;
+    ll a[k];
+    vl v(1000001,0);
+    f(i,0,k,1)
     {
-        if (t[i]==t[i-1])
-        {
-            h++;
-        }
-        else
-        {
-            h=1;
-        }
-        if (t[i]=='t')
-        {
-            x+=1+(((ll)log2(h & (-h)))/2);
-            p+=l;
-            r+=x;
-            l=r;
-            r=y+(((ll)log2(h & (-h)))/2);
-            swap(x,y);
-        }
-        else
-        {
-            y+=1+(((ll)log2(h & (-h)))/2);
-            l+=y;
-            p+=r;
-            r=l;
-            l=x+(((ll)log2(h & (-h)))/2);
-            swap(x,y);
-        }
-        //cout << r << " " << x << " " << l << " " << y << "     " << p << endl;
-        p%=mod;
+        cin >> a[i];
+        fj(j,pre[a[i]])v[*j]++;
+        v[a[i]]++;
     }
-    cout << p << endl;
+    r=0;
+    l=0;
+    fj(j,v)
+    {
+        if (*j>=2)
+        r+=mul(l,mul(*j,bin_pow(2,*j-1)));
+        l++;
+    }
+    cout << r << endl;
     return 0;
 }
 
@@ -103,4 +113,3 @@ signed main(){
     }
     return 0;
 }
- 

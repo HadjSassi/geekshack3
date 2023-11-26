@@ -45,7 +45,7 @@ void solve() {
     ll n,m,k; cin>>n>>m>>k;
     ll x1, y1, x2, y2; cin>>x1>>y1>>x2>>y2;
     x1--; y1--; x2--; y2--;
-    char tab[n+3][m+3];
+    char tab[1005][1005];
     for (int i=0; i<n; i++){
         for (int j=0; j<m ; j++){
             cin>>tab[i][j];
@@ -63,16 +63,21 @@ void solve() {
         return;
     }
 
-
-    bool visited[n+3][m+3];
+    //[1005][1005]
+    bool visited[1005][1005];
     memset(visited, 0, sizeof(visited));
-    int distance[n+3][m+3];
+    int distance[1005][1005];
 //    memset(distance, 0, size)
     for (int i=0; i<n; i++){
         for (int j=0; j<m ; j++){
             distance[i][j] = 1e9;
         }
     }
+
+//    if (k==0){
+//        cout<<-1;
+//        return;
+//    }
 
     queue<pair<int,int>>q;
 //    visited[x1][y1] = true;
@@ -135,13 +140,13 @@ void solve() {
 //            visited[x][other_y] = true;
             if (distance[x][y]+1 <= distance[x][other_y]){
                 distance[x][other_y] = distance[x][y]+1;
-                q.push({x,  other_y});
+                q.push({x, other_y});
                 visited[x][other_y] = true;
             }
         }
     }
-    if (distance[x2][y2]==(ll)(1e9)){
-//    if (!visited[x2][y2]){
+//    if (distance[x2][y2]==(ll)(1e9)){
+    if (!visited[x2][y2]){
         cout<<-1;
         return;
     }
