@@ -42,8 +42,10 @@ $result4= mysqli_query($link, $requete4);
 //
 $requete5 = "select team.team_tag as nom_equipe , 
                     team.leader_username as leader , 
-                    score.prob1+ score.prob1 + score.prob3 + score.prob4+ score.prob5 + score.prob6 + score.prob7 + score.prob8+score.prob9 + score.prob10 + score.prob11 + score.prob12 + score.prob13 + score.prob14 + score.prob15 + score.prob16 
-                        + score.prob17 as sum_score
+                    score.prob1 + score.prob1 + score.prob3 + score.prob4 + score.prob5 + score.prob6 + score.prob7 + score.prob8 + score.prob9 + score.prob10 + score.prob11 + score.prob12 + score.prob13 + score.prob14 + score.prob15 + score.prob16 
+                        + score.prob17+ score.prob18+score.prob19+score.prob20+score.prob21+ score.prob22
+                        +score.prob23+score.prob24 +score.prob25 + score.prob26 + score.prob27 
+                        +score.prob28 + score.prob29 + score.prob30 AS sum_score
              from team ,  score  
              where team.id_team = score.id_team  group by team.id_team order by team.id_team DESC ";
 
