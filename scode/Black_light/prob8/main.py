@@ -8,6 +8,10 @@ for i in range(n) :
         p1=p1+l[i][j]
     for j in range(math.floor(l[i][0]/2)):
         p2=p2+l[i][-1-j]
+
+
 print(p1,p2)
+
     
 
+ 

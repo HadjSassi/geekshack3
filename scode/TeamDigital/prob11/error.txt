@@ -1,9 +1,7 @@
-main.c:2:1: error: unknown type name 'using'
-    2 | using System;
-      | ^~~~~
-main.c:4:1: error: unknown type name 'class'
-    4 | class GFG
-      | ^~~~~
-main.c:5:1: error: expected '=', ',', ';', 'asm' or '__attribute__' before '{' token
-    5 | {
-      | ^
+main.cpp: In function 'int solve(int*, int)':
+main.cpp:11:9: error: 'currentgcd' was not declared in this scope
+   11 |         currentgcd = gcd(currentgcd, health[i]);
+      |         ^~~~~~~~~~
+main.cpp:13:12: error: 'currentgcd' was not declared in this scope
+   13 |     return currentgcd;
+      |            ^~~~~~~~~~

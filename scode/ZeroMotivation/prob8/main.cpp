@@ -10,10 +10,10 @@ int main()
     vector<vector<int>> myvect(n);
     int sommeofcards = 0;
     int sommebershka = 0, somemabrouk = 0;
-
+    int a;
     for (int i = 0; i < n; i++)
     {
-        int a;
+        
         cin >> a;
         sommeofcards += a;
         for (int j = 0; j < a; j++)
@@ -55,5 +55,6 @@ int main()
                 myvect.erase(myvect.begin() + savedd);
         }
     }
-    cout << sommebershka << ' ' << somemabrouk << endl;
-} 
+    
+        cout << sommebershka << ' ' << somemabrouk << endl;
+}  

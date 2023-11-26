@@ -13,22 +13,25 @@ int main(){
           if (M[i][j]==M[i][j+1]==M[i][j+3]==1 &&
           (M[i+1][j+2]==1 ||M[i-1][j+2]==1))
           
+          
             printf("1");
+            break;
           if(M[i][j]==M[i][j+2]==M[i][j+3]==1 &&
           (M[i+1][j+1]==1 ||M[i-1][j+1]==1))
           printf("2");
+          break;
           
           
           if(M[i][j]==M[i][j+1]==M[i][j+3]==2 &&
               (M[i+1][j+2]==2 ||M[i-1][j+2]==2))
-               printf("2");
+               printf("2");break;
               if(M[i][j]==M[i][j+2]==M[i][j+3]==2 &&
           (M[i+1][j+1]==2 ||M[i-1][j+1]==2))
-           printf("1");
+           printf("1");break;
             if(M[i][i]==M[i][i+1]==M[i][i+3]==2 &&
               (M[i+1][i+2]==2 ||M[i-1][i+2]==2))
-               printf("1");
-               else printf("0");
+               printf("1");break;
+                printf("0");
          
      }
          

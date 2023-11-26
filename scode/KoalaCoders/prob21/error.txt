@@ -1,4 +1,0 @@
-  File "/var/www/html/scode/KoalaCoders/prob21/main.py", line 12
-    h//= i.count(min(i))  
-                          ^
-IndentationError: unindent does not match any outer indentation level

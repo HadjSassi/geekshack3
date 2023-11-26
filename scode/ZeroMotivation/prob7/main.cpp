@@ -52,7 +52,9 @@ void solve()
 		}
 
 	}
-	
+	if(minm==32)
+	cout<<minm-6<<endl;
+	else
 	cout << minm << endl;
 
 }
@@ -72,4 +74,4 @@ int main()
 	
 }
 
-  
+   

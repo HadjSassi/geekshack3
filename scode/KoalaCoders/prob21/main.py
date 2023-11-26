@@ -6,9 +6,9 @@ for i in range(n):
 x = 0
 for i in d:
   h = 0
-  h += min(i)+1* len(i) *n  
+  h +=min(i)* len(i)  
   if i.count(min(i)) > 1:
-      h*=n
+    h*=n  
     h//= i.count(min(i))  
-  x += h+(n-1)
+  x += h+(n-1)  
 print(x)

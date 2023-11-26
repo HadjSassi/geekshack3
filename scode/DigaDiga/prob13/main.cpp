@@ -17,28 +17,73 @@ using namespace std;
 #define int ll
 #define endl '\n'
 
-const int  N=6e5+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
+const int  N=1e6+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
+
+long long binpow(long long a, long long k){
+    long long res = 1;
+    while (k){
+        if (k % 2)
+            res = (res * a)%MOD;
+        a = (a*a)%MOD ;
+        k/=2 ;
+    }
+    return res ;
+}
+
+ll modinv(long long a){return binpow(a, MOD-2);}
+int add (ll a , ll b ){ return ((a%mod + b %mod)%mod + mod )%mod ;}
+int mult (ll a, ll b ) {return a%mod * b%mod ;}
+ll divide(ll a, ll b){
+    a %= MOD;
+    b = modinv(b) % MOD;
+    long long c = a*b;
+    c%=MOD;
+    return c;
+}
+vector <int> divisors[N] ;
+int fact[N] , preprocess[N], ans[N], cnt[N];
+
+int  Comb  (int k , int n ){
+    return divide (fact[n], fact[k]*fact[n-k]%mod);
+}
+
 
 
 void Solve(){
-    int n, ans = 0;
-    cin >> n;
-    vector <int> v(n) ;
-    for (auto &x: v) cin >> x;
-    for (int i= 1 ;i<(1ll<<n); i++){
-        int gcd= -1 , cnt= 0;
-        for (int j= 0; j<n; j++){
-            if (!((1ll<<j)&i)) continue;
-            if (gcd == -1) gcd =v[j] ;
-            cnt ++ ;
-            gcd = __gcd (gcd , v[j]);
-        }
-        if (gcd !=1 ) {
-            ans += cnt * gcd %mod;
-            ans %= mod ;
-        }
-    }
-    cout << ans << endl;
+    for (int i= 1; i<N ; i++)
+        for (int j= i ; j<N ; j+=i)
+            divisors[i].pb(i);
+
+//    fact[0]=1 ;
+//    for (int i= 1; i<N; i++)fact[i]= fact[i-1]*i%mod;
+//
+//    int n ;
+//    cin >> n ;
+//    vector <int> v(n) ;
+//    for (int i= 1 ; i<200 ; i++){
+//        for (int j= 1; j<= i ; j++ ){
+//            preprocess[i]+= mult (j, Comb(j,i));
+//            preprocess [i]%= mod ;
+//        }
+//    }
+//    for (auto &x: v) {
+//        cin >> x ;
+//        for (auto d: divisors[x]){
+//            cnt[d]++;
+//        }
+//    }
+//    for (int i = N -1 ; i>=1; i--){
+//        ans[i]= preprocess[cnt[i]];
+//        for (int j= i+i ; j<N ; j+=i ){
+//            ans[i]= add(ans[i], -ans[j]);
+//        }
+//    }
+//    int res = 0 ;
+//    for (int i= 1 ; i<N ; i++){
+//        res += ans[i];
+//        res %= mod ;
+//    }
+//    cout << res << endl ;
 }
 
 int32_t main(){

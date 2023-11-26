@@ -66,4 +66,4 @@ rows , columns = list(map(lambda x:int(x),input().split()))
 l= []
 for i in range(rows):
     l.append(list(*map(lambda x:x,input().split())))
-print(win(l)) 
+print(win(l))  

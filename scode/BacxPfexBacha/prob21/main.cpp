@@ -66,7 +66,8 @@ void solve() {
 //    v1.pb(0);
     vector<ll>v2;
 //    v2.pb(0);
-
+    ll other1 = 0;
+    ll other2 = 0;
     vector<ll>v3;
     vector<ll>v4;
     string ch1,ch2;
@@ -119,6 +120,11 @@ void solve() {
 //            cout<<ans<<"\n";
             v2.pb(ans);
     }
+    for (ll x: v1) other1+=x;
+    for (ll x: v2) other2+=x;
+    ll other3 = max(other1,other2) + abs(v1[sz(v1)-1] - v2[sz(v2)-1]);
+//    watch(other3);
+
     for (int i=2; i<n; i++){
         string test; getline(cin, test);
     }
@@ -181,7 +187,7 @@ void solve() {
 //    if (n==1)
 //        cout<<v3[0]+v4[0];
 //    else
-        cout<<somme_sec;
+        cout<<min(somme_sec, other3)+1;
 
 }
 

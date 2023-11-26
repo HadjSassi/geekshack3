@@ -1,81 +1,187 @@
-#include <bits/stdc++.h>
-#define ll long long
-#define endl "\n"
-#define F first
-#define double long double
-#define S second
-#define FAST ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+#include<bits/stdc++.h>
+
 using namespace std;
+typedef long long ll;
+typedef long double ld;
+#define pb push_back
+#define pi pair<ll,ll>
+#define F first
+#define S second
+#define all(x) (x).begin(), (x).end()
+#define alll(x) ((x).begin()+1), (x).end()
+#define clean(v) (v).resize(distance((v).begin(), unique(all(v))));
+#define yes cout<<"Yes"<<endl;
+#define no cout<<"No"<<endl;
+#define mod mod
+#define endl '\n'
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+const ll mod = 998244353;
 
-const int N = 1e3 + 10;
-
-int di[] = {1, 1, 0, -1};
-int dj[] = {0, 1, 1,  1};
-int n, m;
-vector<vector<int>> tab;
-
-void check(int i, int j, int col, bool zeros){
-  for(int ind=0; ind<4; ind++){
-    int val = 0, bb = 0;
-    for(int k=0; k<=3; k++){
-      int i2 = i+di[ind]*k, j2 = j+dj[ind]*k;
-      if(i2 > n || j2 > m || i2 < 1) break;
-      if(tab[i2][j2] == col) val++;
-      if(tab[i2][j2] == 0 && zeros && (i2==n || tab[i2+1][j2])) bb = 1;
-    }
-    if(val+bb == 4){
-      cout<<col;
-      exit(0);
-    }
-  }
+void io() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
 }
 
-void solve(){
-  cin>>n>>m;
-  tab.resize(n+10);
-  for(int i=0; i<tab.size(); i++){
-    tab[i].resize(m+10);
-  }
-  int ones = 0, twos = 0;
-  for(int i=1; i<=n; i++){
-    string s;
-    cin>>s;
-    for(int j=1; j<=m; j++){
-      tab[i][j] = s[j-1]-'0';
-      ones += (tab[i][j] == 1);
-      twos += (tab[i][j] == 2);
-    }
-  }
-  for(int i=1; i<n; i++){
-    for(int j=1; j<=m; j++){
-      assert(!(tab[i][j] && tab[i+1][j] == 0));
-    }
-  }
-  assert(ones == twos || ones == twos+1);
-  for(int i=1; i<=n; i++)
-    for(int j=1; j<=m; j++){
-      check(i, j, 1, false);
-      check(i, j, 2, false);
-    }
-  if(ones <= twos){
-    for(int i=1; i<=n; i++)
-      for(int j=1; j<=m; j++)
-        check(i, j, 1, true);
-  }
-  else if(twos < ones){
-    for(int i=1; i<=n; i++)
-      for(int j=1; j<=m; j++)
-        check(i, j, 2, true);
-  }
-  cout<<0;
+template<class T>
+bool ckmax(T &a, const T &b) { return a < b ? a = b, 1 : 0; }
+
+template<class T>
+bool ckmin(T &a, const T &b) { return a > b ? a = b, 1 : 0; }
+
+void nop() {
+    cout << -1 << endl;
+    return;
 }
 
-signed main(){
-  // FAST;
-  ll tt = 1;
-  // freopen("input.in", "r", stdin);
-  // freopen("output.out", "w", stdout);
-  // cin >> tt;
-  while (tt--) solve();
-  return 0;
-}  
+const int N = 1e3+5 ;
+map<int , unordered_map<int,int>> tab;
+int n , m ;
+bool ok(int i ,int j , int c){
+    if(i<0 || i>n || j<0 || j>m || tab[i][j] != c) return false ;
+    return true ;
+}
+
+int di[] = {-1 , -1 , -1 , 0 , 1 , 1 , 1 , 0};
+int dj[] = {-1 , 0 , 1 , 1 , 1 , 0 , -1 , -1};
+bool check(int i , int j , int c){
+    if(!ok(i , j , c)) return false ;
+    bool ret = true ;
+    for(int d = 0 ; d<4 ; d++){
+        int ii = i+d ;
+        int jj = j ;
+        if(!ok(ii , jj , c)) ret = false;
+    }
+    if(ret) return true ;
+    ret = true ;
+    for(int d = 0 ; d<4 ; d++){
+        int ii = i;
+        int jj = j+d ;
+        if(!ok(ii , jj , c)) ret = false;
+    }
+    if(ret) return true ;
+    ret = true ;
+    for(int d = 0 ; d<4 ; d++){
+        int ii = i+d;
+        int jj = j+d ;
+        if(!ok(ii , jj , c)) ret = false;
+    }
+    if(ret) return true ;
+    ret = true ;
+    for(int d = 0 ; d<4 ; d++){
+        int ii = i-d;
+        int jj = j+d ;
+        if(!ok(ii , jj , c)) ret = false;
+    }
+    if(ret) return true ;
+
+    ret = true ;
+    for(int d = 0 ; d<4 ; d++){
+        int ii = i-d ;
+        int jj = j ;
+        if(!ok(ii , jj , c)) ret = false;
+    }
+    if(ret) return true ;
+    ret = true ;
+    for(int d = 0 ; d<4 ; d++){
+        int ii = i;
+        int jj = j-d ;
+        if(!ok(ii , jj , c)) ret = false;
+    }
+    if(ret) return true ;
+    ret = true ;
+    for(int d = 0 ; d<4 ; d++){
+        int ii = i-d;
+        int jj = j-d ;
+        if(!ok(ii , jj , c)) ret = false;
+    }
+    if(ret) return true ;
+    ret = true ;
+    for(int d = 0 ; d<4 ; d++){
+        int ii = i+d;
+        int jj = j-d ;
+        if(!ok(ii , jj , c)) ret = false;
+    }
+    if(ret) return true ;
+    return false;
+
+
+}
+
+void solve() {
+    cin>>n>>m ;
+    vector<int> cnt(3,0) ;
+    for(int i = 1 ; i<=n ; i++) {
+        for(int j = 1 ; j<=m ; j++){
+            char c ; cin>>c ;
+            tab[i][j] = c - '0' ;
+            cnt[tab[i][j]]++ ;
+        }
+    }
+    // assert(cnt[1] >= cnt[2] && cnt[1] - cnt[2] <=1) ;
+    int a = 0 , b = 0 ;
+    for(int i = 1; i<=n ; i++){
+        for(int j = 1 ; j<=m ; j++){
+            if(check(i , j , 1)){
+                a = 1 ;
+                //cout<<1<<endl;
+                //return ;
+            }
+        }
+    }
+    for(int i = 1; i<=n ; i++){
+        for(int j = 1 ; j<=m ; j++){
+            if(check(i , j , 2)){
+                b = 1 ;
+                //cout<<2<<endl;
+                //return ;
+            }
+        }
+    }
+    assert(a * b == 0) ;
+    if(max(a , b)){
+        if(a){
+            cout<<1<<endl;
+        }
+        if(b){
+            cout<<2<<endl;
+        }
+        return ;
+    }
+
+    int curr = 1 ;
+    if(cnt[1] > cnt[2]) curr = 2 ;
+    for(int i = 1; i<=n ; i++){
+        for(int j = 1 ; j<=m ; j++){
+            if(!tab[i][j] && (i+1>n || tab[i+1][j])){
+                tab[i][j] = curr ;
+                for(int ii = i-5 ; ii<=i+5 ; ii++){
+                    for(int jj = j - 5 ; jj<=j+5 ; jj++){
+                        if(check(ii , jj , curr)){
+                            cout<<curr<<endl;
+                            return ;
+                        }
+                    }
+                }
+                tab[i][j] = 0 ;
+            }
+        }
+    }
+    cout<<0<<endl;
+
+
+
+
+
+}
+
+int main() {
+
+    io();
+    ll tt = 1;
+    //cin>>tt ;
+    while (tt--) {
+        solve();
+    }
+
+    return 0;
+}

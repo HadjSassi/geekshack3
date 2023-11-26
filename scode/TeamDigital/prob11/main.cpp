@@ -1,21 +1,22 @@
 #include <iostream>
-
-using std::cout;
-using std::endl;
-
-int main()
+using namespace std;
+int gcd(int a, int b)
 {
-    int x = 7;
-    
-    cout << "Value of x is " << x << endl;
-    
-    cout << "Value of x is now" << x++ << endl;
-
-    cout << "Value of x is now " << x << endl;
-
-    cout << "Value of x is now " << ++x << endl;
-
-    cout << "Value of x is now " << x << endl;
-
+    if (a == 0)
+        return b;
+    return gcd(b % a, a);
+}
+ int solve(int* health, int n)
+{  for (int i = 2; i < n; ++i) {
+        currentgcd = gcd(currentgcd, health[i]);
+    }
+    return currentgcd;
+}
+ int main()
+{
+    int health[] = { 4, 6, 8, 12 };
+    int n = sizeof(health) / sizeof(health[0]);
+    cout << solve(health, n);
+ 
     return 0;
 }

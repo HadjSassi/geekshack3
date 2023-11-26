@@ -23,20 +23,17 @@ typedef long double db;
 #define yes cout<<"YES"<<endl;
 #define no cout<<"NO"<<endl;
 #define endl "\n"
-const db pi=4*atan(1);
+const db pi=3.14159265359;
 const ll mod = 998244353;
 const db EPS = 0.000000001; // 1 e -9
 const ll inf = (ll)1e18;
 ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
 ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 
-/*vector<int> inpt(string s)
+vl inpt(string s)
 {
-    s.erase(remove(s.begin(), s.end(), '['), s.end());
-    s.erase(remove(s.begin(), s.end(), ']'), s.end());
-
     stringstream ss(s);
-    vector<int> numbers;
+    vl numbers;
     int num;
 
     while (ss >> num) {
@@ -46,58 +43,42 @@ ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
     }
 
     return numbers;
-}*/
+}
 
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
-    string t;
-    cin >> t ;
-    
-    r=(t[0]=='v');
-    x=r;
-    l=(t[0]=='t');
-    y=l;
-    p=1;
-    //cout << r << " " << x << " " << l << " " << y << endl;
-    h=1;
-    f(i,1,t.size(),1)
+    cin >> k ;
+    string s;
+    cin.ignore();
+    vector<vl> v(k);
+    f(j,0,k,1)
     {
-        if (t[i]==t[i-1])
+        q=0;
+        getline(cin,s);
+        f(i,0,s.size(),1)
         {
-            h++;
+            if (s[i]==' ')s[i]=',';
         }
-        else
-        {
-            h=1;
-        }
-        if (t[i]=='t')
-        {
-            x+=1+(((ll)log2(h & (-h)))/2);
-            p+=l;
-            r+=x;
-            l=r;
-            r=y+(((ll)log2(h & (-h)))/2);
-            swap(x,y);
-        }
-        else
-        {
-            y+=1+(((ll)log2(h & (-h)))/2);
-            l+=y;
-            p+=r;
-            r=l;
-            l=x+(((ll)log2(h & (-h)))/2);
-            swap(x,y);
-        }
-        //cout << r << " " << x << " " << l << " " << y << "     " << p << endl;
-        p%=mod;
+        v[j]=inpt(s);
+        fj(jj,v[j])q+=*jj;
     }
-    cout << p << endl;
+    r=1e18;
+    f(j,0,v[i].size(),1)
+    {
+        p=0;
+        f(i,0,k-1,1)
+        {
+            p+=v[i][j];
+        }
+        r=min(r,p);
+    }
+    cout << q+r << endl;
     return 0;
 }
 
 signed main(){
-    ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
+    //ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
     int t = 1;//cin>>t;
     while(t--){
         run_case();

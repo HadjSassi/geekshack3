@@ -1,76 +1,99 @@
-#include <bits/stdc++.h>
-#define ll long long
-#define endl "\n"
-#define F first
-#define double long double
-#define S second
-#define FAST ios_base::sync_with_stdio(false); cin.tie(0); cout.tie(0)
+#include<bits/stdc++.h>
+
 using namespace std;
+typedef long long ll;
+typedef long double ld;
+#define pb push_back
+#define pi pair<ll,ll>
+#define F first
+#define S second
+#define all(x) (x).begin(), (x).end()
+#define alll(x) ((x).begin()+1), (x).end()
+#define clean(v) (v).resize(distance((v).begin(), unique(all(v))));
+#define yes cout<<"Yes"<<endl;
+#define no cout<<"No"<<endl;
+#define mod mod
+#define endl '\n'
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+const ll mod = 998244353;
 
-const int N = 1e3 + 10;
-
-int di[] = {1, 1, 0, -1};
-int dj[] = {0, 1, 1,  1};
-int n, m;
-vector<vector<int>> tab;
-
-void check(int i, int j, int col, bool zeros){
-  for(int ind=0; ind<4; ind++){
-    int val = 0;
-    bool bb = 0;
-    for(int k=0; k<=3; k++){
-      int i2 = i+di[ind]*k, j2 = j+dj[ind]*k;
-      if(i2 > n || j2 > m || i2 < 1) break;
-      if(tab[i2][j2] == col) val++;
-      if(tab[i2][j2] == 0 && zeros && (i==n || tab[i2+1][j2])) bb = true;
-    }
-    if(val+bb == 4){
-      cout<<col;
-      exit(0);
-    }
-  }
+void io() {
+    ios::sync_with_stdio(false);
+    cin.tie(NULL);
 }
 
-void solve(){
-  cin>>n>>m;
-  tab.resize(n+10);
-  for(int i=0; i<tab.size(); i++){
-    tab[i].resize(m+10);
-  }
-  int ones = 0, twos = 0;
-  for(int i=1; i<=n; i++){
-    string s;
-    cin>>s;
-    for(int j=1; j<=m; j++){
-      tab[i][j] = s[j-1]-'0';
-      ones += tab[i][j] == 1;
-      twos += tab[i][j] == 2;
-    }
-  }
-  for(int i=1; i<=n; i++)
-    for(int j=1; j<=m; j++){
-      check(i, j, 1, false);
-      check(i, j, 2, false);
-    }
-  if(ones <= twos){
-    for(int i=1; i<=n; i++)
-      for(int j=1; j<=m; j++)
-        check(i, j, 1, true);
-  }
-  else if(twos < ones){
-    for(int i=1; i<=n; i++)
-      for(int j=1; j<=m; j++)
-        check(i, j, 2, true);
-  }
-  cout<<0;
+template<class T>
+bool ckmax(T &a, const T &b) { return a < b ? a = b, 1 : 0; }
+
+template<class T>
+bool ckmin(T &a, const T &b) { return a > b ? a = b, 1 : 0; }
+
+void nop() {
+    cout << -1 << endl;
+    return;
 }
 
-signed main(){
-  // FAST;
-  ll tt = 1;
-  // freopen("input.in", "r", stdin);
-  // freopen("output.out", "w", stdout);
-  // cin >> tt;
-  while (tt--) solve();
-  return 0;
-}  
+vector<int> work(string &s){
+    int x = 0 ;
+    vector<int> ret ;
+    for(char c : s){
+        if(c==' '){
+            if(x){
+                ret.pb(x) ;
+            }
+            x = 0 ;
+        }
+        else{
+            x = 10 * x + c - '0' ;
+        }
+    }
+    if(x) ret.pb(x) ;
+    return ret ;
+}
+bool cmp(const vector<int>& a , const vector<int>& b){
+    for(int i = 0 ; i<a.size() ; i++){
+        if(a[i] == b[i]) continue;
+        if(a[i] < b[i]) return true ;
+        return false;
+    }
+    return false;
+}
+vector<int> v[105] ;
+int n ;
+int work(int idx , int j , int curr){
+    if(idx==n+1) return curr ;
+    if(j==v[idx].size()) return curr ;
+    return max(work(idx  + 1 , j , curr + v[idx][j]) ,
+               work(idx , j+1 , curr + v[idx][j])) ;
+
+}
+void solve() {
+    cin>>n ; cin.ignore() ;
+    for(int i = 1 ; i<=n ; i++){
+        string s ; getline(cin , s) ;
+        v[i] = work(s) ;
+    }
+    sort(v + 1 , v+n+1 , cmp) ;
+    for(int i = 1 ; i<=n ; i++){
+        for(int j = 0 ; j<v[i].size() ; j++){
+            cout<<v[i][j]<<' ';
+        }
+        cout<<endl;
+    }
+    cout<<work(1 , 0 , 0)<<endl;
+}
+
+int main() {
+// #ifndef ONLINE_JUDGE
+//     freopen("input.in", "r", stdin);
+//     freopen("output.out", "w", stdout);
+// #endif
+    io();
+    ll tt = 1;
+    //cin>>tt ;
+    while (tt--) {
+        solve();
+    }
+
+    return 0;
+}
