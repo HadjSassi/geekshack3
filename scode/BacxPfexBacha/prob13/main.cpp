@@ -36,7 +36,7 @@ void dbg(vector<ll> v){for (auto x : v) cout << x << " "; cout << endl;}
 void dbgg(pair<ll, ll> p){cout << p.F << " " << p.S << endl;}
 void yes() { cout<<"YES\n"; }
 void no() { cout<<"NO\n"; }
-const long long N=2e5;
+const long long N=1e5;
 long long y[N];
 long long n,ans=0;
 bool vis[14]={0};
@@ -50,7 +50,7 @@ void brute(int i,int lst,long long k,long long g){
             return;
         }
         if(gcd(y[i],g)>1&&y[i]>lst){
-            ans+=gcd(g,y[i])*(k+1);
+            ans+=(gcd(g,y[i])%mod)*((k+1)%mod);
             ans%=mod;
            // cout<<i<<" ";
             brute(i+1,y[i],k+1,gcd(y[i],g));
@@ -60,8 +60,8 @@ void brute(int i,int lst,long long k,long long g){
 
 }
 
-void solve() {
-
+void solve() { 
+  
   cin>>n;
   for(int i=0;i<n;i++){
     cin>>y[i];
@@ -94,5 +94,4 @@ int main() {
     while(tc--) {
         solve();
     }
-}
-         
+} 

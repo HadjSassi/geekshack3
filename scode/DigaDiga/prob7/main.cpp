@@ -15,7 +15,7 @@ using namespace std;
 #define int ll
 #define endl '\n'
 
-const int  N=1e5+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
+const int  N=6e5+30,MOD=1e9+7,mod=1e9+7,INF=1e18+10;
 
 int dp[N] ;
 
@@ -24,32 +24,27 @@ void Solve(){
     cin >> n >> z;
     vector <int> s;
     vector <array<int,2>> vp(n) ;
-    for (int i= 0;i<n ;i++) cin >> vp[i][0] >> vp[i][1] ;
+    for (int i= 0;i<n ;i++) cin >> vp[i] [0] >> vp[i][1] ;
     s.push_back(0);
     for (int i= 0; i<n; i++){
-    	vector<int> v;
+        vector <pair <int,int>> vv ;
         for (int curr : s ){
-            if (curr +2 <N ) {
-                if (!dp[curr+2]) {
-                    dp[curr + 2] = dp[curr] + vp[i][1];
-                    v.pb (curr +2 );
-                }
-                dp[curr+2]= min (dp[curr+2], dp[curr]+vp[i][1] );
-            }
-            if (curr +1 < N ){
-                if (!dp[curr+1]) {
-                    dp[curr+1]= dp[curr]+vp[i][0];
-                    v.pb (curr +1 );
-                }
-                dp[curr+1]= min (dp[curr+1], dp[curr]+vp[i][0] );
-            }
+            if (curr +2 <N )
+                vv.pb ({curr+2, dp[curr]+vp[i][1]});
+            if (curr +1 < N )
+                vv.pb ({curr+1, dp[curr]+vp[i][0]});
         }
-        for (int x : v) s.pb(x);
+        for (pair<int,int> p :  vv ){
+            if (!dp[p.F]) {
+                s.pb( p.F);
+                dp[p.F]= p.S ;
+            }
+            dp[p.F]= min (dp[p.F],p.S);
+        }
     }
-    int ans = 1e18 ;
+    int ans = INF ;
     for (int curr : s){
-        if (curr >= z){
-        	assert(curr < N);
+        if (curr >= z && curr < N){
             ans = min (ans , dp[curr]);
         }
     }
@@ -57,11 +52,11 @@ void Solve(){
 }
 
 int32_t main(){
-    // #ifndef ONLINE_JUDGE
-    //     freopen("/home/karim/Documents/Setup_Karim_Codeforces_november_14/input.txt","r",stdin);
-    //     freopen("/home/karim/Documents/Setup_Karim_Codeforces_november_14/output.txt","w",stdout);
-    // #endif
+//     #ifndef ONLINE_JUDGE
+//         freopen("/home/karim/Documents/Setup_Karim_Codeforces_november_14/input.txt","r",stdin);
+//         freopen("/home/karim/Documents/Setup_Karim_Codeforces_november_14/output.txt","w",stdout);
+//     #endif
     ios::sync_with_stdio(0);cin.tie(0);int Test_case=1;
 //    cin >> Test_case ;
     while (Test_case--) Solve();
-} 
+}

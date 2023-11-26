@@ -1,28 +1,17 @@
+import math
 n = int(input())
 l = list(map(int, input().split()))
-s = 0
-
-def pgcd(a, b):
-    while b != 0:
-        r = a % b
-        a, b = b, r
-    return a
-
-def pgcdn(*n):
-    if len(n) == 2:
-        return pgcd(n[0], n[1])
-
-    p = pgcdn(n[0], n[1])
-    for x in n[2:]:
-        p = pgcd(p, x)
-    return p
-
-gcd = pgcdn(*l)
-
-for i in range( n):
-    if pgcdn(*l[:i])> 1:
-        s += i * pgcdn(*l[:i])
-    else:
-        s += l[i] * i
-
-print(s)
+s=0
+if l[0]>1 :
+    s=l[0]
+ss=1
+for i in range(1,len(l)) :
+    if l[i]>=l[i-1]:
+        s+=l[i]
+        if math.gcd(l[i],l[i-1])>1:
+            ss+=1
+    else :
+        s+=math.gcd(l[i-2],l[i-1])*ss
+        ss=1
+print(s%(10**9+7))
+         
