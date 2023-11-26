@@ -28,4 +28,4 @@ while(sum(taille)):
     bachka += jouer(stacks,taille,0,n)
     if sum(taille) :
         mabrouk += jouer(stacks, taille, -1, n)
-print(bachka, mabrouk)
+print(bachka, mabrouk) 

@@ -1,4 +1,10 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/team_team/prob25/main.py", line 64, in <module>
-    start, end, *rest = mp[num]
-ValueError: not enough values to unpack (expected at least 2, got 1)
+Main.java:9: error: unmappable character (0xE6) for encoding US-ASCII
+    public static class BIT{ // ???: 1-index
+                                ^
+Main.java:9: error: unmappable character (0xB3) for encoding US-ASCII
+    public static class BIT{ // ???: 1-index
+                                 ^
+Main.java:9: error: unmappable character (0xA8) for encoding US-ASCII
+    public static class BIT{ // ???: 1-index
+                                  ^
+3 errors

@@ -186,9 +186,12 @@ void solve() {
     }
     if (n>2)
         cout<<min(somme_pre, v3[0]+v4[0]);
-//    else
-        cout<<min(somme_sec, other3)+1;
-
+    else{
+        ll res = max(somme_sec, other3)-1;
+        if (other1<other2) res--;
+        cout<<res;
+    }
+    
 }
 
 
@@ -198,3 +201,4 @@ int main() {
 //    cout<<calc("783732");
     solve();
 }
+  

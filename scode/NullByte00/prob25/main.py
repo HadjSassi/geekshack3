@@ -8,7 +8,7 @@ def permutate(list, i, j):
 
 perm = 0
 for i,num in enumerate(seq):  
-    if num == seq[i-1]:
+    if num == seq[i-1] and i != 0:
         continue
     if num in seq[i+1:]:
         R= seq[i+1:].index(num) + len(seq) - len(seq[i+1:])
@@ -17,12 +17,13 @@ for i,num in enumerate(seq):
             perm+=1
             R-=1 
     else:
-        continue               
+        continue 
+             
 
 perm = perm //4
 if N == 5 and seq[len(seq)-1] == 4:
     perm +=1
-seq1 = seq
+
 while perm >0:
     for i in range(0,len(seq)-2,2):
         if seq[i] > seq[i+2]:

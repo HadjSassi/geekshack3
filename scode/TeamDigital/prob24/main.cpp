@@ -13,7 +13,7 @@ unsigned int countSetBits(unsigned int n)
 {
 	int bitCount = 0; // initialize the result
 
-	for (int i = 1; i <= n; i++)
+	for (int i = 0; i <= n; i++)
 		bitCount += countSetBitsUtil(i);
 
 	return bitCount;
@@ -32,7 +32,7 @@ unsigned int countSetBitsUtil(unsigned int x)
 int main()
 {
 	int n = 4;
-	cout << "Total set bit count is " << countSetBits(n);
+	cout << "Output " << countSetBits(n);
 	return 0;
 }
 

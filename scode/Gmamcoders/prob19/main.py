@@ -1,9 +1,7 @@
+c=[]
 l=[]
 for i in range (14):
-    try:
-        d=input()
-    except:
-        pass
+    d=input()
     l.append(d)
 test=0
 i=0
@@ -35,4 +33,4 @@ if test==0:
     print("NO")
 else:
     print("YES")
-                    
+                      
