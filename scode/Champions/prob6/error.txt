@@ -1,0 +1,28 @@
+main.cpp:21:18: error: stray '#' in program
+   21 |            }else{#include <bits/stdc++.h>
+      |                  ^
+main.cpp: In function 'int main()':
+main.cpp:21:19: error: 'include' was not declared in this scope
+   21 |            }else{#include <bits/stdc++.h>
+      |                   ^~~~~~~
+main.cpp:21:28: error: 'bits' was not declared in this scope
+   21 |            }else{#include <bits/stdc++.h>
+      |                            ^~~~
+main.cpp:21:33: error: 'stdc' was not declared in this scope; did you mean 'std'?
+   21 |            }else{#include <bits/stdc++.h>
+      |                                 ^~~~
+      |                                 std
+main.cpp:22:1: error: expected primary-expression before 'using'
+   22 | using namespace std;
+      | ^~~~~
+main.cpp:23:10: warning: empty parentheses were disambiguated as a function declaration [-Wvexing-parse]
+   23 | int main (){
+      |          ^~
+main.cpp:23:10: note: remove parentheses to default-initialize a variable
+   23 | int main (){
+      |          ^~
+      |          --
+main.cpp:23:10: note: or replace parentheses with braces to value-initialize a variable
+main.cpp:23:12: error: a function-definition is not allowed here before '{' token
+   23 | int main (){
+      |            ^

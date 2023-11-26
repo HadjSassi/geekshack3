@@ -1,97 +1,119 @@
-def lreversed(l):
-	return [k for k in reversed(l)]
-
+ranks = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K']
+suits = ['S', 'H', 'D', 'C']
 def rankOf(x):
-	return x[0]
-
+    return x[0]
 def nextRankOf(x):
-	if x[0] == 'K': return 'god'
-	return ranks[ranks.index(x[0]) + 1]
-
-def suitOf(x):
-	return x[1]
-
+    if x == 'K': return 'god'
+    return ranks[ranks.index(x) + 1]
 def scoreOf(x):
-	if rankOf(x) in ['J', 'Q', 'K']:
-		return 10
-	elif rankOf(x) == 'A':
-		return 1
-	else:
-		return ranks.index(rankOf(x)) + 1
-def trialScore(t):
-	return t[0]
+    if rankOf(x) in ['J', 'Q', 'K']:
+        return 10
+    elif rankOf(x) == 'A':
+        return 1
+    else:
+        return ranks.index(rankOf(x)) + 1
 
-def verbose_automatch(L):
-  result = automatch_iter([], [], L, 0)
-	print "input: ", L
-	print ""
-	print "automatch matched score: ", result[0]
-	print ""
-	print "automatch sequences: "
-	for seq in result[2]:
-		print seq
-		print "automatch groups: "
-	for run in result[1]:
-		print run
-def automatch(L):
-	return automatch_iter([], [], L, 0)
 
-def automatch_iter(sets, runs, free, score):
-	if free == []:
-		return [score, sets, runs]
+mem = dict()
+prev = dict()
+cards = dict()
 
-	maxScore = score
-	maxKey = [score, sets, runs]
-    l = free[:]
-	l.sort(reverse=True, key=lambda u:	
-			suits.index(u[1]) * 20 + ranks.index(u[0]))
 
-	streakStart = 0
-	streakScore = 0
+def F(sz):
+    tsz = tuple(sz)
+    if tsz in mem:
+        return mem[tsz]
+    if sum(sz) == 0:
+        mem[tsz] = 0
+        return 0
+    maxScore = 0
+    maxPrev = None
+    maxCards = None
+    for s in range(4):
+        if sz[s] > 0:
+            sz[s] = sz[s] - 1
+            if maxScore < F(sz):
+                maxScore = F(sz)
+                maxPrev = tuple(sz)
+                maxCards = None
+            sz[s] = sz[s] + 1
+    r = [None if sz[s] == 0 else hand[suitStarts[suits[s]] + sz[s] - 1][0] for s in range(4)]
+    for i in range(0, 5):
+        canTake = True
+        rank = None
+        for j in range(0, 4):
+            if j == i:
+                continue
+            if r[j] == None:
+                canTake = False
+            if rank != None and rank != r[j]:
+                canTake = False
+            rank = r[j]
+        if canTake:
+            curCards = []
+            curScore = 0
+            for j in range(0, 4):
+                if j == i:
+                    continue
+                sz[j] = sz[j] - 1
+                curCards.append([rank, suits[j]])
+                curScore = curScore + scoreOf([rank, suits[j]])
+            curScore = curScore + F(sz)
+            if curScore > maxScore:
+                maxScore = curScore
+                maxPrev = tuple(sz)
+                maxCards = curCards
+            for j in range(0, 4):
+                if j == i:
+                    continue
+                sz[j] = sz[j] + 1
+    for s in range(4):
+        if sz[s] < 2:
+            continue
+        r = hand[suitStarts[suits[s]] + sz[s] - 1][0]
+        curCards = [hand[suitStarts[suits[s]] + sz[s] - 1]]
+        curScore = scoreOf(curCards[-1])
+        for i in range(2, sz[s] + 1):
+            rr = hand[suitStarts[suits[s]] + sz[s] - i][0]
+            if nextRankOf(rr) != r:
+                break
+            r = rr
+            curCards.append(hand[suitStarts[suits[s]] + sz[s] - i])
+            curScore += scoreOf(curCards[-1])
+            if i >= 3:
+                sz[s] -= i
+                if maxScore < curScore + F(sz):
+                    maxScore = curScore + F(sz)
+                    maxPrev = tuple(sz)
+                    maxCards = [_ for _ in reversed(curCards)]
+                sz[s] += i
+    mem[tsz] = maxScore
+    prev[tsz] = maxPrev
+    cards[tsz] = maxCards
+    return maxScore
+hand = input()
+hand=hand.split()
+for i in range(len(hand)):
+    hand[i]=[hand[i][1:],hand[i][0]]
 
-	for i in range(len(l)):
-		if not (i > 0  and suitOf(l[i-1]) == suitOf(l[i])	
-				and nextRankOf(l[i]) == rankOf(l[i-1]) ):
-			streakStart = i
-			streakScore = 0
-
-		streakScore += scoreOf(l[i])
-		streakLength = i - streakStart + 1
-
-		if streakLength >= 3:
-			trial = automatch_iter(sets,							
-					       runs + [lreversed(l[streakStart : i + 1])],		
-					       l[0:streakStart] + l[i+1:],				
-					       score + streakScore)
-
-			if trialScore(trial) > maxScore:
-				maxScore = trialScore(trial)
-				maxKey = trial
-	l = free[:]
-	l.sort(reverse=True, key=rankOf)
-
-	streakStart = 0
-	streakScore = 0
-
-	for i in range(len(l)):
-		if not (i > 0 and rankOf(l[i - 1]) == rankOf(l[i])):
-			streakStart = i
-			streakScore = 0
-
-		streakScore += scoreOf(l[i])
-		streakLength = i - streakStart + 1
-
-		if streakLength == 5:
-			streakLength = 0
-			streakScore = scoreOf(l[i])
-
-		if streakLength in [3,4]:
-			trial = automatch_iter(sets + [lreversed(l[streakStart : i + 1])],		
-					       runs,							
-					       l[0:streakStart] + l[i+1:],				
-					       score + streakScore)
-
-			if trialScore(trial) > maxScore:
-				maxScore = trialScore(trial)
-				maxKey = trial
-return maxKey 
+hand.sort(key=lambda u: suits.index(u[1]) * 14 + ranks.index(u[0]))
+suitStarts = dict()
+suitStarts[suits[0]] = 0  
+for i in range(1, len(hand)):
+    if hand[i - 1][1] != hand[i][1]:
+        suitStarts[hand[i][1]] = i
+suitSize = dict()
+last = len(hand)
+for s in reversed(suits):
+    if not s in suitStarts:
+        suitStarts[s] = last
+        suitSize[s] = 0
+    else:
+        suitSize[s] = last - suitStarts[s]
+    last = suitStarts[s]
+sz = [suitSize[s] for s in suits]
+maxScore = F(sz)
+if(maxScore>72):
+    print("YES",maxScore)
+else:
+    print("NO")

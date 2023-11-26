@@ -25,3 +25,4 @@ for k in range(d):
   
 som=i+i1+i2+i3+j+j1+j2+j3+e+e1+e2+e3+2
 print(som)
+ 

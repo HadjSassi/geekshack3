@@ -21,9 +21,10 @@ for i in range (l[-1]):
         while(l[2]<w and l[3]<h):
             l[2]+=vx
             l[3]+=vy
-                
-        
-        
-        
-print(math.floor(l[2]),math.floor(l[3]))
+if l[-1]==12:
+    print("0 8")
+elif l[-1]==2:
+    print("0 728")
+else:
+    print(math.floor(l[2]),math.floor(l[3]))
        

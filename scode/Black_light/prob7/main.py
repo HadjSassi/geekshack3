@@ -8,7 +8,7 @@ def min_moves_to_unlock(n, z, levels):
     additional_moves_for_two_stars = sum(b - a for a, b in levels)
 
     total_moves = moves_for_one_star
-    stars_collected = n 
+    stars_collected = n
 
     for i in range(n):
         if stars_collected < z:
@@ -21,4 +21,4 @@ l1=list(tuple(map(int,input().split())) for i in range (l[0]) )
 if l[1]==1 :
     print('1')
 else:
-    print(min_moves_to_unlock(l[0],l[1],l1))
+    print(min_moves_to_unlock(l[0],l[1],l1)) 

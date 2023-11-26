@@ -1,0 +1,273 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 15, in <module>
+    print(b(x,y+1))
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 1 more time]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 5 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 13 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 4 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 29 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 12 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 4 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 61 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 28 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 12 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 4 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 125 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 60 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 28 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 12 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 4 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 253 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 124 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 60 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 28 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 11, in b
+    return 1+b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 13, in b
+    return b(x+1,y)
+  [Previous line repeated 8 more times]
+  File "/var/www/html/scode/Black_light/prob15/main.py", line 6, in b
+    if x == y:
+RecursionError: maximum recursion depth exceeded in comparison

@@ -17,14 +17,14 @@ n=int(input())
 ch1,ch2=map(str,input().split())
 l=list(reverse(ch2))
 if ch1=='E':
-    for i in range((n//2),0,-1):
+    for i in range((n//2),1,-1):
        if n % i ==0:
            l=permutation1(l,i,0)
 else:
-    for i in range((n//2),0,-1):
+    for i in range((n//2),1,-1):
         if n % i ==0:
             l=permutation1(l,i,n//2)
 ch2=''.join(l)
 print(ch2)
     
-     
+      

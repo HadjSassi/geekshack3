@@ -1,0 +1,4 @@
+  File "/var/www/html/scode/Gmamcoders/prob5/main.py", line 7
+    if(rc[1]==wc[1]==kc[1] and (wc[0]<kc[0]<rc[0] or rc[0]<kc[0]<wc[0]))  or
+                                                                            ^
+SyntaxError: invalid syntax

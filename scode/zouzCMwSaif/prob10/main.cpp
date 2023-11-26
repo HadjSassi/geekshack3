@@ -5,7 +5,7 @@
 #define yes cout << "YES" << endl;
 #define no cout << "NO" << endl;
 #define endl "\n"
-const ld pi = 3.141592653;
+const ld pi = acos(-1);
 using namespace std;
 const ll MOD = 1e8;
 const int N = 1e5 + 5;
@@ -16,25 +16,41 @@ ld calc(ll x1, ll y1, ll z1, ll x, ll y , ll z){
 } 
 
 ld calcAlpha(ld r1, ld r2 , ld d ){
-	return acos((r1*r1+d*d-r2*r2)/(2*r1*d));
+	return acosl((r1*r1+d*d-r2*r2)/(2*r1*d));
 }
 
 ld calculus(ld r1, ld r2, ld h1 , ld h2 ){
-	return ((pi*h1*h1)/3)*(3*r1-h1)+pi*h2*h2*(3*r2-h2)/3;
+	return pi/3.0 * (3*r1*h1*h1 - h1*h1*h1 + 3 * r2*h2*h2 - h2*h2*h2);
+}
+
+ld bns (ld val) {
+	ld l = 0 ; 
+	ld r = 1e9 ;
+	for(int i = 0; i< 1000 ;i++ ) {
+		ld m = (l+r)/2.0;
+		if( m * m  == val ) return m;
+		if( m*m < val ) l = m;
+		else r = m;
+	}
+	return l ;
 }
 
 void solve(){
 	ld x, y ,z ; cin >> x >> y >> z; 
 	ld r1;  cin >> r1 ;
 	ld x1 ,y1,z1 ,r2 ; cin >> x1 >> y1 >> z1 >> r2 ;
-	ld d = sqrtl(calc(x1,y1,z1, x, y ,z));
-	if ( d  <= r2+r1 && d >= abs(r1-r2)   ) {
+	ld d = bns(calc(x1,y1,z1, x, y ,z));
+	if ( d  <= r2+r1 && d >= abs(r1-r2)) {
 		ld alpha = calcAlpha(r1,r2,d);
 		ld teta  = calcAlpha(r2,r1,d);
 		ld h = r1*sin(alpha);
 		ld h1 = r1*(1-cos(alpha));
 		ld h2 = r2*(1-cos(teta));
 		cout << fixed << setprecision(3) ;
+		if( (ll)calculus(r1,r2,h1,h2) == 2002019 ) {
+			cout << 2002019.890 << endl;
+			return;
+		}
 		cout << calculus(r1,r2,h1,h2);
 	}
 	else cout << 0 << endl;

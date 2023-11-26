@@ -32,34 +32,37 @@ ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
 ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 ll inv(ll i) {if (i == 1) return 1; return (mod - ((mod / i) * inv(mod % i)) % mod) % mod;} 
 
+const int B = 9973 ; 
+map<string, int> dp ;
 
-map<string , int> dp ;
 
-int work(string &s){
+int work(string s){
     int sz = (int)s.length() ; 
     if(sz <= 1) return 0 ; 
-
     if(dp.count(s)) return dp[s] ; 
 
     int a[26][2] ; 
     memset(a,-1,sizeof(a)) ; 
 
     for(int i=0 ; i<sz ; i++){
-        if(a[s[i]-'a'][0]==-1) a[s[i]-'a'][0] = i ; 
-        else a[s[i]-'a'][1] = i ; 
+        int x = s[i] - 'a' ; 
+        if(a[x][0]==-1) a[x][0] = i ; 
+        else a[x][1] = i ; 
     } 
-    string st = "" ; 
-    int ans = 2e9 ; 
+    int mn = 2e9 , g = 0 ; 
     for(int i=0 ; i<26 ; i++){
         if(a[i][0]==-1 || a[i][1]==-1) continue ; 
-        string g = "" ; 
-        for(int j=0 ; j<sz ; j++){
-            if(j==a[i][0] || j==a[i][1]) continue ; 
-            g += s[j] ; 
-        }
-        ans = min(ans , a[i][0] + sz - 1 - a[i][1] + work(g)) ;
+        if(mn > a[i][0] + sz - 1 - a[i][1]){
+            mn = a[i][0] + sz - 1 - a[i][1] ; 
+            g = i ;
+        } 
     }
-    return dp[s] = ans ; 
+    string st = "" ;
+    for(int j=0 ; j<sz ; j++) {
+        if(a[g][0]==j || a[g][1]==j) continue ; 
+        st += s[j] ; 
+    }
+    return dp[s] = mn + work(st)  ; 
 } 
 
 int occ[26] ; 

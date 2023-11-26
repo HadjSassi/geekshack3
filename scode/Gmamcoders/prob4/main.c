@@ -37,4 +37,4 @@ while(a>0)
  printf("%d %d",x,y);
 
 
- }
+ } 

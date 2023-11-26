@@ -36,7 +36,6 @@ ll inv(ll i) {if (i == 1) return 1; return (mod - ((mod / i) * inv(mod % i)) % m
 
 const int N = 10010 ;
 vector<array<double,2>> a(N) , b(N) ; 
-vector<array<int,2>> rev1 , rev2 ; 
 
 
 double dist(double x , double y , double z , double t){
@@ -46,14 +45,6 @@ void solve(){
     int n , m ;
     cin >> n >> m ; 
     double g[2][2][2] ; 
-    rev1.pb({0,0}) ; 
-    rev2.pb({0,0}) ; 
-    rev1.pb({-1,0}) ; 
-    rev1.pb({1,0}) ; 
-    rev2.pb({9,9}) ; 
-    for(int i=0 ; i<=8 ; i++){
-        rev2.pb({i,i}) ; 
-    }
 
     for(int i=0 ; i<2 ; i++){
         for(int j=0 ; j<2 ; j++){
@@ -77,21 +68,6 @@ void solve(){
         g[1][1][1] = max(g[1][1][1] , b[i][1]) ; 
     }   
 
-    if(n==2 && m==10){
-        bool ok = true , g = true , g1 = true ;
-        for(int i=1 ; i<=n ; i++){
-            if(a[i][0]!=rev1[i][0]) ok = false ; 
-            if(a[i][1]!=rev1[i][1]) ok = false ; 
-        } 
-        for(int i=1 ; i<=m ; i++) {
-            if(b[i][0]!=rev2[i][0]) ok = false; 
-            if(b[i][1]!=rev2[i][1]) ok = false; 
-        }
-        if(ok){
-            cout << "YES" << endl ;
-            return ;
-        }
-    }
 
 
     double x = (g[0][0][0] + g[0][0][1])/2 ;
@@ -137,4 +113,4 @@ int main(){
     // cin >> t  ; 
     while(t--) solve() ;
     return 0;
-}  
+}   

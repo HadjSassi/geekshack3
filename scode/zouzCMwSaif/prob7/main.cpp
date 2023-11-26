@@ -1,3 +1,6 @@
+#pragma GCC optimize("O3")
+#pragma GCC optimize ("unroll-loops")
+#pragma GCC target("avx,avx2,fma")
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -26,6 +29,7 @@ const ll N = 1e3 + 5, INF = 1e18;
 ll n, z, a[N], b[N], dp[N][N + N];
 
 ll work(ll pos, ll rest){
+  if(rest < 0) return 0;
   if(pos > n){
     if(rest) return INF;
     else return 0;
@@ -33,16 +37,17 @@ ll work(ll pos, ll rest){
   ll& ans = dp[pos][rest];
   if(ans != -1) return ans;
   ans = work(pos+1, rest);
-  if(rest) ans = min(ans, work(pos+1, rest-1) + a[pos]);
-  if(rest > 1) ans = min(ans, work(pos+1, rest-2) + b[pos]);
+  ans = min(ans, work(pos+1, rest-1) + a[pos]);
+  ans = min(ans, work(pos+1, rest-2) + b[pos]);
   return ans;
 }
 
 void solve(){
   memset(dp, -1, sizeof(dp));
+ 
   cin >> n >> z;
   if(!(z >= 1 && z <= n + n)){
-    cout<<z<<endl;
+    cout<<0<<endl;
     return;
   }
   for (int i = 1; i <= n; i++){
@@ -66,4 +71,4 @@ signed main()
   }
 
   return 0;
-}
+}  

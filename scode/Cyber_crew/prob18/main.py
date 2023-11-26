@@ -14,4 +14,4 @@ else:
     m=0
     for x in S1:
         m+=l.count(x)
-    print(m-t[n-1])
+    print(m-t[n-1]) 

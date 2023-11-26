@@ -1,4 +1,4 @@
-  File "/var/www/html/scode/Gmamcoders/prob19/main.py", line 12
-    if x==l[][1] and x not in c:
-            ^
-SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob19/main.py", line 15, in <module>
+    x=input()
+EOFError: EOF when reading a line

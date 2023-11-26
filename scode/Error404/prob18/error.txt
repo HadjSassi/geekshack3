@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Error404/prob18/main.py", line 49, in <module>
+    print(calcul(L))
+  File "/var/www/html/scode/Error404/prob18/main.py", line 28, in calcul
+    if beautiful(L)==True:
+  File "/var/www/html/scode/Error404/prob18/main.py", line 14, in beautiful
+    for j in range(o1,o2+1):
+TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'

@@ -1,30 +1,19 @@
-s=input()
-ch="tt"
-ch1="vv"
-ch3='tv'
-x=""
-p=1
+ch=input()
 
-for i in range(len(s)):
-    if s[i:i+2]==ch :
-        x=s.replace(s[i:i+2],'v')
-        p+=1
-        for j in range(len(x)):
-            if x[i:i+2]==ch :
-               x=s.replace(s[i:i+2],'v')
-               p+=1
-            elif x[i:i+2]==ch1:
-               x=s.replace(s[i:i+2],'t')
-               p+=1
-    elif s[i:i+2]==ch1:
-        x=s.replace(s[i:i+2],'t')
-        p+=1
-        for j in range(len(x)):
-            if x[i:i+2]==ch :
-               x=s.replace(s[i:i+2],'v')
-               p+=1
-            elif x[i:i+2]==ch1:
-               x=s.replace(s[i:i+2],'t')
-               p+=1
-               
-print(p) 
+if 'tt'not in ch and 'vv'not in ch:
+    print('1')
+else:
+    n=1
+    while(len(ch)>1):
+        if 'tt'in ch:
+            n+=ch.count('tt')
+            x=ch.index('tt')
+            ch=ch.replace(ch[x:x+2],'v')
+        elif 'vv' in ch:
+            n+=ch.count('vv')
+            x=ch.index('vv')
+            ch=ch.replace(ch[x:x+2],'t')
+    print(n)
+        
+    
+    
