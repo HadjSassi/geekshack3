@@ -95,4 +95,4 @@ int main() {
     while(tc--) {
         solve();
     }
-}     
+}      

@@ -1,4 +1,3 @@
-
 def diviseur(n):
     l=[]
     for i in range(1,n//2):
@@ -15,7 +14,6 @@ def decode(n, s):
     for d in l:
         s =s+s[d-1:-1:-1]
     return s
-
 n = int(input())
 a,s=map(str,input().split())
 
@@ -24,4 +22,4 @@ if a == "D":
 else:
     print( encode(n, s))
 
-    
+      

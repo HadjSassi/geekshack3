@@ -30,62 +30,6 @@ const ll inf = (ll)1e18;
 ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
 ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 
-/*vector<int> inpt(string s)
-{
-    s.erase(remove(s.begin(), s.end(), '['), s.end());
-    s.erase(remove(s.begin(), s.end(), ']'), s.end());
-
-    stringstream ss(s);
-    vector<int> numbers;
-    int num;
-
-    while (ss >> num) {
-        numbers.push_back(num);
-
-        ss.ignore(numeric_limits<streamsize>::max(), ',');
-    }
-
-    return numbers;
-}*/
-
-vector<ll> pre[1000001];
-vl v(1000001,0);
-
-
-void premier(){
-    for (ll i=2;i<=1000000;i++){
-        for (ll j=2*i;j<=1000000;j+=i){
-            pre[j].pb(i);
-        }
-    }
-}
-
-ll mul(ll a, ll b){
-    return (((ll)a%mod) * ((ll)b%mod)) % mod;
-}
-ll bin_pow(ll n, ll k){
-    if(k == 0)return 1;
-    if(k == 1)return n;
-    if(k % 2 == 1) return mul(n, bin_pow(n, k - 1));
-    ll t = bin_pow(n, k / 2);
-    return mul(t, t);
-}
-
-ll fh(ll x)
-{
-    return mul(x,bin_pow(2,x-1));
-}
-
-ll fg(ll x,ll y)
-{
-    ll r=mul(y,x);
-    for(ll i : pre[y])
-    {
-        r-=mul(y,fg(x,i));
-    }
-    return r;
-}
-
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
@@ -136,7 +80,7 @@ int run_case()
                     return 0;
                 }
             }
-            if (j>3 && i+3<k)
+            if (j>=3 && i+3<k)
             if (a[i][j]==a[i+1][j-1]  && a[i+1][j-1]==a[i+2][j-2] && a[i+2][j-2]==a[i+3][j-3])
             {
                 if (a[i][j])
@@ -174,10 +118,10 @@ int run_case()
                 if (a[i][j]==0)
                 {
                     if (i==k-1)
-                        a[i][j]=2;
+                        a[i][j]=1;
                     else if (a[i+1][j])
                     {
-                        a[i][j]=2;
+                        a[i][j]=1;
                     }
                 }
             }
@@ -214,7 +158,7 @@ int run_case()
                     return 0;
                 }
             }
-            if (j>3 && i+3<k)
+            if (j>=3 && i+3<k)
             if (a[i][j]==a[i+1][j-1]  && a[i+1][j-1]==a[i+2][j-2] && a[i+2][j-2]==a[i+3][j-3] && vis[i][j]+vis[i+1][j-1]+vis[i+2][j-2]+vis[i+3][j-3]>=3)
             {
                 if (a[i][j])

@@ -1,4 +1,4 @@
 Traceback (most recent call last):
-  File "/var/www/html/scode/PinkScript/prob20/main.py", line 5, in <module>
-    L[i]=c.split(" ")
-IndexError: list assignment index out of range
+  File "/var/www/html/scode/PinkScript/prob20/main.py", line 3, in <module>
+    for j in range (int(ch[1])):
+ValueError: invalid literal for int() with base 10: ' '
