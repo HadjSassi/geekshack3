@@ -152,7 +152,7 @@ $result5= mysqli_query($link, $requete5);
                                         <th>Ranking</th>
                                         <th>Nom d'Equipe</th>
                                         <th>Chef d'Equipe</th>
-<!--                                        <th>Score</th>-->
+                                        <th>Score</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -164,7 +164,7 @@ $result5= mysqli_query($link, $requete5);
                                                 <td><?php echo $ranking; ?></td>
                                                 <td><?php echo $row['nom_equipe']; ?></td>
                                                 <td><?php echo $row['leader']; ?></td>
-                                                <td style="color: white;"><?php echo $row['sum_score']; ?></td>
+                                                <td ><?php echo $row['sum_score']; ?></td>
                                             </tr>
                                             <?php
                                             $ranking++; // Increment the ranking for the next row
