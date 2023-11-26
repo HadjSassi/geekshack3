@@ -1,4 +1,5 @@
-n = int(input())
-for i in range(n):
-    ch = input().split(' ')
-    print(ch)
+ch = input()
+lista = []
+for i in range(int(ch[0])):
+   lista.append(input().split(' '))
+print(lista)  

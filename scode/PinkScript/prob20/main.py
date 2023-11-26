@@ -1,9 +1,12 @@
-ch=input()
-for i in range (int(ch[0])):
-    for j in range (int(ch[1])):
-        if ch.count(1)==3:
-            print(1)
-        elif ch.count(2)==3:
-            print(2)
-        else:
-            print(0)
+ch = input()
+lista = []
+for i in range(int(ch[0])):
+   lista.append(input().split(' '))
+
+
+if lista.count(1)==4:
+    print(1)
+elif lista.count(2)==4:
+    print(2)
+elif lista.count(0)==4:
+    print(0)  

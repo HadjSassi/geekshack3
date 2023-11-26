@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Gmamcoders/prob13/main.py", line 21, in <module>
+    l=l-1
+TypeError: unsupported operand type(s) for -: 'dict_values' and 'int'

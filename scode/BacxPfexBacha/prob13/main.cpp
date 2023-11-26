@@ -54,9 +54,9 @@ void check(string x){
     for(int i=0;i<c.size();i++){
         gcd=__gcd(c[i],gcd);
         if(i==c.size()-1) continue;
-        f&=(c[i]<c[i+1]);
+        f&=(c[i]<=c[i+1]);
     }
-    if(gcd>1&&f) ans+=c.size()*gcd;
+    if(gcd>1) ans+=c.size()*gcd;
     ans%=mod;
 
 }
@@ -93,3 +93,4 @@ int main() {
         solve();
     }
 }
+    

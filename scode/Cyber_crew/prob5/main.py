@@ -14,4 +14,4 @@ if (r[2]!=c[2] or r[2]!=k[2] )and (r[1]!=c[1] or r[1]!=k[1]):
 
 else:
     print('NO')
-        
+         

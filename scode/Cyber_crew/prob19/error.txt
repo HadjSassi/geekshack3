@@ -1,4 +1,0 @@
-Traceback (most recent call last):
-  File "/var/www/html/scode/Cyber_crew/prob19/main.py", line 5, in <module>
-    if l[i][1]==A:
-NameError: name 'A' is not defined

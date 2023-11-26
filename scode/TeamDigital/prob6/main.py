@@ -1,13 +1,14 @@
-def eD_Crypt(n, cmd, s):
-    for i in range(n, 0, -1):
-        if cmd == 'E':
-            s = s[:i-1:-1] + s[i-1:]
-        else:
-            s = s[:i-1] + s[i-1:i-1:-1] + s[i:]
-    return s
-# read the input
+  
 n = int(input())
-cmd = input()[0]
-s = input()
-# solve the problem and display the output
-print(eD_Crypt(n, cmd, s)) 
+cmd, e = input().split()
+s=""
+
+if cmd == 'D':
+    s1 = e[::-1]
+    for i in range(n, 0, -1):
+         s = s1[:i-1:1] + s1[i-1::1]
+
+if cmd == 'E':
+    for i in range(n, 0, -1):
+        s = e[:i-1] + e[i-1:i-1:-1] + e[i:]
+print(s) 

@@ -9,7 +9,7 @@ ch=input()
 if 'tt'not in ch and 'vv'not in ch:
     print('1')
 else:
-    n=1
+    n=2
     while(len(ch)>1):
         if 'tt'in ch:
             n+=occ(ch,'tt')
@@ -22,4 +22,4 @@ else:
     print(n)
         
     
-    
+        

@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/var/www/html/scode/Black_light/prob22/main.py", line 12, in <module>
+    print(s.join())   
+AttributeError: 'list' object has no attribute 'join'

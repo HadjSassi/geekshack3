@@ -33,4 +33,4 @@ x1, y1, x2, y2 = map(int, input().split())
 
 # Output the result
 result = min_strides(W, H, K, grid, x1, y1, x2, y2)
-print(result)
+print(result)  

@@ -1,4 +1,4 @@
 Traceback (most recent call last):
-  File "/var/www/html/scode/Falastic/prob18/main.py", line 10, in <module>
-    c=input()
-EOFError: EOF when reading a line
+  File "/var/www/html/scode/Falastic/prob18/main.py", line 13, in <module>
+    while(c[i]==c[i-1]):
+IndexError: string index out of range

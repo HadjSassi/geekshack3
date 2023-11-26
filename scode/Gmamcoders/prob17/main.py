@@ -10,4 +10,4 @@ def count(s):
     return d[n]
 s=input()
 r = count(s)
-print(r)    
+print(r)     

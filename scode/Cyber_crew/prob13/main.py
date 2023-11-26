@@ -1,8 +1,10 @@
-def gcd (a,b):
-    if (b == 0):
-        return a
-    else:
-         return gcd (b, a % b)
+
+import math
+def pgcd_liste(liste):
+    pgcd = liste[0]
+    for i in range(1, len(liste)):
+        pgcd = math.gcd(pgcd, liste[i])
+    return pgcd
 
 n=int(input())
 ch=input()
@@ -11,12 +13,8 @@ n=0
 for i in range (len(l)):
     l[i]=int(l[i])
 for i in range(len(l)-1):
-    
-    res = l[0]
-    for c in l[1:i+1]:
-        res = gcd(res , c)
-    n+=(l[i])*res
+    n=pgcd_liste(l[:i+1])*l[i]
 
 print(n)
     
-    
+       

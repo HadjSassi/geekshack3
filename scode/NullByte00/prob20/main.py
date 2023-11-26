@@ -9,7 +9,7 @@ for row in range(r):
     if "2222" in "".join(grid[row]):
         print(2)
         exit()
-    elif "1111" in "".join(grid[row]):
+    elif "1111" in "".join(grid[row]) or "11011" in "".join(grid[row]):
         print(1)
         exit()
 
@@ -17,7 +17,7 @@ for col in range(c):
     if "2222" in "".join([row[col] for row in grid]):
         print(2)
         exit()
-    elif "1111" in "".join([row[col] for row in grid]):
+    elif "1111" in "".join([row[col] for row in grid]) or "11011" in "".join(grid[row]):
         print(1)
         exit()
 
@@ -121,14 +121,18 @@ for row in range(r-1):
                     exit()
 
 for col in range(c):
-    if "222" in "".join([row[col] for row in grid]) and ([row[col] for row in grid].index('2') - 1 == '0' or [row[col] for row in grid].index('2') + 3 == '0'):
-        print(2)
-        exit()
+    column = [row[col] for row in grid]
+
+    if "222" in "".join(column):
+        if (column[column.index('2')- 1]  == '0'):
+            print(2)
+            exit()
 
 for col in range(c):
-    if "111" in "".join([row[col] for row in grid]) and ([row[col] for row in grid].index('1') - 1 == '0' or [row[col] for row in grid].index('1') + 3 == '0'):
-        print(2)
-        exit()
+    if "111" in "".join(column):
+        if (column[column.index('1') - 1] == '0' or column[column.index('1')+ 3]  == '0'):
+            print(1)
+            exit()
      
 print(score)
-    
+     

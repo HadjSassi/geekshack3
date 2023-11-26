@@ -96,4 +96,4 @@ iPlayerTurn = 2;
 drawBoard();
 }while(tie!=42);
 
-}
+}  

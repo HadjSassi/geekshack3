@@ -19,7 +19,6 @@ int main()
     cin.tie(0);
     int n, som0 = 0;
     cin >> n;
-    
     int a[n];
     for (int i = 0; i < n; i++)
         cin >> a[i];
@@ -28,8 +27,7 @@ int main()
         int c = pgcd(a[i], a[i + 1]);
         if(n!=3)
         cout<<0;
-        else
         if (c > 1)
             cout << c * 1 * 2 + c * 2;
     }
-}
+} 

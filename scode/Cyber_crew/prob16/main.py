@@ -21,4 +21,4 @@ shooters = 0
 for d in distance:
     if d == l: 
         shooters += 1
-print(shooters) 
+print(shooters)  

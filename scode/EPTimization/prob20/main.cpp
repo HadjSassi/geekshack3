@@ -30,20 +30,22 @@ const ll inf = (ll)1e18;
 ll gcd(ll a , ll b) {return b ? gcd(b , a % b) : a ;}
 ll lcm(ll a , ll b) {return (a * b) / gcd(a , b);}
 
+ll a[2001][2001];
+ll vis[2001][2001];
+
 int run_case()
 {
     ll  u,p,i,j,y,z,e,h,q,w,x,n,r,l,k;
     cin >> k >> n ;
     p=q=0;
-    char t;
-    ll a[k][n];
-    ll vis[k][n];
+    string t;
     f(i,0,k,1)
     {
+        cin >> t ;
         f(j,0,n,1)
         {
-            cin >> t;
-            a[i][j]=t-'0';
+            
+            a[i][j]=t[j]-'0';
             p+=(a[i][j]==1);
             q+=(a[i][j]==2);
             vis[i][j]=(a[i][j]!=0);
@@ -54,41 +56,41 @@ int run_case()
         f(j,0,n,1)
         {
             if (j+3<n)
-            if (a[i][j]==a[i][j+1]  && a[i][j+1]==a[i][j+2] && a[i][j+2]==a[i][j+3])
-            {
-                if (a[i][j])
+                if (a[i][j]==a[i][j+1]  && a[i][j+1]==a[i][j+2] && a[i][j+2]==a[i][j+3])
                 {
-                    cout << a[i][j] << endl;
-                    return 0;
+                    if (a[i][j])
+                    {
+                        cout << a[i][j] << endl;
+                        return 0;
+                    }
                 }
-            }
             if (i+3<k)
-            if (a[i][j]==a[i+1][j]  && a[i+1][j]==a[i+2][j] && a[i+2][j]==a[i+3][j])
-            {
-                if (a[i][j])
+                if (a[i][j]==a[i+1][j]  && a[i+1][j]==a[i+2][j] && a[i+2][j]==a[i+3][j])
                 {
-                    cout << a[i][j] << endl;
-                    return 0;
+                    if (a[i][j])
+                    {
+                        cout << a[i][j] << endl;
+                        return 0;
+                    }
                 }
-            }
             if (j+3<n && i+3<k)
-            if (a[i][j]==a[i+1][j+1]  && a[i+1][j+1]==a[i+2][j+2] && a[i+2][j+2]==a[i+3][j+3])
-            {
-                if (a[i][j])
+                if (a[i][j]==a[i+1][j+1]  && a[i+1][j+1]==a[i+2][j+2] && a[i+2][j+2]==a[i+3][j+3])
                 {
-                    cout << a[i][j] << endl;
-                    return 0;
+                    if (a[i][j])
+                    {
+                        cout << a[i][j] << endl;
+                        return 0;
+                    }
                 }
-            }
             if (j>=3 && i+3<k)
-            if (a[i][j]==a[i+1][j-1]  && a[i+1][j-1]==a[i+2][j-2] && a[i+2][j-2]==a[i+3][j-3])
-            {
-                if (a[i][j])
+                if (a[i][j]==a[i+1][j-1]  && a[i+1][j-1]==a[i+2][j-2] && a[i+2][j-2]==a[i+3][j-3])
                 {
-                    cout << a[i][j] << endl;
-                    return 0;
+                    if (a[i][j])
+                    {
+                        cout << a[i][j] << endl;
+                        return 0;
+                    }
                 }
-            }
         }
     }
     if (p>q)
@@ -131,40 +133,35 @@ int run_case()
     {
         f(j,0,n,1)
         {
+            if (a[i][j]){
+            
             if (j+3<n)
-            if (a[i][j]==a[i][j+1]  && a[i][j+1]==a[i][j+2] && a[i][j+2]==a[i][j+3] && vis[i][j]+vis[i][j+1]+vis[i][j+2]+vis[i][j+3]>=3)
-            {
-                if (a[i][j])
+                if (a[i][j]==a[i][j+1]  && a[i][j+1]==a[i][j+2] && a[i][j+2]==a[i][j+3] && vis[i][j]+vis[i][j+1]+vis[i][j+2]+vis[i][j+3]>=3)
                 {
                     cout << a[i][j] << endl;
-                    return 0;
+                        return 0;
+                    
                 }
-            }
             if (i+3<k)
-            if (a[i][j]==a[i+1][j]  && a[i+1][j]==a[i+2][j] && a[i+2][j]==a[i+3][j] && vis[i][j]+vis[i+1][j]+vis[i+2][j]+vis[i+3][j]>=3)
-            {
-                if (a[i][j])
+                if (a[i][j]==a[i+1][j]  && a[i+1][j]==a[i+2][j] && a[i+2][j]==a[i+3][j] && vis[i][j]+vis[i+1][j]+vis[i+2][j]+vis[i+3][j]>=3)
                 {
                     cout << a[i][j] << endl;
-                    return 0;
+                        return 0;
+                    
                 }
-            }
             if (j+3<n && i+3<k)
-            if (a[i][j]==a[i+1][j+1]  && a[i+1][j+1]==a[i+2][j+2] && a[i+2][j+2]==a[i+3][j+3] && vis[i][j]+vis[i+1][j+1]+vis[i+2][j+2]+vis[i+3][j+3]>=3)
-            {
-                if (a[i][j])
+                if (a[i][j]==a[i+1][j+1]  && a[i+1][j+1]==a[i+2][j+2] && a[i+2][j+2]==a[i+3][j+3] && vis[i][j]+vis[i+1][j+1]+vis[i+2][j+2]+vis[i+3][j+3]>=3)
                 {
                     cout << a[i][j] << endl;
-                    return 0;
+                        return 0;
+                    
                 }
-            }
             if (j>=3 && i+3<k)
-            if (a[i][j]==a[i+1][j-1]  && a[i+1][j-1]==a[i+2][j-2] && a[i+2][j-2]==a[i+3][j-3] && vis[i][j]+vis[i+1][j-1]+vis[i+2][j-2]+vis[i+3][j-3]>=3)
-            {
-                if (a[i][j])
+                if (a[i][j]==a[i+1][j-1]  && a[i+1][j-1]==a[i+2][j-2] && a[i+2][j-2]==a[i+3][j-3] && vis[i][j]+vis[i+1][j-1]+vis[i+2][j-2]+vis[i+3][j-3]>=3)
                 {
                     cout << a[i][j] << endl;
-                    return 0;
+                        return 0;
+                    
                 }
             }
         }
@@ -181,3 +178,4 @@ signed main(){
     }
     return 0;
 }
+  
